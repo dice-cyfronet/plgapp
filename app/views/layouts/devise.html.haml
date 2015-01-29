@@ -1,0 +1,11 @@
+!!! 5
+%html
+  = render 'layouts/head'
+  %body.login-page
+    .container
+      = render 'layouts/flash'
+      .row
+        .col-sm-5.pull-right
+          = yield
+        .col-sm-7.pull-left
+          Some introduction

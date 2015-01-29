@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: PL-Grid apps
+  code_name: App
+  logout: Logout
+  plgrid_sign_in: PL-Grid login

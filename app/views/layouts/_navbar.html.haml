@@ -1,0 +1,12 @@
+%header.navbar.navbar-fixed-top.navbar-default
+  .container
+    = link_to t('code_name'), root_path, class: 'navbar-brand'
+
+    %ul.nav.navbar-nav.pull-right
+      - if user_signed_in?
+        %p.navbar-text= current_user.name
+        %li
+          = link_to destroy_user_session_path,
+                    data: { placement: 'bottom' },
+                    title: t('logout'), method: :delete do
+            =icon 'sign-out'
