@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
     find_or_initialize_by(login: auth.info.nickname).tap do |user|
       user.email = auth.info.email
       user.name = auth.info.name
-      user.dn = auth['dn']
       user.save
     end
   end
