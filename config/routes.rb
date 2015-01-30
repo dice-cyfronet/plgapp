@@ -1,4 +1,8 @@
+require 'subdomain'
+
 Rails.application.routes.draw do
+  get '/' => 'apps#show', constraints: Subdomain
+
   root 'apps#index'
 
   devise_for :users,
@@ -8,4 +12,6 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
+
+  resources :apps, except: :show
 end
