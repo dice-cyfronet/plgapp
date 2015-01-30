@@ -37,10 +37,6 @@ class AppsController < ApplicationController
     redirect_to apps_url, notice: I18n.t('apps.removed')
   end
 
-  def subdomain
-    @app = App.find_by!(subdomain: request.subdomain)
-  end
-
   private
 
   def set_apps

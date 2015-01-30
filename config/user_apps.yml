@@ -1,0 +1,12 @@
+# This is public config file, do NOT put any secrets here
+defaults: &defaults
+  apps_dir: <%= Rails.root.join('user_apps') %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

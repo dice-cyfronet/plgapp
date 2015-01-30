@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def new_session_path(scope)
     new_user_session_path
   end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
 end

@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+/user_apps/*
+!/user_apps/.keep
