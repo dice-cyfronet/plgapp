@@ -24,3 +24,22 @@ en:
   code_name: App
   logout: Logout
   plgrid_sign_in: PL-Grid login
+  add_new: Add new
+  cancel: Cancel
+  create: Create
+  edit: Edit
+  save: Save
+  delete: Delete
+  apps:
+    title: Applications
+    new: New application
+    create: Create new application
+    empty: No application registered
+    edit: Edit application
+    save: Save application
+    delete: Delete application
+    select: Please select one of your application or create new one
+    are_you_sure: Are you sure you want to remote this application?
+    removed: Application was sucessfully removed
+    created: New application was successfully created
+    updated: Application was sucessfully updated

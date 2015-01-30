@@ -1,0 +1,9 @@
+.btn {
+  &.btn-create {
+    @extend .btn-success;
+  }
+
+  &.btn-save {
+    @extend .btn-primary;
+  }
+}

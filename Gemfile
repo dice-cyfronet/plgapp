@@ -14,6 +14,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'autoprefixer-rails'
 
 gem 'haml-rails'
+gem 'simple_form'
 
 gem 'devise'
 gem 'ruby-openid', '~> 2.6.0'

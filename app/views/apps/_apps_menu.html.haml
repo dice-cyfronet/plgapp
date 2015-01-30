@@ -1,0 +1,15 @@
+%legend
+  = t('apps.title')
+  .pull-right
+    = link_to new_app_path,
+              class: 'btn btn-xs btn-create',
+              title: t('apps.new') do
+      = icon('plus', t('add_new'))
+
+%ul.nav.nav-pills.nav-stacked
+  - @apps.each do |app|
+    %li
+      = link_to app do
+        = app.name
+        %small.text-muted
+          = app.subdomain

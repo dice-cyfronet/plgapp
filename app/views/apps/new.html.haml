@@ -1,0 +1,24 @@
+.row
+  .col-md-3
+    = render('apps_menu')
+  .col-md-9
+    .edit
+      %h4
+        = t('apps.create')
+        .pull-right
+          .btn-group
+            %button#create-app.btn.btn-xs.btn-create{ title: t('apps.create') }
+              = icon('save', t('create'))
+            :javascript
+              $(function() {
+                $('#create-app').on('click', function() {
+                  $('#app_form').submit();
+                });
+              });
+
+            = link_to t('cancel'), App,
+                      class: 'btn btn-xs btn-default',
+                      title: t('cancel')
+      %hr
+
+      = render('form', app: @app)

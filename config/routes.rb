@@ -1,7 +1,7 @@
 require 'subdomain'
 
 Rails.application.routes.draw do
-  get '/' => 'apps#show', constraints: Subdomain
+  get '/' => 'apps#subdomain', constraints: Subdomain
 
   root 'apps#index'
 
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  resources :apps, except: :show
+  resources :apps
 end

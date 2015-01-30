@@ -1,3 +1,19 @@
-Showing application
-%h1= @app.name
-%h2= @app.subdomain
+.row
+  .col-md-3
+    = render('apps_menu')
+  .col-md-9
+    .edit
+      %h4
+        =link_to root_url(subdomain: @app.subdomain) do
+          = @app.name
+          %span.text-muted (#{with_subdomain(@app.subdomain)})
+        .pull-right
+          .btn-group
+            = link_to t('edit'), [:edit, @app],
+                      class: 'btn btn-xs btn-success',
+                      title: t('apps.edit')
+            = link_to t('delete'), @app, method: :delete,
+                      class: 'btn btn-xs btn-danger',
+                      data: { confirm: t('apps.are_you_sure') },
+                      title: t('apps.delete')
+      %hr

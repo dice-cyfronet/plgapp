@@ -233,6 +233,9 @@ GEM
     sexp_processor (4.4.4)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     spring (1.2.0)
     spring-commands-rspec (1.0.4)
@@ -298,6 +301,7 @@ DEPENDENCIES
   ruby-openid (~> 2.6.0)
   sass-rails (~> 5.0)
   shoulda-matchers
+  simple_form
   spring
   spring-commands-rspec
   thin
