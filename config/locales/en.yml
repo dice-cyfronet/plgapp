@@ -43,3 +43,5 @@ en:
     removed: Application was sucessfully removed
     created: New application was successfully created
     updated: Application was sucessfully updated
+    login_tab: Login text
+    files_tab: Files

@@ -52,6 +52,6 @@ class AppsController < ApplicationController
   end
 
   def app_params
-    params.require(:app).permit(:name, :subdomain)
+    params.require(:app).permit(:name, :subdomain, :login_text)
   end
 end

@@ -17,3 +17,17 @@
                       data: { confirm: t('apps.are_you_sure') },
                       title: t('apps.delete')
       %hr
+
+      %ul.nav.nav-tabs#tabs1
+        %li.active
+          %a(href='#login-tab' data-toggle='tab')
+            = t('apps.login_tab')
+        %li
+          %a(href='#files-tab' data-toggle='tab')
+            = t('apps.files_tab')
+
+      .tab-content
+        #login-tab.tab-pane.active
+          = markdown(@app.login_text)
+        #files-tab.tab-pane
+          files

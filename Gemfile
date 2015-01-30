@@ -15,6 +15,7 @@ gem 'autoprefixer-rails'
 
 gem 'haml-rails'
 gem 'simple_form'
+gem 'redcarpet'
 
 gem 'devise'
 gem 'ruby-openid', '~> 2.6.0'

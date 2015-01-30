@@ -8,4 +8,7 @@
         .col-sm-5.pull-right
           = yield
         .col-sm-7.pull-left
-          Some introduction
+          - if @app.blank?
+            Some introduction
+          - else
+            = markdown(@app.login_text)

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150129131925) do
   create_table "apps", force: :cascade do |t|
     t.string   "name",       default: "", null: false
     t.string   "subdomain",               null: false
+    t.text     "login_text"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

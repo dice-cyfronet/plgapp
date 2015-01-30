@@ -3,6 +3,7 @@ class CreateApps < ActiveRecord::Migration
     create_table :apps do |t|
       t.string :name,      null: false, default: ''
       t.string :subdomain, null: false
+      t.text   :login_text
 
       t.timestamps null: false
     end
