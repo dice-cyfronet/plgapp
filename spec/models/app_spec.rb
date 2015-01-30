@@ -1,5 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe App, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe App do
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :subdomain }
+  it { should validate_uniqueness_of :subdomain }
+
+  context 'app slug' do
+    it 'is converted into safe slug' do
+      my_app = create(:app, subdomain: '../\a b#?^&%')
+
+      expect(my_app.subdomain).to eq 'a-b'
+    end
+  end
 end
