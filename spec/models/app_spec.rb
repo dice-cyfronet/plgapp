@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe App do
+  subject { build(:app) }
+
   it { should validate_presence_of :name }
   it { should validate_presence_of :subdomain }
   it { should validate_uniqueness_of :subdomain }

@@ -1,16 +1,14 @@
 class AppsController < ApplicationController
-  before_filter :set_apps, except: :subdomain
-  before_filter :set_app, only: [:edit, :show, :destroy, :update]
+  before_filter :set_apps, only: [:index, :new, :show, :edit]
+  load_and_authorize_resource
 
   def index
   end
 
   def new
-    @app = App.new
   end
 
   def create
-    @app = App.new(app_params)
     if @app.save
       redirect_to @app, notice: I18n.t('apps.created')
     else
@@ -40,14 +38,12 @@ class AppsController < ApplicationController
   private
 
   def set_apps
-    @apps = App.all
-  end
-
-  def set_app
-    @app = App.find(params[:id])
+    @apps = App.accessible_by(current_ability)
   end
 
   def app_params
-    params.require(:app).permit(:name, :subdomain, :login_text)
+    params.require(:app).
+      permit(:name, :subdomain, :login_text).
+      merge(author_id: current_user.id)
   end
 end

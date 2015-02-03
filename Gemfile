@@ -20,6 +20,7 @@ gem 'redcarpet'
 gem 'devise'
 gem 'ruby-openid', '~> 2.6.0'
 gem 'omniauth-openid'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug'

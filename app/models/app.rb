@@ -7,6 +7,11 @@ class App < ActiveRecord::Base
             presence: true,
             uniqueness: { case_sensitive: false }
 
+  belongs_to :author,
+             class_name: 'User',
+             foreign_key: 'author_id',
+             required: true
+
   before_save :slug_subdomain
 
   private

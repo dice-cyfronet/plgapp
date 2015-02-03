@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :omniauthable,
          omniauth_providers: [:open_id]
 
+  has_many :apps,
+           foreign_key: 'author_id'
+
   def self.from_plgrid_omniauth(auth)
     find_or_initialize_by(login: auth.info.nickname).tap do |user|
       user.email = auth.info.email
