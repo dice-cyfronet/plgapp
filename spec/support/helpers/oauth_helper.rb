@@ -5,7 +5,10 @@ module OauthHelper
       info: {
         nickname: options[:nickname],
         name: options[:name],
-        email: options[:email]
+        email: options[:email],
+        proxy: 'a',
+        userCert: 'b',
+        proxyPrivKey: 'c'
       },
       provider: provider,
       uid: '123'

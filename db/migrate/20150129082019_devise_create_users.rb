@@ -36,7 +36,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text     :proxy
       t.datetime :not_before
       t.datetime :not_after
-      t.string   :dn
 
       t.timestamps
     end

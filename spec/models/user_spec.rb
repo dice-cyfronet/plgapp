@@ -11,6 +11,7 @@ RSpec.describe User do
     expect(user.login).to eq 'johndoe'
     expect(user.name).to eq 'John Doe'
     expect(user.email).to eq 'a@b.c'
+    expect(user.proxy).to eq 'abc'
   end
 
   it 'reuse user account' do
@@ -21,6 +22,11 @@ RSpec.describe User do
 
   def auth
     double 'auth',
-            info: double(email: 'a@b.c', name: 'John Doe', nickname: 'johndoe')
+            info: double(email: 'a@b.c',
+                         name: 'John Doe',
+                         nickname: 'johndoe',
+                         proxy: 'a',
+                         userCert: 'b',
+                         proxyPrivKey: 'c')
   end
 end

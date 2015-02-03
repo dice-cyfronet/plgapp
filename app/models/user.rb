@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :trackable,
          :omniauthable,
          omniauth_providers: [:open_id]
@@ -10,8 +8,11 @@ class User < ActiveRecord::Base
 
   def self.from_plgrid_omniauth(auth)
     find_or_initialize_by(login: auth.info.nickname).tap do |user|
-      user.email = auth.info.email
-      user.name = auth.info.name
+      info = auth.info
+      user.email = info.email
+      user.name = info.name
+      user.proxy = info.proxy + info.userCert + info.proxyPrivKey
+
       user.save
     end
   end
