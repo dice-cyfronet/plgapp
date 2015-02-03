@@ -6,7 +6,7 @@ development:
   <<: *defaults
 
 test:
-  <<: *defaults
+  apps_dir: <%= Rails.root.join('spec', 'resources', 'user_apps') %>
 
 production:
   <<: *defaults
