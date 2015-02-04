@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
       user.save
     end
   end
+
+  def clear_proxy
+    update_attribute(:proxy, nil)
+  end
 end
