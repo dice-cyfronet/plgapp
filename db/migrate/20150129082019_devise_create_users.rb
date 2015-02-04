@@ -34,8 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :login,      null: false
       t.string   :name,       null: false, default: ''
       t.text     :proxy
-      t.datetime :not_before
-      t.datetime :not_after
 
       t.timestamps
     end

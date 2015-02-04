@@ -38,9 +38,6 @@ ActiveRecord::Schema.define(version: 20150129131925) do
     t.string   "login",                           null: false
     t.string   "name",               default: "", null: false
     t.text     "proxy"
-    t.datetime "not_before"
-    t.datetime "not_after"
-    t.string   "dn"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
