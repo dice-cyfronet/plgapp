@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   devise :trackable,
+         :timeoutable,
          :omniauthable,
          omniauth_providers: [:open_id]
 
