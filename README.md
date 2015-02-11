@@ -1,1 +1,1 @@
-# PL Grid apps [![Build Status](https://travis-ci.org/dice-cyfronet/plgapp.svg)](https://travis-ci.org/dice-cyfronet/plgapp)
+# PL Grid apps [![Build Status](https://travis-ci.org/dice-cyfronet/plgapp.svg)](https://travis-ci.org/dice-cyfronet/plgapp) [![Code Climate](https://codeclimate.com/github/dice-cyfronet/plgapp/badges/gpa.svg)](https://codeclimate.com/github/dice-cyfronet/plgapp) [![Test Coverage](https://codeclimate.com/github/dice-cyfronet/plgapp/badges/coverage.svg)](https://codeclimate.com/github/dice-cyfronet/plgapp)

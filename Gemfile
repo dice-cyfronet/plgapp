@@ -44,4 +44,5 @@ group :test do
   gem 'guard-spring'
   gem 'database_cleaner'
   gem 'faker'
+  gem "codeclimate-test-reporter", require: nil
 end
