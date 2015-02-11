@@ -22,6 +22,8 @@ gem 'ruby-openid', '~> 2.6.0'
 gem 'omniauth-openid'
 gem 'cancancan'
 
+gem 'puma'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
