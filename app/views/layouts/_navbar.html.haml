@@ -3,6 +3,10 @@
     = link_to t('code_name'), root_path, class: 'navbar-brand'
 
     %ul.nav.navbar-nav.pull-right
+      %li.locale
+        .btn-group.btn-group-xs.navbar-btn
+          = locale_link(:pl)
+          = locale_link(:en)
       - if user_signed_in?
         %p.navbar-text= current_user.name
         %li

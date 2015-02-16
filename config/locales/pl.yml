@@ -1,0 +1,26 @@
+pl:
+  title: Aplikacje PL-Grid
+  code_name: Aplikacje
+  logout: Wyloguj się
+  plgrid_sign_in: Zaloguj się przez PL-Grid
+  add_new: Dodaj nowy
+  cancel: Anuluj
+  create: Stwórz
+  edit: Edytuj
+  save: Zapisz
+  delete: Skasuj
+  apps:
+    title: Aplikacje
+    new: Nowa aplikacja
+    create: Stwórz nową aplikację
+    empty: Brak zarejestrowanych aplikacji
+    edit: Edytuj aplikację
+    save: Zapisz aplikację
+    delete: Skasuj aplikację
+    select: Proszę wybierz jedną z istniejących aplikacji lub stwórz nową
+    are_you_sure: Czy jesteś pewień, że chcesz skasować tą aplikację?
+    removed: Aplikacja została pomyślnie usunięta
+    created: Nowa aplikacja została pomyślnie stworzona
+    updated: Aplikacja została pomyślnie zaktualizowana
+    login_tab: Tekst logowania
+    files_tab: Pliki
