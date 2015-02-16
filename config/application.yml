@@ -1,0 +1,7 @@
+development:
+
+test:
+  subdomain_postfix: 'app'
+
+production:
+  subdomain_postfix: 'app'

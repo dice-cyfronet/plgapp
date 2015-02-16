@@ -30,5 +30,12 @@ module Plgapp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Load application-specific constants from a config file
+    config.constants = config_for(:application)
+
+    postfix = config.constants['subdomain_postfix']
+    postfix = postfix ? "\.#{postfix}" : ''
+    config.subdomain_regexp = /\A(www.)?([\w-]*){1}#{postfix}\z/
   end
 end
