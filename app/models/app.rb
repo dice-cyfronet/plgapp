@@ -14,7 +14,16 @@ class App < ActiveRecord::Base
 
   before_save :slug_subdomain
 
+  def full_subdomain
+    "#{subdomain}#{subdomain_postfix}"
+  end
+
   private
+
+  def subdomain_postfix
+    domain_prefix = Rails.configuration.constants['domain_prefix']
+    domain_prefix ? ".#{domain_prefix}" : ''
+  end
 
   def slug_subdomain
     self.subdomain = to_slug(subdomain)

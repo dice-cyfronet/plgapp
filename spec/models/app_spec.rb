@@ -14,4 +14,10 @@ RSpec.describe App do
       expect(my_app.subdomain).to eq 'a-b'
     end
   end
+
+  it 'takes into account domain prefix' do
+    my_app = create(:app, subdomain: 'my-app')
+
+    expect(my_app.full_subdomain).to eq 'my-app.app'
+  end
 end

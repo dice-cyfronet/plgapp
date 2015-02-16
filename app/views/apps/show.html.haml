@@ -4,9 +4,9 @@
   .col-md-9
     .edit
       %h4
-        =link_to root_url(subdomain: @app.subdomain) do
+        =link_to root_url(subdomain: @app.full_subdomain) do
           = @app.name
-          %span.text-muted (#{with_subdomain(@app.subdomain)})
+          %span.text-muted (#{with_subdomain(@app.full_subdomain)})
         .pull-right
           .btn-group
             = link_to t('edit'), [:edit, @app],

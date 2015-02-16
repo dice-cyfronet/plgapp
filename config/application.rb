@@ -34,7 +34,7 @@ module Plgapp
     # Load application-specific constants from a config file
     config.constants = config_for(:application)
 
-    postfix = config.constants['subdomain_postfix']
+    postfix = config.constants['domain_prefix']
     postfix = postfix ? "\.#{postfix}" : ''
     config.subdomain_regexp = /\A(www.)?([\w-]*){1}#{postfix}\z/
   end
