@@ -1,4 +1,6 @@
 class SubdomainsController < ApplicationController
+  include Subdomainable
+
   VALID_CHARACTERS = "a-zA-Z0-9~!@$%^&*()#`_+-=<>\"{}|[];',?".freeze
 
   before_filter :set_app
@@ -15,10 +17,6 @@ class SubdomainsController < ApplicationController
 
   private
 
-  def set_app
-    @app = App.find_by!(subdomain: request.subdomain)
-  end
-
   def file
     @file ||= Pathname.new(content_path).join(clean_path)
 
@@ -32,10 +30,6 @@ class SubdomainsController < ApplicationController
 
   def content_path
     Pathname.new(user_apps_dir).join(subdomain)
-  end
-
-  def subdomain
-    @app.subdomain
   end
 
   def user_apps_dir

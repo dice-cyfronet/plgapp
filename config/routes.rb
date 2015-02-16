@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   constraints(Subdomain) do
-    get '/:id' => 'subdomains#show', constraints: {id: /.*/}
+    get '/:id', to: 'subdomains#show', id: /.*/
   end
 
   devise_for :users,

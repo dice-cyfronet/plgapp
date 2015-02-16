@@ -24,7 +24,7 @@ def logged_in_subdomain(subdomain)
   custom_app = create(:app, subdomain: subdomain)
   user = create(:user)
 
-  switch_to_subdomain(subdomain)
+  switch_to_subdomain(custom_app.full_subdomain)
   login_as(user, scope: :user)
   yield user, custom_app
 ensure
