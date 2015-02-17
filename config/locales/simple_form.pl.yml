@@ -1,0 +1,14 @@
+pl:
+  simple_form:
+    "yes": 'Tak'
+    "no": 'Nie'
+    required:
+      text: 'wymagany'
+      mark: '*'
+    error_notification:
+      default_message: "Proszę popraw poniższe błędy:"
+    labels:
+      app:
+        name: Nazwa
+        subdomain: Subdomena
+        login_text: Tekst na stronie logowania
