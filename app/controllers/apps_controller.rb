@@ -9,6 +9,7 @@ class AppsController < ApplicationController
   end
 
   def create
+    @app.users << current_user
     if @app.save
       redirect_to @app, notice: I18n.t('apps.created')
     else
@@ -43,7 +44,6 @@ class AppsController < ApplicationController
 
   def app_params
     params.require(:app).
-      permit(:name, :subdomain, :login_text).
-      merge(author_id: current_user.id)
+      permit(:name, :subdomain, :login_text)
   end
 end

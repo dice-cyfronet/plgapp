@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SubdomainsController, :type => :controller do
+RSpec.describe SubdomainsController do
 
   describe "GET show" do
     it "returns http success" do

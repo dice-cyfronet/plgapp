@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    can [:read, :create, :edit, :update, :destroy], App, author_id: user.id
+    can [:read, :edit, :update, :destroy], App,
+        app_members: { user_id: user.id }
+
+    can [:create], App unless user.new_record?
   end
 end

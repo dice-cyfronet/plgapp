@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
          :omniauthable,
          omniauth_providers: [:open_id]
 
+  has_many :app_members,
+           dependent: :destroy
+
   has_many :apps,
-           foreign_key: 'author_id'
+           through: :app_members
 
   def self.from_plgrid_omniauth(auth)
     find_or_initialize_by(login: auth.info.nickname).tap do |user|

@@ -1,16 +1,17 @@
 class App < ActiveRecord::Base
   include Slugable
 
+  has_many :app_members,
+           dependent: :destroy
+
+  has_many :users,
+           through: :app_members
+
   validates :name, presence: true
 
   validates :subdomain,
             presence: true,
             uniqueness: { case_sensitive: false }
-
-  belongs_to :author,
-             class_name: 'User',
-             foreign_key: 'author_id',
-             required: true
 
   before_save :slug_subdomain
 

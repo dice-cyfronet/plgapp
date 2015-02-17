@@ -24,3 +24,4 @@ en:
     updated: Application was sucessfully updated
     login_tab: Login text
     files_tab: Files
+    already_a_member: This user is already an application member

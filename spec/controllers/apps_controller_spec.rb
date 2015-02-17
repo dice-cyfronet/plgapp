@@ -7,8 +7,8 @@ RSpec.describe AppsController do
   before { sign_in(user) }
 
   it 'shows only applications owned by the user' do
-    app1 = create(:app, author: user)
-    app2 = create(:app, author: user)
+    app1 = create(:app, users: [user])
+    app2 = create(:app, users: [user])
     create(:app)
 
     get :index
@@ -18,7 +18,7 @@ RSpec.describe AppsController do
   end
 
   it 'show owned app' do
-    app = create(:app, author: user)
+    app = create(:app, users: [user])
 
     get :show, id: app.id
 
@@ -45,7 +45,7 @@ RSpec.describe AppsController do
 
   context 'edit app' do
     it 'assigned to the user' do
-      app = create(:app, author: user)
+      app = create(:app, users: [user])
 
       get :edit, id: app.id
 
@@ -63,7 +63,7 @@ RSpec.describe AppsController do
     end
 
     it 'updates parameters' do
-      app = create(:app, author: user)
+      app = create(:app, users: [user])
 
       put :update, app: { name: 'updated', subdomain: 'newsub' }, id: app.id
       app.reload
@@ -76,7 +76,7 @@ RSpec.describe AppsController do
 
   context 'destroy app' do
     it 'assigned to the user' do
-      app = create(:app, author: user)
+      app = create(:app, users: [user])
 
       expect { delete :destroy, id: app.id }.
         to change { App.count }.by -1
