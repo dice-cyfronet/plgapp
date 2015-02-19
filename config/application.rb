@@ -37,5 +37,7 @@ module Plgapp
     postfix = config.constants['domain_prefix']
     postfix = postfix ? "\.#{postfix}" : ''
     config.subdomain_regexp = /\A(www.)?([\w-]*){1}#{postfix}\z/
+
+    config.apps_dir = config.constants['apps_dir']
   end
 end

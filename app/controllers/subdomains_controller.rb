@@ -33,7 +33,7 @@ class SubdomainsController < ApplicationController
   end
 
   def user_apps_dir
-    Rails.application.config_for('user_apps')['apps_dir']
+    Rails.configuration.apps_dir
   end
 
   def clean_path

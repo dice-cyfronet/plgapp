@@ -6,6 +6,12 @@ RSpec.describe AppsController do
   let(:user) { create(:user) }
   before { sign_in(user) }
 
+  before do
+    allow(FileUtils).to receive(:mkdir_p)
+    allow(FileUtils).to receive(:rm_rf)
+    allow(FileUtils).to receive(:mv)
+  end
+
   it 'shows only applications owned by the user' do
     app1 = create(:app, users: [user])
     app2 = create(:app, users: [user])
