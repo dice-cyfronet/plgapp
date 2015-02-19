@@ -11,7 +11,7 @@ class SubdomainsController < ApplicationController
              status: 200,
              layout: false
     else
-      not_found
+      not_found!
     end
   end
 

@@ -14,6 +14,11 @@
           = locale_link(:en)
       - if user_signed_in?
         %p.navbar-text= current_user.name
+        = nav_link controller: :help do
+          = link_to help_path,
+                    data: { placement: 'bottom' },
+                    title: t('help.title') do
+            = icon('question')
         %li
           = link_to destroy_user_session_path,
                     data: { placement: 'bottom' },

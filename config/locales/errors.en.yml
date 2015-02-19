@@ -1,0 +1,4 @@
+en:
+  error_404:
+    title: The resource you were looking for doesn't exist.
+    description: You may have mistyped the address or the page may have moved.

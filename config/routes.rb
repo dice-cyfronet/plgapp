@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   constraints(Root) do
     resources :apps
+    get 'help', to: 'help#show'
+    get 'help/:category', to: 'help#show', as: 'help_file'
   end
 
   root 'home#index'

@@ -1,0 +1,11 @@
+.row
+  .col-md-2
+    %h2= t('help.title')
+    %hr
+    #ul.nav.nav-pills.nav-stacked
+      - %w(README).sort.each do |file|
+        = nav_tab :category, file do
+          = link_to t("help.#{file}"), help_file_path(file)
+  .col-md-10
+    = preserve do
+      = markdown File.read(@doc_file)
