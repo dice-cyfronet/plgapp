@@ -7,7 +7,7 @@ class SubdomainsController < ApplicationController
 
   def show
     if file && file.exist?
-      render file: file,
+      render inline: File.read(file),
              status: 200,
              layout: false
     else
