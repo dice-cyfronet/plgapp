@@ -2,6 +2,11 @@
   .container
     = link_to t('code_name'), root_path, class: 'navbar-brand'
 
+    - if user_signed_in?
+      %ul.nav.navbar-nav
+        = nav_link(controller: :apps) do
+          = link_to t('apps.title'), apps_path
+
     %ul.nav.navbar-nav.pull-right
       %li.locale
         .btn-group.btn-group-xs.navbar-btn
@@ -13,4 +18,10 @@
           = link_to destroy_user_session_path,
                     data: { placement: 'bottom' },
                     title: t('logout'), method: :delete do
-            =icon 'sign-out'
+            = icon('sign-out')
+      - else
+        .navbar-form.navbar-left
+          = link_to user_omniauth_authorize_path(:open_id),
+                    class: 'btn btn-primary' do
+            = icon('sign-in', t('plgrid_sign_in'))
+

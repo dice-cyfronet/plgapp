@@ -10,7 +10,7 @@ pl:
   save: Zapisz
   delete: Skasuj
   apps:
-    title: Aplikacje
+    title: Moje Aplikacje
     new: Nowa aplikacja
     create: Stwórz nową aplikację
     empty: Brak zarejestrowanych aplikacji

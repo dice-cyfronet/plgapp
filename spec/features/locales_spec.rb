@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Application locales' do
   scenario 'support pl locales' do
-    visit new_user_session_path(locale: :pl)
+    visit root_path(locale: :pl)
 
     expect(page).to have_content 'Zaloguj się przez PL-Grid'
   end

@@ -10,7 +10,7 @@ en:
   save: Save
   delete: Delete
   apps:
-    title: Applications
+    title: My Applications
     new: New application
     create: Create new application
     empty: No application registered
