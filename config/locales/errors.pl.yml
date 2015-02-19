@@ -1,0 +1,4 @@
+pl:
+  error_404:
+    title: Strona której szukasz nie istnieje.
+    description: Możliwe, że adres został błędnie wpisany bądź strona została przeniesiona.
