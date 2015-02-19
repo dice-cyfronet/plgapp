@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def not_found
-    raise ActionController::RoutingError.new('Not Found')
-  end
+  def not_found!
+   render "errors/not_found", layout: "errors", status: 404
+ end
 
   private
 

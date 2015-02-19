@@ -25,3 +25,6 @@ en:
     login_tab: Login text
     files_tab: Files
     already_a_member: This user is already an application member
+  help:
+    title: Help
+    README: General
