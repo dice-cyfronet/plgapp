@@ -1,21 +1,11 @@
-require 'rimrock_proxy'
+require 'proxy/rimrock'
 
 class RimrockController < ApplicationController
-  def call
-    self.response_body = proxy_responce.body
-    self.status = proxy_responce.status
-    response.headers = {
-      'Content-Type' => proxy_responce.headers['content-type']
-    }
-  end
+  include Proxyable
 
-  private
+  protected
 
-  def proxy
-    RimrockProxy.new(current_user.proxy)
-  end
-
-  def proxy_responce
-    @proxy_response ||= ActionDispatch::Response.new(*proxy.call(request.env))
+  def proxy_class
+    Proxy::Rimrock
   end
 end

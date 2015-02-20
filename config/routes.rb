@@ -16,6 +16,11 @@ Rails.application.routes.draw do
           via: [:get, :post, :put, :delete],
           id: /.*/
 
+    match '/plgdata/:id',
+          to: 'plgdata#call',
+          via: [:get, :post, :put, :delete],
+          id: /.*/
+
     get '/:id', to: 'subdomains#show', id: /.*/
   end
 
