@@ -24,6 +24,8 @@ gem 'cancancan'
 
 gem 'puma'
 
+gem 'rack-proxy'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
