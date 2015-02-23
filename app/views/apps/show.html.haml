@@ -30,4 +30,8 @@
         #login-tab.tab-pane.active
           = markdown(@app.login_text)
         #files-tab.tab-pane
-          files
+          = link_to t('download'), [:download, @app]
+
+          = simple_form_for @app do |f|
+            = f.input :content
+            = f.submit

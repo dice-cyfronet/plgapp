@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150216200554) do
     t.string   "name",       default: "", null: false
     t.string   "subdomain",               null: false
     t.text     "login_text"
+    t.string   "content"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

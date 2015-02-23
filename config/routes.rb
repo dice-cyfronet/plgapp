@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   end
 
   constraints(Root) do
-    resources :apps
+    resources :apps do
+      member do
+        get :download
+      end
+    end
     get 'help', to: 'help#show'
     get 'help/:category', to: 'help#show', as: 'help_file'
   end

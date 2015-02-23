@@ -36,6 +36,11 @@ class AppsController < ApplicationController
     redirect_to apps_url, notice: I18n.t('apps.removed')
   end
 
+  def download
+    path = @app.content.current_path
+    send_file path, x_sendfile: true
+  end
+
   private
 
   def set_apps
@@ -44,6 +49,6 @@ class AppsController < ApplicationController
 
   def app_params
     params.require(:app).
-      permit(:name, :subdomain, :login_text)
+      permit(:name, :subdomain, :login_text, :content)
   end
 end

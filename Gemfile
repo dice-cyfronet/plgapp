@@ -15,6 +15,8 @@ gem 'autoprefixer-rails'
 
 gem 'haml-rails'
 gem 'simple_form'
+gem 'carrierwave'
+gem 'rubyzip'
 gem 'redcarpet'
 
 gem 'devise'
