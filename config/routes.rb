@@ -11,6 +11,16 @@ Rails.application.routes.draw do
       get 'sign_in', to: 'users/sessions#new', as: :new_user_session
     end
 
+    match '/rimrock/:id',
+          to: 'rimrock#call',
+          via: [:get, :post, :put, :delete],
+          id: /.*/
+
+    match '/plgdata/:id',
+          to: 'plgdata#call',
+          via: [:get, :post, :put, :delete],
+          id: /.*/
+
     get '/:id', to: 'subdomains#show', id: /.*/
   end
 
