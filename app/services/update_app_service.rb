@@ -1,3 +1,5 @@
+require 'app_helper'
+
 class UpdateAppService
   include AppHelper
 
