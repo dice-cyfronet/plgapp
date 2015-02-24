@@ -28,6 +28,8 @@ gem 'puma'
 
 gem 'rack-proxy'
 
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
