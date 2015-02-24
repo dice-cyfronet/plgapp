@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   end
 
   constraints(Root) do
+    devise_scope :user do
+      get 'sign_in', to: 'home#index'
+    end
+
     resources :apps do
       member do
         get :download
