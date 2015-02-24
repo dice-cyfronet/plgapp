@@ -6,10 +6,16 @@
             title: t('apps.new') do
     = icon('plus', t('add_new'))
 
-%ul.nav.nav-pills.nav-stacked
+.list-group
   - @apps.each do |app|
-    %li
-      = link_to app do
-        = app.name
-        %small.text-muted
+    .list-group-item
+      .row-action-primary
+        %i.mdi-file-folder
+      .row-content
+        %h4.list-group-item-heading
+          = link_to app do
+            = app.name
+        %p.list-group-item-text
           = app.subdomain
+
+
