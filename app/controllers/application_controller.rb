@@ -32,7 +32,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale_cookie(locale)
-    cookies['locale'] = locale.to_s
+    cookies['locale'] = {
+      value: locale.to_s,
+      httponly: true
+    }
   end
 
   def locale_from_cookie
