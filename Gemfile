@@ -23,6 +23,7 @@ gem 'omniauth-openid'
 gem 'cancancan'
 
 gem 'puma'
+gem 'bootstrap-material-design'
 
 group :development, :test do
   gem 'byebug'

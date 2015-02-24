@@ -1,13 +1,13 @@
 .row
-  .col-md-3
+  .col-md-4
     = render('apps_menu')
-  .col-md-9
-    .edit
+  .col-md-8
+    .well
       %h4
         = t('apps.create')
         .pull-right
           .btn-group
-            %button#create-app.btn.btn-xs.btn-create{ title: t('apps.create') }
+            %button#create-app.btn.btn-xs.btn-primary{ title: t('apps.create') }
               = icon('save', t('create'))
             :javascript
               $(function() {

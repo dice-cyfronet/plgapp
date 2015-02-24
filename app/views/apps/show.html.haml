@@ -1,8 +1,8 @@
 .row
-  .col-md-3
+  .col-md-4
     = render('apps_menu')
-  .col-md-9
-    .edit
+  .col-md-8
+    .well
       %h4
         =link_to root_url(subdomain: @app.full_subdomain) do
           = @app.name
