@@ -7,7 +7,6 @@ RSpec.feature 'App pages' do
 
   scenario 'serves index on root path' do
     logged_in_subdomain('dummy') do
-
       visit root_path
 
       expect(page).to have_content 'index page'

@@ -58,6 +58,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     codeclimate-test-reporter (0.4.6)
@@ -239,6 +244,7 @@ GEM
     ruby-openid (2.6.0)
     ruby_parser (3.6.4)
       sexp_processor (~> 4.1)
+    rubyzip (1.1.7)
     sass (3.4.11)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -306,6 +312,7 @@ DEPENDENCIES
   byebug
   cancancan
   capybara
+  carrierwave
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -326,6 +333,7 @@ DEPENDENCIES
   redcarpet
   rspec-rails (~> 3.0)
   ruby-openid (~> 2.6.0)
+  rubyzip
   sass-rails (~> 5.0)
   shoulda-matchers
   simple_form

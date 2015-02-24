@@ -35,11 +35,16 @@ RSpec.describe UpdateAppService do
     params = { subdomain: 'new_subdomain', name: nil }
     subject = UpdateAppService.new(app, params)
     old_app_dir = app_dir(app)
+    new_app_dir = app_dir('new_subdomain')
 
     with_app(app) do
       subject.execute
 
       expect(old_app_dir.exist?).to be_truthy
+      expect(new_app_dir.exist?).to be_falsy
+
+      # ensure to remove correct dir when leaving with_app
+      app.reload
     end
   end
 end

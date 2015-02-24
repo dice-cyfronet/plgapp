@@ -9,6 +9,7 @@ en:
   edit: Edit
   save: Save
   delete: Delete
+  download: Download
   apps:
     title: My Applications
     new: New application

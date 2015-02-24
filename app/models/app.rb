@@ -1,6 +1,8 @@
 class App < ActiveRecord::Base
   include Slugable
 
+  mount_uploader :content, AppUploader
+
   has_many :app_members,
            dependent: :destroy
 
