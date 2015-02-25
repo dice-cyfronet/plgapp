@@ -21,6 +21,7 @@ Rails.application.routes.draw do
           via: [:get, :post, :put, :delete],
           id: /.*/
 
+    get '/csrf_token', to: 'subdomains#csrf_token', as: :csrf_token
     get '/:id', to: 'subdomains#show', id: /.*/
   end
 

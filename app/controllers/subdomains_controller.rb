@@ -15,6 +15,10 @@ class SubdomainsController < ApplicationController
     end
   end
 
+  def csrf_token
+    render json: { csrfToken: form_authenticity_token }
+  end
+
   private
 
   def file
