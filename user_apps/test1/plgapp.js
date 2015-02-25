@@ -42,8 +42,19 @@ var AppError = function (message, data) {
     this.message = message || 'Unknown Error';
     this.data = data;
 };
+
+var appError_toString = function () {
+    var err_txt = Error.prototype.toString.call(this);
+    try {
+        err_txt += '\n' + JSON.stringify(this.data);
+    } catch (err) {
+    }
+    return err_txt;
+};
+
 AppError.prototype = Object.create(Error.prototype);
 AppError.prototype.constructor = AppError;
+AppError.prototype.toString = appError_toString;
 
 
 var plgapp = new PlgApp();
