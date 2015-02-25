@@ -15,23 +15,60 @@
 
 <script>
     $(function () {
-//        rimrock.getCSRFToken(function(err, data) {
-//           console.log(err);
-//           console.log(data);
+//        rimrock.run(function (err, result) {
+//            console.log(err);
+//            console.log(result);
+//        }, {
+//            host: 'zeus.cyfronet.pl',
+//            command: 'uname -a'
 //        });
-        rimrock.run({
-            host: 'zeus.cyfronet.pl',
-            command: 'pwd',
-            onFinished: function (err, result) {
-                console.log(err);
-                console.log(result);
-            }
-        });
-//        rimrock.jobs(function (err, result) {
-//            if (!err) {
+
+//        rimrock.submitJob(function (err, result) {
+//            console.log('submitcallback:');
+//            if (err) {
+//                console.log(err);
+//                return;
+//            }
+//            var job_id = result.job_id;
+//            console.log('job submitted:', job_id);
+//        }, {
+//            host: 'zeus.cyfronet.pl',
+//            working_directory: '/mnt/auto/people/plgpawlik/test',
+//            script: '#!/bin/bash\necho hello>file\nsleep30s\necho hello again!\nexit 0',
+//            tag: 'tag',
+//            onUpdate: function (err, new_status) {
+//                console.log('onUpdate:');
+//                console.log(err);
+//                console.log(new_status);
+//            },
+//            onFinish: function (err, result) {
+//                console.log('onFinish:');
+//                console.log(err);
 //                console.log(result);
 //            }
 //        });
+
+        function delJob(job_id) {
+            rimrock.deleteJob(function (err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log('job', job_id, 'deletion complete');
+            }, job_id);
+        }
+
+        rimrock.jobs(function (err, result) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log(result);
+            var job = result.shift();
+            console.log(job);
+            delJob(job.job_id);
+        });
+
 //        rimrock.job(function (err, result) {
 //                    if (!err) {
 //                        console.log(result);
