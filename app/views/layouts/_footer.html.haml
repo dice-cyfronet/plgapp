@@ -1,0 +1,31 @@
+%footer.footer.btn-material-grey-400
+  .container
+    .row
+      .col-md-2
+        %h5
+          = t('footer.contact.key')
+        %p
+          = t('footer.contact.mail')
+      .col-md-3
+        %h5
+          = t('footer.address.key')
+        %p
+          = t('footer.address.line1')
+          %br
+          = t('footer.address.line2')
+          %br
+          = t('footer.address.line3')
+      .col-md-2
+        %h5
+          = t('footer.links.key')
+        %p.text-info
+          = link_to t('footer.links.dice.name'), t('footer.links.dice.link')
+          %br
+          = link_to t('footer.links.cyfronet.name'), t('footer.links.cyfronet.link')
+          %br
+          = link_to t('footer.links.agh.name'), t('footer.links.agh.link')
+      .col-md-5
+        %h5
+          = t('footer.about.key')
+        %p
+          = t('footer.about.desc')

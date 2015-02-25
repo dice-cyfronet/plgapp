@@ -11,11 +11,11 @@
  * file per style scope.
  *
  *= require_self
- *= require bootstrap-material-design
  */
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "bootstrap-material-design";
 
  @import "font-awesome-sprockets";
  @import "font-awesome";
@@ -23,7 +23,3 @@
  @import "generic/*";
  @import "sections/*";
 
-
-body {
-  padding: 0;
-}

@@ -28,3 +28,30 @@ pl:
   help:
     title: Pomoc
     README: Ogólne
+  footer:
+    contact:
+      key: Kontakt
+      mail: plgapp@plgrid.pl
+    address:
+      key: Adres
+      line1: ul. Gramatyka 8a pokój 414,
+      line2: +48 617 43 41
+      line3: 30-071 Kraków, Polska
+    links:
+      key: Nasze linki
+      dice:
+        name: Zespół DICE
+        link: http://dice.cyfronet.pl
+      cyfronet:
+        name: Cyfronet
+        link: http://www.cyfronet.krakow.pl
+      agh:
+        name: AGH
+        link: http://agh.edu.pl
+    about:
+      key: O zespole Dice
+      desc: Jesteśmy zespołem uczestniczącym w wielu narodowych oraz międzynarodowych projektach badawczych, gdzie szukamy synergii między nauką a rozwiązaniami komercyjnymi.
+  home:
+    title: Aplikacje naukowe mogą być proste
+    desc: Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp Krótki wstęp
+

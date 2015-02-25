@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '4.2.0'
 gem 'pg'
@@ -23,7 +24,8 @@ gem 'omniauth-openid'
 gem 'cancancan'
 
 gem 'puma'
-gem 'bootstrap-material-design'
+#gem 'bootstrap-material-design'
+gem 'rails-assets-bootstrap-material-design'
 
 group :development, :test do
   gem 'byebug'

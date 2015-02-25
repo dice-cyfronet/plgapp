@@ -3,6 +3,7 @@
   = render 'layouts/head'
   %body
     = render 'layouts/navbar'
-    .container
+    .container{id: 'content'}
       = render 'layouts/flash'
       = yield
+    = render 'layouts/footer'
