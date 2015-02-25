@@ -35,4 +35,15 @@ var PlgApp = function () {
     };
 };
 
+//AppError extends Error with optional 'data' field
+
+var AppError = function (message, data) {
+    this.name = 'AppError';
+    this.message = message || 'Unknown Error';
+    this.data = data;
+};
+AppError.prototype = Object.create(Error.prototype);
+AppError.prototype.constructor = AppError;
+
+
 var plgapp = new PlgApp();
