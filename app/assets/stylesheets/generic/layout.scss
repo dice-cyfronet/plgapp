@@ -1,6 +1,7 @@
 
-body {
+body, html {
   padding: 0;
+  height: 100%;
 }
 
 #navbar-logo {
@@ -11,20 +12,30 @@ body {
 
 #logo-big {
   height: 150px;
-  margin-top: 10px;
-  margin-bottom: -20px;
+  margin-top: 20px;
   padding-left: 10px;
   @include center-block();
 }
 
 #content {
   padding-top: 75px;
+  padding-bottom: 20px;
+  min-height: 90%;
+}
+
+.apps-preview {
+
+}
+
+.appl-icon {
+  font-size: 60pt;
+  @include center-block();
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  margin-top: -20px;
   padding-top: 10px;
   padding-bottom: 10px;
+  min-height: 10%;
+  width: 100%;
 }
