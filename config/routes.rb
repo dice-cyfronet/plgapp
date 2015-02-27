@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     resources :apps do
       member do
         get :download
+        get :deploy
+        get :activity
       end
     end
     get 'help', to: 'help#show'

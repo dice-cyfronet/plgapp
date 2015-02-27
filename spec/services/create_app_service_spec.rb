@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe CreateAppService do
   include AppSpecHelper
 
+  let(:author) { create(:user) }
   let(:app) { build(:app) }
-  subject { CreateAppService.new(app) }
+  subject { CreateAppService.new(author, app) }
 
   it 'creates new app' do
     with_app(app) do
@@ -27,5 +28,19 @@ RSpec.describe CreateAppService do
     subject.execute
 
     expect(app_dir(app).exist?).to be_falsy
+  end
+
+  it 'creates activity log' do
+    expect { subject.execute }.to change { Activity.count }.by 1
+    activity = app.activities.first
+
+    expect(activity.activity_type).to eq 'created'
+    expect(activity.author).to eq author
+  end
+
+  it 'does not create activity log when save failed' do
+    app.name = nil
+
+    expect { subject.execute }.to change { Activity.count }.by 0
   end
 end

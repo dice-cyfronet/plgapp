@@ -12,6 +12,10 @@ class App < ActiveRecord::Base
   has_many :users,
            through: :app_members
 
+  has_many :activities,
+           dependent: :destroy,
+           autosave: true
+
   validates :name, presence: true
 
   validates :subdomain,
@@ -19,6 +23,14 @@ class App < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
 
   before_save :slug_subdomain
+
+  def deploy?
+    content_changed?
+  end
+
+  def update?
+    name_changed? || subdomain_changed? || login_text_changed?
+  end
 
   def full_subdomain
     "#{subdomain}#{subdomain_postfix}"

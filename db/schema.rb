@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216200554) do
+ActiveRecord::Schema.define(version: 20150227100130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "activity_type", default: 0
+    t.datetime "created_at",                null: false
+    t.integer  "app_id",                    null: false
+    t.integer  "author_id",                 null: false
+  end
+
+  add_index "activities", ["app_id"], name: "index_activities_on_app_id", using: :btree
+  add_index "activities", ["author_id"], name: "index_activities_on_author_id", using: :btree
 
   create_table "app_members", force: :cascade do |t|
     t.integer  "app_id",     null: false
@@ -53,6 +63,8 @@ ActiveRecord::Schema.define(version: 20150216200554) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["login"], name: "index_users_on_login", unique: true, using: :btree
 
+  add_foreign_key "activities", "apps"
+  add_foreign_key "activities", "users", column: "author_id"
   add_foreign_key "app_members", "apps"
   add_foreign_key "app_members", "users"
 end
