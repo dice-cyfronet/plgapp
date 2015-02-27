@@ -1,7 +1,7 @@
 .row
-  .col-md-4
+  .col-md-3
     = render('apps_menu')
-  .col-md-8
+  .col-md-9
     .well
       %h4
         =link_to root_url(subdomain: @app.full_subdomain) do
@@ -10,10 +10,10 @@
         .pull-right
           .btn-group
             = link_to t('edit'), [:edit, @app],
-                      class: 'btn btn-xs btn-success',
+                      class: 'btn btn-sm btn-success',
                       title: t('apps.edit')
             = link_to t('delete'), @app, method: :delete,
-                      class: 'btn btn-xs btn-danger',
+                      class: 'btn btn-sm btn-danger',
                       data: { confirm: t('apps.are_you_sure') },
                       title: t('apps.delete')
       %hr
@@ -28,6 +28,8 @@
 
       .tab-content
         #login-tab.tab-pane.active
-          = markdown(@app.login_text)
+          %p
+            = markdown(@app.login_text)
         #files-tab.tab-pane
-          files
+          %p
+            files
