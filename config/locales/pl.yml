@@ -9,6 +9,7 @@ pl:
   edit: Edytuj
   save: Zapisz
   delete: Skasuj
+  download: Pobierz
   apps:
     title: Moje Aplikacje
     new: Nowa aplikacja

@@ -16,16 +16,23 @@ gem 'autoprefixer-rails'
 
 gem 'haml-rails'
 gem 'simple_form'
+gem 'carrierwave'
+gem 'rubyzip'
 gem 'redcarpet'
 
 gem 'devise'
 gem 'ruby-openid', '~> 2.6.0'
 gem 'omniauth-openid'
 gem 'cancancan'
+gem 'friendly_id'
 
 gem 'puma'
 #gem 'bootstrap-material-design'
 gem 'rails-assets-bootstrap-material-design'
+
+gem 'rack-proxy'
+
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug'

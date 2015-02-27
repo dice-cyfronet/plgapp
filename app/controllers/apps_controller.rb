@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
   before_filter :set_apps, only: [:index, :new, :show, :edit]
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :subdomain
 
   def index
   end
@@ -10,7 +10,7 @@ class AppsController < ApplicationController
 
   def create
     @app.users << current_user
-    if @app.save
+    if CreateAppService.new(@app).execute
       redirect_to @app, notice: I18n.t('apps.created')
     else
       render action: 'new'
@@ -21,7 +21,7 @@ class AppsController < ApplicationController
   end
 
   def update
-    if @app.update(app_params)
+    if UpdateAppService.new(@app, app_params).execute
       redirect_to @app, notice: I18n.t('apps.updated')
     else
       redner action: 'edit'
@@ -32,8 +32,13 @@ class AppsController < ApplicationController
   end
 
   def destroy
-    @app.destroy!
+    DestroyAppService.new(@app).execute
     redirect_to apps_url, notice: I18n.t('apps.removed')
+  end
+
+  def download
+    path = @app.content.current_path
+    send_file path, x_sendfile: true
   end
 
   private
@@ -44,6 +49,6 @@ class AppsController < ApplicationController
 
   def app_params
     params.require(:app).
-      permit(:name, :subdomain, :login_text)
+      permit(:name, :subdomain, :login_text, :content)
   end
 end

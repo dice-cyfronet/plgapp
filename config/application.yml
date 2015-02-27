@@ -1,7 +1,18 @@
+defaults: &defaults
+  apps_dir: <%= Rails.root.join('user_apps') %>
+  rimrock: https://submit.plgrid.pl
+  plgdata: https://data.plgrid.pl
+
 development:
+  <<: *defaults
 
 test:
+  <<: *defaults
+
   domain_prefix: 'app'
+  apps_dir: <%= Rails.root.join('spec', 'resources', 'user_apps') %>
 
 production:
+  <<: *defaults
+
   domain_prefix: 'app'

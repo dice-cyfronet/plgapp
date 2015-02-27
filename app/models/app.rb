@@ -1,6 +1,11 @@
 class App < ActiveRecord::Base
   include Slugable
 
+  extend FriendlyId
+  friendly_id :subdomain
+
+  mount_uploader :content, AppUploader
+
   has_many :app_members,
            dependent: :destroy
 

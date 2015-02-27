@@ -3,16 +3,19 @@ class SubdomainsController < ApplicationController
 
   VALID_CHARACTERS = "a-zA-Z0-9~!@$%^&*()#`_+-=<>\"{}|[];',?".freeze
 
+  skip_before_action :verify_authenticity_token
   before_filter :set_app
 
   def show
     if file && file.exist?
-      render file: file,
-             status: 200,
-             layout: false
+      send_file file, disposition: 'inline'
     else
       not_found!
     end
+  end
+
+  def csrf_token
+    render json: { csrfToken: form_authenticity_token }
   end
 
   private
@@ -33,7 +36,7 @@ class SubdomainsController < ApplicationController
   end
 
   def user_apps_dir
-    Rails.application.config_for('user_apps')['apps_dir']
+    Rails.configuration.apps_dir
   end
 
   def clean_path

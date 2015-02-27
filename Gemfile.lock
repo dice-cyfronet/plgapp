@@ -59,9 +59,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    codeclimate-test-reporter (0.4.6)
+    codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -99,6 +104,8 @@ GEM
     font-awesome-sass (4.3.1)
       sass (~> 3.2)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     guard (2.12.4)
@@ -158,6 +165,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     nenv (0.2.0)
+    newrelic_rpm (3.10.0.279)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     notiffany (0.0.6)
@@ -181,6 +189,8 @@ GEM
     rack-openid (1.3.1)
       rack (>= 1.1.0)
       ruby-openid (>= 2.1.8)
+    rack-proxy (0.5.17)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -241,7 +251,8 @@ GEM
     ruby-openid (2.6.0)
     ruby_parser (3.6.4)
       sexp_processor (~> 4.1)
-    sass (3.4.12)
+    rubyzip (1.1.7)
+    sass (3.4.13)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -261,7 +272,7 @@ GEM
       simplecov-html (~> 0.9.0)
     simplecov-html (0.9.0)
     slop (3.6.0)
-    spring (1.3.2)
+    spring (1.3.3)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     sprockets (2.12.3)
@@ -308,6 +319,7 @@ DEPENDENCIES
   byebug
   cancancan
   capybara
+  carrierwave
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -315,19 +327,23 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   font-awesome-sass (~> 4.3.0)
+  friendly_id
   guard-rspec
   guard-spring
   haml-rails
   jquery-rails
   jquery-turbolinks
+  newrelic_rpm
   omniauth-openid
   pg
   puma
+  rack-proxy
   rails (= 4.2.0)
   rails-assets-bootstrap-material-design
   redcarpet
   rspec-rails (~> 3.0)
   ruby-openid (~> 2.6.0)
+  rubyzip
   sass-rails (~> 5.0)
   shoulda-matchers
   simple_form
