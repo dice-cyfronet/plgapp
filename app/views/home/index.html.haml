@@ -1,18 +1,20 @@
 = image_tag("logo-big.png", :border=>0, id: 'logo-big')
 
-%h1.text-center
-  = t('home.title')
-%div
-  = t('home.desc')
+.bs-docs-section
+  %h1.page-header
+    = t('home.title')
+  %p.text-center
+    = t('home.desc')
 
-%h1.text-center
-  = t('home.apps-title')
+  %h1.page-header
+    = t('home.apps-title')
 
-.row.apps-preview
-  - App.all.each do |app|
-    .col-md-4.center-block
-      = icon('plus', '', :class=>'appl-icon')
-      %h3.text-center
-        = link_to app.name, root_url(subdomain: app.full_subdomain)
+.bs-docs-section
+  .row.apps-preview
+    - App.all.each do |app|
+      .col-md-4.app-preview
+        = icon('cubes', '', :class=>'appl-icon')
+        %h4.text-center
+          = link_to app.name, root_url(subdomain: app.full_subdomain)
 
 

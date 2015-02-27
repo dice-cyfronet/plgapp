@@ -17,8 +17,12 @@ body, html {
 
 #content {
   padding-top: 75px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   min-height: 90%;
+}
+
+.page-header {
+  text-align: center;
 }
 
 .apps-preview {
@@ -30,8 +34,13 @@ body, html {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  font-size: 70pt;
+  font-size: 100pt;
 }
+
+.app-preview {
+  padding: 20px;
+}
+
 
 footer {
   margin-top: -20px;
