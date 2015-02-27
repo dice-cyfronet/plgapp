@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/dice-cyfronet/rails-bootstrap-material-design-sass.git
-  revision: abcc49f626b2b81ed281c9c6d28051b120138528
-  specs:
-    bootstrap-material-design-sass (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -306,7 +300,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bootstrap-material-design-sass!
   bootstrap-sass (~> 3.3.1)
   byebug
   cancancan

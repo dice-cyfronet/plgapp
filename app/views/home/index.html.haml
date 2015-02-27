@@ -11,7 +11,7 @@
 .row.apps-preview
   - App.all.each do |app|
     .col-md-4.center-block
-      %i.text-center.mdi-action-perm-data-setting.appl-icon
+      = icon('plus', '', :class=>'appl-icon')
       %h3.text-center
         = link_to app.name, root_url(subdomain: app.full_subdomain)
 

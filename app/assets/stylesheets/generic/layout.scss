@@ -26,8 +26,11 @@ body, html {
 }
 
 .appl-icon {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 70pt;
-  @include center-block();
 }
 
 footer {
