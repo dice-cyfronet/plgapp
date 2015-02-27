@@ -23,6 +23,7 @@ gem 'devise'
 gem 'ruby-openid', '~> 2.6.0'
 gem 'omniauth-openid'
 gem 'cancancan'
+gem 'friendly_id'
 
 gem 'puma'
 
