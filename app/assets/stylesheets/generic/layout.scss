@@ -10,15 +10,14 @@ body, html {
 }
 
 #logo-big {
-  height: 170px;
-  margin-top: 20px;
+  height: 230px;
   padding-left: 10px;
   @include center-block();
 }
 
 #content {
   padding-top: 75px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   min-height: 90%;
 }
 
@@ -27,14 +26,32 @@ body, html {
 }
 
 .appl-icon {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 70pt;
-  @include center-block();
 }
 
-.footer {
+footer {
   margin-top: -20px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   min-height: 10%;
   width: 100%;
+  background-color: $gray-darker;
+
 }
+
+footer h5 {
+  color: $gray;
+}
+
+footer h5 {
+  color: $gray;
+}
+
+footer h4 {
+  color: $gray;
+}
+

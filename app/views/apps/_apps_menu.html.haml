@@ -1,22 +1,16 @@
-%legend
-  = t('apps.title')
-  = link_to new_app_path,
-            class: 'btn btn-primary btn-xs pull-right',
-            id: 'add_app',
-            title: t('apps.new') do
-    = icon('plus', t('add_new'))
+%h2= t('apps.title')
+%hr
 
-.list-group
+= link_to new_app_path,
+  class: 'btn btn-sm btn-create add_app',
+  title: t('apps.new') do
+  = icon('plus', t('add_new'))
+
+%ul.nav.nav-pills.nav-stacked
   - @apps.each do |app|
-    .list-group-item
-      .row-action-primary
-        %i.mdi-file-folder
-      .row-content
-        %h4.list-group-item-heading
-          = link_to app do
-            = app.name
-        %p.list-group-item-text
-          = app.subdomain
-    .list-group-separator
-
-
+    %li
+      = link_to app do
+        %h5{style: 'word-wrap: break-word;'}
+          = app.name
+          %small
+            = app.subdomain

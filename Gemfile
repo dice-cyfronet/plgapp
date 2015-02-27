@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 gem 'rails', '4.2.0'
 gem 'pg'
@@ -27,8 +26,6 @@ gem 'cancancan'
 gem 'friendly_id'
 
 gem 'puma'
-#gem 'bootstrap-material-design'
-gem 'rails-assets-bootstrap-material-design'
 
 gem 'rack-proxy'
 
