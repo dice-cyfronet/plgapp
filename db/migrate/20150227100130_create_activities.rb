@@ -1,12 +1,11 @@
 class CreateActivities < ActiveRecord::Migration
   def change
     create_table :activities do |t|
-      t.integer :activity_type,   default: 0
+      t.integer :activity_type, default: 0
+      t.datetime :created_at, null: false
 
-      t.belongs_to :app,          null: false
-      t.belongs_to :author,       null: false
-
-      t.timestamps                null: false
+      t.references :app, null: false
+      t.references :author, null: false
     end
 
     add_foreign_key :activities, :users, column: :author_id

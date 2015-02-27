@@ -24,7 +24,8 @@ pl:
     created: Nowa aplikacja została pomyślnie stworzona
     updated: Aplikacja została pomyślnie zaktualizowana
     login_tab: Tekst logowania
-    files_tab: Pliki
+    deploy_tab: Nową wersja
+    activity_tab: Aktywność
     already_a_member: Ten użytkownik już jest zapisany do aplikacji
   help:
     title: Pomoc
@@ -56,3 +57,7 @@ pl:
     title: Tworzenie aplikacji naukowych może być proste
     desc: Polski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     apps-title: Nasze aplikacje dziedzinowe
+  activity:
+    deploy: Wrana nowa wersja aplikacji
+    updated: Zaktualizowane informacje na temat aplikacji
+    created: Sworzona aplikacja

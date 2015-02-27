@@ -121,9 +121,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    guard-spring (0.0.4)
-      guard
-      spring
     haml (4.0.6)
       tilt
     haml-rails (0.8.2)
@@ -325,7 +322,6 @@ DEPENDENCIES
   font-awesome-sass (~> 4.3.0)
   friendly_id
   guard-rspec
-  guard-spring
   haml-rails
   jquery-rails
   jquery-turbolinks

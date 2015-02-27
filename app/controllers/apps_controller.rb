@@ -1,5 +1,7 @@
 class AppsController < ApplicationController
-  before_filter :set_apps, only: [:index, :new, :show, :edit]
+  before_filter :set_apps,
+                only: [:index, :new, :show, :edit, :deploy, :activity]
+
   load_and_authorize_resource find_by: :subdomain
 
   def index
@@ -29,6 +31,13 @@ class AppsController < ApplicationController
   end
 
   def show
+  end
+
+  def deploy
+  end
+
+  def activity
+    @activities = @app.activities.order(created_at: :desc)
   end
 
   def destroy

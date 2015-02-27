@@ -17,12 +17,10 @@ ActiveRecord::Schema.define(version: 20150227100130) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string   "description"
-    t.integer  "activity_type", null: false
-    t.integer  "app_id",        null: false
-    t.integer  "author_id",     null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "activity_type", default: 0
+    t.datetime "created_at",                null: false
+    t.integer  "app_id",                    null: false
+    t.integer  "author_id",                 null: false
   end
 
   add_index "activities", ["app_id"], name: "index_activities_on_app_id", using: :btree
