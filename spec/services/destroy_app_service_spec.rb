@@ -6,7 +6,7 @@ RSpec.describe DestroyAppService do
   let(:app) { build(:app) }
   subject { DestroyAppService.new(app) }
 
-  before { CreateAppService.new(app).execute }
+  before { CreateAppService.new(create(:user), app).execute }
 
   it 'removes app' do
     expect { subject.execute }.

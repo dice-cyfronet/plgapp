@@ -10,7 +10,7 @@ class AppsController < ApplicationController
 
   def create
     @app.users << current_user
-    if CreateAppService.new(@app).execute
+    if CreateAppService.new(current_user, @app).execute
       redirect_to @app, notice: I18n.t('apps.created')
     else
       render action: 'new'
@@ -21,7 +21,7 @@ class AppsController < ApplicationController
   end
 
   def update
-    if UpdateAppService.new(@app, app_params).execute
+    if UpdateAppService.new(current_user, @app, app_params).execute
       redirect_to @app, notice: I18n.t('apps.updated')
     else
       redner action: 'edit'

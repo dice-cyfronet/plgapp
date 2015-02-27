@@ -10,9 +10,9 @@ module AppSpecHelper
     FileUtils.rm_rf(app_dir(app))
   end
 
-  def create_app
+  def create_app(author = create(:user))
     build(:app).tap do |app|
-      CreateAppService.new(app).execute
+      CreateAppService.new(author, app).execute
     end
   end
 
