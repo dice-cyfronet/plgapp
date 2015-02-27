@@ -2,30 +2,34 @@
   .container
     .row
       .col-md-2
-        %h4
-          = t('footer.contact.key')
-        %h5
-          = t('footer.contact.mail')
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.contact.key')
+          %p
+            = t('footer.contact.mail')
       .col-md-3
-        %h4
-          = t('footer.address.key')
-        %h5
-          = t('footer.address.line1')
-          %br
-          = t('footer.address.line2')
-          %br
-          = t('footer.address.line3')
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.address.key')
+          %p
+            = t('footer.address.line1')
+            %br
+            = t('footer.address.line2')
+            %br
+            = t('footer.address.line3')
       .col-md-2
-        %h4
-          = t('footer.links.key')
-        %h5
-          = link_to t('footer.links.dice.name'), t('footer.links.dice.link')
-          %br
-          = link_to t('footer.links.cyfronet.name'), t('footer.links.cyfronet.link')
-          %br
-          = link_to t('footer.links.agh.name'), t('footer.links.agh.link')
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.links.key')
+          %p
+            = link_to t('footer.links.dice.name'), t('footer.links.dice.link')
+            %br
+            = link_to t('footer.links.cyfronet.name'), t('footer.links.cyfronet.link')
+            %br
+            = link_to t('footer.links.agh.name'), t('footer.links.agh.link')
       .col-md-5
-        %h4
-          = t('footer.about.key')
-        %h5
-          = t('footer.about.desc')
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.about.key')
+          %p
+            = t('footer.about.desc')

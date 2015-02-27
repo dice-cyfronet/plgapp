@@ -44,23 +44,13 @@ body, html {
 
 footer {
   margin-top: -20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   min-height: 10%;
   width: 100%;
   background-color: $gray-darker;
-
-}
-
-footer h5 {
   color: $gray;
 }
 
-footer h5 {
-  color: $gray;
+.footer-section {
+  padding-top: 8px;
 }
-
-footer h4 {
-  color: $gray;
-}
-
