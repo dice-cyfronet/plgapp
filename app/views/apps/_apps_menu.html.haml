@@ -10,7 +10,7 @@
   - @apps.each do |app|
     %li
       = link_to app do
-        %h4
+        %h5{style: 'word-wrap: break-word;'}
           = app.name
-        %h6
-          = app.subdomain
+          %small
+            = app.subdomain
