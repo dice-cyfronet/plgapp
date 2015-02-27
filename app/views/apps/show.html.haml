@@ -27,10 +27,10 @@
             = t('apps.files_tab')
 
       .tab-content
-        #login-tab.tab-pane.active
+        #login-tab.tab-pane.active.app-show-content
           %p
             = markdown(@app.login_text)
-        #files-tab.tab-pane
+        #files-tab.tab-pane.app-show-content
           = link_to t('download'), [:download, @app]
 
           = simple_form_for @app do |f|

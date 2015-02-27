@@ -2,15 +2,15 @@
 %hr
 
 = link_to new_app_path,
-  class: 'btn btn-sm btn-create add_app',
+  class: 'btn btn-sm btn-create',
   title: t('apps.new') do
   = icon('plus', t('add_new'))
 
-%ul.nav.nav-pills.nav-stacked
+%ul.nav.nav-pills.nav-stacked.apps-nav
   - @apps.each do |app|
     = nav_tab :id, app.subdomain do
       = link_to app do
         %h5{style: 'word-wrap: break-word;'}
-          = app.name
+          = ap  p.name
           %small
             = app.subdomain
