@@ -4,7 +4,7 @@ RSpec.feature 'Login page' do
   scenario 'with default text for main app' do
     visit root_path
 
-    expect(page).to have_content 'Some introduction'
+    expect(page).to have_content I18n.t('home.title')
   end
 
   scenario 'with custom text for user app' do
