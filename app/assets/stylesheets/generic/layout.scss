@@ -17,6 +17,7 @@ body, html {
 
 #content {
   padding-top: 75px;
+  padding-bottom: 15px;
   min-height: 86%;
 }
 
@@ -39,13 +40,17 @@ body, html {
 .footer {
   min-height: 14%;
   width: 100%;
-  background-color: $gray-darker;
-  color: $gray;
+  background-color: $gray-dark;
+  color: $gray-darker;
+}
+
+.footer a {
+  color: $gray-darker;
 }
 
 .footer-container {
   padding-bottom: 15px;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 .footer-section {
