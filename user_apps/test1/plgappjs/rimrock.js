@@ -71,12 +71,9 @@ var Rimrock = function () {
             for (var mJobId in monitoredJobs) {
                 if (monitoredJobs.hasOwnProperty(mJobId)) {
                     var mJob = monitoredJobs[mJobId];
-                    console.log('checking job:', mJob);
                     if (mJobId in jobs) {
-                        console.log('got some info');
                         var job = jobs[mJobId];
                         if (job.status != mJob.status) {
-                            console.log('new status!');
                             if (job.status == 'FINISHED' || job.status == 'ERROR') {
                                 removeMonitoredJob(mJobId);
                             }
