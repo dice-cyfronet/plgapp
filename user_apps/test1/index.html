@@ -16,12 +16,15 @@
 
 <script>
     $(function () {
-        plgdata.mkdir(function (err) {
-            if (err) {
-                console.log(err);
-            }
-            console.log('mkdir complete');
-        }, 'wafelek');
+        plgdata.generateDownloadUrl(function(err, url) {
+            console.log(url);
+        }, "wafelek.txt");
+//        plgdata.mkdir(function (err) {
+//            if (err) {
+//                console.log(err);
+//            }
+//            console.log('mkdir complete');
+//        }, 'wafelek');
 
 //        rimrock.run(function (err, result) {
 //            console.log(err);
