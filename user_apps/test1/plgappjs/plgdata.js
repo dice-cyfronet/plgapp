@@ -4,7 +4,7 @@
 
 var PLGData = function () {
     var plgdataProxy = document.baseURI + 'plgdata';
-    var downloadURL = document.baseURI + 'download';
+    var downloadURL = plgdataProxy + '/download';
 
     //TODO: use parser error from PlgApp
     var parseError = function (xhr, status, error) {
