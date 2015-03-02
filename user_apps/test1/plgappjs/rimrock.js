@@ -26,10 +26,10 @@ var Rimrock = function () {
         return new AppError(status + ' ' + xhr.status + ' ' + error, data);
     };
 
-    var addMonitoredJob = function (job_id, state, cbUpdate) {
+    var addMonitoredJob = function (job_id, status, cbUpdate) {
         monitoredJobs[job_id] = {
             job_id: job_id,
-            state: state,
+            status: status,
             cbUpdate: cbUpdate
         };
         if (Object.keys(monitoredJobs).length == 1) {
@@ -49,8 +49,9 @@ var Rimrock = function () {
             }
         };
 
+        //TODO: change rimrock to proper this working with setTimeout
         //get states of all jobs
-        this.jobs(function (err, job_array) {
+        rimrock.jobs(function (err, job_array) {
             if (err) {
                 console.log('error while monitoring jobs!');
                 console.log(err);
@@ -62,24 +63,25 @@ var Rimrock = function () {
             //convert job list to object with fields
             var jobs = {};
             for (var i = 0; i < job_array.length; i++) {
-                var job = job_array[i];
-                jobs[job.job_id] = job;
+                var j = job_array[i];
+                jobs[j.job_id] = j;
             }
 
             //loop over monitored jobs, and check for changes
-            for (mJobId in monitoredJobs) {
+            for (var mJobId in monitoredJobs) {
                 if (monitoredJobs.hasOwnProperty(mJobId)) {
                     var mJob = monitoredJobs[mJobId];
-                    console.log('checking job:', mjob);
+                    console.log('checking job:', mJob);
                     if (mJobId in jobs) {
                         console.log('got some info');
                         var job = jobs[mJobId];
                         if (job.status != mJob.status) {
-                            console.log('new state!');
+                            console.log('new status!');
                             if (job.status == 'FINISHED' || job.status == 'ERROR') {
                                 removeMonitoredJob(mJobId);
                             }
                             job.previous_status = mJob.status;
+                            mJob.status = job.status;
                             mJob.cbUpdate(null, job);
                         }
                     } else {
@@ -144,7 +146,7 @@ var Rimrock = function () {
 
         var success = function (data, status) {
             if (cb != undefined) {
-                addMonitoredJob(data.job_id, data.state, job.onUpdate);
+                addMonitoredJob(data.job_id, data.status, job.onUpdate);
                 cb(null, data);
             }
         };

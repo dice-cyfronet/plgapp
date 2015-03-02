@@ -23,25 +23,27 @@
 //            command: 'uname -a'
 //        });
 
-//        rimrock.submitJob(function (err, result) {
-//            console.log('submitcallback:');
-//            if (err) {
-//                console.log(err);
-//                return;
-//            }
-//            var job_id = result.job_id;
-//            console.log('job submitted:', job_id);
-//        }, {
-//            host: 'zeus.cyfronet.pl',
-//            working_directory: '/mnt/auto/people/plgpawlik/test',
-//            script: '#!/bin/bash\necho hello>file\nsleep30s\necho hello again!\nexit 0',
-//            tag: 'tag',
-//            onUpdate: function (err, job) {
-//                console.log('onUpdate:');
-//                console.log(err);
-//                console.log(job);
-//            }
-//        });
+        rimrock.submitJob(function (err, result) {
+            console.log('submitcallback:');
+            if (err) {
+                console.log(err);
+                return;
+            }
+            var job_id = result.job_id;
+            console.log('job submitted:', job_id);
+        }, {
+            host: 'zeus.cyfronet.pl',
+            working_directory: '/mnt/auto/people/plgpawlik/test',
+            script: '#!/bin/bash\necho hello>file\nsleep30s\necho hello again!\nexit 0',
+            tag: 'tag',
+            onUpdate: function (err, job) {
+                console.log('onUpdate:');
+                if (err) {
+                    console.log(err);
+                }
+                console.log(job);
+            }
+        });
 
 //        function delJob(job_id) {
 //            rimrock.deleteJob(function (err) {
