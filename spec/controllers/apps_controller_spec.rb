@@ -26,7 +26,7 @@ RSpec.describe AppsController do
   it 'show owned app' do
     app = create(:app, users: [user])
 
-    get :show, id: app.id
+    get :show, id: app.subdomain
 
     expect(response).to have_http_status(:success)
     expect(assigns(:app)).to eq app
@@ -34,7 +34,7 @@ RSpec.describe AppsController do
 
   it 'unable to see not owned app' do
     app = create(:app)
-    get :show, id: app.id
+    get :show, id: app.subdomain
 
     expect_no_authorized
   end
@@ -53,7 +53,7 @@ RSpec.describe AppsController do
     it 'assigned to the user' do
       app = create(:app, users: [user])
 
-      get :edit, id: app.id
+      get :edit, id: app.subdomain
 
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:edit)
@@ -63,7 +63,7 @@ RSpec.describe AppsController do
     it 'is forbidden for no author' do
       app = create(:app)
 
-      get :edit, id: app.id
+      get :edit, id: app.subdomain
 
       expect_no_authorized
     end
@@ -71,7 +71,9 @@ RSpec.describe AppsController do
     it 'updates parameters' do
       app = create(:app, users: [user])
 
-      put :update, app: { name: 'updated', subdomain: 'newsub' }, id: app.id
+      put :update,
+          id: app.subdomain,
+          app: { name: 'updated', subdomain: 'newsub' }
       app.reload
 
       expect(app.name).to eq 'updated'
@@ -84,7 +86,7 @@ RSpec.describe AppsController do
     it 'assigned to the user' do
       app = create(:app, users: [user])
 
-      expect { delete :destroy, id: app.id }.
+      expect { delete :destroy, id: app.subdomain }.
         to change { App.count }.by -1
       expect(response).to redirect_to apps_path
     end
@@ -92,7 +94,7 @@ RSpec.describe AppsController do
     it 'is forbidden for no author' do
       app = create(:app)
 
-      delete :destroy, id: app.id
+      delete :destroy, id: app.subdomain
 
       expect_no_authorized
     end

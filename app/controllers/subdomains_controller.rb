@@ -14,8 +14,11 @@ class SubdomainsController < ApplicationController
     end
   end
 
-  def csrf_token
-    render json: { csrfToken: form_authenticity_token }
+  def info
+    render json: {
+      csrfToken: form_authenticity_token,
+      userLogin: current_user.login
+    }
   end
 
   private

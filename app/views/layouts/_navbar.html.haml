@@ -1,32 +1,41 @@
-%header.navbar.navbar-fixed-top.navbar-default
+%header.navbar.navbar-default.navbar-fixed-top.navbar-inverse
+  .locale.btn-group.btn-group-xs.navbar-btn
+    = locale_link(:pl)
+    = locale_link(:en)
   .container
-    = link_to t('code_name'), root_path, class: 'navbar-brand'
+    .navbar-header
+      %button.navbar-toggle{:type => 'button', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse'}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to image_tag("navbar-logo2.png", :border=>0, id: 'navbar-logo'), root_path
 
-    - if user_signed_in?
+    .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
-        = nav_link(controller: :apps) do
-          = link_to t('apps.title'), apps_path
-
-    %ul.nav.navbar-nav.pull-right
-      %li.locale
-        .btn-group.btn-group-xs.navbar-btn
-          = locale_link(:pl)
-          = locale_link(:en)
-      - if user_signed_in?
-        %p.navbar-text= current_user.name
-        = nav_link controller: :help do
-          = link_to help_path,
-                    data: { placement: 'bottom' },
-                    title: t('help.title') do
-            = icon('question')
         %li
-          = link_to destroy_user_session_path,
-                    data: { placement: 'bottom' },
-                    title: t('logout'), method: :delete do
-            = icon('sign-out')
-      - else
-        .navbar-form.navbar-left
-          = link_to user_omniauth_authorize_path(:open_id),
-                    class: 'btn btn-primary' do
-            = icon('sign-in', t('plgrid_sign_in'))
+          = link_to t('code_name'), root_path
+        - if user_signed_in?
+          %li
+            = nav_link(controller: :apps) do
+              = link_to t('apps.title'), apps_path
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            %a
+              = current_user.name
+          %li
+            = nav_link controller: :help do
+              = link_to help_path,
+                        data: { placement: 'bottom' },
+                        title: t('help.title') do
+                = icon('question')
 
+          %li
+            = link_to destroy_user_session_path,
+                      data: { placement: 'bottom' },
+                      title: t('logout'), method: :delete do
+              = icon('sign-out')
+        - else
+          %li
+            = link_to user_omniauth_authorize_path(:open_id) do
+              = icon('sign-in', t('plgrid_sign_in'))

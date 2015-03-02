@@ -1,6 +1,8 @@
 class AppsController < ApplicationController
-  before_filter :set_apps, only: [:index, :new, :show, :edit]
-  load_and_authorize_resource
+  before_filter :set_apps,
+                only: [:index, :new, :show, :edit, :deploy, :activity]
+
+  load_and_authorize_resource find_by: :subdomain
 
   def index
   end
@@ -10,7 +12,7 @@ class AppsController < ApplicationController
 
   def create
     @app.users << current_user
-    if CreateAppService.new(@app).execute
+    if CreateAppService.new(current_user, @app).execute
       redirect_to @app, notice: I18n.t('apps.created')
     else
       render action: 'new'
@@ -21,7 +23,7 @@ class AppsController < ApplicationController
   end
 
   def update
-    if UpdateAppService.new(@app, app_params).execute
+    if UpdateAppService.new(current_user, @app, app_params).execute
       redirect_to @app, notice: I18n.t('apps.updated')
     else
       redner action: 'edit'
@@ -29,6 +31,13 @@ class AppsController < ApplicationController
   end
 
   def show
+  end
+
+  def deploy
+  end
+
+  def activity
+    @activities = @app.activities.order(created_at: :desc)
   end
 
   def destroy

@@ -23,6 +23,7 @@ gem 'devise'
 gem 'ruby-openid', '~> 2.6.0'
 gem 'omniauth-openid'
 gem 'cancancan'
+gem 'friendly_id'
 
 gem 'puma'
 
@@ -47,7 +48,6 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false
-  gem 'guard-spring'
   gem 'database_cleaner'
   gem 'faker'
   gem "codeclimate-test-reporter", require: nil

@@ -3,7 +3,7 @@ pl:
   code_name: Aplikacje
   logout: Wyloguj się
   plgrid_sign_in: Zaloguj się przez PL-Grid
-  add_new: Dodaj nowy
+  add_new: Dodaj nową
   cancel: Anuluj
   create: Stwórz
   edit: Edytuj
@@ -24,8 +24,40 @@ pl:
     created: Nowa aplikacja została pomyślnie stworzona
     updated: Aplikacja została pomyślnie zaktualizowana
     login_tab: Tekst logowania
-    files_tab: Pliki
+    deploy_tab: Nową wersja
+    activity_tab: Aktywność
     already_a_member: Ten użytkownik już jest zapisany do aplikacji
   help:
     title: Pomoc
     README: Ogólne
+  footer:
+    contact:
+      key: Kontakt
+      mail: plgapp@plgrid.pl
+    address:
+      key: Adres
+      line1: ul. Gramatyka 8a pokój 414,
+      line2: +48 617 43 41
+      line3: 30-071 Kraków, Polska
+    links:
+      key: Nasze linki
+      dice:
+        name: Zespół DICE
+        link: http://dice.cyfronet.pl
+      cyfronet:
+        name: Cyfronet
+        link: http://www.cyfronet.krakow.pl
+      agh:
+        name: AGH
+        link: http://agh.edu.pl
+    about:
+      key: O zespole Dice
+      desc: Jesteśmy zespołem uczestniczącym w wielu narodowych oraz międzynarodowych projektach badawczych, gdzie szukamy synergii między nauką a rozwiązaniami komercyjnymi.
+  home:
+    title: Tworzenie aplikacji naukowych może być proste
+    desc: Polski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    apps-title: Nasze aplikacje dziedzinowe
+  activity:
+    deploy: Wrana nowa wersja aplikacji
+    updated: Zaktualizowane informacje na temat aplikacji
+    created: Sworzona aplikacja

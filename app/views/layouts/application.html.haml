@@ -2,7 +2,8 @@
 %html
   = render 'layouts/head'
   %body
-    .container
-      = render 'layouts/navbar'
+    = render 'layouts/navbar'
+    .container{id: 'content'}
       = render 'layouts/flash'
       = yield
+    = render 'layouts/footer'

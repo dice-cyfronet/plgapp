@@ -1,0 +1,56 @@
+body, html {
+  padding: 0;
+  height: 100%;
+}
+
+#navbar-logo {
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#logo-big {
+  height: 230px;
+  padding-left: 10px;
+  @include center-block();
+}
+
+#content {
+  padding-top: 75px;
+  padding-bottom: 50px;
+  min-height: 90%;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.apps-preview {
+
+}
+
+.appl-icon {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100pt;
+}
+
+.app-preview {
+  padding: 20px;
+}
+
+
+footer {
+  margin-top: -20px;
+  padding-bottom: 15px;
+  min-height: 10%;
+  width: 100%;
+  background-color: $gray-darker;
+  color: $gray;
+}
+
+.footer-section {
+  padding-top: 8px;
+}

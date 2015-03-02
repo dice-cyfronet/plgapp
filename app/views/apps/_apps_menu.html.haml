@@ -1,15 +1,16 @@
-%legend
-  = t('apps.title')
-  .pull-right
-    = link_to new_app_path,
-              class: 'btn btn-xs btn-create',
-              title: t('apps.new') do
-      = icon('plus', t('add_new'))
+%h2= t('apps.title')
+%hr
+
+= link_to new_app_path,
+  class: 'btn btn-sm btn-create add_app',
+  title: t('apps.new') do
+  = icon('plus', t('add_new'))
 
 %ul.nav.nav-pills.nav-stacked
   - @apps.each do |app|
-    %li
+    = nav_tab :id, app.subdomain do
       = link_to app do
-        = app.name
-        %small.text-muted
-          = app.subdomain
+        %h5{style: 'word-wrap: break-word;'}
+          = app.name
+          %small
+            = app.subdomain

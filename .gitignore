@@ -18,3 +18,4 @@
 /user_apps/*
 !/user_apps/.keep
 !/user_apps/test1
+.idea

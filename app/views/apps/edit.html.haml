@@ -2,12 +2,12 @@
   .col-md-3
     = render('apps_menu')
   .col-md-9
-    .edit
+    .well
       %h4
         = t('apps.edit')
         .pull-right
           .btn-group
-            %button#save-app.btn.btn-xs.btn-create{ title: t('apps.save') }
+            %button#save-app.btn.btn-sm.btn-create{ title: t('apps.save') }
               = icon('save', t('save'))
             :javascript
               $(function() {
@@ -16,7 +16,7 @@
                 });
               });
             = link_to t('cancel'), @app,
-                      class: 'btn btn-xs btn-default',
+                      class: 'btn btn-sm btn-default',
                       title: t('cancel')
       %hr
 

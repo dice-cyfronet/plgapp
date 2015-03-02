@@ -7,6 +7,10 @@ RSpec.describe App do
   it { should validate_presence_of :subdomain }
   it { should validate_uniqueness_of :subdomain }
 
+  it { should have_many(:app_members).dependent(:destroy) }
+  it { should have_many(:users).through(:app_members) }
+  it { should have_many(:activities).dependent(:destroy) }
+
   context 'app slug' do
     it 'is converted into safe slug' do
       my_app = create(:app, subdomain: '../\a b#?^&%')

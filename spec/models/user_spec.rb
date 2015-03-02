@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User do
+  it { should have_many(:app_members).dependent(:destroy) }
+  it { should have_many(:apps) }
+  it { should have_many(:activities).dependent(:nullify) }
+
   it 'creates new user while logging using omniauth' do
       expect { User.from_plgrid_omniauth(auth) }.to change { User.count }.by(1)
     end
