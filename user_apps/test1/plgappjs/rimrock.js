@@ -5,20 +5,6 @@
 var Rimrock = function () {
     var rimrockProxy = document.baseURI + 'rimrock';
 
-    var getCSRFToken = function (cb) {
-        var success = function (data, status) {
-            cb(null, data.csrfToken);
-        };
-        var error = function (xhr, status, error) {
-            cb(parseError(xhr, status, error));
-        };
-        $.ajax({
-            url: document.baseURI + '/csrf_token',
-            success: success,
-            error: error
-        });
-    };
-
     var extendByFields = function (target, source, fields) {
         $.each(fields, function (idx, field) {
             if (source.hasOwnProperty(field)) {
@@ -28,20 +14,20 @@ var Rimrock = function () {
         return target;
     };
 
-    var parseError = function(xhr, status, error) {
+    //TODO: user parser error from PlgApp
+    var parseError = function (xhr, status, error) {
         var data = xhr.responseText;
         try {
             data = JSON.parse(data);
         } catch (err) {
-            //silently ignore JSON parse errors
         }
-        return new AppError(status + ' ' + error, data);
+        return new AppError(status + ' ' + xhr.status + ' ' + error, data);
     };
 
     // /process
 
     this.run = function (cb, job) {
-        getCSRFToken(function (err, token) {
+        plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
@@ -77,7 +63,7 @@ var Rimrock = function () {
     // /jobs
 
     this.submitJob = function (cb, job) {
-        getCSRFToken(function (err, token) {
+        plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
@@ -139,7 +125,7 @@ var Rimrock = function () {
     };
 
     this.deleteJob = function (cb, job_id) {
-        getCSRFToken(function (err, token) {
+        plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
@@ -170,7 +156,7 @@ var Rimrock = function () {
     };
 
     this.abortJob = function (cb, job_id) {
-        getCSRFToken(function (err, token) {
+        plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
@@ -180,7 +166,7 @@ var Rimrock = function () {
 
         var success = function (data, status) {
             if (cb != undefined) {
-                cb(null, data);
+                cb(null);
             }
         };
         var error = function (xhr, status, error) {

@@ -58,15 +58,15 @@
 //            }, job_id);
 //        }
 
-        function abortJob(job_id) {
-            rimrock.abortJob(function (err) {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                console.log('job', job_id, 'aborted');
-            }, job_id);
-        }
+//        function abortJob(job_id) {
+//            rimrock.abortJob(function (err) {
+//                if (err) {
+//                    console.log(err);
+//                    return;
+//                }
+//                console.log('job', job_id, 'aborted');
+//            }, job_id);
+//        }
 
         rimrock.jobs(function (err, result) {
             if (err) {
@@ -76,7 +76,14 @@
             console.log(result);
             var job = result.shift();
             console.log(job);
-            abortJob(job.job_id);
+            console.log(job.job_id);
+            rimrock.abortJob(function (err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log("job aborted");
+            }, job.job_id);
         });
 
 //        rimrock.job(function (err, result) {
