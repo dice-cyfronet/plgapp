@@ -5,6 +5,8 @@
 var Rimrock = function () {
     var rimrockProxy = document.baseURI + 'rimrock';
 
+    var monitoredJobs = {};
+
     var extendByFields = function (target, source, fields) {
         $.each(fields, function (idx, field) {
             if (source.hasOwnProperty(field)) {
@@ -14,7 +16,7 @@ var Rimrock = function () {
         return target;
     };
 
-    //TODO: user parser error from PlgApp
+    //TODO: use parser error from PlgApp
     var parseError = function (xhr, status, error) {
         var data = xhr.responseText;
         try {
@@ -22,6 +24,75 @@ var Rimrock = function () {
         } catch (err) {
         }
         return new AppError(status + ' ' + xhr.status + ' ' + error, data);
+    };
+
+    var addMonitoredJob = function (job_id, state, cbUpdate) {
+        monitoredJobs[job_id] = {
+            job_id: job_id,
+            state: state,
+            cbUpdate: cbUpdate
+        };
+        if (Object.keys(monitoredJobs).length == 1) {
+            //this is the first item in active JobsArray so we need to start job monitor
+            setTimeout(monitorJobs, 5000);
+        }
+    };
+
+    var removeMonitoredJob = function (job_id) {
+        delete monitoredJobs[job_id];
+    };
+
+    var monitorJobs = function () {
+        var delayCheck = function () {
+            if (Object.keys(monitoredJobs).length > 0) {
+                setTimeout(monitorJobs, 5000);
+            }
+        };
+
+        //get states of all jobs
+        this.jobs(function (err, job_array) {
+            if (err) {
+                console.log('error while monitoring jobs!');
+                console.log(err);
+                //still try again later
+                delayCheck();
+                return;
+            }
+
+            //convert job list to object with fields
+            var jobs = {};
+            for (var i = 0; i < job_array.length; i++) {
+                var job = job_array[i];
+                jobs[job.job_id] = job;
+            }
+
+            //loop over monitored jobs, and check for changes
+            for (mJobId in monitoredJobs) {
+                if (monitoredJobs.hasOwnProperty(mJobId)) {
+                    var mJob = monitoredJobs[mJobId];
+                    console.log('checking job:', mjob);
+                    if (mJobId in jobs) {
+                        console.log('got some info');
+                        var job = jobs[mJobId];
+                        if (job.status != mJob.status) {
+                            console.log('new state!');
+                            if (job.status == 'FINISHED' || job.status == 'ERROR') {
+                                removeMonitoredJob(mJobId);
+                            }
+                            job.previous_status = mJob.status;
+                            mJob.cbUpdate(null, job);
+                        }
+                    } else {
+                        //monitored job not found in job list
+                        mJob.cbUpdate(new AppError(mJobId + ' not found in jobs list'));
+                    }
+
+                }
+            }
+
+            delayCheck();
+        });
+
     };
 
     // /process
@@ -73,6 +144,7 @@ var Rimrock = function () {
 
         var success = function (data, status) {
             if (cb != undefined) {
+                addMonitoredJob(data.job_id, data.state, job.onUpdate);
                 cb(null, data);
             }
         };

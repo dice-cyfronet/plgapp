@@ -36,15 +36,10 @@
 //            working_directory: '/mnt/auto/people/plgpawlik/test',
 //            script: '#!/bin/bash\necho hello>file\nsleep30s\necho hello again!\nexit 0',
 //            tag: 'tag',
-//            onUpdate: function (err, new_status) {
+//            onUpdate: function (err, job) {
 //                console.log('onUpdate:');
 //                console.log(err);
-//                console.log(new_status);
-//            },
-//            onFinish: function (err, result) {
-//                console.log('onFinish:');
-//                console.log(err);
-//                console.log(result);
+//                console.log(job);
 //            }
 //        });
 
@@ -68,23 +63,23 @@
 //            }, job_id);
 //        }
 
-        rimrock.jobs(function (err, result) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.log(result);
-            var job = result.shift();
-            console.log(job);
-            console.log(job.job_id);
-            rimrock.abortJob(function (err) {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                console.log("job aborted");
-            }, job.job_id);
-        });
+//        rimrock.jobs(function (err, result) {
+//            if (err) {
+//                console.log(err);
+//                return;
+//            }
+//            console.log(result);
+//            var job = result.shift();
+//            console.log(job);
+//            console.log(job.job_id);
+//            rimrock.abortJob(function (err) {
+//                if (err) {
+//                    console.log(err);
+//                    return;
+//                }
+//                console.log("job aborted");
+//            }, job.job_id);
+//        });
 
 //        rimrock.job(function (err, result) {
 //                    if (!err) {
