@@ -13,18 +13,18 @@
  *= require_self
  */
 
- @import "bootswatch/variables";
+@import "bootswatch/variables";
 
- @import "bootstrap";
- @import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-sprockets";
 
- @import "font-awesome-sprockets";
- @import "font-awesome";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
- @import "bootswatch/bootswatch";
+@import "bootswatch/bootswatch";
 
- @import "generic/*";
- @import "sections/*";
+@import "nprogress";
+@import "nprogress-bootstrap";
 
-
-
+@import "generic/*";
+@import "sections/*";

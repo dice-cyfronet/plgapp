@@ -167,6 +167,7 @@ GEM
     notiffany (0.0.6)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    nprogress-rails (0.1.6.6)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
@@ -326,6 +327,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   newrelic_rpm
+  nprogress-rails
   omniauth-openid
   pg
   puma
