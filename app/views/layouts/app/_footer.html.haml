@@ -1,0 +1,40 @@
+%footer.app-footer
+  .container.footer-container
+    .row
+      %h2.pull-right.powered-by
+        powered by app
+        =link_to image_tag("navbar-logo2.png", :border=>0, id: 'navbar-logo'), root_url(subdomain: Rails.configuration.constants['domain_prefix'])
+
+    .row
+      .col-md-2
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.contact.key')
+          %p
+            = t('footer.contact.mail')
+      .col-md-3
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.address.key')
+          %p
+            = t('footer.address.line1')
+            %br
+            = t('footer.address.line2')
+            %br
+            = t('footer.address.line3')
+      .col-md-2
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.links.key')
+          %p
+            = link_to t('footer.links.dice.name'), t('footer.links.dice.link')
+            %br
+            = link_to t('footer.links.cyfronet.name'), t('footer.links.cyfronet.link')
+            %br
+            = link_to t('footer.links.agh.name'), t('footer.links.agh.link')
+      .col-md-5
+        .footer-section
+          %h5.text-uppercase
+            = t('footer.about.key')
+          %p
+            = t('footer.about.desc')

@@ -1,0 +1,39 @@
+#app-content {
+  padding-top: 75px;
+  min-height: 80%;
+}
+
+.user-logo {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 150pt;
+  margin-top: 20px;
+
+}
+
+.powered-by {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.app-footer {
+  min-height: 20%;
+  width: 100%;
+  background-color: $gray;
+  color: $gray-darker;
+}
+
+.app-footer a {
+  color: $gray-darker;
+}
+
+.app-footer-container {
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+
+.app-footer-section {
+  padding-top: 5px;
+}
