@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-RSpec.feature 'App pages' do
+RSpec.feature 'App info' do
   include OauthHelper
   include AuthenticationHelper
   include Warden::Test::Helpers
 
   scenario 'returns info about CSRF token' do
-    logged_in_subdomain('dummy') do
-      visit csrf_token_path
+    logged_in_subdomain('dummy') do |user|
+      visit info_path
 
+      expect(json_response['userLogin']).to eq user.login
       expect(json_response['csrfToken']).to_not be_nil
     end
   end
