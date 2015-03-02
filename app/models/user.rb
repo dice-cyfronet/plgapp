@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :apps,
            through: :app_members
 
+  has_many :activities,
+           dependent: :nullify,
+           foreign_key: 'author_id'
+
   def self.from_plgrid_omniauth(auth)
     find_or_initialize_by(login: auth.info.nickname).tap do |user|
       info = auth.info

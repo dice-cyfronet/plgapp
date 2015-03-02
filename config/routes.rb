@@ -21,7 +21,7 @@ Rails.application.routes.draw do
           via: [:get, :post, :put, :delete],
           id: /.*/
 
-    get '/csrf_token', to: 'subdomains#csrf_token', as: :csrf_token
+    get '/info', to: 'subdomains#info', as: :info
     get '/:id', to: 'subdomains#show', id: /.*/
   end
 
@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     resources :apps do
       member do
         get :download
+        get :deploy
+        get :activity
       end
     end
     get 'help', to: 'help#show'

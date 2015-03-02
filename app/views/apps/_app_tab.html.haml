@@ -1,0 +1,22 @@
+%h4
+  =link_to root_url(subdomain: @app.full_subdomain) do
+    = @app.name
+    %span.text-muted (#{with_subdomain(@app.full_subdomain)})
+  .pull-right
+    .btn-group
+      = link_to t('edit'), [:edit, @app],
+                class: 'btn btn-sm btn-success',
+                title: t('apps.edit')
+      = link_to t('delete'), @app, method: :delete,
+                class: 'btn btn-sm btn-danger',
+                data: { confirm: t('apps.are_you_sure') },
+                title: t('apps.delete')
+%hr
+
+%ul.nav.nav-tabs#tabs1
+  = nav_link(action: :show) do
+    = link_to t('apps.login_tab'), @app
+  = nav_link(action: :deploy) do
+    = link_to t('apps.deploy_tab'), [:deploy, @app]
+  = nav_link(action: :activity) do
+    = link_to t('apps.activity_tab'), [:activity, @app]

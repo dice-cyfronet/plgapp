@@ -6,5 +6,6 @@
       = render('app_tab')
       .tab-content
         .tab-pane.active.app-show-content
-          %p
-            = markdown(@app.login_text)
+          %ul.list-group
+            - @activities.each do |activity|
+              = render('activity', activity: activity)

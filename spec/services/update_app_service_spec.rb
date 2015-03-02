@@ -3,13 +3,14 @@ require 'rails_helper'
 RSpec.describe UpdateAppService do
   include AppSpecHelper
 
+  let(:author) { create(:user) }
   let(:app) { build(:app) }
 
-  before { CreateAppService.new(app).execute }
+  before { CreateAppService.new(author, app).execute }
 
   it 'updates app attributes' do
     params = { name: 'New name' }
-    subject = UpdateAppService.new(app, params)
+    subject = UpdateAppService.new(author, app, params)
 
     with_app(app) do
       subject.execute
@@ -20,7 +21,7 @@ RSpec.describe UpdateAppService do
 
   it 'rename app dir when subdomain changed' do
     params = { subdomain: 'new_subdomain' }
-    subject = UpdateAppService.new(app, params)
+    subject = UpdateAppService.new(author, app, params)
     old_app_dir = app_dir(app)
 
     with_app(app) do
@@ -33,7 +34,7 @@ RSpec.describe UpdateAppService do
 
   it 'does not rename app dir when update failed' do
     params = { subdomain: 'new_subdomain', name: nil }
-    subject = UpdateAppService.new(app, params)
+    subject = UpdateAppService.new(author, app, params)
     old_app_dir = app_dir(app)
     new_app_dir = app_dir('new_subdomain')
 
@@ -45,6 +46,19 @@ RSpec.describe UpdateAppService do
 
       # ensure to remove correct dir when leaving with_app
       app.reload
+    end
+  end
+
+  it 'creates activity log for update' do
+    params = { name: 'New name' }
+    subject = UpdateAppService.new(author, app, params)
+
+    with_app(app) do
+      expect { subject.execute }.to change { Activity.count }.by 1
+      activity = app.activities.last
+
+      expect(activity.activity_type).to eq 'updated'
+      expect(activity.author).to eq author
     end
   end
 end
