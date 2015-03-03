@@ -52,7 +52,7 @@ var Rimrock = function () {
 
         //TODO: change rimrock to proper this working with setTimeout
         //get states of all jobs
-        rimrock.jobs(function (err, job_array) {
+        rimrock.jobs(function (err, jobArray) {
             if (err) {
                 console.log('error while monitoring jobs!');
                 console.log(err);
@@ -63,8 +63,8 @@ var Rimrock = function () {
 
             //convert job list to object with fields
             var jobs = {};
-            for (var i = 0; i < job_array.length; i++) {
-                var j = job_array[i];
+            for (var i = 0; i < jobArray.length; i++) {
+                var j = jobArray[i];
                 jobs[j.job_id] = j;
             }
 
