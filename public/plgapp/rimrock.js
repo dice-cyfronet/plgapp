@@ -26,9 +26,9 @@ var Rimrock = function () {
         return new AppError(status + ' ' + xhr.status + ' ' + error, data);
     };
 
-    var addMonitoredJob = function (job_id, status, cbUpdate) {
-        monitoredJobs[job_id] = {
-            job_id: job_id,
+    var addMonitoredJob = function (jobId, status, cbUpdate) {
+        monitoredJobs[jobId] = {
+            job_id: jobId,
             status: status,
             cbUpdate: cbUpdate
         };
@@ -38,8 +38,8 @@ var Rimrock = function () {
         }
     };
 
-    var removeMonitoredJob = function (job_id) {
-        delete monitoredJobs[job_id];
+    var removeMonitoredJob = function (jobId) {
+        delete monitoredJobs[jobId];
     };
 
     var monitorJobs = function () {
@@ -185,7 +185,7 @@ var Rimrock = function () {
         });
     };
 
-    this.job = function (cb, job_id) {
+    this.job = function (cb, jobId) {
         var success = function (data, status) {
             cb(null, data)
         };
@@ -193,13 +193,13 @@ var Rimrock = function () {
             cb(parseError(xhr, status, error));
         };
         $.ajax({
-            url: rimrockProxy + '/jobs/' + job_id,
+            url: rimrockProxy + '/jobs/' + jobId,
             success: success,
             error: error
         });
     };
 
-    this.deleteJob = function (cb, job_id) {
+    this.deleteJob = function (cb, jobId) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
@@ -221,7 +221,7 @@ var Rimrock = function () {
 
         var doRequest = function (token) {
             $.ajax({
-                url: rimrockProxy + '/jobs/' + job_id,
+                url: rimrockProxy + '/jobs/' + jobId,
                 type: 'DELETE',
                 headers: {'X-CSRF-Token': token},
                 success: success,
@@ -230,7 +230,7 @@ var Rimrock = function () {
         };
     };
 
-    this.abortJob = function (cb, job_id) {
+    this.abortJob = function (cb, jobId) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
@@ -253,7 +253,7 @@ var Rimrock = function () {
         var doRequest = function (token) {
             var data = {action: 'abort'};
             $.ajax({
-                url: rimrockProxy + '/jobs/' + job_id,
+                url: rimrockProxy + '/jobs/' + jobId,
                 type: 'PUT',
                 headers: {'X-CSRF-Token': token},
                 contentType: 'application/json',
