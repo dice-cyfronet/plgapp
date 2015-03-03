@@ -33,7 +33,8 @@ var Rimrock = function () {
             cbUpdate: cbUpdate
         };
         if (Object.keys(monitoredJobs).length == 1) {
-            //this is the first item in active JobsArray so we need to start job monitor
+            //this is the first item in active JobsArray so we need to start
+            // job monitor
             setTimeout(monitorJobs, 5000);
         }
     };
@@ -74,7 +75,8 @@ var Rimrock = function () {
                     if (mJobId in jobs) {
                         var job = jobs[mJobId];
                         if (job.status != mJob.status) {
-                            if (job.status == 'FINISHED' || job.status == 'ERROR') {
+                            if (job.status == 'FINISHED' ||
+                                job.status == 'ERROR') {
                                 removeMonitoredJob(mJobId);
                             }
                             job.previous_status = mJob.status;
@@ -83,7 +85,8 @@ var Rimrock = function () {
                         }
                     } else {
                         //monitored job not found in job list
-                        mJob.cbUpdate(new AppError(mJobId + ' not found in jobs list'));
+                        mJob.cbUpdate(new AppError(mJobId +
+                        ' not found in jobs list'));
                     }
 
                 }
@@ -154,7 +157,8 @@ var Rimrock = function () {
         };
 
         var doRequest = function (token) {
-            var data = extendByFields({}, job, ['host', 'script', 'working_directory', 'tag']);
+            var data = extendByFields({}, job, ['host', 'script',
+                'working_directory', 'tag']);
             $.ajax({
                 url: rimrockProxy + '/jobs',
                 type: 'POST',
@@ -168,7 +172,8 @@ var Rimrock = function () {
     };
 
     this.registerCallback = function (cb, jobId, onUpdate, status) {
-        addMonitoredJob(jobId, status == undefined ? 'none' : status, onUpdate);
+        addMonitoredJob(jobId, status == undefined ? 'none' : status,
+            onUpdate);
     };
 
     this.jobs = function (cb, tag) {
@@ -179,7 +184,8 @@ var Rimrock = function () {
             cb(parseError(xhr, status, error));
         };
         $.ajax({
-            url: rimrockProxy + '/jobs' + (tag == undefined ? '' : '?tag=' + tag),
+            url: rimrockProxy + '/jobs' + (tag == undefined ? '' : '?tag=' +
+            tag),
             success: success,
             error: error
         });
