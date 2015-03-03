@@ -1,3 +1,9 @@
-%li.list-group-item
-  #{activity.author.name}:
-  = t("activity.#{activity.activity_type}")
+%li
+  .timeline-badge
+    = icon('cloud-upload')
+  .timeline-panel
+    .timeline-heading
+      %h4.timeline-title
+        = activity.author.name
+    .timeline-body
+      = t("activity.#{activity.activity_type}")

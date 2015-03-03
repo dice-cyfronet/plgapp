@@ -6,6 +6,6 @@
       = render('app_tab')
       .tab-content
         .tab-pane.active.app-show-content
-          %ul.list-group
+          %ul.timeline
             - @activities.each do |activity|
               = render('activity', activity: activity)
