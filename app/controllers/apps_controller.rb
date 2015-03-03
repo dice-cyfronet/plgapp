@@ -15,6 +15,7 @@ class AppsController < ApplicationController
     if CreateAppService.new(current_user, @app).execute
       redirect_to @app, notice: I18n.t('apps.created')
     else
+      set_apps
       render action: 'new'
     end
   end
@@ -26,6 +27,7 @@ class AppsController < ApplicationController
     if UpdateAppService.new(current_user, @app, app_params).execute
       redirect_to @app, notice: I18n.t('apps.updated')
     else
+      set_apps
       redner action: 'edit'
     end
   end

@@ -24,4 +24,12 @@ RSpec.describe App do
 
     expect(my_app.full_subdomain).to eq 'my-app.app'
   end
+
+  context 'reserved dev postfix' do
+    it 'disallow -dev at the end of subdomain name' do
+      my_app = build(:app, subdomain: 'app-dev')
+
+      expect(my_app.valid?).to be_falsy
+    end
+  end
 end

@@ -22,7 +22,9 @@ class App < ActiveRecord::Base
             presence: true,
             uniqueness: { case_sensitive: false }
 
-  before_save :slug_subdomain
+  validate :not_a_devel_subdomain
+
+  before_validation :slug_subdomain
 
   def deploy?
     content_changed?
@@ -38,12 +40,18 @@ class App < ActiveRecord::Base
 
   private
 
+  def not_a_devel_subdomain
+    if subdomain && subdomain.end_with?('-dev')
+      errors.add(:subdomain, I18n.t('apps.without_dev'))
+    end
+  end
+
   def subdomain_postfix
     domain_prefix = Rails.configuration.constants['domain_prefix']
     domain_prefix ? ".#{domain_prefix}" : ''
   end
 
   def slug_subdomain
-    self.subdomain = to_slug(subdomain)
+    self.subdomain = to_slug(subdomain) if subdomain
   end
 end
