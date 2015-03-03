@@ -16,9 +16,12 @@
 
 <script>
     $(function () {
-        plgdata.generateDownloadUrl(function(err, url) {
+        plgdata.generateUrl(function(err, url) {
             console.log(url);
-        }, "wafelek.txt");
+        }, "~/wafelek.txt");
+        plgdata.generateUrl(function(err, url) {
+            console.log(url);
+        }, "/storage/bigdata.txt");
 //        plgdata.mkdir(function (err) {
 //            if (err) {
 //                console.log(err);

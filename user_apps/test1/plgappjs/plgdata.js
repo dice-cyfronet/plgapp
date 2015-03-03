@@ -20,13 +20,18 @@ var PLGData = function () {
         return '/people/' + userLogin + '/';
     };
 
-    this.generateDownloadUrl = function (cb, relativePath) {
+    this.generateUrl = function (cb, path) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
             }
-            cb(null, downloadURL + getHome(login) + relativePath);
+            var relativeComponent = '';
+            if (path.length > 1 && path.slice(0, 2) == '~/') {
+                relativeComponent = getHome(login);
+                path = path.slice(2);
+            }
+            cb(null, downloadURL + relativeComponent + path);
         });
     };
 
