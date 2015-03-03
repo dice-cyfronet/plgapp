@@ -1,3 +1,9 @@
-= link_to t('plgrid_sign_in'),
-          omniauth_authorize_path(resource_name, :open_id),
-          class: 'btn btn-lg btn-primary'
+= icon('cubes', '', :class=>'user-logo')
+
+
+.bs-docs-section
+  %h1.page-header
+    = @app.name
+
+  %p.text-center
+    = markdown(@app.login_text)

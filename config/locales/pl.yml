@@ -60,4 +60,6 @@ pl:
   activity:
     deploy: Wrana nowa wersja aplikacji
     updated: Zaktualizowane informacje na temat aplikacji
-    created: Sworzona aplikacja
+    created: Stworzona aplikacja   
+  powered-by:
+    wspierane przez app

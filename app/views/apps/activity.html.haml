@@ -5,7 +5,7 @@
     .well
       = render('app_tab')
       .tab-content
-        .tab-pane.active
+        .tab-pane.active.app-show-content
           %ul.list-group
             - @activities.each do |activity|
               = render('activity', activity: activity)

@@ -1,14 +1,11 @@
 !!! 5
 %html
   = render 'layouts/head'
-  %body.login-page
-    .container
+  %body
+    = render 'layouts/app/navbar'
+    .container{id: 'app-content'}
       = render 'layouts/flash'
-      .row
-        .col-sm-5.pull-right
-          = yield
-        .col-sm-7.pull-left
-          - if @app.blank?
-            Some introduction
-          - else
-            = markdown(@app.login_text)
+      = yield
+    = render 'layouts/app/footer'
+
+

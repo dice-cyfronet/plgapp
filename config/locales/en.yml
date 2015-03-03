@@ -61,4 +61,5 @@ en:
     deploy: Deployd new application version
     updated: Updated application details
     created: Created application
-
+  powered-by:
+    powered by app  
