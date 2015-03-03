@@ -26,12 +26,14 @@ var PLGData = function () {
                 cb(err);
                 return;
             }
-            var relativeComponent = '';
-            if (path.length > 1 && path.slice(0, 2) == '~/') {
-                relativeComponent = getHome(login);
-                path = path.slice(2);
+            if (path.length > 1 && path.charAt(0) == '/') {
+                cb(null, downloadURL + path);
+            } else {
+                if (path.length > 1 && path.slice(0, 2) == '~/') {
+                    path = path.slice(2);
+                }
+                cb(null, downloadURL + getHome(login) + path);
             }
-            cb(null, downloadURL + relativeComponent + path);
         });
     };
 
