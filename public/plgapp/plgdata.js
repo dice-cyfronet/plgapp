@@ -59,8 +59,8 @@ var PLGData = function () {
 
         var doRequest = function (userLogin, token) {
             $.ajax({
-                url: plgdataProxy + '/mkdir' + getHome(userLogin)
-                + relativePath,
+                url: plgdataProxy + '/mkdir' + getHome(userLogin) +
+                relativePath,
                 type: 'POST',
                 headers: {'X-CSRF-Token': token},
                 contentType: 'application/json',
