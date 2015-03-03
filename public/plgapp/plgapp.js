@@ -4,9 +4,9 @@
 
 var PlgApp = function () {
     var baseLocation = document.baseURI;
-    var rimrockJs = 'plgappjs/rimrock.js';
-    var plgdataJs = 'plgappjs/plgdata.js';
-    var datanetJs = 'plgappjs/datanet.js';
+    var rimrockJs = 'plgapp/rimrock.js';
+    var plgdataJs = 'plgapp/plgdata.js';
+    var datanetJs = 'plgapp/datanet.js';
     var signOut = 'sign_out';
     var openIdLogoutFrame = '<iframe src="https://openid.plgrid.pl/logout" style="display:none"></iframe>';
     var csrfToken = null;
