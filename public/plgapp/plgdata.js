@@ -47,19 +47,20 @@ var PLGData = function () {
         });
 
         var success = function (data, status) {
-            if (cb != undefined) {
+            if (cb !== undefined) {
                 cb(null);
             }
         };
         var error = function (xhr, status, error) {
-            if (cb != undefined) {
+            if (cb !== undefined) {
                 cb(parseError(xhr, status, error));
             }
         };
 
         var doRequest = function (userLogin, token) {
             $.ajax({
-                url: plgdataProxy + '/mkdir' + getHome(userLogin) + relativePath,
+                url: plgdataProxy + '/mkdir' + getHome(userLogin)
+                + relativePath,
                 type: 'POST',
                 headers: {'X-CSRF-Token': token},
                 contentType: 'application/json',
