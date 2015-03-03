@@ -3,7 +3,10 @@ class CreateAppService < AppService
     build_activity(:created)
 
     app.save.tap do |saved|
-      FileUtils.mkdir_p(app_dir(app)) if saved
+      if saved
+        FileUtils.mkdir_p(app_dir(app))
+        FileUtils.mkdir_p(app_dev_dir(app))
+      end
     end
   end
 end

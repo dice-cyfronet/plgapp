@@ -9,6 +9,7 @@ module AppSpecHelper
     yield app
   ensure
     FileUtils.rm_rf(app_dir(app))
+    FileUtils.rm_rf(app_dev_dir(app))
   end
 
   def create_app(author = create(:user))

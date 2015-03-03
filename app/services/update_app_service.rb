@@ -6,6 +6,7 @@ class UpdateAppService < AppService
 
   def execute
     old_app_dir = app_dir(app)
+    old_app_dev_dir = app_dev_dir(app)
     app.assign_attributes(@params)
 
     build_activity(:updated) if app.update?
@@ -15,6 +16,7 @@ class UpdateAppService < AppService
       new_app_dir = app_dir(app)
       if updated && old_app_dir != new_app_dir
         FileUtils.mv(old_app_dir, new_app_dir)
+        FileUtils.mv(old_app_dev_dir, app_dev_dir(app))
       end
     end
   end

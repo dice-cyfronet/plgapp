@@ -19,6 +19,7 @@ RSpec.describe CreateAppService do
       subject.execute
 
       expect(app_dir(app).exist?).to be_truthy
+      expect(app_dev_dir(app).exist?).to be_truthy
     end
   end
 
@@ -28,14 +29,17 @@ RSpec.describe CreateAppService do
     subject.execute
 
     expect(app_dir(app).exist?).to be_falsy
+    expect(app_dev_dir(app).exist?).to be_falsy
   end
 
   it 'creates activity log' do
-    expect { subject.execute }.to change { Activity.count }.by 1
-    activity = app.activities.first
+    with_app(app) do
+      expect { subject.execute }.to change { Activity.count }.by 1
+      activity = app.activities.first
 
-    expect(activity.activity_type).to eq 'created'
-    expect(activity.author).to eq author
+      expect(activity.activity_type).to eq 'created'
+      expect(activity.author).to eq author
+    end
   end
 
   it 'does not create activity log when save failed' do
