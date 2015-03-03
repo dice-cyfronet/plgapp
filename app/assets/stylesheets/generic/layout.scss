@@ -17,16 +17,12 @@ body, html {
 
 #content {
   padding-top: 75px;
-  padding-bottom: 50px;
-  min-height: 90%;
+  padding-bottom: 15px;
+  min-height: 86%;
 }
 
 .page-header {
   text-align: center;
-}
-
-.apps-preview {
-
 }
 
 .appl-icon {
@@ -41,16 +37,22 @@ body, html {
   padding: 20px;
 }
 
-
-footer {
-  margin-top: -20px;
-  padding-bottom: 15px;
-  min-height: 10%;
+.footer {
+  min-height: 14%;
   width: 100%;
   background-color: $gray-darker;
   color: $gray;
 }
 
+.footer a {
+  color: $gray;
+}
+
+.footer-container {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
 .footer-section {
-  padding-top: 8px;
+  padding-top: 5px;
 }

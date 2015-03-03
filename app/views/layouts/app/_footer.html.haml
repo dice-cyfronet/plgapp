@@ -1,5 +1,10 @@
-%footer.footer
+%footer.app-footer
   .container.footer-container
+    .row
+      %h2.pull-right.powered-by
+        =t('powered-by')
+        =link_to image_tag("navbar-logo2.png", :border=>0, id: 'navbar-logo'), root_url(subdomain: Rails.configuration.constants['domain_prefix'])
+
     .row
       .col-md-2
         .footer-section
