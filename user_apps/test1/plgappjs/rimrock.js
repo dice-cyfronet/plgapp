@@ -167,6 +167,10 @@ var Rimrock = function () {
         };
     };
 
+    this.registerCallback = function (cb, jobId, onUpdate, status) {
+        addMonitoredJob(jobId, status == undefined ? 'none' : status, onUpdate);
+    };
+
     this.jobs = function (cb, tag) {
         var success = function (data, status) {
             cb(null, data)
