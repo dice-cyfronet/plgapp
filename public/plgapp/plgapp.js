@@ -8,7 +8,8 @@ var PlgApp = function () {
     var plgdataJs = 'plgapp/plgdata.js';
     var datanetJs = 'plgapp/datanet.js';
     var signOut = 'sign_out';
-    var openIdLogoutFrame = '<iframe src="https://openid.plgrid.pl/logout" style="display:none"></iframe>';
+    var openIdLogoutFrame = '<iframe src="https://openid.plgrid.pl/logout"' +
+        ' style="display:none"></iframe>';
     var csrfToken = null;
     var userLogin = null;
 
@@ -37,7 +38,7 @@ var PlgApp = function () {
     };
 
     this.getInfo = function (cb) {
-        if (csrfToken == null || userLogin == null) {
+        if (csrfToken === null || userLogin === null) {
             var success = function (data, status) {
                 userLogin = data.userLogin;
                 csrfToken = data.csrfToken;
@@ -76,17 +77,17 @@ var AppError = function (message, data) {
     this.data = data;
 };
 
-var appError_toString = function () {
-    var err_txt = Error.prototype.toString.call(this);
+var appErrorToString = function () {
+    var errTxt = Error.prototype.toString.call(this);
     try {
-        err_txt += '\n' + JSON.stringify(this.data);
+        errTxt += '\n' + JSON.stringify(this.data);
     } catch (err) {
     }
-    return err_txt;
+    return errTxt;
 };
 
 AppError.prototype = Object.create(Error.prototype);
 AppError.prototype.constructor = AppError;
-AppError.prototype.toString = appError_toString;
+AppError.prototype.toString = appErrorToString;
 
 var plgapp = new PlgApp();
