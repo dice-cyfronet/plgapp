@@ -100,6 +100,18 @@ RSpec.describe AppsController do
     end
   end
 
+  context 'push to production' do
+    it 'show success when everything is ok' do
+      app = create(:app, users: [user])
+      expect(PushToProductionService).to receive(:new).
+        and_return(double(execute: true))
+
+      put :push, id: app.subdomain
+
+      expect(response).to redirect_to deploy_app_path(app)
+    end
+  end
+
   def expect_no_authorized
     expect(response).to redirect_to root_path
     expect(flash[:alert]).to match(/not authorized/)

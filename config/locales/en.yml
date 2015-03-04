@@ -10,6 +10,7 @@ en:
   save: Save
   delete: Delete
   download: Download
+  push: Deploy to production
   apps:
     title: My Applications
     new: New application
@@ -28,6 +29,8 @@ en:
     activity_tab: Activity
     already_a_member: This user is already an application member
     without_dev: 'Subdomain name with "{postfix}" at the end is not allowed'
+    pushed: Application sucessfully pushed into production
+    push_error: Error while pushing application into production. Please contact administrator.
   help:
     title: Help
     README: General

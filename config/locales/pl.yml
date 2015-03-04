@@ -10,6 +10,7 @@ pl:
   save: Zapisz
   delete: Skasuj
   download: Pobierz
+  push: Wraj na produkcję
   apps:
     title: Moje Aplikacje
     new: Nowa aplikacja
@@ -28,6 +29,8 @@ pl:
     activity_tab: Aktywność
     already_a_member: Ten użytkownik już jest zapisany do aplikacji
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
+    pushed: Aplikacja pomyślnie wgrana na produkcję
+    push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
   help:
     title: Pomoc
     README: Ogólne
