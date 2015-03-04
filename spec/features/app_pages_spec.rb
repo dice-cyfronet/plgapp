@@ -21,7 +21,7 @@ RSpec.feature 'App pages' do
     end
   end
 
-  scenario 'serves development files', focus: true do
+  scenario 'serves development files' do
     custom_app = create(:app, subdomain: 'dummy')
     in_subdomain(custom_app.dev_subdomain) do
       user = create(:user, apps: [custom_app])

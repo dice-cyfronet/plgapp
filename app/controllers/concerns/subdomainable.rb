@@ -8,7 +8,7 @@ module Subdomainable
   end
 
   def production_subdomain
-    if devel?
+    if dev?
       subdomain[0...-Rails.configuration.dev_postfix.length]
     else
       subdomain
@@ -19,8 +19,8 @@ module Subdomainable
     Subdomain.real_subdomain(request.subdomain)
   end
 
-  def devel?
-    @devel = subdomain && subdomain.end_with?(Rails.configuration.dev_postfix)
+  def dev?
+    @dev = subdomain && subdomain.end_with?(Rails.configuration.dev_postfix)
   end
 
   def subdomain?
