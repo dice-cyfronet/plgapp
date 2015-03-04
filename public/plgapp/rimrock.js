@@ -100,14 +100,6 @@ var Rimrock = function () {
     // /process
 
     this.run = function (cb, job) {
-        plgapp.getInfo(function (err, login, token) {
-            if (err) {
-                cb(err);
-                return;
-            }
-            doRequest(token);
-        });
-
         var success = function (data, status) {
             if (cb != undefined) {
                 cb(null, data);
@@ -131,11 +123,7 @@ var Rimrock = function () {
                 error: error
             });
         };
-    };
 
-    // /jobs
-
-    this.submitJob = function (cb, job) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
@@ -143,7 +131,11 @@ var Rimrock = function () {
             }
             doRequest(token);
         });
+    };
 
+    // /jobs
+
+    this.submitJob = function (cb, job) {
         var success = function (data, status) {
             if (cb != undefined) {
                 addMonitoredJob(data.job_id, data.status, job.onUpdate);
@@ -169,6 +161,14 @@ var Rimrock = function () {
                 error: error
             });
         };
+
+        plgapp.getInfo(function (err, login, token) {
+            if (err) {
+                cb(err);
+                return;
+            }
+            doRequest(token);
+        });
     };
 
     this.registerCallback = function (cb, jobId, onUpdate, status) {
@@ -206,14 +206,6 @@ var Rimrock = function () {
     };
 
     this.deleteJob = function (cb, jobId) {
-        plgapp.getInfo(function (err, login, token) {
-            if (err) {
-                cb(err);
-                return;
-            }
-            doRequest(token);
-        });
-
         var success = function (data, status) {
             if (cb != undefined) {
                 cb(null, data);
@@ -234,9 +226,7 @@ var Rimrock = function () {
                 error: error
             });
         };
-    };
 
-    this.abortJob = function (cb, jobId) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
@@ -244,7 +234,9 @@ var Rimrock = function () {
             }
             doRequest(token);
         });
+    };
 
+    this.abortJob = function (cb, jobId) {
         var success = function (data, status) {
             if (cb != undefined) {
                 cb(null);
@@ -268,6 +260,14 @@ var Rimrock = function () {
                 error: error
             });
         };
+
+        plgapp.getInfo(function (err, login, token) {
+            if (err) {
+                cb(err);
+                return;
+            }
+            doRequest(token);
+        });
     };
 };
 

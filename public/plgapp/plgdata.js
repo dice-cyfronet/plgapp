@@ -38,13 +38,6 @@ var PLGData = function () {
     };
 
     this.mkdir = function (cb, relativePath) {
-        plgapp.getInfo(function (err, login, token) {
-            if (err) {
-                cb(err);
-                return;
-            }
-            doRequest(login, token);
-        });
 
         var success = function (data, status) {
             if (cb !== undefined) {
@@ -53,7 +46,12 @@ var PLGData = function () {
         };
         var error = function (xhr, status, error) {
             if (cb !== undefined) {
-                cb(parseError(xhr, status, error));
+                if (xhr.status == 200) {
+                    //ignore json parse errors of empty response
+                    cb(null);
+                } else {
+                    cb(parseError(xhr, status, error));
+                }
             }
         };
 
@@ -69,6 +67,14 @@ var PLGData = function () {
                 error: error
             });
         };
+
+        plgapp.getInfo(function (err, login, token) {
+            if (err) {
+                cb(err);
+                return;
+            }
+            doRequest(login, token);
+        });
     };
 };
 
