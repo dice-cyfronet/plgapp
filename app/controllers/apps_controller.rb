@@ -15,6 +15,7 @@ class AppsController < ApplicationController
     if CreateAppService.new(current_user, @app).execute
       redirect_to @app, notice: I18n.t('apps.created')
     else
+      set_apps
       render action: 'new'
     end
   end
@@ -26,6 +27,7 @@ class AppsController < ApplicationController
     if UpdateAppService.new(current_user, @app, app_params).execute
       redirect_to @app, notice: I18n.t('apps.updated')
     else
+      set_apps
       redner action: 'edit'
     end
   end
@@ -48,6 +50,14 @@ class AppsController < ApplicationController
   def download
     path = @app.content.current_path
     send_file path, x_sendfile: true
+  end
+
+  def push
+    if PushToProductionService.new(current_user, @app).execute
+      redirect_to [:deploy, @app], notice: I18n.t('apps.pushed')
+    else
+      redirect_to [:deploy, @app], alert: I18n.t('apps.push_error')
+    end
   end
 
   private

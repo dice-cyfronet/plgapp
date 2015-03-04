@@ -2,7 +2,7 @@ class AppUploader < CarrierWave::Uploader::Base
   storage :app
 
   def store_dir
-    model.subdomain
+    model.dev_subdomain
   end
 
   def root
