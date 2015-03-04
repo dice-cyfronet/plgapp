@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe GetAppFileService do
-
   let(:app) { build(:app, subdomain: 'dummy') }
 
   it 'returns production index file' do

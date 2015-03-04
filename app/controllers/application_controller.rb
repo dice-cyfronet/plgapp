@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found!
-    render "errors/not_found", layout: "errors", status: 404
+    render 'errors/not_found', layout: 'errors', status: 404
   end
 
   def not_authorized!
-    render "errors/not_authorized", layout: "errors", status: 403
+    render 'errors/not_authorized', layout: 'errors', status: 403
   end
 
   private
