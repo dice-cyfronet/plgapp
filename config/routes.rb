@@ -35,6 +35,7 @@ Rails.application.routes.draw do
         get :download
         get :deploy
         get :activity
+        put :push
       end
     end
     get 'help', to: 'help#show'

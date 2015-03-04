@@ -9,6 +9,7 @@ module AppSpecHelper
     yield app
   ensure
     FileUtils.rm_rf(app_dir(app))
+    FileUtils.rm_rf(app_dev_dir(app))
   end
 
   def create_app(author = create(:user))
@@ -17,9 +18,9 @@ module AppSpecHelper
     end
   end
 
-  def app_file_path(app, file_path)
+  def app_file_path(app_subdomain, file_path)
     Pathname.new(Rails.configuration.apps_dir).
-      join(app.subdomain, file_path)
+      join(app_subdomain, file_path)
   end
 
   def app_owner_log_in(app)

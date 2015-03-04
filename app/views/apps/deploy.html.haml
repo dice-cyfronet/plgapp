@@ -7,6 +7,7 @@
       .tab-content
         .tab-pane.active.app-show-content
           = link_to t('download'), [:download, @app]
+          = link_to t('push'), [:push, @app], method: :put
 
           = simple_form_for @app do |f|
             = f.input :content

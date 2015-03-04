@@ -2,3 +2,6 @@ en:
   error_404:
     title: The resource you were looking for doesn't exist.
     description: You may have mistyped the address or the page may have moved.
+  error_403:
+    title: You are not authorized to see this resource.
+    description: Please contact resource owner to gain required privilages.

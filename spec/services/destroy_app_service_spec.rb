@@ -17,5 +17,6 @@ RSpec.describe DestroyAppService do
     subject.execute
 
     expect(app_dir(app).exist?).to be_falsy
+    expect(app_dev_dir(app).exist?).to be_falsy
   end
 end
