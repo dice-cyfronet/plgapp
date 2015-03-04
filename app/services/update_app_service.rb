@@ -10,7 +10,6 @@ class UpdateAppService < AppService
     app.assign_attributes(@params)
 
     build_activity(:updated) if app.update?
-    build_activity(:deployment) if app.deploy?
 
     app.save.tap do |updated|
       new_app_dir = app_dir(app)
