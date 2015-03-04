@@ -33,6 +33,12 @@ RSpec.describe App do
     end
   end
 
+  it 'adds dev postfix for dev subdomain' do
+    app = build(:app, subdomain: 'my_app')
+
+    expect(app.dev_subdomain).to eq 'my_app-dev'
+  end
+
   context 'full domain path' do
     let(:app) { build(:app, subdomain: 'my_app') }
 
@@ -41,7 +47,7 @@ RSpec.describe App do
     end
 
     it 'for devel app' do
-      expect(app.dev_subdomain).to eq 'my_app-dev.app'
+      expect(app.dev_full_subdomain).to eq 'my_app-dev.app'
     end
   end
 end

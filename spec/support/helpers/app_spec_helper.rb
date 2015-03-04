@@ -18,9 +18,9 @@ module AppSpecHelper
     end
   end
 
-  def app_file_path(app, file_path)
+  def app_file_path(app_subdomain, file_path)
     Pathname.new(Rails.configuration.apps_dir).
-      join(app.subdomain, file_path)
+      join(app_subdomain, file_path)
   end
 
   def app_owner_log_in(app)

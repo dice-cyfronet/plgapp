@@ -34,12 +34,16 @@ class App < ActiveRecord::Base
     name_changed? || subdomain_changed? || login_text_changed?
   end
 
+  def dev_subdomain
+    "#{subdomain}#{Rails.configuration.dev_postfix}"
+  end
+
   def full_subdomain
     "#{subdomain}#{subdomain_postfix}"
   end
 
-  def dev_subdomain
-    "#{subdomain}#{Rails.configuration.dev_postfix}#{subdomain_postfix}"
+  def dev_full_subdomain
+    "#{dev_subdomain}#{subdomain_postfix}"
   end
 
   private

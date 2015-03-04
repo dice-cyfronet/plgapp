@@ -23,7 +23,7 @@ RSpec.feature 'App pages' do
 
   scenario 'serves development files' do
     custom_app = create(:app, subdomain: 'dummy')
-    in_subdomain(custom_app.dev_subdomain) do
+    in_subdomain(custom_app.dev_full_subdomain) do
       user = create(:user, apps: [custom_app])
       login_as(user, scope: :user)
 
@@ -47,7 +47,7 @@ RSpec.feature 'App pages' do
 
   scenario 'only app developer is able to see dev files' do
     custom_app = create(:app, subdomain: 'dummy')
-    in_subdomain(custom_app.dev_subdomain) do
+    in_subdomain(custom_app.dev_full_subdomain) do
       user = create(:user)
       login_as(user, scope: :user)
 
