@@ -27,7 +27,7 @@ en:
     deploy_tab: Deploy
     activity_tab: Activity
     already_a_member: This user is already an application member
-    without_dev: 'Subdomain name with "-dev" at the end is not allowed %{value}'
+    without_dev: 'Subdomain name with "{postfix}" at the end is not allowed'
   help:
     title: Help
     README: General

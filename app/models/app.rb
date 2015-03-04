@@ -41,8 +41,9 @@ class App < ActiveRecord::Base
   private
 
   def not_a_devel_subdomain
-    if subdomain && subdomain.end_with?('-dev')
-      errors.add(:subdomain, I18n.t('apps.without_dev'))
+    dev_postfix = Rails.configuration.dev_postfix
+    if subdomain && subdomain.end_with?(dev_postfix)
+      errors.add(:subdomain, I18n.t('apps.without_dev', postfix: dev_postfix))
     end
   end
 

@@ -5,6 +5,6 @@ module AppHelper
   end
 
   def app_dev_dir(app)
-    app_dir(app, '-dev')
+    app_dir(app, Rails.configuration.dev_postfix)
   end
 end
