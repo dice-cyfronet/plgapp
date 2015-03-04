@@ -2,7 +2,7 @@ class SubdomainsController < ApplicationController
   include Subdomainable
 
   skip_before_action :verify_authenticity_token
-  before_filter :set_app
+  before_filter :set_app, :app_authorize!
 
   def show
     if file && file.exist?
@@ -20,6 +20,14 @@ class SubdomainsController < ApplicationController
   end
 
   private
+
+  def app_authorize!
+    action = dev? ? :dev_view : :view
+
+    unless can?(action, @app)
+      not_authorized!
+    end
+  end
 
   def file
     @file ||= GetAppFileService.new(@app, dev?, params[:id]).execute

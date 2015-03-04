@@ -8,5 +8,8 @@ class Ability
         app_members: { user_id: user.id }
 
     can [:create], App unless user.new_record?
+
+    can :view, App
+    can :dev_view, App, { app_members: { user_id: user.id } }
   end
 end
