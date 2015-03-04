@@ -32,4 +32,16 @@ RSpec.describe App do
       expect(my_app.valid?).to be_falsy
     end
   end
+
+  context 'full domain path' do
+    let(:app) { build(:app, subdomain: 'my_app') }
+
+    it 'for production app' do
+      expect(app.full_subdomain).to eq 'my_app.app'
+    end
+
+    it 'for devel app' do
+      expect(app.dev_subdomain).to eq 'my_app-dev.app'
+    end
+  end
 end

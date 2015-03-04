@@ -1,20 +1,26 @@
-# Provides a Concern for any Model class entities of which should NEVER be destroyed.
-# In model class use it with
-#   include Nondeletable
-# somewhere inside the model class definition. This guards against "destroy", probably
-# not effective against "delete".
-
 module Subdomainable
   extend ActiveSupport::Concern
 
   private
 
   def set_app
-    @app = App.find_by!(subdomain: subdomain)
+    @app = App.find_by!(subdomain: production_subdomain)
+  end
+
+  def production_subdomain
+    if devel?
+      subdomain[0...-Rails.configuration.dev_postfix.length]
+    else
+      subdomain
+    end
   end
 
   def subdomain
     Subdomain.real_subdomain(request.subdomain)
+  end
+
+  def devel?
+    @devel = subdomain && subdomain.end_with?(Rails.configuration.dev_postfix)
   end
 
   def subdomain?

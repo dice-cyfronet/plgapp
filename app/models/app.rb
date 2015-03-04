@@ -38,6 +38,10 @@ class App < ActiveRecord::Base
     "#{subdomain}#{subdomain_postfix}"
   end
 
+  def dev_subdomain
+    "#{subdomain}#{Rails.configuration.dev_postfix}#{subdomain_postfix}"
+  end
+
   private
 
   def not_a_devel_subdomain
