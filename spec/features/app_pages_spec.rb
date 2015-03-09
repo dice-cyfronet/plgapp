@@ -34,11 +34,7 @@ RSpec.feature 'App pages' do
   end
 
   scenario 'all logged used are able to see production files' do
-    custom_app = create(:app, subdomain: 'dummy')
-    in_subdomain(custom_app.full_subdomain) do
-      user = create(:user)
-      login_as(user, scope: :user)
-
+    logged_in_subdomain('dummy') do
       visit root_path
 
       expect(page.status_code).to eq 200
@@ -46,11 +42,8 @@ RSpec.feature 'App pages' do
   end
 
   scenario 'only app developer is able to see dev files' do
-    custom_app = create(:app, subdomain: 'dummy')
-    in_subdomain(custom_app.dev_full_subdomain) do
-      user = create(:user)
-      login_as(user, scope: :user)
-
+    user = create(:user)
+    logged_in_subdomain('dummy', dev: true, user: user) do
       visit root_path
 
       expect(page.status_code).to eq 403

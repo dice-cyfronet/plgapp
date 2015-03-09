@@ -20,15 +20,19 @@ ensure
   switch_to_main_domain
 end
 
-def logged_in_subdomain(subdomain)
+def logged_in_subdomain(subdomain, options = {})
   custom_app = create(:app, subdomain: subdomain)
-  user = create(:user)
+  user = options[:user] || create(:user, apps: [custom_app])
 
-  switch_to_subdomain(custom_app.full_subdomain)
+  switch_to_subdomain(app_full_path(custom_app, options[:dev]))
   login_as(user, scope: :user)
   yield user, custom_app
 ensure
   switch_to_main_domain
+end
+
+def app_full_path(app, dev)
+  dev ? app.dev_full_subdomain : app.full_subdomain
 end
 
 RSpec.configure do |config|
