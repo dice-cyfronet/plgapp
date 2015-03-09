@@ -3,7 +3,7 @@
  */
 
 var PlgApp = function () {
-    var baseLocation = document.baseURI;
+    var baseLocation = '/';
     var rimrockJs = 'plgapp/rimrock.js';
     var plgdataJs = 'plgapp/plgdata.js';
     var datanetJs = 'plgapp/datanet.js';
@@ -17,19 +17,19 @@ var PlgApp = function () {
         return baseLocation + path;
     }
 
-    this.rimrockJsUrl = function () {
+    this.rimrockJsPath = function () {
         return appendToBase(rimrockJs);
     };
 
-    this.plgdataJsUrl = function () {
+    this.plgdataJsPath = function () {
         return appendToBase(plgdataJs);
     };
 
-    this.datanetJsUrl = function () {
+    this.datanetJsPath = function () {
         return appendToBase(datanetJs);
     };
 
-    this.logoutUrl = function () {
+    this.logoutPath = function () {
         return appendToBase(signOut);
     };
 

@@ -3,8 +3,8 @@
  */
 
 var PLGData = function () {
-    var plgdataProxy = document.baseURI + 'plgdata';
-    var downloadURL = plgdataProxy + '/download';
+    var plgdataProxy = '/plgdata';
+    var downloadPath = plgdataProxy + '/download';
 
     //TODO: use parser error from PlgApp
     var parseError = function (xhr, status, error) {
@@ -20,19 +20,19 @@ var PLGData = function () {
         return '/people/' + userLogin + '/';
     };
 
-    this.generateUrl = function (cb, path) {
+    this.generatePath = function (cb, path) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
             }
             if (path.length > 1 && path.charAt(0) == '/') {
-                cb(null, downloadURL + path);
+                cb(null, downloadPath + path);
             } else {
                 if (path.length > 1 && path.slice(0, 2) == '~/') {
                     path = path.slice(2);
                 }
-                cb(null, downloadURL + getHome(login) + path);
+                cb(null, downloadPath + getHome(login) + path);
             }
         });
     };

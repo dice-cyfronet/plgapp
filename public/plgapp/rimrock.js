@@ -3,7 +3,7 @@
  */
 
 var Rimrock = function () {
-    var rimrockProxy = document.baseURI + 'rimrock';
+    var rimrockProxy = '/rimrock';
 
     var monitoredJobs = {};
 
