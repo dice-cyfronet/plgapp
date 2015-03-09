@@ -15,7 +15,8 @@ class SubdomainsController < ApplicationController
   def info
     render json: {
       csrfToken: form_authenticity_token,
-      userLogin: current_user.login
+      userLogin: current_user.login,
+      development: dev?
     }
   end
 
