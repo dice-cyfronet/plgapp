@@ -48,7 +48,7 @@ var PlgApp = function () {
                 cb(this.parseError(xhr, status, error));
             };
             $.ajax({
-                url: document.baseURI + 'info',
+                url: baseLocation + 'info',
                 success: success,
                 error: error
             });
