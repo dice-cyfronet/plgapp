@@ -8,6 +8,12 @@ module Proxy
       super(proxy, Rails.configuration.constants['plgdata'])
     end
 
+    def rewrite_env(env)
+      super.tap do |e|
+        e['HTTP_ACCEPT'] = "*/*" if e['PATH_INFO'].start_with?('/upload')
+      end
+    end
+
     protected
 
     def path(env)
