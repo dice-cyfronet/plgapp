@@ -5,7 +5,7 @@ module Proxyable
     self.response_body = proxy_responce.body
     self.status = proxy_responce.status
     response.headers = {
-      'Content-Type' => proxy_responce.headers['content-type']
+      'Content-Type' => proxy_responce.headers['content-type'].join(',')
     }
   end
 
