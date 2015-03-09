@@ -5,6 +5,10 @@ class SubdomainsController < ApplicationController
   before_filter :set_app, :app_authorize!
 
   def show
+    unless session[:_csrf_token]
+      form_authenticity_token
+    end
+
     if file && file.exist?
       send_file file, disposition: 'inline'
     else
