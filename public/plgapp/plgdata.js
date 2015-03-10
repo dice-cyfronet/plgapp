@@ -5,6 +5,7 @@
 var PLGData = function () {
     var plgdataProxy = '/plgdata';
     var downloadPrefix = plgdataProxy + '/download';
+    var uploadPrefix = plgdataProxy + '/upload';
 
     //TODO: use parser error from PlgApp
     var parseError = function (xhr, status, error) {
@@ -31,14 +32,22 @@ var PLGData = function () {
         }
     };
 
-    this.generateDownloadPath = function (cb, path) {
+    this.generatePath = function (cb, path, prefix) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
             }
-            cb(null, downloadPrefix + expandPath(path, login));
+            cb(null, prefix + expandPath(path, login));
         });
+    };
+
+    this.generateDownloadPath = function (cb, path) {
+        this.generatePath(cb, path, downloadPrefix);
+    };
+
+    this.generateUploadPath = function (cb, path) {
+        this.generatePath(cb, path, uploadPrefix);
     };
 
     this.mkdir = function (cb, path) {
