@@ -34,6 +34,14 @@ en:
   deploy:
     zip: Zip deploy
     dropbox: Dropbox integration
+  dropbox:
+    connect_help: Connecting to Dropbox allows you to make your changes to code in a Dropbox folder and automatically deploy it into development environment.
+    connect: Connect to Dropbox
+    bad_request_error: Error communicating with Dropbox - please contact administator
+    csrf_error: Error communicating with Dropbox - please contact administator
+    not_approved_error: You did not approve Dropbox usage
+    provider_error: Error communicating with Dropbox - please contact administator
+    error: Error communicating with Dropbox - please contact administator
   help:
     title: Help
     README: General

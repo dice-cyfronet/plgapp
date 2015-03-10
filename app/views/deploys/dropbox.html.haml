@@ -7,4 +7,9 @@
       .tab-content
         .tab-pane.active.app-show-content
           = render('upload_types')
-          TODO
+
+          %p.help-block= t('dropbox.connect_help')
+
+          = link_to t('dropbox.connect'),
+                    app_dropbox_path(@app),
+                    class: 'btn btn-default'

@@ -40,5 +40,8 @@ module Plgapp
 
     config.apps_dir = config.constants['apps_dir']
     config.dev_postfix = config.constants['dev_postfix']
+
+    config.dropbox = Struct.new(:app_key, :app_secret).
+      new(ENV['DROPBOX_APP_KEY'], ENV['DROPBOX_APP_SECRET'])
   end
 end

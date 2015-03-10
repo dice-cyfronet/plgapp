@@ -30,6 +30,10 @@ Rails.application.routes.draw do
       get 'sign_in', to: 'home#index'
     end
 
+    get '/dropbox/auth_finish',
+        to: 'dropboxes#auth_finish',
+        as: :dropbox_auth_finish
+
     resources :apps do
       member do
         get :download
@@ -43,6 +47,8 @@ Rails.application.routes.draw do
           get :dropbox
         end
       end
+
+      resource :dropbox, only: [:show]
     end
     get 'help', to: 'help#show'
     get 'help/:category', to: 'help#show', as: 'help_file'

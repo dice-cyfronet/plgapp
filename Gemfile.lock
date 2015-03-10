@@ -89,6 +89,11 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
+    dropbox-sdk (1.6.4)
+      json
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.3.0)
@@ -318,6 +323,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
+  dotenv-rails
+  dropbox-sdk
   factory_girl_rails (~> 4.0)
   faker
   font-awesome-sass (~> 4.3.0)
