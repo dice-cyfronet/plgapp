@@ -1,6 +1,5 @@
 module Dropbox
   class DisableAppService < AppService
-
     def execute
       app_member = app.app_members.find_by(user: author)
       if app_member

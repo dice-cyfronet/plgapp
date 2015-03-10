@@ -7,7 +7,6 @@ class DeploysController < ApplicationController
   end
 
   def zip
-
   end
 
   def dropbox
