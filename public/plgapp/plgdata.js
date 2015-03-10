@@ -4,7 +4,7 @@
 
 var PLGData = function () {
     var plgdataProxy = '/plgdata';
-    var downloadPath = plgdataProxy + '/download';
+    var downloadPrefix = plgdataProxy + '/download';
 
     //TODO: use parser error from PlgApp
     var parseError = function (xhr, status, error) {
@@ -20,24 +20,28 @@ var PLGData = function () {
         return '/people/' + userLogin + '/';
     };
 
-    this.generatePath = function (cb, path) {
+    var expandPath = function (path, login) {
+        if (path.length > 0 && path.charAt(0) == '/') {
+            return path;
+        } else {
+            if (path.length > 1 && path.slice(0, 2) == '~/') {
+                path = path.slice(2);
+            }
+            return getHome(login) + path;
+        }
+    };
+
+    this.generateDownloadPath = function (cb, path) {
         plgapp.getInfo(function (err, login, token) {
             if (err) {
                 cb(err);
                 return;
             }
-            if (path.length > 1 && path.charAt(0) == '/') {
-                cb(null, downloadPath + path);
-            } else {
-                if (path.length > 1 && path.slice(0, 2) == '~/') {
-                    path = path.slice(2);
-                }
-                cb(null, downloadPath + getHome(login) + path);
-            }
+            cb(null, downloadPrefix + expandPath(path, login));
         });
     };
 
-    this.mkdir = function (cb, relativePath) {
+    this.mkdir = function (cb, path) {
 
         var success = function (data, status) {
             if (cb !== undefined) {
@@ -57,8 +61,7 @@ var PLGData = function () {
 
         var doRequest = function (userLogin, token) {
             $.ajax({
-                url: plgdataProxy + '/mkdir' + getHome(userLogin) +
-                relativePath,
+                url: plgdataProxy + '/mkdir' + expandPath(path, userLogin),
                 type: 'POST',
                 headers: {'X-CSRF-Token': token},
                 contentType: 'application/json',
