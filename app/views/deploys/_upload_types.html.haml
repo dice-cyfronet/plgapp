@@ -1,0 +1,8 @@
+%ul.nav.nav-pills
+  = nav_link(action: :zip) do
+    = link_to zip_app_deploy_path(@app) do
+      = icon('file-archive-o', t('deploy.zip'))
+  = nav_link(action: :dropbox) do
+    = link_to dropbox_app_deploy_path(@app) do
+      = icon('dropbox', t('deploy.dropbox'))
+%hr

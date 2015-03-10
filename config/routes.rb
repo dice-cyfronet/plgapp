@@ -33,9 +33,15 @@ Rails.application.routes.draw do
     resources :apps do
       member do
         get :download
-        get :deploy
         get :activity
         put :push
+      end
+
+      resource :deploy, only: [:show] do
+        member do
+          get :zip
+          get :dropbox
+        end
       end
     end
     get 'help', to: 'help#show'

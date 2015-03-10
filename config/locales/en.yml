@@ -31,6 +31,9 @@ en:
     without_dev: 'Subdomain name with "{postfix}" at the end is not allowed'
     pushed: Application sucessfully pushed into production
     push_error: Error while pushing application into production. Please contact administrator.
+  deploy:
+    zip: Zip deploy
+    dropbox: Dropbox integration
   help:
     title: Help
     README: General
