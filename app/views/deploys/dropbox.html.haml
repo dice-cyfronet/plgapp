@@ -10,6 +10,13 @@
 
           %p.help-block= t('dropbox.connect_help')
 
-          = link_to t('dropbox.connect'),
-                    app_dropbox_path(@app),
-                    class: 'btn btn-default'
+          - if @app_member.dropbox_enabled?
+            = link_to t('dropbox.disconnect'),
+                      app_dropbox_path(@app),
+                      method: :delete,
+                      class: 'btn btn-default'
+          - else
+            = link_to t('dropbox.connect'),
+                      app_dropbox_path(@app),
+                      method: :put,
+                      class: 'btn btn-default'

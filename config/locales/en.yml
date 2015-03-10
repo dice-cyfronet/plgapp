@@ -37,6 +37,9 @@ en:
   dropbox:
     connect_help: Connecting to Dropbox allows you to make your changes to code in a Dropbox folder and automatically deploy it into development environment.
     connect: Connect to Dropbox
+    connected: Your application was connected with Dropbox
+    disconnect: Disconnect from Dropbox
+    disconnected: Your application was disconnected with Dropbox
     bad_request_error: Error communicating with Dropbox - please contact administator
     csrf_error: Error communicating with Dropbox - please contact administator
     not_approved_error: You did not approve Dropbox usage

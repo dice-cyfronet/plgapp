@@ -10,4 +10,8 @@ class AppMember < ActiveRecord::Base
               scope: :app_id,
               message: I18n.t('apps.already_a_member')
             }
+
+  def dropbox_enabled?
+    dropbox_enabled
+  end
 end

@@ -48,7 +48,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resource :dropbox, only: [:show]
+      resource :dropbox, only: [:update, :destroy]
     end
     get 'help', to: 'help#show'
     get 'help/:category', to: 'help#show', as: 'help_file'

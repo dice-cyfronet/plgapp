@@ -2,13 +2,25 @@ require 'dropbox_sdk'
 require 'securerandom'
 
 class DropboxesController < ApplicationController
-  load_and_authorize_resource :app, find_by: :subdomain, only: :show
+  load_and_authorize_resource :app,
+                              find_by: :subdomain,
+                              only: [:update, :destroy]
 
-  def show
+  def update
     if current_user.dropbox_access_token
-      redirect_to dropbox_app_deploy_path(@app)
+      enable_dropbox(@app)
     else
       auth_start
+    end
+  end
+
+  def destroy
+    if Dropbox::DisableAppService.new(current_user, @app).execute
+      redirect_to dropbox_app_deploy_path(
+                    @app, notice: t('dropbox.disconnected'))
+    else
+      redirect_to dropbox_app_deploy_path(
+                    @app, alert: t('dropbox.error'))
     end
   end
 
@@ -18,8 +30,7 @@ class DropboxesController < ApplicationController
     access_token, _user_id, _url_state = web_auth.finish(params)
     current_user.update_attributes(dropbox_access_token: access_token)
 
-    redirect_to dropbox_app_deploy_path(app)
-
+    enable_dropbox(app)
   rescue DropboxOAuth2Flow::BadRequestError => e
       logger.error(e)
       error(t('dropbox.bad_request_error'))
@@ -40,6 +51,14 @@ class DropboxesController < ApplicationController
   end
 
   private
+
+  def enable_dropbox(app)
+    if Dropbox::EnableAppService.new(current_user, app).execute
+      redirect_to dropbox_app_deploy_path(app, notice: t('dropbox.connected'))
+    else
+      redirect_to dropbox_app_deploy_path(app, alert: t('dropbox.error'))
+    end
+  end
 
   def error
     redirect_to(dropbox_app_deploy_path(@app), alert: msg)

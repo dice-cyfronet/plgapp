@@ -37,6 +37,9 @@ pl:
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko dewloperskie."
     connect: Połącz z Dropbox
+    connected: Twoja aplikacja została połączona z Dropbox
+    disconnect: Rozłącz z Dropbox
+    disconnected: Twoja aplikacja została rozłączona z Dropbox
     bad_request_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
     csrf_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
     not_approved_error: Nie zaakceptowałeś połączenia z Dropbox

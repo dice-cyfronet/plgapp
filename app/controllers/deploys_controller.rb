@@ -11,7 +11,7 @@ class DeploysController < ApplicationController
   end
 
   def dropbox
-
+    @app_member = @app.app_members.find_by(user: current_user)
   end
 
   private

@@ -23,8 +23,7 @@ module AppSpecHelper
       join(app_subdomain, file_path)
   end
 
-  def app_owner_log_in(app)
-    owner = create(:user)
+  def app_owner_log_in(app, owner = create(:user))
     app.users << owner
     login_as(owner, scope: :user)
   end
