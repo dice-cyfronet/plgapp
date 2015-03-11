@@ -3,5 +3,5 @@ pl:
     title: Strona której szukasz nie istnieje.
     description: Możliwe, że adres został błędnie wpisany bądź strona została przeniesiona.
   error_403:
-    title: Nie masz wystarczających uprawnień aby zobaczyć tą stronę.
+    title: Nie masz wystarczających uprawnień aby zobaczyć tę stronę.
     description: Proszę skontaktuj się z administratorem usługi w celu uzyskania odpowiednich uprawnień.
