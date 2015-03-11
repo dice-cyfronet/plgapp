@@ -137,8 +137,8 @@ var Rimrock = function () {
 
     this.submitJob = function (cb, job) {
         var success = function (data, status) {
+            addMonitoredJob(data.job_id, data.status, job.onUpdate);
             if (cb != undefined) {
-                addMonitoredJob(data.job_id, data.status, job.onUpdate);
                 cb(null, data);
             }
         };
