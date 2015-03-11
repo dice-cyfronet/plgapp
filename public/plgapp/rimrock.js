@@ -27,6 +27,9 @@ var Rimrock = function () {
     };
 
     var addMonitoredJob = function (jobId, status, cbUpdate) {
+        if (cbUpdate === undefined) {
+            return
+        }
         monitoredJobs[jobId] = {
             job_id: jobId,
             status: status,
@@ -207,12 +210,12 @@ var Rimrock = function () {
 
     this.deleteJob = function (cb, jobId) {
         var success = function (data, status) {
-            if (cb != undefined) {
+            if (cb !== undefined) {
                 cb(null, data);
             }
         };
         var error = function (xhr, status, error) {
-            if (cb != undefined) {
+            if (cb !== undefined) {
                 cb(parseError(xhr, status, error));
             }
         };
@@ -238,12 +241,12 @@ var Rimrock = function () {
 
     this.abortJob = function (cb, jobId) {
         var success = function (data, status) {
-            if (cb != undefined) {
+            if (cb !== undefined) {
                 cb(null);
             }
         };
         var error = function (xhr, status, error) {
-            if (cb != undefined) {
+            if (cb !== undefined) {
                 cb(parseError(xhr, status, error));
             }
         };
