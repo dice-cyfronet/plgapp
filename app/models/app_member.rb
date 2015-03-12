@@ -2,6 +2,8 @@ class AppMember < ActiveRecord::Base
   belongs_to :user
   belongs_to :app
 
+  has_many :dropbox_entries, dependent: :destroy
+
   validates :user, presence: true
   validates :app, presence: true
 

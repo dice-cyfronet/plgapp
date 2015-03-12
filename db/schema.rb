@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310125312) do
+ActiveRecord::Schema.define(version: 20150311112955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150310125312) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "dropbox_enabled", default: false
+    t.string   "dropbox_cursor"
   end
 
   add_index "app_members", ["app_id", "user_id"], name: "index_app_members_on_app_id_and_user_id", unique: true, using: :btree
@@ -47,6 +48,21 @@ ActiveRecord::Schema.define(version: 20150310125312) do
 
   add_index "apps", ["subdomain"], name: "index_apps_on_subdomain", unique: true, using: :btree
 
+  create_table "dropbox_entries", force: :cascade do |t|
+    t.string   "path",                          null: false
+    t.boolean  "is_dir",        default: false
+    t.string   "local_hash"
+    t.string   "remote_hash"
+    t.time     "modified"
+    t.string   "revision"
+    t.integer  "parent_id"
+    t.integer  "app_member_id",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "dropbox_entries", ["path"], name: "index_dropbox_entries_on_path", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                default: "", null: false
     t.integer  "sign_in_count",        default: 0,  null: false
@@ -59,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150310125312) do
     t.text     "proxy"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "dropbox_user"
     t.string   "dropbox_access_token"
   end
 
@@ -69,4 +86,6 @@ ActiveRecord::Schema.define(version: 20150310125312) do
   add_foreign_key "activities", "users", column: "author_id"
   add_foreign_key "app_members", "apps"
   add_foreign_key "app_members", "users"
+  add_foreign_key "dropbox_entries", "app_members"
+  add_foreign_key "dropbox_entries", "dropbox_entries", column: "parent_id"
 end
