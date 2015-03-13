@@ -23,7 +23,7 @@ RSpec.describe Dropbox::PushService do
   end
 
   it 'does not create app dir in dropbox when already created' do
-    app_member.dropbox_entries.create!(path: '.', is_dir: true)
+    dir_entries('.')
 
     expect(client).to_not receive(:file_create_folder)
 
@@ -31,7 +31,7 @@ RSpec.describe Dropbox::PushService do
   end
 
   it 'creates new files in dropbox' do
-    app_member.dropbox_entries.create!(path: '.', is_dir: true)
+    dir_entries('.')
     create_dev_file(app, 'file1.txt', 'foo')
     create_dev_file(app, 'sub/file2.txt', 'bar')
     create_dev_dir(app, 'sub/dir')
@@ -49,10 +49,26 @@ RSpec.describe Dropbox::PushService do
 
     expect(sub_entry.is_dir).to be_truthy
     expect(subdir_entry.is_dir).to be_truthy
+
+    expect(file1.local_hash).to eq 'acbd18db4cc2f85cedef654fccc4a4d8'
+    expect(file1.revision).to eq "1"
   end
 
   it 'updates files in dropbox' do
+    dir_entries('.', 'sub')
+    file_entry('file1', '1', 'acbd18db4cc2f85cedef654fccc4a4d8')
+    file_entry('sub/file2', '1', 'acbd18db4cc2f85cedef654fccc4a4d8')
 
+    create_dev_file(app, 'file1', 'foo')
+    create_dev_file(app, 'sub/file2', 'bar')
+
+    expect_file('sub/file2', '1')
+
+    service.execute
+    file2 = entry('sub/file2')
+
+    expect(file2.revision).to eq '2'
+    expect(file2.local_hash).to eq '37b51d194a7513e45b56f6524f2d51f2'
   end
 
   it 'deletes files from dropbox' do
@@ -72,10 +88,22 @@ RSpec.describe Dropbox::PushService do
   def expect_file(path, revision = nil)
     expect(client).
       to receive(:put_file).
-      with("/#{app.subdomain}/#{path}", instance_of(File), false, nil)
+      with("/#{app.subdomain}/#{path}", instance_of(File), false, revision).
+      and_return('rev' => revision && Integer(revision) + 1 || 1)
   end
 
   def service
     described_class.new(author, app, client: client)
+  end
+
+  def dir_entries(*paths)
+    paths.each do |path|
+      app_member.dropbox_entries.create!(path: path, is_dir: true)
+    end
+  end
+
+  def file_entry(path, revision, hash)
+    app_member.dropbox_entries.
+      create!(path: path, is_dir: false, revision: revision, local_hash: hash)
   end
 end

@@ -12,6 +12,7 @@ module Dropbox
       changes = calculate_changes
 
       create(changes[:create])
+      update(changes[:update])
     end
 
     private
@@ -19,10 +20,17 @@ module Dropbox
     attr_reader :client, :app_member
 
     def create(to_create)
-      to_create.each do |p|
-        local_path = relative_to_local(p)
-        File.directory?(local_path) ? create_dir(p) : put_file(p, local_path)
+      to_create.each do |entry|
+        if entry[:is_dir]
+          create_dir(entry)
+        else
+          put_file(entry)
+        end
       end
+    end
+
+    def update(to_update)
+      to_update.each { |entry| put_file(entry) }
     end
 
     def registered?
@@ -31,17 +39,40 @@ module Dropbox
 
     def calculate_changes
       changes = { create: [], update: [], delete: [] }
-      changes[:create] << '.' unless registered?
+      unless registered?
+        changes[:create] << {
+          path: '.',
+          is_dir: true,
+          remote_path: relative_to_remote('.')
+        }
+      end
 
       list_local.each do |p|
+        local_path = relative_to_local(p)
+        entry_hsh = {
+          path: p,
+          local_path: local_path,
+          remote_path: relative_to_remote(p),
+          modified: File.mtime(local_path),
+          is_dir: File.directory?(local_path),
+          local_hash: calculate_hash(local_path)
+        }
+
         if entry = snapshot[p]
-          changes[:update] << p
+          if modified?(entry_hsh, entry)
+            entry_hsh[:entry] = entry
+            changes[:update] << entry_hsh
+          end
         else
-          changes[:create] << p
+          changes[:create] << entry_hsh
         end
       end
 
       changes
+    end
+
+    def modified?(entry_hsh, entry)
+      !entry_hsh[:is_dir] && entry_hsh[:local_hash] != entry.local_hash
     end
 
     def list_local
@@ -60,23 +91,30 @@ module Dropbox
       @root_path ||= app_dev_dir(app)
     end
 
-    def relative_to_local(path)
-      Pathname.new(root_path).join(path)
-    end
-
     def create_client
       DropboxClient.new(author.dropbox_access_token)
     end
 
-    def create_dir(path)
-      client.file_create_folder(remote_path(path))
-      entries.create(path: path, is_dir: true)
+    def create_dir(entry)
+      client.file_create_folder(entry[:remote_path])
+      entries.create(path: entry[:path], is_dir: true)
     end
 
-    def put_file(path, local_path, previous_revision = nil)
-      File.open(local_path, "r") do |f|
-        client.put_file(remote_path(path), f, false, previous_revision)
-        entries.create(path: path, is_dir: false)
+    def put_file(entry_hsh)
+      File.open(entry_hsh[:local_path], "r") do |f|
+        entry = entries.find_or_initialize_by(path: entry_hsh[:path])
+
+        metadata = client.put_file(entry_hsh[:remote_path], f,
+                                   false, entry[:revision])
+
+        puts "metadata #{metadata}"
+
+        entry.is_dir = false
+        entry.local_hash = entry_hsh[:local_hash]
+        entry.modified = entry_hsh[:modified]
+        entry.revision = metadata['rev']
+
+        entry.save
       end
     end
 
@@ -84,8 +122,22 @@ module Dropbox
       app_member.dropbox_entries
     end
 
-    def remote_path(path)
+    def relative_to_local(path)
+      Pathname.new(root_path).join(path)
+    end
+
+    def relative_to_remote(path)
       Pathname.new('/').join(app.subdomain, path).to_s
+    end
+
+    def calculate_hash(filepath)
+      begin
+        Digest::MD5.file(filepath).to_s
+      rescue Errno::EISDIR
+        nil
+      rescue Errno::ENOENT
+        nil
+      end
     end
   end
 end
