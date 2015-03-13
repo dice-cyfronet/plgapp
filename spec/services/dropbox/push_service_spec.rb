@@ -72,7 +72,15 @@ RSpec.describe Dropbox::PushService do
   end
 
   it 'deletes files from dropbox' do
+    dir_entries('.', 'sub')
+    file_entry('file1', '1', 'acbd18db4cc2f85cedef654fccc4a4d8')
+    file_entry('sub/file2', '1', 'acbd18db4cc2f85cedef654fccc4a4d8')
 
+    expect_delete('file1')
+    expect_delete('sub')
+    expect_delete('sub/file2')
+
+    service.execute
   end
 
   def entry(path)
@@ -90,6 +98,12 @@ RSpec.describe Dropbox::PushService do
       to receive(:put_file).
       with("/#{app.subdomain}/#{path}", instance_of(File), false, revision).
       and_return('rev' => revision && Integer(revision) + 1 || 1)
+  end
+
+  def expect_delete(path)
+    expect(client).
+      to receive(:file_delete).
+      with("/#{app.subdomain}/#{path}")
   end
 
   def service
