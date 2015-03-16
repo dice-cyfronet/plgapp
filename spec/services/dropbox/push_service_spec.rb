@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Dropbox::PushService do
   include AppSpecHelper
   include AppFilesHelper
+  include DropboxHelper
 
   let(:author) { create(:user) }
   let(:app) { build(:app, users: [author]) }
@@ -83,10 +84,6 @@ RSpec.describe Dropbox::PushService do
     service.execute
   end
 
-  def entry(path)
-    app_member.dropbox_entries.find_by!(path: path)
-  end
-
   def expect_dir(path)
     expect(client).
       to receive(:file_create_folder).
@@ -108,16 +105,5 @@ RSpec.describe Dropbox::PushService do
 
   def service
     described_class.new(author, app, client: client)
-  end
-
-  def dir_entries(*paths)
-    paths.each do |path|
-      app_member.dropbox_entries.create!(path: path, is_dir: true)
-    end
-  end
-
-  def file_entry(path, revision, hash)
-    app_member.dropbox_entries.
-      create!(path: path, is_dir: false, revision: revision, local_hash: hash)
   end
 end
