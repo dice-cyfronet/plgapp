@@ -111,7 +111,6 @@ module Dropbox
 
         entry.is_dir = false
         entry.local_hash = entry_hsh[:local_hash]
-        entry.modified = entry_hsh[:modified]
         entry.revision = metadata['rev']
 
         entry.save

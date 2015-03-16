@@ -6,6 +6,8 @@ class DropboxesController < ApplicationController
                               find_by: :subdomain,
                               only: [:update, :destroy]
 
+  skip_before_action :authenticate_user!, only: [:webhook_verify, :delta]
+
   def update
     current_user.dropbox_access_token ? enable_dropbox(@app) : auth_start
   end
@@ -38,6 +40,14 @@ class DropboxesController < ApplicationController
   rescue DropboxError => e
     logger.info "Error getting OAuth 2 access token: #{e}"
     error(I18n.t('dropbox.error'))
+  end
+
+  def webhook_verify
+    render text: params[:challenge]
+  end
+
+  def delta
+    Rails.logger.info ":::DELTA >>>>>>>>> #{params}"
   end
 
   private

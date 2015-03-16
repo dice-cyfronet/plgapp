@@ -34,6 +34,12 @@ Rails.application.routes.draw do
         to: 'dropboxes#auth_finish',
         as: :dropbox_auth_finish
 
+    get '/dropbox/webhook',
+        to: 'dropboxes#webhook_verify'
+
+    post '/dropbox/webhook',
+         to: 'dropboxes#delta'
+
     resources :apps do
       member do
         get :download
