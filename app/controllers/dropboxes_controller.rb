@@ -7,6 +7,7 @@ class DropboxesController < ApplicationController
                               only: [:update, :destroy]
 
   skip_before_action :authenticate_user!, only: [:webhook_verify, :delta]
+  skip_before_action :verify_authenticity_token, only: :delta
 
   def update
     current_user.dropbox_access_token ? enable_dropbox(@app) : auth_start
@@ -48,6 +49,8 @@ class DropboxesController < ApplicationController
 
   def delta
     Rails.logger.info ":::DELTA >>>>>>>>> #{params}"
+
+    render nothing: true, status: 200
   end
 
   private
