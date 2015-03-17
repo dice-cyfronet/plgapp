@@ -12,15 +12,9 @@ module Dropbox
 
     private
 
-    attr_reader :client, :app_member
-
     def create(to_create)
       to_create.each do |entry|
-        if entry[:is_dir]
-          create_dir(entry)
-        else
-          put_file(entry)
-        end
+        entry[:is_dir] ? create_dir(entry) : put_file(entry)
       end
     end
 
@@ -83,10 +77,6 @@ module Dropbox
       @list_local ||= Dir.chdir(root_path) { Dir.glob('**/**') }.sort
     end
 
-    def create_client
-      DropboxClient.new(author.dropbox_access_token)
-    end
-
     def create_dir(entry)
       client.file_create_folder(entry[:remote_path])
       entries.create(path: entry[:path], is_dir: true)
@@ -102,7 +92,7 @@ module Dropbox
     end
 
     def put_file(entry_hsh)
-      File.open(entry_hsh[:local_path], "r") do |f|
+      File.open(entry_hsh[:local_path], 'r') do |f|
         entry = snapshot[entry_hsh[:path]] ||
                   entries.build(path: entry_hsh[:path])
 
