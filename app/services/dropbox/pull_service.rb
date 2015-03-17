@@ -5,6 +5,8 @@ module Dropbox
 
       create_or_update(changes[:create_or_update])
       delete(changes[:delete])
+
+      app_member.update_attributes(dropbox_cursor: delta['cursor'])
     end
 
     private
@@ -101,7 +103,7 @@ module Dropbox
     end
 
     def delta
-      client.delta(cursor, File.join('/', app.subdomain))
+      @delta ||= client.delta(cursor, File.join('/', app.subdomain))
     end
 
     def cursor

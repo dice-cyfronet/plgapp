@@ -131,6 +131,15 @@ RSpec.describe Dropbox::PullService do
     expect(sub.revision).to eq '7'
   end
 
+  it 'updates cursor', focus: true do
+    expect_delta(["/#{app.subdomain}/file1.txt", nil])
+
+    service.execute
+    app_member.reload
+
+    expect(app_member.dropbox_cursor).to eq 'new_cursor'
+  end
+
   def expect_delta(*entries)
     expect(client).
       to receive(:delta).
