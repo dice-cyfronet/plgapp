@@ -11,7 +11,7 @@ RSpec.describe Dropbox::PushService do
   let(:app_member) { app.app_members.find_by(user: author) }
 
   before { CreateAppService.new(author, app).execute }
-  after  { DestroyAppService.new(app).execute }
+  after { DestroyAppService.new(app).execute }
 
   it 'creates app dir in dropbox' do
     expect(client).to receive(:file_create_folder).with("/#{app.subdomain}")
@@ -46,13 +46,12 @@ RSpec.describe Dropbox::PushService do
     sub_entry = entry('sub')
     subdir_entry = entry('sub/dir')
     file1 = entry('file1.txt')
-    file2 = entry('sub/file2.txt')
 
     expect(sub_entry.is_dir).to be_truthy
     expect(subdir_entry.is_dir).to be_truthy
 
     expect(file1.local_hash).to eq 'acbd18db4cc2f85cedef654fccc4a4d8'
-    expect(file1.revision).to eq "1"
+    expect(file1.revision).to eq '1'
   end
 
   it 'updates files in dropbox' do

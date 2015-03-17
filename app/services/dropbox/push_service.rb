@@ -34,43 +34,42 @@ module Dropbox
     end
 
     def calculate_changes
-      changes = { create: [], update: [] }
+      { create: [], update: [] }.tap do |changes|
+        changes[:create] << local_props('.') unless registered?
 
-      unless registered?
-        changes[:create] << {
-          path: '.',
-          is_dir: true,
-          remote_path: relative_to_remote('.')
-        }
-      end
+        list_local.each do |p|
+          local_props = local_props(p)
+          entry = snapshot[p]
 
-      list_local.each do |p|
-        local_path = relative_to_local(p)
-        entry_hsh = {
-          path: p,
-          local_path: local_path,
-          remote_path: relative_to_remote(p),
-          is_dir: File.directory?(local_path),
-          local_hash: calculate_hash(local_path)
-        }
-
-        if entry = snapshot[p]
-          if modified?(entry_hsh, entry)
-            changes[:update] << entry_hsh
+          if entry.blank?
+            changes[:create] << local_props
+          elsif modified?(local_props, entry)
+            changes[:update] << local_props
           end
-        else
-          changes[:create] << entry_hsh
         end
+
+        changes[:delete] = calculate_delete_changes
       end
-
-      changes[:delete] = snapshot.
-        reject { |k, _| list_local.include?(k) || k == '.' }.values
-
-      changes
     end
 
-    def modified?(entry_hsh, entry)
-      !entry_hsh[:is_dir] && entry_hsh[:local_hash] != entry.local_hash
+    def local_props(path)
+      local_path = relative_to_local(path)
+      {
+        path: path,
+        local_path: local_path,
+        remote_path: relative_to_remote(path),
+        is_dir: File.directory?(local_path)
+      }.tap do |props|
+        props[:local_hash] = calculate_hash(local_path) unless props[:is_dir]
+      end
+    end
+
+    def calculate_delete_changes
+      snapshot.reject { |k, _| list_local.include?(k) || k == '.' }.values
+    end
+
+    def modified?(props, entry)
+      !props[:is_dir] && props[:local_hash] != entry.local_hash
     end
 
     def list_local
@@ -86,15 +85,13 @@ module Dropbox
       remote_path = relative_to_remote(path)
       client.file_delete(remote_path)
       snapshot[path].destroy
-
     rescue DropboxError => e
       raise e unless e.http_response.class == Net::HTTPNotFound
     end
 
     def put_file(entry_hsh)
       File.open(entry_hsh[:local_path], 'r') do |f|
-        entry = snapshot[entry_hsh[:path]] ||
-                  entries.build(path: entry_hsh[:path])
+        entry = get_or_build_entry(entry_hsh[:path])
 
         metadata = client.put_file(entry_hsh[:remote_path], f,
                                    false, entry[:revision])
@@ -105,6 +102,10 @@ module Dropbox
 
         entry.save
       end
+    end
+
+    def get_or_build_entry(path)
+      snapshot[path] || entries.build(path: path)
     end
   end
 end

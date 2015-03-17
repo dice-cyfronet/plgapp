@@ -14,7 +14,7 @@ RSpec.describe Dropbox::PullService do
     CreateAppService.new(author, app).execute
     app_member.update_attributes(dropbox_cursor: 'cursor')
   end
-  after  { DestroyAppService.new(app).execute }
+  after { DestroyAppService.new(app).execute }
 
   it 'delete files' do
     create_dev_file(app, 'file1.txt', 'foo')
@@ -25,10 +25,10 @@ RSpec.describe Dropbox::PullService do
     file_entry('sub/file2.txt')
 
     expect_delta(
-        ["/#{app.subdomain}/file1.txt", nil],
-        ["/#{app.subdomain}/sub/file2.txt", nil],
-        ["/#{app.subdomain}/sub", nil],
-        ["/#{app.subdomain}/not_existing.txt", nil]
+      ["/#{app.subdomain}/file1.txt", nil],
+      ["/#{app.subdomain}/sub/file2.txt", nil],
+      ["/#{app.subdomain}/sub", nil],
+      ["/#{app.subdomain}/not_existing.txt", nil]
     )
 
     service.execute
@@ -131,7 +131,7 @@ RSpec.describe Dropbox::PullService do
     expect(sub.revision).to eq '7'
   end
 
-  it 'updates cursor', focus: true do
+  it 'updates cursor' do
     expect_delta(["/#{app.subdomain}/file1.txt", nil])
 
     service.execute
@@ -152,7 +152,7 @@ RSpec.describe Dropbox::PullService do
       )
   end
 
-  def expect_get_file(path, content, revision = nil)
+  def expect_get_file(path, content)
     expect(client).
       to receive(:get_file).
       with(path).

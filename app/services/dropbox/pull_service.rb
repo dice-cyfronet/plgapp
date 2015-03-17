@@ -38,7 +38,7 @@ module Dropbox
     end
 
     def download_file(props)
-      tmp = File.open(new_tmp_path, "wb") do |f|
+      tmp = File.open(new_tmp_path, 'wb') do |f|
         f << client.get_file(props[:remote_path])
       end
       mv(tmp.path, props[:local_path])

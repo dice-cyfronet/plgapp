@@ -29,8 +29,9 @@ module Dropbox
     end
 
     def snapshot
-      @snapshot = app_member.dropbox_entries.
-        each_with_object({}) { |v, h| h[v.path] = v }
+      @snapshot = app_member.
+                  dropbox_entries.
+                  each_with_object({}) { |v, h| h[v.path] = v }
     end
 
     def relative_to_local(path)
@@ -42,13 +43,11 @@ module Dropbox
     end
 
     def calculate_hash(filepath)
-      begin
-        Digest::MD5.file(filepath).to_s
-      rescue Errno::EISDIR
-        nil
-      rescue Errno::ENOENT
-        nil
-      end
+      Digest::MD5.file(filepath).to_s
+    rescue Errno::EISDIR
+      nil
+    rescue Errno::ENOENT
+      nil
     end
   end
 end
