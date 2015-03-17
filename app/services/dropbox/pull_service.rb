@@ -49,8 +49,7 @@ module Dropbox
           entry.is_dir = false
           entry.local_hash = calculate_hash(dest_path)
           entry.revision = entry_hsh['rev']
-        end.
-        save
+        end.save!
     end
 
     def new_tmp_path

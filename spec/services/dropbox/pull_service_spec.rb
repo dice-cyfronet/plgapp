@@ -85,7 +85,7 @@ RSpec.describe Dropbox::PullService do
     expect(sub.path).to eq 'sub'
   end
 
-  it 'updates files', focus: true do
+  it 'updates files' do
     create_dev_file(app, 'file1.txt', 'foo')
     create_dev_dir(app, 'sub')
     file_entry('file1.txt')
@@ -110,10 +110,10 @@ RSpec.describe Dropbox::PullService do
       ]
     )
     expect_get_file("/#{app.subdomain}/file1.txt", 'bar')
-    file1 = entry('file1.txt')
-    sub = entry('sub')
 
     service.execute
+    file1 = entry('file1.txt')
+    sub = entry('sub')
 
     expect(File.read(path('file1.txt'))).to eq 'bar'
     expect(file1.revision).to eq '6'
