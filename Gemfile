@@ -33,6 +33,7 @@ gem 'rack-proxy'
 gem 'newrelic_rpm'
 
 gem 'dropbox-sdk'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'

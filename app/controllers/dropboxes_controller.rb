@@ -48,7 +48,9 @@ class DropboxesController < ApplicationController
   end
 
   def delta
-    Rails.logger.info ":::DELTA >>>>>>>>> #{params}"
+    params[:delta][:users].each do |user_id|
+      UpdateUserAppsFromDropboxJob.perform_later(user_id)
+    end
 
     render nothing: true, status: 200
   end

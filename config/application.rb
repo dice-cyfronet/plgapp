@@ -31,6 +31,9 @@ module Plgapp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Use sidekiq as delayed job adapter.
+    config.active_job.queue_adapter = :sidekiq
+
     # Load application-specific constants from a config file
     config.constants = config_for(:application)
 
