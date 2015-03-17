@@ -89,6 +89,7 @@ RSpec.describe Dropbox::PullService do
     create_dev_file(app, 'file1.txt', 'foo')
     create_dev_dir(app, 'sub')
     file_entry('file1.txt')
+    file_entry('not_modified', 12)
     dir_entries('sub')
 
     expect_delta(
@@ -107,9 +108,19 @@ RSpec.describe Dropbox::PullService do
           'path' => "/#{app.subdomain}/sub",
           'is_dir' => true
         }
+      ], [
+        "/#{app.subdomain}/not_modified",
+        {
+          'rev' => '12',
+          'path' => "/#{app.subdomain}/not_modified",
+          'is_dir' => false
+        }
       ]
     )
     expect_get_file("/#{app.subdomain}/file1.txt", 'bar')
+    expect(client).
+      to_not receive(:get_file).
+      with("/#{app.subdomain}/not_modified")
 
     service.execute
     file1 = entry('file1.txt')
