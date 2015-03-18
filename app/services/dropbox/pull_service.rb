@@ -7,9 +7,15 @@ module Dropbox
       delete(changes[:delete])
 
       app_member.update_attributes(dropbox_cursor: delta['cursor'])
+
+      changed?(changes)
     end
 
     private
+
+    def changed?(changes)
+      (changes[:delete].length + changes[:create_or_update].length) > 0
+    end
 
     def create_or_update(to_create)
       to_create.each do |props|
@@ -45,9 +51,7 @@ module Dropbox
     end
 
     def new_tmp_path
-      Tempfile.open('plgapp') do |f|
-        f.path
-      end
+      Tempfile.open('plgapp') { |f| f.path }
     end
 
     # move and create dir if missing

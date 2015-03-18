@@ -31,7 +31,9 @@ RSpec.describe Dropbox::PullService do
       ["/#{app.subdomain}/not_existing.txt", nil]
     )
 
-    service.execute
+    changed = service.execute
+
+    expect(changed).to be_truthy
 
     expect(File.exist?(path('file1.txt'))).to be_falsy
     expect(File.exist?(path('sub'))).to be_falsy
@@ -67,9 +69,11 @@ RSpec.describe Dropbox::PullService do
     expect_get_file("/#{app.subdomain}/file1.txt", 'foo')
     expect_get_file("/#{app.subdomain}/sub/file2.txt", 'bar')
 
-    service.execute
+    changed = service.execute
     file2 = entry('sub/file2.txt')
     sub = entry('sub')
+
+    expect(changed).to be_truthy
 
     expect(File.read(path('file1.txt'))).to eq 'foo'
     expect(File.read(path('sub/file2.txt'))).to eq 'bar'
@@ -122,10 +126,11 @@ RSpec.describe Dropbox::PullService do
       to_not receive(:get_file).
       with("/#{app.subdomain}/not_modified")
 
-    service.execute
+    changed = service.execute
     file1 = entry('file1.txt')
     sub = entry('sub')
 
+    expect(changed).to be_truthy
     expect(File.read(path('file1.txt'))).to eq 'bar'
     expect(file1.revision).to eq '6'
     expect(sub.revision).to eq '7'
@@ -138,6 +143,20 @@ RSpec.describe Dropbox::PullService do
     app_member.reload
 
     expect(app_member.dropbox_cursor).to eq 'new_cursor'
+  end
+
+  it 'false when no changes' do
+    expect(client).
+      to receive(:delta).
+      with('cursor', "/#{app.subdomain}").
+      and_return(
+        'has_more' => false,
+        'cursor' => 'new_cursor',
+        'reset' => false,
+        'entries' => []
+      )
+
+    expect(service.execute).to be_falsy
   end
 
   def expect_delta(*entries)
