@@ -48,11 +48,12 @@ class DropboxesController < ApplicationController
   end
 
   def delta
-    params[:delta][:users].each do |user_id|
-      UpdateUserAppsFromDropboxJob.perform_later(user_id)
+    if valid_dropbox_request?
+      Dropbox::UpdateUsersAppsService.new(delta_users).execute
+      render nothing: true, status: :ok
+    else
+      render nothing: true, status: :unauthorized
     end
-
-    render nothing: true, status: 200
   end
 
   private
@@ -91,5 +92,17 @@ class DropboxesController < ApplicationController
                           dropbox_conf.app_secret,
                           dropbox_auth_finish_url,
                           session, :dropbox_auth_csrf_token)
+  end
+
+  def delta_users
+    params.require(:delta).require(:users)
+  end
+
+  def valid_dropbox_request?
+    signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::SHA256.new,
+                                        Rails.configuration.dropbox.app_secret,
+                                        request.raw_post)
+
+    request.headers['X-Dropbox-Signature'] == signature
   end
 end
