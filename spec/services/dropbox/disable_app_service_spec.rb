@@ -10,13 +10,14 @@ RSpec.describe Dropbox::DisableAppService do
     expect(app_member).to_not be_dropbox_enabled
   end
 
-  it 'remove dropbox token when last app' do
+  it 'triggers delete from dropbox job' do
     user, app, _ = user_app
 
-    described_class.new(user, app).execute
-    user.reload
+    expect(Dropbox::DeleteJob).
+      to receive(:perform_later).
+      with(user, app.subdomain)
 
-    expect(user.dropbox_access_token).to be_nil
+    described_class.new(user, app).execute
   end
 
   def user_app

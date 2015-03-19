@@ -19,4 +19,23 @@ RSpec.describe DestroyAppService do
     expect(app_dir(app).exist?).to be_falsy
     expect(app_dev_dir(app).exist?).to be_falsy
   end
+
+  it 'triggers app removal from dropbox' do
+    u1, u2, u3 = create_list(:user, 3)
+
+    app.app_members.create(user: u1, dropbox_enabled: true)
+    app.app_members.create(user: u2, dropbox_enabled: true)
+    app.app_members.create(user: u3, dropbox_enabled: false)
+
+    expect_delete_from_dropbox_for(u1)
+    expect_delete_from_dropbox_for(u2)
+
+    subject.execute
+  end
+
+  def expect_delete_from_dropbox_for(user)
+    expect(Dropbox::DeleteJob).
+      to receive(:perform_later).
+      with(user, app.subdomain)
+  end
 end

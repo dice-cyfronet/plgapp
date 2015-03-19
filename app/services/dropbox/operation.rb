@@ -4,7 +4,7 @@ module Dropbox
   class Operation < AppService
     def initialize(author, app, options = {})
       super(author, app)
-      @app_member = app.app_members.find_by(user: author)
+      @app_member = app && app.app_members.find_by(user: author)
       @client = options.fetch(:client) { create_client }
     end
 
