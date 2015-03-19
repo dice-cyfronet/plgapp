@@ -35,6 +35,7 @@ gem 'sentry-raven'
 
 gem 'dropbox-sdk'
 gem 'sidekiq'
+gem 'sinatra', require: nil
 
 group :development, :test do
   gem 'byebug'
