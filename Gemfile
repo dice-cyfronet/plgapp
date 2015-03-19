@@ -21,7 +21,7 @@ gem 'rubyzip'
 gem 'redcarpet'
 
 gem 'devise'
-gem 'ruby-openid', '~> 2.6.0'
+gem 'ruby-openid', '~> 2.7.0'
 gem 'omniauth-openid'
 gem 'cancancan'
 gem 'friendly_id'
