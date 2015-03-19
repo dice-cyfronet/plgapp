@@ -12,7 +12,7 @@ RSpec.describe Dropbox::EnableAppService do
   end
 
   it 'push changes into dropbox' do
-    expect(Dropbox::AddJob).to receive(:perform_later).with(user, app)
+    expect(Dropbox::PushJob).to receive(:perform_later).with(user, app)
 
     service.execute
   end

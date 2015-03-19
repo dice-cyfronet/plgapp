@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Dropbox::AddJob do
+RSpec.describe Dropbox::PushJob do
   it 'add app to dropbox' do
     user = double('user')
     app = double('app')
