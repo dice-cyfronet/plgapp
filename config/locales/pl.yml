@@ -31,6 +31,20 @@ pl:
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
     pushed: Aplikacja pomyślnie wgrana na produkcję
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
+  deploy:
+    zip: Wgranie archiwum zip
+    dropbox: Integracja z Dropbox
+  dropbox:
+    connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko dewloperskie."
+    connect: Połącz z Dropbox
+    connected: Twoja aplikacja została połączona z Dropbox
+    disconnect: Rozłącz z Dropbox
+    disconnected: Twoja aplikacja została rozłączona z Dropbox
+    bad_request_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
+    csrf_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
+    not_approved_error: Nie zaakceptowałeś połączenia z Dropbox
+    provider_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
+    error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
   help:
     title: Pomoc
     README: Ogólne

@@ -108,7 +108,7 @@ RSpec.describe AppsController do
 
       put :push, id: app.subdomain
 
-      expect(response).to redirect_to deploy_app_path(app)
+      expect(response).to redirect_to zip_app_deploy_path(app)
     end
   end
 

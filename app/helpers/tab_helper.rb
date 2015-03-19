@@ -73,10 +73,10 @@ module TabHelper
   end
 
   # Use nav_tab for save controller/action  but different params
-  def nav_tab key, value, &block
+  def nav_tab(*keys, value, &block)
     o = {}
-    o[:class] = ""
-    o[:class] << " active" if params[key] == value
+    o[:class] = ''
+    o[:class] << ' active' if keys.detect { |k| params[k] == value }
 
     if block_given?
       content_tag(:li, capture(&block), o)

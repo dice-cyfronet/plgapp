@@ -54,9 +54,9 @@ class AppsController < ApplicationController
 
   def push
     if PushToProductionService.new(current_user, @app).execute
-      redirect_to [:deploy, @app], notice: I18n.t('apps.pushed')
+      redirect_to [:zip, @app, :deploy], notice: I18n.t('apps.pushed')
     else
-      redirect_to [:deploy, @app], alert: I18n.t('apps.push_error')
+      redirect_to [:zip, @app, :deploy], alert: I18n.t('apps.push_error')
     end
   end
 

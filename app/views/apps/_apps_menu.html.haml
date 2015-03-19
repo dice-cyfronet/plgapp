@@ -8,7 +8,7 @@
 
 %ul.nav.nav-pills.nav-stacked.apps-nav
   - @apps.each do |app|
-    = nav_tab :id, app.subdomain do
+    = nav_tab(:id, :app_id, app.subdomain) do
       = link_to app do
         %h5{style: 'word-wrap: break-word;'}
           = app.name

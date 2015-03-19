@@ -32,6 +32,9 @@ gem 'rack-proxy'
 
 gem 'newrelic_rpm'
 
+gem 'dropbox-sdk'
+gem 'sidekiq'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -41,6 +44,9 @@ group :development, :test do
   # PLG OpenId requires ssh even for development
   # start app using `thin start --ssl`
   gem 'thin'
+
+  # Loading environment variables from .env
+  gem 'dotenv-rails'
 end
 
 group :test do

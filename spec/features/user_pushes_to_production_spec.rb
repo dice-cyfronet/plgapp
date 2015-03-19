@@ -14,7 +14,7 @@ RSpec.feature 'User pushes to production' do
     create_dev_file(app, 'foo.html', '<html><body>bar</body></html>')
 
     app_owner_log_in(app)
-    visit deploy_app_path(app)
+    visit zip_app_deploy_path(app)
     click_link(I18n.t('push'))
 
     in_subdomain(app.full_subdomain) do

@@ -8,7 +8,7 @@ RSpec.feature 'Upload app' do
       app_owner_log_in(app)
       dev_app_dir = app.dev_subdomain
 
-      visit deploy_app_path(app)
+      visit zip_app_deploy_path(app)
       attach_file('Content',
                   Rails.root.join('spec', 'resources', 'app.zip'))
       click_button('Update App')

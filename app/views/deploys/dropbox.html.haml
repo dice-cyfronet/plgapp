@@ -1,0 +1,22 @@
+.row
+  .col-md-3
+    = render('apps/apps_menu')
+  .col-md-9
+    .well
+      = render('apps/app_tab')
+      .tab-content
+        .tab-pane.active.app-show-content
+          = render('upload_types')
+
+          %p.help-block= t('dropbox.connect_help')
+
+          - if @app_member.dropbox_enabled?
+            = link_to t('dropbox.disconnect'),
+                      app_dropbox_path(@app),
+                      method: :delete,
+                      class: 'btn btn-default'
+          - else
+            = link_to t('dropbox.connect'),
+                      app_dropbox_path(@app),
+                      method: :put,
+                      class: 'btn btn-default'

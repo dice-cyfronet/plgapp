@@ -30,13 +30,31 @@ Rails.application.routes.draw do
       get 'sign_in', to: 'home#index'
     end
 
+    get '/dropbox/auth_finish',
+        to: 'dropboxes#auth_finish',
+        as: :dropbox_auth_finish
+
+    get '/dropbox/webhook',
+        to: 'dropboxes#webhook_verify'
+
+    post '/dropbox/webhook',
+         to: 'dropboxes#delta'
+
     resources :apps do
       member do
         get :download
-        get :deploy
         get :activity
         put :push
       end
+
+      resource :deploy, only: [:show] do
+        member do
+          get :zip
+          get :dropbox
+        end
+      end
+
+      resource :dropbox, only: [:update, :destroy]
     end
     get 'help', to: 'help#show'
     get 'help/:category', to: 'help#show', as: 'help_file'

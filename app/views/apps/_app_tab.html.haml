@@ -16,7 +16,7 @@
 %ul.nav.nav-tabs#tabs1
   = nav_link(action: :show) do
     = link_to t('apps.login_tab'), @app
-  = nav_link(action: :deploy) do
-    = link_to t('apps.deploy_tab'), [:deploy, @app]
+  = nav_link(controller: :deploys) do
+    = link_to t('apps.deploy_tab'), [@app, :deploy]
   = nav_link(action: :activity) do
     = link_to t('apps.activity_tab'), [:activity, @app]
