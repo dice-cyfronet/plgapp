@@ -20,8 +20,9 @@ class DropboxesController < ApplicationController
   def auth_finish
     app = App.find_by!(subdomain: session[:dropbox_app_subdomain])
 
-    access_token, _ = web_auth.finish(params)
-    current_user.update_attributes(dropbox_access_token: access_token)
+    access_token, user_id = web_auth.finish(params)
+    current_user.update_attributes(dropbox_access_token: access_token,
+                                   dropbox_user: user_id)
 
     enable_dropbox(app)
   rescue DropboxOAuth2Flow::BadRequestError => e
