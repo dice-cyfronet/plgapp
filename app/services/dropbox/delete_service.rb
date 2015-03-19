@@ -8,8 +8,16 @@ module Dropbox
     end
 
     def execute
-      client.file_delete("/#{@subdomain}")
+      delete_path
       app_member.dropbox_entries.destroy_all if app_member
+    end
+
+    private
+
+    def delete_path
+      client.file_delete("/#{@subdomain}")
+    rescue DropboxError => e
+      raise e unless e.http_response.class == Net::HTTPNotFound
     end
   end
 end
