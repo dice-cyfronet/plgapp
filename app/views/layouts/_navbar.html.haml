@@ -18,6 +18,9 @@
           %li
             = nav_link(controller: :apps) do
               = link_to t('apps.title'), apps_path
+          - if current_user.admin?
+            = nav_link(controller: :jobs) do
+              = link_to t('jobs.title'), job_path
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li

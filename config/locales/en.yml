@@ -81,3 +81,5 @@ en:
     created: Created application
   powered-by:
     powered by app
+  jobs:
+    title: Delayed jobs
