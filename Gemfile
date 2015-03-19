@@ -31,6 +31,7 @@ gem 'puma'
 gem 'rack-proxy'
 
 gem 'newrelic_rpm'
+gem 'sentry-raven'
 
 gem 'dropbox-sdk'
 gem 'sidekiq'
