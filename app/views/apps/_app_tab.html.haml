@@ -1,7 +1,10 @@
 %h4
-  =link_to root_url(subdomain: @app.full_subdomain) do
+  = link_to root_url(subdomain: @app.full_subdomain) do
     = @app.name
-    %span.text-muted (#{with_subdomain(@app.full_subdomain)})
+    %span.text-muted (#{with_subdomain(@app.full_subdomain)}),
+  = link_to root_url(subdomain: @app.dev_full_subdomain) do
+    = t('apps.dev', name: @app.name)
+    %span.text-muted (#{with_subdomain(@app.dev_full_subdomain)})
   .pull-right
     .btn-group
       = link_to t('edit'), [:edit, @app],

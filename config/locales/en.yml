@@ -31,6 +31,7 @@ en:
     without_dev: 'Subdomain name with "{postfix}" at the end is not allowed'
     pushed: Application sucessfully pushed into production
     push_error: Error while pushing application into production. Please contact administrator.
+    dev: "%{name} dev"
   deploy:
     zip:
       title: Zip

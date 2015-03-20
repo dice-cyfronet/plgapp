@@ -31,6 +31,7 @@ pl:
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
     pushed: Aplikacja pomyślnie wgrana na produkcję
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
+    dev: "%{name} dev"
   deploy:
     zip:
       title: Zip
