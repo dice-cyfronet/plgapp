@@ -42,7 +42,7 @@ pl:
       title: Wraj
       description: na produkcję
   dropbox:
-    connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko dewloperskie."
+    connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko deweloperskie."
     connect: Połącz z Dropbox
     connected: Twoja aplikacja została połączona z Dropbox
     disconnect: Rozłącz z Dropbox
