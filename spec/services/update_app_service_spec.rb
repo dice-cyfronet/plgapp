@@ -41,8 +41,9 @@ RSpec.describe UpdateAppService do
     new_app_dir = app_dir('new_subdomain')
     new_app_dev_dir = app_dev_dir('new_subdomain')
 
-    expect { subject.execute }.to raise_error(ActiveRecord::RecordInvalid)
+    status =  subject.execute
 
+    expect(status).to be_falsy
     expect(old_app_dir.exist?).to be_truthy
     expect(new_app_dir.exist?).to be_falsy
 

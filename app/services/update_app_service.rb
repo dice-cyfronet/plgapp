@@ -12,14 +12,18 @@ class UpdateAppService < AppService
     build_activity(:updated) if app.update?
     content_changed = app.content_changed?
 
-    app.save!.tap do
-      new_app_dir = app_dir(app)
-      if old_app_dir != new_app_dir
-        FileUtils.mv(old_app_dir, new_app_dir)
-        FileUtils.mv(old_app_dev_dir, app_dev_dir(app))
-      end
+    app.save.tap do |success|
+      if success
+        new_app_dir = app_dir(app)
+        if old_app_dir != new_app_dir
+          FileUtils.mv(old_app_dir, new_app_dir)
+          FileUtils.mv(old_app_dev_dir, app_dev_dir(app))
+        end
 
-      dropbox_app_users.each { |u| Dropbox::PushJob.perform_later(u, app) }
+        if content_changed
+          dropbox_app_users.each { |u| Dropbox::PushJob.perform_later(u, app) }
+        end
+      end
     end
   end
 
