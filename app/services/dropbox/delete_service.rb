@@ -11,6 +11,7 @@ module Dropbox
       delete_path
       app_member.dropbox_entries.destroy_all if app_member
       clean_dropbox_account if has_dropbox_app?
+      clean_cursor
     end
 
     private
@@ -30,6 +31,10 @@ module Dropbox
     def clean_dropbox_account
       author.update_attributes(dropbox_access_token: nil,
                                dropbox_user: nil)
+    end
+
+    def clean_cursor
+      app_member.update_attributes(dropbox_cursor: nil) if app_member
     end
   end
 end

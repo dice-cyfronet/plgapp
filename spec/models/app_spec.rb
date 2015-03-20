@@ -50,4 +50,14 @@ RSpec.describe App do
       expect(app.dev_full_subdomain).to eq 'my_app-dev.app'
     end
   end
+
+  context '#old_subdomain' do
+    it 'saves old subdomain value' do
+      app = create(:app, subdomain: 'old')
+
+      app.update_attributes(subdomain: 'new')
+
+      expect(app.old_subdomain).to eq 'old'
+    end
+  end
 end

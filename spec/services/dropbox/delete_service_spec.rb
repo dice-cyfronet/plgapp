@@ -28,6 +28,15 @@ RSpec.describe Dropbox::DeleteService do
 
       expect(app_member.dropbox_entries.count).to eq 0
     end
+
+    it 'cleans dropbox cursor' do
+      app_member.update_attributes(dropbox_cursor: 'cursor')
+
+      service.execute
+      app_member.reload
+
+      expect(app_member.dropbox_cursor).to be_nil
+    end
   end
 
   it 'clean dropbox account when no dropbox app present for the user' do
