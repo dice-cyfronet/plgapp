@@ -26,6 +26,8 @@ class App < ActiveRecord::Base
 
   before_validation :slug_subdomain
 
+  before_save :set_old_subdomain
+
   def deploy?
     content_changed?
   end
@@ -46,6 +48,8 @@ class App < ActiveRecord::Base
     "#{dev_subdomain}#{subdomain_postfix}"
   end
 
+  attr_reader :old_subdomain
+
   private
 
   def not_a_devel_subdomain
@@ -62,5 +66,9 @@ class App < ActiveRecord::Base
 
   def slug_subdomain
     self.subdomain = to_slug(subdomain) if subdomain
+  end
+
+  def set_old_subdomain
+    @old_subdomain = subdomain_was
   end
 end

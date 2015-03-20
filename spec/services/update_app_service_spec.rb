@@ -33,6 +33,19 @@ RSpec.describe UpdateAppService do
     expect(app_dev_dir(app).exist?).to be_truthy
   end
 
+  it 'rename dropbox dir when subdomain changed' do
+    params = { subdomain: 'new_subdomain' }
+    subject = UpdateAppService.new(author, app, params)
+    app.app_members.create(user: author, dropbox_enabled: true)
+
+    expect(Dropbox::MoveService).
+      to receive(:new).
+      with(author, app).
+      and_return(double(execute: true))
+
+    subject.execute
+  end
+
   it 'does not rename app dir when update failed' do
     params = { subdomain: 'new_subdomain', name: nil }
     subject = UpdateAppService.new(author, app, params)
@@ -41,7 +54,7 @@ RSpec.describe UpdateAppService do
     new_app_dir = app_dir('new_subdomain')
     new_app_dev_dir = app_dev_dir('new_subdomain')
 
-    status =  subject.execute
+    status = subject.execute
 
     expect(status).to be_falsy
     expect(old_app_dir.exist?).to be_truthy
