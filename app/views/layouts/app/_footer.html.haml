@@ -1,6 +1,8 @@
 %footer.app-footer
-  .container.footer-container
+  .container.app-footer-container
     .row
-      %h2.pull-right.powered-by
-        =t('powered-by')
-        =link_to image_tag("navbar-logo2.png", :border=>0, id: 'navbar-logo'), root_url(subdomain: Rails.configuration.constants['domain_prefix'])
+      %h3.pull-right.powered-by
+        .app-powered-by-text
+          =t('powered-by')
+        .app-powered-by-logo
+          =link_to image_tag("navbar-logo2.png", :border=>0, id: 'navbar-logo'), root_url(subdomain: Rails.configuration.constants['domain_prefix'])

@@ -30,10 +30,22 @@
 }
 
 .app-footer-container {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   padding-top: 10px;
 }
 
 .app-footer-section {
   padding-top: 5px;
+}
+
+.app-powered-by-text {
+  vertical-align: top;
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px
+}
+
+.app-powered-by-logo {
+  vertical-align: top;
+  float: left;
 }
