@@ -10,7 +10,6 @@ en:
   save: Save
   delete: Delete
   download: Download
-  push: Deploy to production
   apps:
     title: My Applications
     new: New application
@@ -39,6 +38,9 @@ en:
     dropbox:
       title: Dropbox
       description: Connect to dropbox
+    production:
+      title: Push
+      description: to production
   dropbox:
     connect_help: Connecting to Dropbox allows you to make your changes to code in a Dropbox folder and automatically deploy it into development environment.
     connect: Connect to Dropbox

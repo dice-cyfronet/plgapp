@@ -10,7 +10,6 @@ pl:
   save: Zapisz
   delete: Skasuj
   download: Pobierz
-  push: Wraj na produkcję
   apps:
     title: Moje Aplikacje
     new: Nowa aplikacja
@@ -39,6 +38,9 @@ pl:
     dropbox:
       title: Dropbox
       description: Integracja z Dropbox
+    production:
+      title: Wraj
+      description: na produkcję
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko dewloperskie."
     connect: Połącz z Dropbox
