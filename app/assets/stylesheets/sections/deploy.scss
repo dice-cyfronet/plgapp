@@ -1,0 +1,55 @@
+$dropbox-color: #1081de;
+$zip-color:     #a58463;
+
+.nav-upload {
+  .tab-description {
+    margin-left: 10px;
+
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  .fa {
+    font-size: 42px;
+  }
+
+  li {
+    &.active {
+      a, a:hover {
+        background-color: inherit;
+        border-color: $gray-light;
+      }
+
+      .fa-dropbox {
+        color: $dropbox-color;
+      }
+
+      .fa-file-archive-o {
+        color: $zip-color;
+      }
+    }
+
+    a:hover {
+      background-color: inherit;
+      border-color: transparent;
+
+      .fa-dropbox {
+        color: $dropbox-color;
+      }
+
+      .fa-file-archive-o {
+        color: $zip-color;
+      }
+    }
+
+    .fa-dropbox {
+      color: lighten($dropbox-color, 15);
+    }
+
+    .fa-file-archive-o {
+      color: lighten($zip-color, 15);
+    }
+  }
+}
