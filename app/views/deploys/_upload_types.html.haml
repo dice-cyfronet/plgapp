@@ -1,8 +1,14 @@
-%ul.nav.nav-pills
+%ul.nav.nav-pills.nav-upload
   = nav_link(action: :zip) do
     = link_to zip_app_deploy_path(@app) do
-      = icon('file-archive-o', t('deploy.zip'))
+      = icon('file-archive-o', class: 'tab-icon')
+      .pull-right.tab-description
+        .title= t('deploy.zip.title')
+        %small= t('deploy.zip.description')
   = nav_link(action: :dropbox) do
     = link_to dropbox_app_deploy_path(@app) do
-      = icon('dropbox', t('deploy.dropbox'))
+      = icon('dropbox', class: 'tab-icon')
+      .pull-right.tab-description
+        .title= t('deploy.dropbox.title')
+        %small= t('deploy.dropbox.description')
 %hr

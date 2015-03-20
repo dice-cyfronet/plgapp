@@ -32,8 +32,12 @@ en:
     pushed: Application sucessfully pushed into production
     push_error: Error while pushing application into production. Please contact administrator.
   deploy:
-    zip: Zip deploy
-    dropbox: Dropbox integration
+    zip:
+      title: Zip
+      description: Deploy zip archive
+    dropbox:
+      title: Dropbox
+      description: Connect to dropbox
   dropbox:
     connect_help: Connecting to Dropbox allows you to make your changes to code in a Dropbox folder and automatically deploy it into development environment.
     connect: Connect to Dropbox

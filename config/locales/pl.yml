@@ -32,8 +32,12 @@ pl:
     pushed: Aplikacja pomyślnie wgrana na produkcję
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
   deploy:
-    zip: Wgranie archiwum zip
-    dropbox: Integracja z Dropbox
+    zip:
+      title: Zip
+      description: Wgraj archiwum zip
+    dropbox:
+      title: Dropbox
+      description: Integracja z Dropbox
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko dewloperskie."
     connect: Połącz z Dropbox
