@@ -10,7 +10,6 @@ pl:
   save: Zapisz
   delete: Skasuj
   download: Pobierz
-  push: Wraj na produkcję
   apps:
     title: Moje Aplikacje
     new: Nowa aplikacja
@@ -31,6 +30,7 @@ pl:
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
     pushed: Aplikacja pomyślnie wgrana na produkcję
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
+    dev: "%{name} dev"
   deploy:
     zip:
       title: Zip
@@ -38,6 +38,9 @@ pl:
     dropbox:
       title: Dropbox
       description: Integracja z Dropbox
+    production:
+      title: Wraj
+      description: na produkcję
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko dewloperskie."
     connect: Połącz z Dropbox

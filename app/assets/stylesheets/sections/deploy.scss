@@ -1,5 +1,6 @@
-$dropbox-color: #1081de;
-$zip-color:     #a58463;
+$dropbox-color:       #1081de;
+$zip-color:           #a58463;
+$push-to-prod-color:  #5cb85c;
 
 .nav-upload {
   .tab-description {
@@ -29,6 +30,10 @@ $zip-color:     #a58463;
       .fa-file-archive-o {
         color: $zip-color;
       }
+
+      .fa-sign-in {
+        color: $push-to-prod-color;
+      }
     }
 
     a:hover {
@@ -42,6 +47,10 @@ $zip-color:     #a58463;
       .fa-file-archive-o {
         color: $zip-color;
       }
+
+      .fa-sign-in {
+        color: $push-to-prod-color;
+      }
     }
 
     .fa-dropbox {
@@ -50,6 +59,10 @@ $zip-color:     #a58463;
 
     .fa-file-archive-o {
       color: lighten($zip-color, 15);
+    }
+
+    .fa-sign-in {
+      color: lighten($push-to-prod-color, 15);
     }
   }
 }
