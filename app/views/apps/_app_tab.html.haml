@@ -7,13 +7,15 @@
     %span.text-muted (#{with_subdomain(@app.dev_full_subdomain)})
   .pull-right
     .btn-group
-      = link_to t('edit'), [:edit, @app],
+      = link_to [:edit, @app],
                 class: 'btn btn-sm btn-success',
-                title: t('apps.edit')
-      = link_to t('delete'), @app, method: :delete,
+                title: t('apps.edit') do
+        = icon('edit', t('edit'))
+      = link_to @app, method: :delete,
                 class: 'btn btn-sm btn-danger',
                 data: { confirm: t('apps.are_you_sure') },
-                title: t('apps.delete')
+                title: t('apps.delete') do
+        = icon('trash', t('delete'))
 %hr
 
 %ul.nav.nav-tabs#tabs1
