@@ -5,3 +5,9 @@ pl:
   error_403:
     title: Nie masz wystarczających uprawnień aby zobaczyć tę stronę.
     description: Proszę skontaktuj się z administratorem usługi w celu uzyskania odpowiednich uprawnień.
+  error_422:
+    title: Blędny element.
+    description: Nie jesteśmy w stanie przetworzyć twojego rządania ze względu na blędy semantyczne.
+  error_500:
+    title: Wewnętrzny bląd serwera.
+    description: Wystąpił wewnętrzny błąd serwera. Zostaliśmy już poinformowani o problemie i pracujemy nad jego rozwiązaniem.

@@ -5,3 +5,9 @@ en:
   error_403:
     title: You are not authorized to see this resource.
     description: Please contact resource owner to gain required privilages.
+  error_422:
+    title: Unprocessable entity.
+    description: We was not able to procced your request due to semantic errors.
+  error_500:
+    title: Internal server error.
+    description: Internal server error occured. We are already notified about this situation and we will try to fix the problem ASAP.

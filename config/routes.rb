@@ -2,6 +2,12 @@ require 'subdomain'
 require 'root'
 
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
   devise_scope :user do
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
@@ -71,4 +77,8 @@ Rails.application.routes.draw do
 
   devise_for :users,
              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  match '/404', to: 'errors#not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 end
