@@ -63,7 +63,10 @@ field, which contains information returned by the service.
 # Rimrock API
 
 Rimrock API is contained in `rimrock.js` file. This API allows for
-calling functions exposed by Rimrock.
+calling functions exposed by Rimrock. All objects supplied to and returned
+by Rimrock API are compliant with information sent to and recieved
+from Rimrock itself. All information about Rimrock services is contained in
+[documentation](https://submit.plgrid.pl/processes)
 
 ## Run a process
 
