@@ -31,6 +31,7 @@ Returns location of `rimrock.js`.
 ```
 plgapp.rimrockJsPath();
 ```
+
 ## Get PLG-Data jslib path
 
 Returns location of `plgdata.js`.
@@ -66,7 +67,7 @@ calling functions exposed by Rimrock.
 
 ## Run a process
 
-`run` method allows for creating a Rimrock process. Underlying rimrock
+`run` function allows for creating a Rimrock process. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/processes).
 
 ```
@@ -88,7 +89,7 @@ rimrock.run(function (err, result) {
 
 ## Run a job
 
-`submitJob` method allows for running a Rimrock job. Underlying rimrock
+`submitJob` function allows for running a Rimrock job. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/jobs).
 
 ```
