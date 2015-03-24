@@ -27,24 +27,6 @@ basic functions needed for PLGApp app. All callbacks follow the
 argument. If any error occurs the `err` argument is set, while
 other have undefined values.
 
-## Get logout path
-
-Returns logout path. Handy for constructing *logout* links.
-
-```
-plgapp.logoutPath();
-```
-
-## Get OpenID logout frame
-
-Returns code used for generating an OpenId logout frame. Used for
-logging out of OpenId.
-
-```
-plgapp.openIdLogoutFrame();
-```
-```
-
 ## Get information about user and his token
 
 Upon completion getInfo calls the supplied callback with `userLogin`

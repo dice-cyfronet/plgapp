@@ -26,22 +26,6 @@ callbacki używają konwencji *errback*, czyli posiadają obiekt `err`
 jako pierwszy argument. W przypadku wystąpienia błędu argument `err`
 zostanie ustawiony, a pozostałe argumenty pozostaną niezdefiniowane.
 
-## Pobierz ścieżkę wylogowania
-
-Zwraca ścieżkę wylowania. Przydatne podczas tworzenia linków *wyloguj*.
-
-```
-plgapp.logoutPath();
-```
-
-## Pobierz ramkę wylogowania z OpenID
-
-Zwraca kod używany do wstawienia ramki wylogowania OpenId.
-
-```
-plgapp.openIdLogoutFrame();
-```
-
 ## Pobież login i token użytkownika
 
 Funkcja służąca do pobrania informacji o loginie i tokenie użytkownika.
