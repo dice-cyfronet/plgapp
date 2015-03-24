@@ -55,6 +55,7 @@ en:
   help:
     title: Help
     README: General
+    js_libs: JS libraries
   footer:
     contact:
       key: Contact
