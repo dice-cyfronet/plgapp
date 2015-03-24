@@ -21,19 +21,16 @@
           - if current_user.admin?
             = nav_link(controller: :jobs) do
               = link_to t('jobs.title'), job_path
+        %li
+          = nav_link controller: :help do
+            = link_to t('help.title'), help_path,
+                      data: { placement: 'bottom' },
+                      title: t('help.title')
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li
             %a
               = current_user.name
-        %li
-          = nav_link controller: :help do
-            = link_to help_path,
-                      data: { placement: 'bottom' },
-                      title: t('help.title') do
-              = icon('question')
-
-        - if user_signed_in?
           %li
             = link_to destroy_user_session_path,
                       data: { placement: 'bottom' },
