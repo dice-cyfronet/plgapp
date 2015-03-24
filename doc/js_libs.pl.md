@@ -11,10 +11,10 @@ być uwzględnione w stronie. Dołączenie bibliotek JS najłatwiej osiągnąć�
 
 ```
 <head>
-  <script src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
-  <script src="/plgapp/plgapp.js"></script>
-  <script src="/plgapp/rimrock.js"></script>
-  <script src="/plgapp/plgdata.js"></script>
+  <script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="/plgapp/plgapp.js"></script>
+  <script type="text/javascript" src="/plgapp/rimrock.js"></script>
+  <script type="text/javascript" src="/plgapp/plgdata.js"></script>
 </head>
 ```
 
