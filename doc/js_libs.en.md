@@ -57,14 +57,14 @@ PLGApp js libs use custom error class.
 class AppError;
 ```
 
-AppError is based on `Error` class, additionaly it contains a `data`
+AppError is based on `Error` class, additionally it contains a `data`
 field, which contains information returned by the service.
 
 # Rimrock API
 
 Rimrock API is contained in `rimrock.js` file. This API allows for
 calling functions exposed by Rimrock. All objects supplied to and returned
-by Rimrock API are compliant with information sent to and recieved
+by Rimrock API are compliant with information sent to and received
 from Rimrock itself. All information about Rimrock services is contained in
 [documentation](https://submit.plgrid.pl/processes)
 

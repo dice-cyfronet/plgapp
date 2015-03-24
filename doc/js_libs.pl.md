@@ -4,7 +4,7 @@
 
 PLGApp API zostało zawarte w pliku `plgapp.js`. PLGApp API dostarcza
 podstawowych funkcji potrzebnych dla aplikacji PLGApp. Wszystkie
-callbacki uzywają konwencji *errback*, czyli posiadają obiekt `err`
+callbacki używają konwencji *errback*, czyli posiadają obiekt `err`
 jako pierwszy argument. W przypadku wystąpienia błędu argument `err`
 zostanie ustawiony, a pozostałe argumenty pozostaną niezdefiniowane.
 
@@ -63,7 +63,7 @@ informacje zwracane przez daną usługę.
 # Rimrock API
 
 Rimrock API zostało zawarte w pliku `rimrock.js`. Api zawiera funkcje
-służace do korzystania z usług Rimrocka.
+służące do korzystania z usług Rimrocka.
 Wszystkie obiekty zwracane przez funkcje i podawane jako argumenty w callbackach
 są zgodne z informacjami zwracanymi przez Rimrocka. Informacje zwracane
 przez Rimrocka zostały opisane na stronie [z dokumentacją](https://submit.plgrid.pl/processes).
@@ -164,7 +164,7 @@ plgdata.mkdir(function (err) {}, path);
 ```
 
 Tworzy nowy katalog pod wskazaną ścieżką. Po wykonaniu operacji wywoływana
-jest funckja `callback`.
+jest funkcja `callback`.
 
 ## Wygeneruj ścieżkę ściągania
 
