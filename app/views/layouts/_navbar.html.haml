@@ -26,13 +26,14 @@
           %li
             %a
               = current_user.name
-          %li
-            = nav_link controller: :help do
-              = link_to help_path,
-                        data: { placement: 'bottom' },
-                        title: t('help.title') do
-                = icon('question')
+        %li
+          = nav_link controller: :help do
+            = link_to help_path,
+                      data: { placement: 'bottom' },
+                      title: t('help.title') do
+              = icon('question')
 
+        - if user_signed_in?
           %li
             = link_to destroy_user_session_path,
                       data: { placement: 'bottom' },
