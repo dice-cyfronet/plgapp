@@ -24,20 +24,6 @@ logging out of OpenId.
 ```
 plgapp.openIdLogoutFrame();
 ```
-## Get Rimrock jslib path
-
-Returns location of `rimrock.js`.
-
-```
-plgapp.rimrockJsPath();
-```
-
-## Get PLG-Data jslib path
-
-Returns location of `plgdata.js`.
-
-```
-plgapp.okgdataJsPath();
 ```
 
 ## Get information about user and his token

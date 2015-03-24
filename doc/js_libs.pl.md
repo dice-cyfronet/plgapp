@@ -23,21 +23,6 @@ Zwraca kod używany do wstawienia ramki wylogowania OpenId.
 ```
 plgapp.openIdLogoutFrame();
 ```
-## Pobież lokalizację biblioteki Rimrock
-
-Zwraca lokalizację `rimrock.js`.
-
-```
-plgapp.rimrockJsPath();
-```
-
-## Pobież lokalizację biblioteki PLG-Data
-
-Zwraca lokalizację `plgdata.js`.
-
-```
-plgapp.okgdataJsPath();
-```
 
 ## Pobież login i token użytkownika
 
