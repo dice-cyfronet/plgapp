@@ -9,7 +9,7 @@ Biblioteki JS składają się z trzech komponentów:
 biblioteki są dostępne jako oddzielne pliki JS. Wszystkie biblioteki zależą od jQuery, które powinno
 być uwzględnione w stronie. Dołączenie bibliotek JS najłatwiej osiągnąć w prezentowany poniżej sposób.
 
-```
+```html
 <head>
   <script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="/plgapp/plgapp.js"></script>
@@ -32,7 +32,7 @@ Funkcja służąca do pobrania informacji o loginie i tokenie użytkownika.
 Po wykonaniu operacji wywoływana jest funkcja `callback`
 z odpowiednimi parametrami.
 
-```
+```javascript
 plgapp.getInfo(function(err, userLogin, csrfToken) {});
 ```
 
@@ -41,7 +41,7 @@ plgapp.getInfo(function(err, userLogin, csrfToken) {});
 Biblioteki PLGApp używają własnego typu błędu, w każdej sytuacji gdzie
 zwracany jest błąd.
 
-```
+```javascript
 class AppError;
 ```
 AppError bazuje na typie `Error`, dodając pole `data` zawierające
@@ -60,7 +60,7 @@ przez Rimrocka zostały opisane na stronie [z dokumentacją](https://submit.plgr
 Funkcja `run` pozwala na uruchomienie procesu, wywoływana funkcja
 Rimrocka została opisana w [dokumentacji](https://submit.plgrid.pl/processes).
 
-```
+```javascript
 rimrock.run(function (err, result) {
   //submit callback
   if(err) {
@@ -80,7 +80,7 @@ rimrock.run(function (err, result) {
 Funkcja `submitJob` pozwala na uruchomienie zadania, wywoływana funkcja
 Rimrocka została opisana w [dokumentacji](https://submit.plgrid.pl/jobs).
 
-```
+```javascript
 rimrock.submitJob(function (err, result) {
   //submit callback
   if (err) {
@@ -108,7 +108,7 @@ callback.
 
 ### Pobierz informacje o zadaniach
 
-```
+```javascript
 rimrock.jobs(function(err, jobs) { /* handle job info */ }, tag); //tag is optional
 ```
 
@@ -117,7 +117,7 @@ jest zgodny z wiadomością zwracaną przez Rimrocka.
 
 ### Pobierz informacje o zadaniu.
 
-```
+```javascript
 rimrock.job(function(err, job) { /* handle job information */ }, job_id);
 ```
 
@@ -125,7 +125,7 @@ Po zakończeniu operacji wywoływany jest callback z informacjami o zadaniu.
 
 ### Przerwij zadanie
 
-```
+```javascript
 rimrock.abortJob(function (err) {}, job_id);
 ```
 
@@ -133,7 +133,7 @@ Przerywa zadanie, wywołuje callback po zakończeniu operacji.
 
 ### Usuń zadanie
 
-```
+```javascript
 rimrock.deleteJob(function (err) {}, job_id);
 ```
 
@@ -146,7 +146,7 @@ pomocnicze, używane podczas korzystania z plgdata.
 
 ### Stwórz katalog
 
-```
+```javascript
 plgdata.mkdir(function (err) {}, path);
 ```
 
@@ -155,7 +155,7 @@ jest funkcja `callback`.
 
 ### Wygeneruj ścieżkę ściągania
 
-```
+```javascript
 plgdata.generateDownloadPath(function (err, downloadPath) {}, path);
 ```
 
@@ -163,7 +163,7 @@ Zwraca ścieżkę umożliwiającą ściągnięcie pliku.
 
 ### Wygeneruj ścieżkę wysyłania
 
-```
+```javascript
 plgdata.generateUploadPath(function (err, uploadPath) {}, path);
 ```
 

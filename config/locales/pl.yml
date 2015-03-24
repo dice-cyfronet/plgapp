@@ -24,7 +24,7 @@ pl:
     created: Nowa aplikacja została pomyślnie stworzona
     updated: Aplikacja została pomyślnie zaktualizowana
     login_tab: Tekst logowania
-    deploy_tab: Nową wersja
+    deploy_tab: Nowa wersja
     activity_tab: Aktywność
     already_a_member: Ten użytkownik już jest zapisany do aplikacji
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
@@ -39,7 +39,7 @@ pl:
       title: Dropbox
       description: Integracja z Dropbox
     production:
-      title: Wraj
+      title: Wgraj
       description: na produkcję
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko deweloperskie."
@@ -54,7 +54,7 @@ pl:
     error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
   help:
     title: Pomoc
-    README: Ogólne
+    README: Tworzenie aplikacji
     js_libs: Biblioteki JS
   footer:
     contact:
@@ -81,7 +81,7 @@ pl:
       desc: Jesteśmy zespołem uczestniczącym w wielu narodowych oraz międzynarodowych projektach badawczych, gdzie szukamy synergii między nauką a rozwiązaniami komercyjnymi.
   home:
     title: Tworzenie aplikacji naukowych może być proste
-    desc: Polski. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    desc: Platforma udostępniająca lekkie aplikacje webowe wykorzystujące infrastruktury obliczeniowe dużej mocy
     apps-title: Nasze aplikacje dziedzinowe
   activity:
     deploy: Wrana nowa wersja aplikacji

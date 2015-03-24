@@ -10,7 +10,7 @@ libs are available in separate JS files with their proper names. JS libs depend 
 so it needs to be included in the page. Inclusion of JS libs can be achieved by inserting
 the following code in HTML page:
 
-```
+```html
 <head>
   <script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="/plgapp/plgapp.js"></script>
@@ -32,7 +32,7 @@ other have undefined values.
 Upon completion getInfo calls the supplied callback with `userLogin`
 and `csrfToken` as parameters.
 
-```
+```javascript
 plgapp.getInfo(function(err, userLogin, csrfToken) {});
 ```
 
@@ -40,7 +40,7 @@ plgapp.getInfo(function(err, userLogin, csrfToken) {});
 
 PLGApp js libs use custom error class.
 
-```
+```javascript
 class AppError;
 ```
 
@@ -60,7 +60,7 @@ from Rimrock itself. All information about Rimrock services is contained in
 `run` function allows for creating a Rimrock process. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/processes).
 
-```
+```javascript
 rimrock.run(function (err, result) {
   //submit callback
   if(err) {
@@ -82,7 +82,7 @@ rimrock.run(function (err, result) {
 `submitJob` function allows for running a Rimrock job. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/jobs).
 
-```
+```javascript
 rimrock.submitJob(function (err, result) {
   //submit callback
   if (err) {
@@ -109,7 +109,7 @@ The `result` object in submit callback is created based on Rimrock response, jus
 
 ### Get information about jobs
 
-```
+```javascript
 rimrock.jobs(function(err, jobs) { /* handle job info */ }, tag); //tag is optional
 ```
 
@@ -117,7 +117,7 @@ Upon completion calls the callback with information about jobs. The `jobs` param
 
 ### Get information about specific job
 
-```
+```javascript
 rimrock.job(function(err, job) { /* handle job information */ }, job_id);
 ```
 
@@ -125,7 +125,7 @@ Upon completion calls the callback with information about specified job.
 
 ### Abort job
 
-```
+```javascript
 rimrock.abortJob(function (err) {}, job_id);
 ```
 
@@ -133,7 +133,7 @@ Aborts a specified job, calls the callback upon completion.
 
 ### Delete job
 
-```
+```javascript
 rimrock.deleteJob(function (err) {}, job_id);
 ```
 
@@ -146,7 +146,7 @@ helper functions used for interacting with plgdata.
 
 ### Make directory
 
-```
+```javascript
 plgdata.mkdir(function (err) {}, path);
 ```
 
@@ -154,7 +154,7 @@ Creates a new directory at the supplied path. Callback is called upon completion
 
 ### Generate download path
 
-```
+```javascript
 plgdata.generateDownloadPath(function (err, downloadPath) {}, path);
 ```
 
@@ -162,7 +162,7 @@ Generates download path for a specified path.
 
 ### Generate upload path
 
-```
+```javascript
 plgdata.generateUploadPath(function (err, uploadPath) {}, path);
 ```
 

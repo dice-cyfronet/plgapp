@@ -54,7 +54,7 @@ en:
     error: Error communicating with Dropbox - please contact administator
   help:
     title: Help
-    README: General
+    README: Application development
     js_libs: JS libraries
   footer:
     contact:
@@ -80,8 +80,8 @@ en:
       key: About DICE team
       desc: We participate in numerous national and international interdisciplinary research projects, where we seek the synergy between the academia and industry.
   home:
-    title: Scientiffic appliacations development made easier
-    desc: English. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    title: Scientific application development made easier
+    desc: Platform for hosting lightweight web applications using high performance computing infrastructures
     apps-title: Our domain applications
   activity:
     deploy: Deployd new application version
