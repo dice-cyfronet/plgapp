@@ -55,6 +55,7 @@ en:
   help:
     title: Help
     README: Application development
+    js_libs: JS libraries
   footer:
     contact:
       key: Contact

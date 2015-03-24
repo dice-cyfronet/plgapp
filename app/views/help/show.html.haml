@@ -3,7 +3,7 @@
     %h2= t('help.title')
     %hr
     #ul.nav.nav-pills.nav-stacked
-      - %w(README).sort.each do |file|
+      - %w(README js_libs).sort.each do |file|
         = nav_tab :category, file do
           = link_to t("help.#{file}"), help_file_path(file)
   .col-md-9

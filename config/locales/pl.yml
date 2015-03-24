@@ -55,6 +55,7 @@ pl:
   help:
     title: Pomoc
     README: Tworzenie aplikacji
+    js_libs: Biblioteki JS
   footer:
     contact:
       key: Kontakt
