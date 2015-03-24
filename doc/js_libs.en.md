@@ -19,7 +19,7 @@ the following code in HTML page:
 </head>
 ```
 
-# PLGApp API
+## PLGApp API
 
 PLGApp API is contained in `plgapp.js` file. PLGApp API supplies
 basic functions needed for PLGApp app. All callbacks follow the
@@ -27,7 +27,7 @@ basic functions needed for PLGApp app. All callbacks follow the
 argument. If any error occurs the `err` argument is set, while
 other have undefined values.
 
-## Get information about user and his token
+### Get information about user and his token
 
 Upon completion getInfo calls the supplied callback with `userLogin`
 and `csrfToken` as parameters.
@@ -36,7 +36,7 @@ and `csrfToken` as parameters.
 plgapp.getInfo(function(err, userLogin, csrfToken) {});
 ```
 
-## Error class
+### Error class
 
 PLGApp js libs use custom error class.
 
@@ -47,7 +47,7 @@ class AppError;
 AppError is based on `Error` class, additionally it contains a `data`
 field, which contains information returned by the service.
 
-# Rimrock API
+## Rimrock API
 
 Rimrock API is contained in `rimrock.js` file. This API allows for
 calling functions exposed by Rimrock. All objects supplied to and returned
@@ -55,7 +55,7 @@ by Rimrock API are compliant with information sent to and received
 from Rimrock itself. All information about Rimrock services is contained in
 [documentation](https://submit.plgrid.pl/processes)
 
-## Run a process
+### Run a process
 
 `run` function allows for creating a Rimrock process. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/processes).
@@ -77,7 +77,7 @@ rimrock.run(function (err, result) {
 
 
 
-## Run a job
+### Run a job
 
 `submitJob` function allows for running a Rimrock job. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/jobs).
@@ -107,7 +107,7 @@ rimrock.submitJob(function (err, result) {
 
 The `result` object in submit callback is created based on Rimrock response, just as the `job` object in `onUpdate` callback.
 
-## Get information about jobs
+### Get information about jobs
 
 ```
 rimrock.jobs(function(err, jobs) { /* handle job info */ }, tag); //tag is optional
@@ -115,7 +115,7 @@ rimrock.jobs(function(err, jobs) { /* handle job info */ }, tag); //tag is optio
 
 Upon completion calls the callback with information about jobs. The `jobs` parameter is based on Rimrock response.
 
-## Get information about specific job
+### Get information about specific job
 
 ```
 rimrock.job(function(err, job) { /* handle job information */ }, job_id);
@@ -123,7 +123,7 @@ rimrock.job(function(err, job) { /* handle job information */ }, job_id);
 
 Upon completion calls the callback with information about specified job.
 
-## Abort job
+### Abort job
 
 ```
 rimrock.abortJob(function (err) {}, job_id);
@@ -131,7 +131,7 @@ rimrock.abortJob(function (err) {}, job_id);
 
 Aborts a specified job, calls the callback upon completion.
 
-## Delete job
+### Delete job
 
 ```
 rimrock.deleteJob(function (err) {}, job_id);
@@ -139,12 +139,12 @@ rimrock.deleteJob(function (err) {}, job_id);
 
 Deletes a specified job, calls the callback upon completion.
 
-# PLG-Data API
+## PLG-Data API
 
 PLG-Data API is contained in `plgdata.js` file. This API contains
 helper functions used for interacting with plgdata.
 
-## Make directory
+### Make directory
 
 ```
 plgdata.mkdir(function (err) {}, path);
@@ -152,7 +152,7 @@ plgdata.mkdir(function (err) {}, path);
 
 Creates a new directory at the supplied path. Callback is called upon completion.
 
-## Generate download path
+### Generate download path
 
 ```
 plgdata.generateDownloadPath(function (err, downloadPath) {}, path);
@@ -160,7 +160,7 @@ plgdata.generateDownloadPath(function (err, downloadPath) {}, path);
 
 Generates download path for a specified path.
 
-## Generate upload path
+### Generate upload path
 
 ```
 plgdata.generateUploadPath(function (err, uploadPath) {}, path);
