@@ -22,18 +22,19 @@ To start the development of your application you need to provide us with the fil
 
 1. Inside your application's Dropbox folder you should create an `index.html` file which will be automatically served when you go to the application's URL at `https://{application-subdomain}-dev.app.plgrid.pl`. Try the following HTML snippet:
 
-<!-- -->
-	<!doctype html>
-	<html>
-		<head>
-			<title>My first plgapp application</title>
-			<script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
-			<script type="text/javascript" src="/plgapp/plgapp.js"></script>
-		</head>
-		<body>
-			<div>This is my first <em>plgapp</em> application.</div>
-		</body>
-	</html>
+```html
+<!doctype html>
+<html>
+	<head>
+		<title>My first plgapp application</title>
+		<script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="/plgapp/plgapp.js"></script>
+	</head>
+	<body>
+		<div>This is my first <em>plgapp</em> application.</div>
+	</body>
+</html>
+```
 
 Development of auxiliary files such as JavaScript or CSS files is done the usual way. Put your files inside the application folder and include them in the HTML file with the proper tags (`<script>` or `<link>`). Libraries provided with the *plgapp* and their API is available on a [separate page](/help/js_libs).
 

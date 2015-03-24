@@ -22,18 +22,19 @@ Aby wykorzystać tryb tworzenia aplikacji należy dostarczyć pliki, które zost
 
 1. W katalogu aplikacji w Dropbox należy utworzyć plik `index.html`, który zostanie automatycznie zwrócony do przeglądarki po odwiedzeniu adresu aplikacji `https://{subdomena-aplikacji}-dev.app.plgrid.pl`. Proszę użyć poniższego kodu:
 
-<!-- -->
-	<!doctype html>
-	<html>
-		<head>
-			<title>Moja pierwsza aplikacji plgapp</title>
-			<script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
-			<script type="text/javascript" src="/plgapp/plgapp.js"></script>
-		</head>
-		<body>
-			<div>To jest moja pierwsza aplikacja <em>plgapp</em>.</div>
-		</body>
-	</html>
+```html
+<!doctype html>
+<html>
+	<head>
+		<title>Moja pierwsza aplikacji plgapp</title>
+		<script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="/plgapp/plgapp.js"></script>
+	</head>
+	<body>
+		<div>To jest moja pierwsza aplikacja <em>plgapp</em>.</div>
+	</body>
+</html>
+```
 
 Tworzenie plików pomocniczych, takich jak JavaScript lub CSS, jest przeprowadzane w standardowy sposób. Należy umieścić pliki w katalogu aplikacji i załączyć je w kodzie HTML za pomocą odpowiednich tagów (`<script>` lub `<link>`). Biblioteki dostarczane razem z platformą *plgapp* oraz ich API jest dostępne na [osobnej stronie](/help/js_libs).
 
