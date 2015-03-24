@@ -1,5 +1,23 @@
 # Biblioteki JS
 
+Biblioteki JS składają się z trzech komponentów:
+
+ * PLGApp API, w pliku: *plgapp.js*
+ * Rimrock API, w pliku: *rimrock.js*
+ * PLG-Data API, w pliku: *plgdata.js*
+
+biblioteki są dostępne jako oddzielne pliki JS. Wszystkie biblioteki zależą od jQuery, które powinno
+być uwzględnione w stronie. Dołączenie bibliotek JS najłatwiej osiągnąć w prezentowany poniżej sposób.
+
+```
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./plgapp/plgapp.js"></script>
+    <script src="./plgapp/rimrock.js"></script>
+    <script src="./plgapp/plgdata.js"></script>
+</head>
+```
+
 # PLGApp API
 
 PLGApp API zostało zawarte w pliku `plgapp.js`. PLGApp API dostarcza

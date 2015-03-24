@@ -1,5 +1,24 @@
 # JS libraries
 
+JS libraries consist of three components:
+
+ * PLGApp API, in file: *plgapp.js*
+ * Rimrock API, in file: *rimrock.js*
+ * PLG-Data API, in file: *plgdata.js*
+
+libs are available in separate JS files with their proper names. JS libs depend on jQuery,
+so it needs to be included in the page. Inclusion of JS libs can be achieved by inserting
+the following code in HTML page:
+
+```
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./plgapp/plgapp.js"></script>
+    <script src="./plgapp/rimrock.js"></script>
+    <script src="./plgapp/plgdata.js"></script>
+</head>
+```
+
 # PLGApp API
 
 PLGApp API is contained in `plgapp.js` file. PLGApp API supplies
