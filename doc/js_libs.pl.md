@@ -11,10 +11,10 @@ być uwzględnione w stronie. Dołączenie bibliotek JS najłatwiej osiągnąć�
 
 ```
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="./plgapp/plgapp.js"></script>
-    <script src="./plgapp/rimrock.js"></script>
-    <script src="./plgapp/plgdata.js"></script>
+  <script src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
+  <script src="/plgapp/plgapp.js"></script>
+  <script src="/plgapp/rimrock.js"></script>
+  <script src="/plgapp/plgdata.js"></script>
 </head>
 ```
 
@@ -62,16 +62,16 @@ Rimrocka została opisana w [dokumentacji](https://submit.plgrid.pl/processes).
 
 ```
 rimrock.run(function (err, result) {
-    //submit callback
-    if(err) {
-        //handle errors
-        return;
-    }
-    //handle result
+  //submit callback
+  if(err) {
+      //handle errors
+      return;
+  }
+  //handle result
 }, {
-    //options object
-    host: 'zeus.cyfronet.pl', //example hostname
-    command: 'uname -a' //example command
+  //options object
+  host: 'zeus.cyfronet.pl', //example hostname
+  command: 'uname -a' //example command
 });
 ```
 
@@ -82,24 +82,24 @@ Rimrocka została opisana w [dokumentacji](https://submit.plgrid.pl/jobs).
 
 ```
 rimrock.submitJob(function (err, result) {
-    //submit callback
-    if (err) {
-        //handle errors
-        return;
-    }
+  //submit callback
+  if (err) {
+      //handle errors
+      return;
+  }
 }, {
-    //options object
-    host: 'zeus.cyfronet.pl', //example host
-    working_directory: '/mnt/auto/people/plglogin/test', //optional, work dir
-    script: '#!/bin/bash\necho hello\nexit 0', //example script to run as a pbs job
-    tag: 'mytag', //optional tag parameter
-    onUpdate: function (err, job) {
-        if (err) {
-            console.log(err);
-        }
-        //handle job status updates
-        //job contains all fields returned by rimrock, with additional "previous_status" field containing previous status
+  //options object
+  host: 'zeus.cyfronet.pl', //example host
+  working_directory: '/mnt/auto/people/plglogin/test', //optional, work dir
+  script: '#!/bin/bash\necho hello\nexit 0', //example script to run as a pbs job
+  tag: 'mytag', //optional tag parameter
+  onUpdate: function (err, job) {
+    if (err) {
+        console.log(err);
     }
+    //handle job status updates
+    //job contains all fields returned by rimrock, with additional "previous_status" field containing previous status
+  }
 }); //submit job to queue system, result is similar to one described here: https://submit.plgrid.pl/jobs, onUpdate function is called every time when job status is updated by batch system
 ```
 
