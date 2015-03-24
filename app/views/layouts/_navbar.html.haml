@@ -13,7 +13,8 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
         %li
-          = link_to t('code_name'), root_path
+          = nav_link(controller: :home) do
+            = link_to t('code_name'), root_path
         - if user_signed_in?
           %li
             = nav_link(controller: :apps) do
