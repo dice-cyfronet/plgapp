@@ -56,6 +56,7 @@ pl:
     title: Pomoc
     README: Tworzenie aplikacji
     js_libs: Biblioteki JS
+    bootstrap: Bootstrap
   footer:
     contact:
       key: Kontakt
