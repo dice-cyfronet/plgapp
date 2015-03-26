@@ -177,6 +177,7 @@ var Rimrock = function () {
     this.registerCallback = function (cb, jobId, onUpdate, status) {
         addMonitoredJob(jobId, status == undefined ? 'none' : status,
             onUpdate);
+        cb(null);
     };
 
     this.jobs = function (cb, tag) {
