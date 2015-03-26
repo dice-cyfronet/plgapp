@@ -106,6 +106,29 @@ rimrock.submitJob(function (err, result) {
 Obiekt `result` w callbacku jest tworzony na podstawie odpowiedzi z Rimrocka, tak samo jak obiekt `job` w `onUpdate`
 callback.
 
+### Zarejestruj callback reagujący na zmianę stanu zadania
+
+Funkcja `registerCallback` pozwala na zarejestrowanie callbacku, który jest wywoływany w przypadku zmiany stanu zadania.
+
+```
+rimrock.registerCallback(function (err) {
+            //registration callback
+            console.log('registered a callback!');
+        },
+        job_id,
+        function (err, job) {
+            //job state update callback
+            console.log("job state was updated!");
+        },
+        current_job_status //optional
+        );
+```
+
+Jeżeli aktualny stan zadania (czwarty argument) nie zostanie podany, to stan zadania zostanie zaktualizowany przy
+pierwszym sprawdzeniu i zostanie wywoływany callback aktualizacji stanu zadania. Parametr `job` callbacku aktualizacji
+stanu zadania jest zwykłym obiektem reprezentującym zadanie rozszerzonym o pole `previous_state`, które zawiera
+poprzedni stan zadania.
+
 ### Pobierz informacje o zadaniach
 
 ```javascript

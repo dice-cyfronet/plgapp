@@ -107,6 +107,28 @@ rimrock.submitJob(function (err, result) {
 
 The `result` object in submit callback is created based on Rimrock response, just as the `job` object in `onUpdate` callback.
 
+### Register callback
+
+`registerCallback` function allows for registering a function, which is called upon a job state change event.
+
+```
+rimrock.registerCallback(function (err) {
+            //registration callback
+            console.log('registered a callback!');
+        },
+        job_id,
+        function (err, job) {
+            //job state update callback
+            console.log("job state was updated!");
+        },
+        current_job_status //optional
+        );
+```
+
+If current job status is not supplied, job state callback will be called upon first state check with new status.
+`Job` parameter of job state update callback is a plain job object, extended by `previous_state` field,
+which contains, as the name suggests, the previous state.
+
 ### Get information about jobs
 
 ```javascript
