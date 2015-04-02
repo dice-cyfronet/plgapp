@@ -2,11 +2,11 @@
 
 Biblioteki JS składają się z trzech komponentów:
 
- * PLGApp API, w pliku: *plgapp.js*
- * Rimrock API, w pliku: *rimrock.js*
- * PLG-Data API, w pliku: *plgdata.js*
+ * plgapp API w pliku *plgapp.js*
+ * rimrock API w pliku *rimrock.js*
+ * PLG-Data API w pliku *plgdata.js*
 
-biblioteki są dostępne jako oddzielne pliki JS. Wszystkie biblioteki zależą od jQuery, które powinno
+Biblioteki te są dostępne jako oddzielne pliki JS. Wszystkie biblioteki zależą od jQuery, które powinno
 być uwzględnione w stronie. Dołączenie bibliotek JS najłatwiej osiągnąć w prezentowany poniżej sposób.
 
 ```
@@ -18,9 +18,9 @@ być uwzględnione w stronie. Dołączenie bibliotek JS najłatwiej osiągnąć�
 </head>
 ```
 
-## PLGApp API
+## plgapp API
 
-PLGApp API zostało zawarte w pliku `plgapp.js`. PLGApp API dostarcza
+plgapp API zostało zawarte w pliku `plgapp.js`. PLGApp API dostarcza
 podstawowych funkcji potrzebnych dla aplikacji PLGApp. Wszystkie
 callbacki używają konwencji *errback*, czyli posiadają obiekt `err`
 jako pierwszy argument. W przypadku wystąpienia błędu argument `err`
@@ -36,6 +36,52 @@ z odpowiednimi parametrami.
 plgapp.getInfo(function(err, userLogin, csrfToken) {});
 ```
 
+### Import JavaScript and CSS resources independently of development/production mode
+
+Pliki JavaScript oraz CSS edytowane podczas tworzenia aplikacji mogą zostać użyte przez platformę plgapp poprzez odpowiednią zmianę adresów
+w kodzie HTML w celu przyspieszenia cyklu zapisz-odśwież-sprawdź. Aby móc wygodnie przełączać się pomiędzy trybami produkcyjnym i tworzenia
+aplikacji bez dodatkowych zmian w kodzie można wykorzystać metodę `importResources`:
+
+```
+plgapp.importResources(localServerRootUrl, javaScriptResources, cssResources);
+```
+
+Posłóżmy się następującym przykładem:
+
+```
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="/plgapp/plgapp.js"></script>
+        <script type="text/javascript">
+        	plgapp.importResources('http://localhost/files', ['/js/file.js'], ['/css/file.css']);
+        </script>
+    </head>
+    <body></body>
+</html>
+```
+
+Kiedy strona będzie wyświetlana w przeglądarce w trybie tworzenia aplikacji zostanie dodana dodatkowa sekcja nagłówka:
+
+```
+<head>
+	...
+	<link rel="stylesheet" href="http://localhost/files/css/file.css"/>
+    <script type="text/javascript" src="http://localhost/files/js/file.js"></script>
+</head>
+```
+
+W trybie produkcyjnym adres lokalnego serwera będzie pominięty a końcowa treść w nagłówku będzie następująca: 
+
+```
+<head>
+	...
+	<link rel="stylesheet" href="/css/file.css"/>
+    <script type="text/javascript" src="/js/file.js"></script>
+</head>
+```
+
 ### Typ błędu
 
 Biblioteki PLGApp używają własnego typu błędu, w każdej sytuacji gdzie
@@ -47,13 +93,13 @@ class AppError;
 AppError bazuje na typie `Error`, dodając pole `data` zawierające
 informacje zwracane przez daną usługę.
 
-## Rimrock API
+## rimrock API
 
-Rimrock API zostało zawarte w pliku `rimrock.js`. Api zawiera funkcje
+rimrock API zostało zawarte w pliku `rimrock.js`. API zawiera funkcje
 służące do korzystania z usług Rimrocka.
 Wszystkie obiekty zwracane przez funkcje i podawane jako argumenty w callbackach
-są zgodne z informacjami zwracanymi przez Rimrocka. Informacje zwracane
-przez Rimrocka zostały opisane na stronie [z dokumentacją](https://submit.plgrid.pl/processes).
+są zgodne z informacjami zwracanymi przez rimrocka. Informacje zwracane
+przez rimrocka zostały opisane na stronie [z dokumentacją](https://submit.plgrid.pl/processes).
 
 ### Uruchom proces
 
