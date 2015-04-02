@@ -76,8 +76,9 @@ var PlgApp = function () {
 	            	for(var j = 0; j < javascripts.length; j++) {
 	            		url = (data.development ? developmentRootUrl : '') +
 	            				javascripts[j];
-	            		$('head').append('<script type="text/javascript" src="' +
-	            				url + '"></script>');
+	            		$('head').append(
+	            				'<script type="text/javascript" src="'
+	            				+ url + '"></script>');
 	            	}
             	}
             }
