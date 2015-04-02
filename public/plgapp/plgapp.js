@@ -77,8 +77,8 @@ var PlgApp = function () {
 	            		url = (data.development ? developmentRootUrl : '') +
 	            				javascripts[j];
 	            		$('head').append(
-	            				'<script type="text/javascript" src="'
-	            				+ url + '"></script>');
+	            				'<script type="text/javascript" src="' +
+	            				url + '"></script>');
 	            	}
             	}
             }
