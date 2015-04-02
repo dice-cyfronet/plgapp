@@ -57,6 +57,26 @@ var PlgApp = function () {
         }
     };
 
+    this.importResources = function(developmentRootUrl, javascripts, csses) {
+    	$.ajax({
+            url: baseLocation + 'info',
+            success: function(data, status) {
+            	if(csses != null) {
+	            	for(var i = 0; i < csses.length; i++) {
+	            		var url = (data.development ? developmentRootUrl : "") + csses[i];
+	            		$('head').append('<link rel="stylesheet" href="' + url + '"/>');
+	            	}
+            	}
+            	
+            	if(javascripts != null) {
+	            	for(var i = 0; i < javascripts.length; i++) {
+	            		var url = (data.development ? developmentRootUrl : "") + javascripts[i];
+	            		$('head').append('<script type="text/javascript" src="' + url + '"></script>');
+	            	}
+            	}
+            }
+        });
+    };
 
     //utilities -> to be moved to prototype
     this.parseError = function (xhr, status, error) {

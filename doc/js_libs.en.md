@@ -2,11 +2,11 @@
 
 JS libraries consist of three components:
 
- * PLGApp API, in file: *plgapp.js*
- * Rimrock API, in file: *rimrock.js*
- * PLG-Data API, in file: *plgdata.js*
+ * plgapp API in file *plgapp.js*
+ * rimrock API in file *rimrock.js*
+ * PLG-Data API in file *plgdata.js*
 
-libs are available in separate JS files with their proper names. JS libs depend on jQuery,
+The libraries are available in separate JS files with their proper names. JS libs depend on jQuery,
 so it needs to be included in the page. Inclusion of JS libs can be achieved by inserting
 the following code in HTML page:
 
@@ -19,7 +19,7 @@ the following code in HTML page:
 </head>
 ```
 
-## PLGApp API
+## plgapp API
 
 PLGApp API is contained in `plgapp.js` file. PLGApp API supplies
 basic functions needed for PLGApp app. All callbacks follow the
@@ -36,9 +36,55 @@ and `csrfToken` as parameters.
 plgapp.getInfo(function(err, userLogin, csrfToken) {});
 ```
 
+### Import JavaScript and CSS resources independently of development/production mode
+
+JavaScript and CSS resources edited during development mode on a local computer can be picked up by plgapp by changing URLs in the HTML code
+to improve the save-refresh-check development cycle. To be able to switch to production without modifying the source code `importResources`
+method can be used:
+
+```
+plgapp.importResources(localServerRootUrl, javaScriptResources, cssResources);
+```
+
+Let's look at the following example:
+
+```
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="/plgapp/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="/plgapp/plgapp.js"></script>
+        <script type="text/javascript">
+        	plgapp.importResources('http://localhost/files', ['/js/file.js'], ['/css/file.css']);
+        </script>
+    </head>
+    <body></body>
+</html>
+```
+
+When viewed in a browser in the development mode an additional `head` section will resolve into:
+
+```
+<head>
+	...
+	<link rel="stylesheet" href="http://localhost/files/css/file.css"/>
+    <script type="text/javascript" src="http://localhost/files/js/file.js"></script>
+</head>
+```
+
+In the production mode, however, the local server address will be omitted thus generating the following:
+
+```
+<head>
+	...
+	<link rel="stylesheet" href="/css/file.css"/>
+    <script type="text/javascript" src="/js/file.js"></script>
+</head>
+```
+
 ### Error class
 
-PLGApp js libs use custom error class.
+plgapp js libs use custom error class.
 
 ```javascript
 class AppError;
@@ -47,12 +93,12 @@ class AppError;
 AppError is based on `Error` class, additionally it contains a `data`
 field, which contains information returned by the service.
 
-## Rimrock API
+## rimrock API
 
-Rimrock API is contained in `rimrock.js` file. This API allows for
+rimrock API is contained in `rimrock.js` file. This API allows for
 calling functions exposed by Rimrock. All objects supplied to and returned
-by Rimrock API are compliant with information sent to and received
-from Rimrock itself. All information about Rimrock services is contained in
+by rimrock API are compliant with information sent to and received
+from Rimrock itself. All information about rimrock services is contained in
 [documentation](https://submit.plgrid.pl/processes)
 
 ### Run a process
@@ -79,7 +125,7 @@ rimrock.run(function (err, result) {
 
 ### Run a job
 
-`submitJob` function allows for running a Rimrock job. Underlying rimrock
+`submitJob` function allows for running a rimrock job. Underlying rimrock
 service is described [here](https://submit.plgrid.pl/jobs).
 
 ```javascript
