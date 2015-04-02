@@ -60,18 +60,25 @@ var PlgApp = function () {
     this.importResources = function(developmentRootUrl, javascripts, csses) {
     	$.ajax({
             url: baseLocation + 'info',
-            success: function(data, status) {
-            	if(csses != null) {
+            success: function(data) {
+            	var url;
+            	
+            	if(csses !== null) {
 	            	for(var i = 0; i < csses.length; i++) {
-	            		var url = (data.development ? developmentRootUrl : "") + csses[i];
-	            		$('head').append('<link rel="stylesheet" href="' + url + '"/>');
+	            		url = (data.development ? developmentRootUrl : '') +
+	            				csses[i];
+	            		$('head').append('<link rel="stylesheet" href="' + url +
+	            				'"/>');
 	            	}
             	}
             	
-            	if(javascripts != null) {
-	            	for(var i = 0; i < javascripts.length; i++) {
-	            		var url = (data.development ? developmentRootUrl : "") + javascripts[i];
-	            		$('head').append('<script type="text/javascript" src="' + url + '"></script>');
+            	if(javascripts !== null) {
+	            	for(var j = 0; j < javascripts.length; j++) {
+	            		url = (data.development ? developmentRootUrl : '') +
+	            				javascripts[j];
+	            		$('head').append(
+	            				'<script type="text/javascript" src="' +
+	            				url + '"></script>');
 	            	}
             	}
             }
