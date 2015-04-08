@@ -4,17 +4,14 @@
     = locale_link(:en)
   .container
     .navbar-header
-      %button.navbar-toggle{:type => 'button', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse'}
+      %button.navbar-toggle{'type' => 'button', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse'}
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
 
-      = link_to image_tag("navbar-logo.png", :border=>0, id: 'navbar-logo'), root_url(subdomain: Rails.configuration.constants['domain_prefix'])
+      = link_to @app.name, root_path, class: 'navbar-brand'
 
     .navbar-collapse.collapse.navbar-responsive-collapse
-      %ul.nav.navbar-nav
-        %li
-          = link_to @app.name, root_path
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to omniauth_authorize_path(resource_name, :open_id) do

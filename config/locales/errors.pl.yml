@@ -11,3 +11,8 @@ pl:
   error_500:
     title: Wewnętrzny bląd serwera.
     description: Wystąpił wewnętrzny błąd serwera. Zostaliśmy już poinformowani o problemie i pracujemy nad jego rozwiązaniem.
+  errors:
+    messages:
+      wrong_size: "Zła wielkość (powinno być %{file_size})"
+      size_too_small: "Za mały (powinien mieć przynajmniej %{file_size})"
+      size_too_big: "Za duży (powinien mieć maksymalnie %{file_size})"

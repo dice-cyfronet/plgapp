@@ -1,9 +1,1 @@
-= icon('cubes', '', :class=>'user-logo')
-
-
-.bs-docs-section
-  %h1.page-header
-    = @app.name
-
-  %p.text-center
-    = markdown(@app.login_text)
+= render('apps/welcome', app: @app)

@@ -6,5 +6,5 @@
       = render('app_tab')
       .tab-content
         .tab-pane.active.app-show-content
-          %p
-            = markdown(@app.login_text)
+          = render('welcome', app: @app)
+
