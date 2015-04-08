@@ -28,7 +28,7 @@ class AppsController < ApplicationController
       redirect_to @app, notice: I18n.t('apps.updated')
     else
       set_apps
-      redner action: 'edit'
+      render action: 'edit'
     end
   end
 

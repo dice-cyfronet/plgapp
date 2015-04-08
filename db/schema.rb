@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319125019) do
+ActiveRecord::Schema.define(version: 20150408124959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150319125019) do
     t.string   "content"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "logo"
   end
 
   add_index "apps", ["subdomain"], name: "index_apps_on_subdomain", unique: true, using: :btree
@@ -53,7 +54,9 @@ ActiveRecord::Schema.define(version: 20150319125019) do
     t.boolean  "is_dir",        default: false
     t.string   "local_hash"
     t.string   "remote_hash"
+    t.time     "modified"
     t.string   "revision"
+    t.integer  "parent_id"
     t.integer  "app_member_id",                 null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -86,4 +89,5 @@ ActiveRecord::Schema.define(version: 20150319125019) do
   add_foreign_key "app_members", "apps"
   add_foreign_key "app_members", "users"
   add_foreign_key "dropbox_entries", "app_members"
+  add_foreign_key "dropbox_entries", "dropbox_entries", column: "parent_id"
 end

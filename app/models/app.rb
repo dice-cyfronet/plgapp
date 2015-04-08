@@ -1,3 +1,5 @@
+require 'file_size_validator'
+
 class App < ActiveRecord::Base
   include Slugable
 
@@ -5,6 +7,7 @@ class App < ActiveRecord::Base
   friendly_id :subdomain
 
   mount_uploader :content, AppUploader
+  mount_uploader :logo, LogoUploader
 
   has_many :app_members,
            dependent: :destroy
@@ -21,6 +24,8 @@ class App < ActiveRecord::Base
   validates :subdomain,
             presence: true,
             uniqueness: { case_sensitive: false }
+
+  validates :logo, file_size: { maximum: 0.5.megabytes.to_i }
 
   validate :not_a_devel_subdomain
 
