@@ -1,7 +1,7 @@
-- if app.logo
-  = image_tag(app.logo_url, class: 'user-logo')
-- else
+- if app.logo.blank?
   = icon('cubes', '', class: 'user-logo')
+- else
+  = image_tag(app.logo_url, class: 'user-logo')
 
 
 .bs-docs-section
