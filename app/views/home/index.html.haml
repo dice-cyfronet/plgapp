@@ -1,4 +1,4 @@
-= image_tag("logo-big.png", :border=>0, id: 'logo-big')
+= image_tag("logo-big.png", border: 0, id: 'logo-big')
 
 .bs-docs-section
   %h1.page-header
@@ -13,7 +13,11 @@
   .row.apps-preview
     - App.all.each do |app|
       .col-md-4.app-preview
-        = icon('cubes', '', :class=>'appl-icon')
+        - if app.logo.blank?
+          = icon('cubes', '', class: 'appl-icon')
+        - else
+          = image_tag(app.logo_url, class: 'user-logo')
+
         %h4.text-center
           = link_to app.name, root_url(subdomain: app.full_subdomain)
 
