@@ -31,6 +31,14 @@ cp config/puma.rb.example config/puma.rb
 edit config/puma.rb
 ```
 
+## Running
+
+Foreman is responsible for starting 2 processes: web serwer and delay jobs serwer (sidekiq).
+
+```
+foreman start
+```
+
 ## Testing
 
 To execute all tests run:
