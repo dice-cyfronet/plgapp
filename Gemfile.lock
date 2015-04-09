@@ -162,6 +162,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_magick (4.2.1)
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
@@ -351,6 +352,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   jquery-turbolinks
+  mini_magick
   newrelic_rpm
   nprogress-rails
   omniauth-openid

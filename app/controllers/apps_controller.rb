@@ -68,6 +68,6 @@ class AppsController < ApplicationController
 
   def app_params
     params.require(:app).
-      permit(:name, :subdomain, :login_text, :content)
+      permit(:name, :subdomain, :login_text, :content, :logo)
   end
 end
