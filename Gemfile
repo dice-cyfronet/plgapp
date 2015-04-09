@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'rubyzip'
 gem 'redcarpet'
+gem 'mini_magick'
 
 gem 'devise'
 gem 'ruby-openid', '~> 2.7.0'

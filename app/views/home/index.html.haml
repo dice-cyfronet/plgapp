@@ -13,10 +13,11 @@
   .row.apps-preview
     - App.all.each do |app|
       .col-md-4.app-preview
-        - if app.logo.blank?
-          = icon('cubes', '', class: 'appl-icon')
-        - else
-          = image_tag(app.logo_url, class: 'user-logo')
+        .app-icon-container
+          - if app.logo.blank?
+            = icon('cubes', '', class: 'appl-icon')
+          - else
+            = image_tag(app.logo.thumb.url, class: 'appl-icon')
 
         %h4.text-center
           = link_to app.name, root_url(subdomain: app.full_subdomain)
