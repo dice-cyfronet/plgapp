@@ -6,6 +6,11 @@ rvm:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - npm install
+
+test:
+  post:
+    - bundle exec rake karma:test
 
 addons:
   code_climate:
