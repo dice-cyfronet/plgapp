@@ -8,9 +8,9 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - npm install
 
-test:
-  post:
-    - bundle exec rake karma:test
+script:
+  - bundle exec rake
+  - bundle exec rake karma:test
 
 addons:
   code_climate:
