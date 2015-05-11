@@ -30,7 +30,7 @@ RSpec.describe User do
                          name: 'John Doe',
                          nickname: 'johndoe',
                          proxy: 'a',
-                         userCert: 'b',
-                         proxyPrivKey: 'c')
+                         userCert: 'c',
+                         proxyPrivKey: 'b')
   end
 end

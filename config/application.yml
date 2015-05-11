@@ -2,6 +2,7 @@ defaults: &defaults
   apps_dir: <%= Rails.root.join('user_apps') %>
   rimrock: https://submit.plgrid.pl
   plgdata: https://data.plgrid.pl
+  datanet: https://paas.datanet.plgrid.pl
   dev_postfix: "-dev"
 
 development:
