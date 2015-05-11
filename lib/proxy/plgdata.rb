@@ -4,7 +4,7 @@ require 'proxy/base'
 
 module Proxy
   class Plgdata < Proxy::Base
-    def initialize(proxy)
+    def initialize(proxy, _params)
       super(proxy, Rails.configuration.constants['plgdata'])
     end
 
