@@ -3,8 +3,8 @@
   = render 'layouts/head'
   %body
     = render 'layouts/app/navbar'
-    .container{id: 'app-content'}
-      - unless alert == t('devise.failure.unauthenticated')
+    .container{ id: 'app-content' }
+      - if show_flash?
         = render 'layouts/flash'
       = yield
     = render 'layouts/app/footer'
