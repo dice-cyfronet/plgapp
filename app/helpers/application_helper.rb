@@ -26,4 +26,8 @@ module ApplicationHelper
   def current_action?(*args)
     args.any? { |v| v.to_s.downcase == action_name }
   end
+
+  def show_flash?
+    alert != t('devise.failure.unauthenticated')
+  end
 end
