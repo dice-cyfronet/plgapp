@@ -38,6 +38,8 @@ gem 'dropbox-sdk'
 gem 'sidekiq'
 gem 'sinatra', require: nil
 
+gem 'redis-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

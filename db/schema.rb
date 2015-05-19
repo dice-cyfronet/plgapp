@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408124959) do
+ActiveRecord::Schema.define(version: 20150519084036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20150408124959) do
     t.inet     "last_sign_in_ip"
     t.string   "login",                                null: false
     t.string   "name",                 default: "",    null: false
-    t.text     "proxy"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "dropbox_user"

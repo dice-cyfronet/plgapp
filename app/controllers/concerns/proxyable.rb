@@ -18,7 +18,7 @@ module Proxyable
   private
 
   def proxy
-    proxy_class.new(current_user.proxy, params)
+    proxy_class.new(session['proxy'], params)
   end
 
   def proxy_responce

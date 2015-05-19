@@ -1,15 +1,16 @@
 # Be sure to restart your server when you modify this file.
-
-if Rails.env.production?
-  Rails.application.config.session_store :cookie_store,
-                                         key: '_plgapp_session',
-                                         expire_after: 40.minutes
+#
+if Rails.env.test?
+  Rails.application.config.
+    session_store(:cookie_store, key: '_plgapp_session')
 else
-  Rails.application.config.session_store :cookie_store,
-                                         key: '_plgapp_session'
-end
-
-# Clearing user proxy from DB on logout, if session still exists
-Warden::Manager.before_logout do |user, auth, opts|
-  user.clear_proxy if user
+  Rails.application.config.
+    session_store(:redis_store,
+                  # re-use the Redis config from the Rails cache store
+                  servers: Plgapp::Application.config.
+                           cache_store[1].merge(namespace: 'session:plgapp'),
+                  key: '_plgapp_session',
+                  secure: true,
+                  httponly: true,
+                  expire_after: 40.minutes)
 end
