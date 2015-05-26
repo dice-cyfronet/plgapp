@@ -27,6 +27,11 @@ Rails.application.routes.draw do
           via: [:get, :post, :put, :delete],
           id: /.*/
 
+    match '/datanet/:repo_name/:id',
+          to: 'datanet#call',
+          via: [:get, :post, :put, :delete],
+          id: /.*/
+
     get '/info', to: 'subdomains#info', as: :info
     get '/:id', to: 'subdomains#show', id: /.*/
   end

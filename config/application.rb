@@ -41,5 +41,16 @@ module Plgapp
 
     config.dropbox = Struct.new(:app_key, :app_secret).
       new(ENV['DROPBOX_APP_KEY'], ENV['DROPBOX_APP_SECRET'])
+
+    redis_url_string = config.constants['redis_url'] || 'redis://localhost:6379'
+
+    # Redis::Store does not handle Unix sockets well, so let's do it for them
+    redis_config_hash = Redis::Store::Factory.
+                        extract_host_options_from_uri(redis_url_string)
+    redis_uri = URI.parse(redis_url_string)
+    redis_config_hash[:path] = redis_uri.path if redis_uri.scheme == 'unix'
+
+    redis_config_hash[:namespace] = 'cache:plgapp'
+    config.cache_store = :redis_store, redis_config_hash
   end
 end

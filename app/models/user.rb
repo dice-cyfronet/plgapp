@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
       info = auth.info
       user.email = info.email
       user.name = info.name
-      user.proxy = info.proxy + info.userCert + info.proxyPrivKey
 
       user.save
     end

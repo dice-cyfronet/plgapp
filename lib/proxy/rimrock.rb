@@ -4,7 +4,7 @@ require 'proxy/base'
 
 module Proxy
   class Rimrock < Proxy::Base
-    def initialize(proxy)
+    def initialize(proxy, _params)
       super(proxy, Rails.configuration.constants['rimrock'])
     end
 
