@@ -237,3 +237,93 @@ plgdata.generateUploadPath(function (err, uploadPath) {}, path);
 ```
 
 Zwraca ścieżkę umożliwiającą wysłanie pliku.
+
+## API DataNet
+
+API DateNet'owe jest dostępne w pliku `datanet.js` i pozwala na wygodne używanie funkcjonalności usługi DataNet, która udostępnia szczegółową dokumentację na
+[tej stronie](https://datanet.plgrid.pl/documentation/manual?locale=pl). API pozwala na płynne wywoływanie następujących po sobie metod. Zaleca się tworzenie
+nowego łańcucha wywołań dla każdego żądania. Łańcuch wywołań powinien zawsze zaczynać się od wywołania metody `repository` na globalnie dostępnym obiekcie
+`datanet`. Proszę pamiętać, że każda z metod zwraca fabrykę łańcucha wyowałań i pozwala na kolejne wywołania metod.
+
+`function repository(repositoryName:String)` - ustawia nazwę repozytorium do wykorzystania przez budowane żądanie,
+
+* `repositoryName` - nazwa repozytorium DataNet (nazwa podawane podczas udostępniania repozytorium w interfejsie webowym DataNet)
+
+`function entity(entityName:String)` - ustawia nazwę encji do wykorzystania przez budowane żądanie,
+
+* `entityName` - nazwa encji modelu DataNet (wielkość liter ma znaczenie)
+
+`function id(entityId:String)` - ustawia identyfikator rekordu encji DataNet do wykorzystania przez budowane żądanie,
+
+* `entityId` - identyfikator rekordu
+
+`function field(fieldName:String[, fieldValue:String])` - ustawia nazwę pola (opcjonalnie z wartością) do wykorzystanie przez budowane żądanie,
+
+* `fieldName` - nazwa pola modelu DataNet
+
+`function fields(fieldNames:Array|fieldValues:Object)` - ustawia nazwy pól lub nazwy wraz z wartościami do wykorzystanie przez budowane żądanie,
+
+* `fieldNames` - tablica nazw pól modelu DataNet,
+* `fieldValues` - obiekt z nazwami pól i wartościami
+
+`function create()` - metoda używana do tworzenie nowych rekordów w repozytoriach DataNet,
+
+`function get()` - metoda używana do pobieranie rekordów lub wartości pól z repozytoriów DataNet,
+
+`function update()` - metoda używana do aktualizowania istniejących rekordów w repozytoriach DataNet,
+
+`function search(filters:Array)` - metoda używana do wyszukiwania rekordów w repozytoriach DataNet,
+
+* `filters` - tablica filtrów DataNet (np. `name=John` lub `surname=/Smith.*/`),
+
+`function delete()` - metoda używane do usuwania rekordów w repozytoriach DataNet,
+
+`function then(success:Function(data), error:Function(errorMessage))` - finalna metoda budująca i zlecająca żądanie do usługi DataNet,
+
+* `success(data)` - metoda zwrotna wywoływana w przypadku poprawnego przetworzenia rezultatu żądania,
+* `error(errorMessage)` - metoda zwrotna wywoływana w przypadku wystąpienia błędu podczas przetwarzania żądania lub w przypadku podanie niewystarczających
+informacji do zbudowania żądania.
+
+### Przykłady
+
+Ogólny schemat łączenia wywołań metod API DataNet'owego wygląda następująco:
+
+	datanet.repository(...).entity(...).[id(...)|field(...)|fields(...)|].[create()|get()|update()|search(...)|delete()].then(...);
+
+Poniżej przedstawiono parę przykładów użycia API DataNet'owego zakładając istnienie modelu składającego się z pojedynczej encji o nazwie `Person`
+z nastepującymi polami:
+
+	name: String(wymagene),
+	surname: String(wymagane),
+	age: Integer
+
+##### Tworzenie nowego wpisu z osobą
+	datanet.repository('people').entity('Person').field('name', 'John').field('surname', 'Smith').
+			create().then(function(data) {var id = data.id;}, function(error) {/*...*/});
+	//or with fields() method
+	datanet.repository('people').entity('Person').fields({name: 'John', surname: 'Smith'}).
+			create().then(function(data) {var id = data.id;}, function(error) {/*...*/});
+
+##### Aktualizacja wieku danej osoby
+	datanet.repository('people').entity('Person').id('entryId').field('age', 25).
+			update().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Usuwanie jednego z wpisów
+	datanet.repository('people').entity('Person').id('entryId').
+			delete().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Pobieranie wszystkich osób
+	datanet.repository('people').entity('Person').
+			get().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Pobieranie wszystkich osób tylko z polem imienia
+	datanet.repository('people').entity('Person').field('name').
+			get().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Pobieranie wpisu o osobie z danym idenyfikatorem
+	datanet.repository('people').entity('Person').id('entryId').
+			get().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Wyszukiwanie osób z imionami pasującymi do podanego wyrażenia regularnego
+	datanet.repository('people').entity('Person').
+			search(['name=/John,*/']).then(function(data) {/*...*/}, function(error) {/*...*/});
