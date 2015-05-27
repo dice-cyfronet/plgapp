@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 
   def new_locale
     locale = params[:locale] || locale_from_accept_language_header
-    %w(en pl).include?(locale) ? locale : I18n.default_locale.to_s
+    valid_locale(locale)
   end
 
   def locale_cookie=(locale)
@@ -43,7 +43,11 @@ class ApplicationController < ActionController::Base
   end
 
   def locale_from_cookie
-    I18n.locale = cookies['locale']
+    I18n.locale = valid_locale(cookies['locale'])
+  end
+
+  def valid_locale(locale)
+    %w(en pl).include?(locale) ? locale : I18n.default_locale.to_s
   end
 
   def language_change_necessary?
