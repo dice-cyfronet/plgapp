@@ -1,14 +1,16 @@
 module.exports = function(config) {
 	config.set({
 		basePath: '../',
-		frameworks: ['jasmine'],
+		frameworks: ['jasmine-ajax', 'jasmine'],
 		browsers: ['PhantomJS'],
 		files: [
-		    'public/plgapp/datanet.js',
-		    'spec/karma/*.js'
+			'public/plgapp/jquery/1.11.3/jquery.min.js',
+			'public/plgapp/plgapp.js',
+			'public/plgapp/datanet.js',
+			'spec/karma/*.js'
 		],
-		frameworks: ['jasmine'],
 		plugins: [
+		    'karma-jasmine-ajax',
 		    'karma-jasmine',
 		    'karma-phantomjs-launcher'
 		]
