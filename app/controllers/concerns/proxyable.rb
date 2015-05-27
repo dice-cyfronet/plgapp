@@ -4,9 +4,9 @@ module Proxyable
   def call
     self.response_body = proxy_responce.body
     self.status = proxy_responce.status
-    response.headers = {
+    response.headers = response.headers.merge(
       'Content-Type' => proxy_responce.headers['content-type'].join(',')
-    }
+    )
   end
 
   protected
@@ -22,6 +22,7 @@ module Proxyable
   end
 
   def proxy_responce
-    @proxy_response ||= ActionDispatch::Response.new(*proxy.call(request.env))
+    @proxy_response ||= ActionDispatch::Response.
+                        new(*proxy.call(request.env.dup))
   end
 end
