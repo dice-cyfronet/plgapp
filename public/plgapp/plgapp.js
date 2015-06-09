@@ -62,7 +62,7 @@ var PlgApp = function () {
             url: baseLocation + 'info',
             success: function(data) {
             	var url;
-            	
+
             	if(csses !== null) {
 	            	for(var i = 0; i < csses.length; i++) {
 	            		url = (data.development ? developmentRootUrl : '') +
@@ -71,7 +71,7 @@ var PlgApp = function () {
 	            				'"/>');
 	            	}
             	}
-            	
+
             	if(javascripts !== null) {
 	            	for(var j = 0; j < javascripts.length; j++) {
 	            		url = (data.development ? developmentRootUrl : '') +
@@ -85,6 +85,11 @@ var PlgApp = function () {
         });
     };
 
+    this.registerSessionTimeoutCallback = function(timeoutCallback,
+                                                   secondsBeforeTimeout) {
+        setSessionTimeout(timeoutCallback, secondsBeforeTimeout);
+    };
+
     //utilities -> to be moved to prototype
     this.parseError = function (xhr, status, error) {
         var data = xhr.responseText;
@@ -93,6 +98,37 @@ var PlgApp = function () {
         } catch (err) {
         }
         return new AppError(status + ' ' + xhr.status + ' ' + error, data);
+    };
+
+    var setSessionTimeout = function(timeoutCallback, secondsBeforeTimeout) {
+        if(!secondsBeforeTimeout) {
+            secondsBeforeTimeout = 0;
+        }
+        var sessionExpiry = getCookie('session_expiry') * 1000;
+        var now = (new Date()).valueOf();
+        var timeout = sessionExpiry - now - secondsBeforeTimeout * 1000;
+        if(timeout <= 0) {
+            timeoutCallback((sessionExpiry - now)/1000);
+        } else {
+            setTimeout(function() {
+                setSessionTimeout(timeoutCallback, secondsBeforeTimeout);
+            }, timeout);
+        }
+    };
+
+    var getCookie = function (cname) {
+        var name = cname + '=';
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return null;
     };
 };
 
