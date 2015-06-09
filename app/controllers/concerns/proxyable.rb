@@ -20,7 +20,8 @@ module Proxyable
   end
 
   def proxy_responce
-    @proxy_response ||= ActionDispatch::Response.new(*proxy.call(request.env))
+    @proxy_response ||= ActionDispatch::Response.
+                        new(*proxy.call(request.env.dup))
   end
 
   def response_headers
