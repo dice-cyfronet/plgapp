@@ -53,6 +53,18 @@ Use guard to execute tests connected with modified file:
 guard
 ```
 
+To execute karma tests run:
+
+```
+bundle exec rake karma:test
+```
+
+To run interactive karma test engine (which will retest every time a test or code is changed) run:
+
+```
+bundle exec rake karma:run
+```
+
 ## Contributing
 
   1. Fork the project
