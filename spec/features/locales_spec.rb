@@ -12,4 +12,13 @@ RSpec.feature 'Application locales' do
 
     expect(page).to have_content 'PL-Grid login'
   end
+
+  scenario 'only valid locales' do
+    allow_any_instance_of(ActionDispatch::Request).
+      to receive(:cookies).and_return('locale' => 'hpl')
+
+    visit root_path
+
+    expect(page).to have_content 'PL-Grid login'
+  end
 end
