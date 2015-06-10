@@ -287,6 +287,8 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    show_me_the_cookies (2.6.0)
+      capybara (~> 2.0)
     sidekiq (3.3.4)
       celluloid (>= 0.16.0)
       connection_pool (>= 2.1.1)
@@ -382,6 +384,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sentry-raven
   shoulda-matchers
+  show_me_the_cookies
   sidekiq
   simple_form
   sinatra

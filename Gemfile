@@ -58,6 +58,7 @@ end
 group :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
+  gem "show_me_the_cookies"
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false

@@ -84,6 +84,20 @@ In the production mode, however, the local server address will be omitted thus g
 </head>
 ```
 
+### Register callback for session expiration
+
+```
+    var before_timeout = 60;
+    plgapp.registerSessionTimeoutCallback(function(time_left){
+        console.log("session will exire in: " + time_left);
+    }, before_timeout);
+```
+
+`RegisterSessionTimeoutCallback` allows for registration of session expiration
+callbacks. User can supply a specified number of seconds, which will be
+ subtracted from timeout in order to fire the callback before the actual
+ expiration occurs.
+
 ### Error class
 
 plgapp js libs use custom error class.

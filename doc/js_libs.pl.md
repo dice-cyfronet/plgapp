@@ -82,6 +82,21 @@ W trybie produkcyjnym adres lokalnego serwera będzie pominięty a końcowa tre�
 </head>
 ```
 
+### Rejestrowanie funkcji callback dla wygaśnięcia sesji
+
+```
+    var before_timeout = 60;
+    plgapp.registerSessionTimeoutCallback(function(time_left){
+        console.log("session will exire in: " + time_left);
+    }, before_timeout);
+```
+
+`RegisterSessionTimeoutCallback` pozwala na zarejestrowanie funkcji callback,
+ która będzie wywołana przed wygaśnięciem sesji. Użytkownik może podać
+  opcjonalny argument, którym jest okres czasu w sekundach, który zostanie
+  odjęty od opóźnienia i spowoduje wywołanie callbacku przed faktycznym
+  wygaśnięciem sesji.
+
 ### Typ błędu
 
 Biblioteki PLGApp używają własnego typu błędu, w każdej sytuacji gdzie

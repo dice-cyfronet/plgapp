@@ -53,6 +53,9 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
+
+  # Include ShowMeTheCookies for retrieving cookies from Capybara.
+  config.include ShowMeTheCookies, type: :feature
 end
 
 OmniAuth.config.test_mode = true

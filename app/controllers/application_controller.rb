@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_locale
+  before_filter :set_session_expiry
   before_action :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -20,6 +21,13 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_session_expiry
+    session_length = Rails.application.config.session_options[:expire_after]
+    cookies['session_expiry'] = {
+      value: (Time.now + session_length).to_f
+    }
+  end
 
   def set_locale
     if language_change_necessary?
