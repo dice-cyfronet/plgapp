@@ -7,21 +7,24 @@
     %span.text-muted (#{with_subdomain(@app.dev_full_subdomain)})
   .pull-right
     .btn-group
-      = link_to [:edit, @app],
-                class: 'btn btn-sm btn-success',
-                title: t('apps.edit') do
-        = icon('edit', t('edit'))
-      = link_to @app, method: :delete,
-                class: 'btn btn-sm btn-danger',
-                data: { confirm: t('apps.are_you_sure') },
-                title: t('apps.delete') do
-        = icon('trash', t('delete'))
+      - if can?(:edit, @app)
+        = link_to [:edit, @app],
+                  class: 'btn btn-sm btn-success',
+                  title: t('apps.edit') do
+          = icon('edit', t('edit'))
+      - if can?(:destroy, @app)
+        = link_to @app, method: :delete,
+                  class: 'btn btn-sm btn-danger',
+                  data: { confirm: t('apps.are_you_sure') },
+                  title: t('apps.delete') do
+          = icon('trash', t('delete'))
 %hr
 
 %ul.nav.nav-tabs#tabs1
   = nav_link(action: :show) do
     = link_to t('apps.login_tab'), @app
-  = nav_link(controller: :deploys) do
-    = link_to t('apps.deploy_tab'), [@app, :deploy]
+  - if can?(:deploy, @app)
+    = nav_link(controller: :deploys) do
+      = link_to t('apps.deploy_tab'), [@app, :deploy]
   = nav_link(action: :activity) do
     = link_to t('apps.activity_tab'), [:activity, @app]

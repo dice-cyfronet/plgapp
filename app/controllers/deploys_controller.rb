@@ -1,5 +1,6 @@
 class DeploysController < ApplicationController
   load_and_authorize_resource :app, find_by: :subdomain
+  before_filter :authorize_deploy
   before_filter :set_apps, only: [:zip, :dropbox]
 
   def show
@@ -17,5 +18,9 @@ class DeploysController < ApplicationController
 
   def set_apps
     @apps = App.accessible_by(current_ability)
+  end
+
+  def authorize_deploy
+    authorize!(:deploy, @app)
   end
 end
