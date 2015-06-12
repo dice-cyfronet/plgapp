@@ -1,0 +1,4 @@
+%h1 404
+%h3= t('error_no_app.title')
+%hr
+%p= t('error_no_app.description', root: root_url(subdomain: Rails.configuration.constants['domain_prefix'])).html_safe

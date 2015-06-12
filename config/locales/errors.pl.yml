@@ -11,6 +11,9 @@ pl:
   error_500:
     title: Wewnętrzny bląd serwera.
     description: Wystąpił wewnętrzny błąd serwera. Zostaliśmy już poinformowani o problemie i pracujemy nad jego rozwiązaniem.
+  error_no_app:
+    title: Aplikacja nie istnieje
+    description: 'Rządana aplikacja nie istnieje, odwiedz <a href="%{root}">główną stronę</a> aby zobaczyć listę zarejestrowanych aplikacji.'
   errors:
     messages:
       wrong_size: "Zła wielkość (powinno być %{file_size})"
