@@ -1,6 +1,12 @@
 module Subdomainable
   extend ActiveSupport::Concern
 
+  included do
+    rescue_from ActiveRecord::RecordNotFound do
+      render 'errors/app_not_found', layout: 'errors', status: 404
+    end
+  end
+
   private
 
   def set_app
