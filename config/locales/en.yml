@@ -89,6 +89,6 @@ en:
     updated: Updated application details
     created: Created application
   powered-by:
-    powered by app
+    powered by plgapp
   jobs:
     title: Delayed jobs
