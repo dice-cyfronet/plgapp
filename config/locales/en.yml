@@ -6,6 +6,7 @@ en:
   add_new: Add new
   cancel: Cancel
   create: Create
+  add: Add
   edit: Edit
   save: Save
   delete: Delete
@@ -25,12 +26,19 @@ en:
     updated: Application was sucessfully updated
     login_tab: Login text
     deploy_tab: Deploy
+    members_tab: Members
     activity_tab: Activity
     already_a_member: This user is already an application member
     without_dev: 'Subdomain name with "{postfix}" at the end is not allowed'
     pushed: Application sucessfully pushed into production
     push_error: Error while pushing application into production. Please contact administrator.
     dev: "%{name} dev"
+  app_members:
+    edit: Edit member role
+    delete: Delete application member
+    are_you_sure: Are you sure you want to remote this application member?
+    its_you: It's you
+    no_user_to_add: All registered users are already added to this app
   deploy:
     zip:
       title: Zip

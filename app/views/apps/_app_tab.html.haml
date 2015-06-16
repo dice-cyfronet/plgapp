@@ -26,5 +26,7 @@
   - if can?(:deploy, @app)
     = nav_link(controller: :deploys) do
       = link_to t('apps.deploy_tab'), [@app, :deploy]
+  = nav_link(controller: :app_members) do
+    = link_to t('apps.members_tab'), [@app, AppMember]
   = nav_link(action: :activity) do
     = link_to t('apps.activity_tab'), [:activity, @app]
