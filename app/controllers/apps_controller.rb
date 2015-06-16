@@ -11,7 +11,6 @@ class AppsController < ApplicationController
   end
 
   def create
-    @app.users << current_user
     if CreateAppService.new(current_user, @app).execute
       redirect_to @app, notice: I18n.t('apps.created')
     else

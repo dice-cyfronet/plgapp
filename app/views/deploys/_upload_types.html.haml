@@ -13,14 +13,15 @@
           .pull-right.tab-description
             .title= t('deploy.dropbox.title')
             %small= t('deploy.dropbox.description')
-  .col-md-4
-    .pull-right
-      %ul.nav.nav-pills.nav-upload
-        %li
-          = link_to [:push, @app],
-                    method: :put do
-            = icon('sign-in', class: 'tab-icon')
-            .pull-right.tab-description
-              .title= t('deploy.production.title')
-              %small= t('deploy.production.description')
+  - if can?(:push, @app)
+    .col-md-4
+      .pull-right
+        %ul.nav.nav-pills.nav-upload
+          %li
+            = link_to [:push, @app],
+                      method: :put do
+              = icon('sign-in', class: 'tab-icon')
+              .pull-right.tab-description
+                .title= t('deploy.production.title')
+                %small= t('deploy.production.description')
 %hr

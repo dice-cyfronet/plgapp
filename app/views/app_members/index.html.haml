@@ -1,0 +1,34 @@
+.row
+  .col-md-3
+    = render('apps/apps_menu')
+  .col-md-9
+    .well
+      = render('apps/app_tab')
+      .tab-content
+        .tab-pane.active.app-show-content
+          %ul.list-group#app-members
+            = render(@app_members)
+            - if can?(:create, AppMember.new(app_id: @app.id))
+              %li.list-group-item#app-member-add
+                = link_to [:new, @app, :app_member], remote: true, class: 'btn btn-success btn-xs', data: {newapp: '#app-member-add'} do
+                  = icon('plus', t('add'))
+
+:javascript
+  $('#app-members').on('ajax:success', '[data-newapp]',
+    function(xhr, data, status) {
+      $(data).insertBefore('#app-member-add');
+    });
+
+  $('#app-members').on('click', '.undo', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).closest('li').remove();
+  });
+
+  $('#app-members').on('ajax:success', '.update', function(xhr, data, status) {
+    $(this).closest('li').replaceWith(data);
+  });
+
+  $('#app-members').on('ajax:success', '.delete', function(xhr, data, status) {
+    $(this).closest('li').remove();
+  });

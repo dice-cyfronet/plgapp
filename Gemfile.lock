@@ -281,6 +281,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    select2-rails (3.5.9.3)
+      thor (~> 0.14)
     sentry-raven (0.13.3)
       faraday (>= 0.7.6)
     sexp_processor (4.5.1)
@@ -382,6 +384,7 @@ DEPENDENCIES
   ruby-openid (~> 2.7.0)
   rubyzip
   sass-rails (~> 5.0)
+  select2-rails
   sentry-raven
   shoulda-matchers
   show_me_the_cookies

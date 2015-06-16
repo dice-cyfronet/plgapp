@@ -36,7 +36,8 @@ RSpec.describe UpdateAppService do
   it 'rename dropbox dir when subdomain changed' do
     params = { subdomain: 'new_subdomain' }
     subject = UpdateAppService.new(author, app, params)
-    app.app_members.create(user: author, dropbox_enabled: true)
+    app.app_members.find_by(user: author).
+      update_attributes(dropbox_enabled: true)
 
     expect(Dropbox::MoveService).
       to receive(:new).
@@ -83,7 +84,8 @@ RSpec.describe UpdateAppService do
     params = { login_text: 'asdf' }
     subject = UpdateAppService.new(author, app, params)
     # turn on dropbox
-    app.app_members.create(user: author, dropbox_enabled: true)
+    app.app_members.find_by(user: author).
+      update_attributes(dropbox_enabled: true)
 
     # simulate zip upload
     allow(app).to receive(:content_changed?).and_return(true)

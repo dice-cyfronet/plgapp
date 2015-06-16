@@ -10,7 +10,8 @@ class App < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
   has_many :app_members,
-           dependent: :destroy
+           dependent: :destroy,
+           autosave: true
 
   has_many :users,
            through: :app_members

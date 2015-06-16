@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.not_in_app(app)
+    User.where.not(id: AppMember.where(app_id: app.id).pluck(:user_id))
+  end
+
   def clear_proxy
     update_attribute(:proxy, nil)
   end

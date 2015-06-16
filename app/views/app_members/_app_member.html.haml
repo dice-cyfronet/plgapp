@@ -1,0 +1,17 @@
+%li.list-group-item{ id: "app-member-#{app_member.id}" }
+  %strong= app_member.user.name
+  %small= app_member.user.login
+  .pull-right
+    %strong= app_member.role
+    - if app_member.user_id == current_user.id
+      %span.label.label-info= t('app_members.its_you')
+    .btn-group
+      - if can?(:edit, app_member)
+        = link_to [:edit, @app, app_member], remote: true,
+                  class: 'btn btn-xs btn-success update' do
+          = icon('edit')
+      - if can?(:destroy, app_member)
+        = link_to [@app, app_member], method: :delete, remote: true,
+                  class: 'btn btn-xs btn-danger delete',
+                  data: { confirm: t('app_members.are_you_sure') } do
+          = icon('trash')

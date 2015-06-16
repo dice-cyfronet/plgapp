@@ -6,7 +6,7 @@ RSpec.describe Dropbox::PushService do
   include DropboxHelper
 
   let(:author) { create(:user) }
-  let(:app) { build(:app, users: [author]) }
+  let(:app) { build(:app) }
   let(:client) { instance_double('DropboxClient') }
   let(:app_member) { app.app_members.find_by(user: author) }
 

@@ -6,6 +6,7 @@ pl:
   add_new: Dodaj nową
   cancel: Anuluj
   create: Stwórz
+  add: Dodaj
   edit: Edytuj
   save: Zapisz
   delete: Skasuj
@@ -25,12 +26,19 @@ pl:
     updated: Aplikacja została pomyślnie zaktualizowana
     login_tab: Tekst logowania
     deploy_tab: Nowa wersja
+    activity_tab: Zespół
     activity_tab: Aktywność
     already_a_member: Ten użytkownik już jest zapisany do aplikacji
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
     pushed: Aplikacja pomyślnie wgrana na produkcję
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
     dev: "%{name} dev"
+  app_members:
+    edit: Edytuj role użytkownika
+    delete: Usuń użytkownika z zespołu
+    are_you_sure: Czy na pewno chcesz usunąć tego członka zespołu?
+    its_you: To ty
+    no_user_to_add: Wszyscy zarejestrowani użytkownicy zostali już dodani
   deploy:
     zip:
       title: Zip

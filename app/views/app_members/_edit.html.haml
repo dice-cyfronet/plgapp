@@ -1,0 +1,12 @@
+%li.list-group-item{ id: "app-member-#{@app_member.id}" }
+  %strong= @app_member.user.name
+  %small= @app_member.user.login
+  .pull-right
+    = simple_form_for [@app, @app_member], remote: true, html: {class: 'form-inline update'} do |f|
+      = f.error :role
+      = f.input_field :role, collection: AppMember.roles.symbolize_keys.keys, class: 'form-control'
+      .btn-group
+        %button.btn.btn-xs.btn-success
+          = icon('save')
+        = link_to [@app, @app_member], remote: true, class: 'btn btn-xs btn-warning update' do
+          = icon('undo')
