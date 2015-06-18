@@ -17,6 +17,7 @@
 #= require bootstrap-sprockets
 #= require nprogress
 #= require nprogress-turbolinks
+#= require jquery.timeago
 #= require_tree .
 
 $ ->

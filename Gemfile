@@ -41,6 +41,9 @@ gem 'sinatra', require: nil
 
 gem 'redis-rails'
 
+# Format dates and times based on human-friendly examples
+gem 'stamp'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
