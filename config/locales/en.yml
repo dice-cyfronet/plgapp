@@ -47,8 +47,8 @@ en:
       title: Dropbox
       description: Connect to dropbox
     production:
-      title: Push
-      description: to production
+      title: Push to production
+      msg_title: Push to production message
   dropbox:
     connect_help: Connecting to Dropbox allows you to make your changes to code in a Dropbox folder and automatically deploy it into development environment.
     connect: Connect to Dropbox

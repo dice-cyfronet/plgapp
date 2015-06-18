@@ -5,5 +5,9 @@
     .timeline-heading
       %h4.timeline-title
         = activity.author.name
+        %small
+          = t("activity.#{activity.activity_type}")
+          (#{time_ago_with_tooltip(activity.created_at)})
     .timeline-body
-      = t("activity.#{activity.activity_type}")
+      - unless activity.message.blank?
+        = activity.message

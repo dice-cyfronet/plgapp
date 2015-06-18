@@ -31,12 +31,13 @@ RSpec.describe PushToProductionService do
 
   it 'creates activity log' do
     with_app(app) do
-      expect { described_class.new(author, app).execute }.
+      expect { described_class.new(author, app, message: 'msg').execute }.
         to change { Activity.count }.by 1
       activity = app.activities.last
 
       expect(activity.activity_type).to eq 'deployment'
       expect(activity.author).to eq author
+      expect(activity.message).to eq 'msg'
     end
   end
 

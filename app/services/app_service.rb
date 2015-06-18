@@ -12,7 +12,7 @@ class AppService
 
   attr_reader :author, :app
 
-  def build_activity(type)
-    app.activities.build(author: author, activity_type: type)
+  def build_activity(type, msg = nil)
+    app.activities.build(author: author, activity_type: type, message: msg)
   end
 end
