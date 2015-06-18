@@ -47,8 +47,8 @@ pl:
       title: Dropbox
       description: Integracja z Dropbox
     production:
-      title: Wgraj
-      description: na produkcję
+      title: Wgraj na produkcję
+      msg_title: Komentarz wgrania na produkcję
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko deweloperskie."
     connect: Połącz z Dropbox

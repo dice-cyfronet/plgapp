@@ -52,7 +52,7 @@ class AppsController < ApplicationController
   end
 
   def push
-    if PushToProductionService.new(current_user, @app).execute
+    if PushToProductionService.new(current_user, @app, message: msg).execute
       redirect_to [:zip, @app, :deploy], notice: I18n.t('apps.pushed')
     else
       redirect_to [:zip, @app, :deploy], alert: I18n.t('apps.push_error')
@@ -68,5 +68,9 @@ class AppsController < ApplicationController
   def app_params
     params.require(:app).
       permit(:name, :subdomain, :login_text, :content, :logo)
+  end
+
+  def msg
+    params[:msg]
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609074202) do
+ActiveRecord::Schema.define(version: 20150617122845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150609074202) do
     t.datetime "created_at",                null: false
     t.integer  "app_id",                    null: false
     t.integer  "author_id",                 null: false
+    t.text     "message"
   end
 
   add_index "activities", ["app_id"], name: "index_activities_on_app_id", using: :btree

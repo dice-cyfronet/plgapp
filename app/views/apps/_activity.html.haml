@@ -5,5 +5,7 @@
     .timeline-heading
       %h4.timeline-title
         = activity.author.name
+        %small= t("activity.#{activity.activity_type}")
     .timeline-body
-      = t("activity.#{activity.activity_type}")
+      - unless activity.message.blank?
+        = activity.message

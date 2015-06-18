@@ -1,27 +1,24 @@
-.row
-  .col-md-8
-    %ul.nav.nav-pills.nav-upload
-      = nav_link(action: :zip) do
-        = link_to zip_app_deploy_path(@app) do
-          = icon('file-archive-o', class: 'tab-icon')
-          .pull-right.tab-description
-            .title= t('deploy.zip.title')
-            %small= t('deploy.zip.description')
-      = nav_link(action: :dropbox) do
-        = link_to dropbox_app_deploy_path(@app) do
-          = icon('dropbox', class: 'tab-icon')
-          .pull-right.tab-description
-            .title= t('deploy.dropbox.title')
-            %small= t('deploy.dropbox.description')
-  - if can?(:push, @app)
-    .col-md-4
-      .pull-right
-        %ul.nav.nav-pills.nav-upload
-          %li
-            = link_to [:push, @app],
-                      method: :put do
-              = icon('sign-in', class: 'tab-icon')
-              .pull-right.tab-description
-                .title= t('deploy.production.title')
-                %small= t('deploy.production.description')
+- if can?(:push, @app)
+  = form_tag [:push, @app], method: :put do
+    .row
+      .col-lg-12
+        .input-group
+          = text_field_tag(:msg, nil, class: 'form-control', placeholder: t('deploy.production.msg_title'))
+          %span.input-group-btn
+            %button.btn.btn-default{type: 'submit'}
+              = icon('sign-in', t('deploy.production.title'))
+%hr
+%ul.nav.nav-pills.nav-upload
+  = nav_link(action: :zip) do
+    = link_to zip_app_deploy_path(@app) do
+      = icon('file-archive-o', class: 'tab-icon')
+      .pull-right.tab-description
+        .title= t('deploy.zip.title')
+        %small= t('deploy.zip.description')
+  = nav_link(action: :dropbox) do
+    = link_to dropbox_app_deploy_path(@app) do
+      = icon('dropbox', class: 'tab-icon')
+      .pull-right.tab-description
+        .title= t('deploy.dropbox.title')
+        %small= t('deploy.dropbox.description')
 %hr
