@@ -19,3 +19,11 @@ pl:
       wrong_size: "Zła wielkość (powinno być %{file_size})"
       size_too_small: "Za mały (powinien mieć przynajmniej %{file_size})"
       size_too_big: "Za duży (powinien mieć maksymalnie %{file_size})"
+      extension_white_list_error: "wrong file extension format"
+
+      carrierwave_processing_error: "Nie można zmienić rozmiaru obazka."
+      carrierwave_integrity_error: "Podany plik nie jest obrazkiem."
+      carrierwave_download_error: "Nie można pobrać pliku."
+      extension_white_list_error: "Nie można wgrać pliku z rozszerzeniem %{extension}, dozwolone typy plików: %{allowed_types}"
+      extension_black_list_error: "Nie można wgrać pliku z rozszerzeniem %{extension}, niedozwolone rozszerzenia plików to: %{prohibited_types}"
+      mini_magick_processing_error: "Wgrany plik nie jest obrazkiem"
