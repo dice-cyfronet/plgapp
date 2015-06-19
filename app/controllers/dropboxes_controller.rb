@@ -45,7 +45,7 @@ class DropboxesController < ApplicationController
   end
 
   def webhook_verify
-    render text: params[:challenge]
+    render plain: params[:challenge]
   end
 
   def delta
