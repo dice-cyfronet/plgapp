@@ -61,11 +61,10 @@ module CarrierWave
       end
 
       def tmp_file_path
-        tmpfile = Tempfile.new(["#{app_dir.basename}-", '.zip'])
-        path = tmpfile.path
-        tmpfile.unlink
+        t = Time.now.strftime('%Y%m%d')
+        filename = "#{app_dir.basename}-#{t}-#{rand(0x100000000).to_s(36)}.zip"
 
-        path
+        File.join(Dir.tmpdir, filename)
       end
 
       def app_dir
