@@ -7,8 +7,10 @@ module CarrierWave
         tmp_dir = Dir.mktmpdir('plgapp')
         Zip::File.open(file.file) do |zipfile|
           zipfile.each do |f|
-            dest_file = ::File.expand_path(f.name, tmp_dir)
-            f.extract(dest_file)
+            unless f.symlink?
+              dest_file = ::File.expand_path(f.name, tmp_dir)
+              f.extract(dest_file)
+            end
           end
 
           FileUtils.rm_r(app_dir)
