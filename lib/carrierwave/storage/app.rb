@@ -64,7 +64,7 @@ module CarrierWave
         t = Time.now.strftime('%Y%m%d')
         filename = "#{app_dir.basename}-#{t}-#{rand(0x100000000).to_s(36)}.zip"
 
-        File.join(Dir.tmpdir, filename)
+        ::File.join(Dir.tmpdir, filename)
       end
 
       def app_dir
