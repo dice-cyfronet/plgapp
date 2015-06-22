@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617122845) do
+ActiveRecord::Schema.define(version: 20150622192816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20150617122845) do
   add_index "app_members", ["app_id", "user_id"], name: "index_app_members_on_app_id_and_user_id", unique: true, using: :btree
 
   create_table "apps", force: :cascade do |t|
-    t.string   "name",       default: "", null: false
-    t.string   "subdomain",               null: false
+    t.string   "name",       default: "",        null: false
+    t.string   "subdomain",                      null: false
     t.text     "login_text"
-    t.string   "content"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "content",    default: "content"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "logo"
   end
 
