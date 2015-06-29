@@ -1,7 +1,10 @@
 require 'dropbox_sdk'
+require 'clean_path'
 
 module Dropbox
   class Operation < AppService
+    include CleanPath
+
     def initialize(author, app, options = {})
       super(author, app)
       @app_member = app && app.app_members.find_by(user: author)
@@ -35,7 +38,7 @@ module Dropbox
     end
 
     def relative_to_local(path)
-      File.join(root_path, path)
+      File.join(root_path, clean_path(path))
     end
 
     def relative_to_remote(path)
