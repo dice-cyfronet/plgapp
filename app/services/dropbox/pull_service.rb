@@ -103,7 +103,7 @@ module Dropbox
 
     def remote_to_relative(path)
       @subdomain_count ||= app.subdomain.length + 2
-      path[@subdomain_count..-1] || '.'
+      clean_path(path[@subdomain_count..-1] || '.')
     end
 
     def delta

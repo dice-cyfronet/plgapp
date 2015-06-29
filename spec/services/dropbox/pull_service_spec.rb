@@ -40,6 +40,17 @@ RSpec.describe Dropbox::PullService do
     expect(app_member.dropbox_entries.count).to eq 0
   end
 
+  it 'reject delete files above app directory' do
+    create_dev_file(app, 'file.txt', 'foo')
+    file_entry('file.txt')
+
+    expect_delta(["/#{app.subdomain}/../file.txt", nil])
+
+    service.execute
+
+    expect(File.exist?(path('file.txt'))).to be_falsy
+  end
+
   it 'creates new files' do
     expect_delta(
       [
@@ -87,6 +98,25 @@ RSpec.describe Dropbox::PullService do
     expect(sub.is_dir).to be_truthy
     expect(sub.revision).to eq '3'
     expect(sub.path).to eq 'sub'
+  end
+
+  it 'reject create files above app directory' do
+    expect_delta(
+      [
+        "/#{app.subdomain}/../file.txt",
+        {
+          'rev' => '1',
+          'path' => "/#{app.subdomain}/../file.txt",
+          'is_dir' => false,
+          'revision' => 24
+        }
+      ]
+    )
+    expect_get_file("/#{app.subdomain}/../file.txt", 'foo')
+
+    service.execute
+
+    expect(File.read(path('file.txt'))).to eq 'foo'
   end
 
   it 'updates files' do
