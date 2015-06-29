@@ -26,3 +26,4 @@ en:
       extension_white_list_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
       extension_black_list_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
       mini_magick_processing_error: "Uploaded file is not an image"
+    wrong_repo_name: "Repository name is invalid. Use only letters, digits and '-' ('-' is not allowed at then end of repo name)"

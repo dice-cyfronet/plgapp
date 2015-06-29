@@ -27,3 +27,4 @@ pl:
       extension_white_list_error: "Nie można wgrać pliku z rozszerzeniem %{extension}, dozwolone typy plików: %{allowed_types}"
       extension_black_list_error: "Nie można wgrać pliku z rozszerzeniem %{extension}, niedozwolone rozszerzenia plików to: %{prohibited_types}"
       mini_magick_processing_error: "Wgrany plik nie jest obrazkiem"
+    wrong_repo_name: "Blędna nazwa reposytorium. W nazwie repozytorium dozwolone są jedynie litery, cyfry oraz '-' ('-' nie może występować na samym końcu)"
