@@ -10,4 +10,5 @@
 
           = simple_form_for @app do |f|
             = f.input :content
-            = f.submit
+            %button.btn.btn-default{type: 'submit'}
+              = icon('upload', t('apps.zip_upload'))
