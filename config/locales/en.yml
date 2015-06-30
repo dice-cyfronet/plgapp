@@ -33,6 +33,7 @@ en:
     pushed: Application sucessfully pushed into production
     push_error: Error while pushing application into production. Please contact administrator.
     dev: "%{name} dev"
+    zip_upload: Upload zip archive
   app_members:
     edit: Edit member role
     delete: Delete application member
