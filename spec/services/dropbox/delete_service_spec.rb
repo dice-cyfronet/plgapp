@@ -49,6 +49,20 @@ RSpec.describe Dropbox::DeleteService do
     expect(author.dropbox_user).to be_nil
   end
 
+  it 'does not clean dropbox account when other dropbox app exist' do
+    author.update_attributes(dropbox_access_token: 'token', dropbox_user: '123')
+    other_app = create(:app, users: [author], subdomain: 'other-app')
+    other_app_member = other_app.app_members.find_by(user: author)
+
+    other_app_member.update_attributes(dropbox_enabled: true)
+
+    service.execute
+    author.reload
+
+    expect(author.dropbox_access_token).to_not be_nil
+    expect(author.dropbox_user).to_not be_nil
+  end
+
   def expect_delete
     expect(client).
       to receive(:file_delete).
