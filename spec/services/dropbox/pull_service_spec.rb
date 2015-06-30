@@ -54,6 +54,13 @@ RSpec.describe Dropbox::PullService do
   it 'creates new files' do
     expect_delta(
       [
+        "/#{app.subdomain}",
+        {
+          'rev' => '0',
+          'path' => "/#{app.subdomain}",
+          'is_dir' => true
+        }
+      ], [
         "/#{app.subdomain}/file1.txt",
         {
           'rev' => '1',

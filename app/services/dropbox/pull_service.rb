@@ -18,9 +18,11 @@ module Dropbox
     end
 
     def create_or_update(to_create)
-      to_create.each do |props|
-        props[:is_dir] ? create_update_dir(props) : create_update_file(props)
-      end
+      to_create.
+        select { |p| p[:path].present? }.
+        each do |props|
+          props[:is_dir] ? create_update_dir(props) : create_update_file(props)
+        end
     end
 
     def create_update_dir(props)
