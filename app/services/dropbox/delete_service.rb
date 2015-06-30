@@ -10,7 +10,7 @@ module Dropbox
     def execute
       delete_path
       app_member.dropbox_entries.destroy_all if app_member
-      clean_dropbox_account if has_dropbox_app?
+      clean_dropbox_account unless has_dropbox_app?
       clean_cursor
     end
 
@@ -25,7 +25,7 @@ module Dropbox
     def has_dropbox_app?
       author.apps.joins(:app_members).
         where(app_members: { dropbox_enabled: true }).
-        count
+        count > 0
     end
 
     def clean_dropbox_account
