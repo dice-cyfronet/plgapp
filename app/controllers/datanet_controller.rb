@@ -12,7 +12,7 @@ class DatanetController < ApplicationController
   end
 
   def valid_repo_name?
-    /^([a-zA-Z\d]+(-[a-zA-Z\d]+)*)$/ =~ params[:repo_name]
+    /\A([a-zA-Z\d]+(-[a-zA-Z\d]+)*)\z/ =~ params[:repo_name]
   end
 
   def repo_name_invalid
