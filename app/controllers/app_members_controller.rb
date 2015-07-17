@@ -48,7 +48,8 @@ class AppMembersController < ApplicationController
   end
 
   def load_app_members
-    @app_members = AppMember.where(app: @app)
+    @app_members = AppMember.joins(:user).
+                   where(app: @app).order('users.name')
   end
 
   def create_params
