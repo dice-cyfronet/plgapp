@@ -54,6 +54,11 @@ class App < ActiveRecord::Base
     "#{dev_subdomain}#{subdomain_postfix}"
   end
 
+  def dropbox_users
+    users.joins(:app_members).
+      where(app_members: { dropbox_enabled: true })
+  end
+
   attr_reader :old_subdomain
 
   private

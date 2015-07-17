@@ -31,9 +31,7 @@ module Dropbox
     end
 
     def has_dropbox_app?
-      author.apps.joins(:app_members).
-        where(app_members: { dropbox_enabled: true }).
-        count > 0
+      author.dropbox_apps.count > 0
     end
 
     def clean_dropbox_account

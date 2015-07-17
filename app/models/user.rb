@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     User.where.not(id: AppMember.where(app_id: app.id).pluck(:user_id))
   end
 
+  def dropbox_apps
+    apps.joins(:app_members).where(app_members: { dropbox_enabled: true })
+  end
+
   def clear_proxy
     update_attribute(:proxy, nil)
   end
