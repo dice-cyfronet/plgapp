@@ -23,7 +23,11 @@ RSpec.describe Dropbox::DeleteService do
     let(:app) do
       create(:app, users: [author], subdomain: 'subdomain-to-delete')
     end
-    let(:app_member) { app.app_members.find_by(user: author) }
+    let!(:app_member) do
+      app.app_members.find_by(user: author).tap do |app_member|
+        app_member.update_attributes(dropbox_enabled: true)
+      end
+    end
 
     it 'removes all dropbox exntries when app exist' do
       dir_entries('dir1', 'dir1/subdir')
@@ -42,30 +46,30 @@ RSpec.describe Dropbox::DeleteService do
 
       expect(app_member.dropbox_cursor).to be_nil
     end
-  end
 
-  it 'clean dropbox account when no dropbox app present for the user' do
-    author.update_attributes(dropbox_access_token: 'token', dropbox_user: '123')
+    it 'clean dropbox account when no other dropbox apps present for the user' do
+      author.update_attributes(dropbox_access_token: 'token', dropbox_user: '123')
 
-    service.execute
-    author.reload
+      service.execute
+      author.reload
 
-    expect(author.dropbox_access_token).to be_nil
-    expect(author.dropbox_user).to be_nil
-  end
+      expect(author.dropbox_access_token).to be_nil
+      expect(author.dropbox_user).to be_nil
+    end
 
-  it 'does not clean dropbox account when other dropbox app exist' do
-    author.update_attributes(dropbox_access_token: 'token', dropbox_user: '123')
-    other_app = create(:app, users: [author], subdomain: 'other-app')
-    other_app_member = other_app.app_members.find_by(user: author)
+    it 'does not clean dropbox account when other dropbox app exist' do
+      author.update_attributes(dropbox_access_token: 'token', dropbox_user: '123')
+      other_app = create(:app, users: [author], subdomain: 'other-app')
+      other_app_member = other_app.app_members.find_by(user: author)
 
-    other_app_member.update_attributes(dropbox_enabled: true)
+      other_app_member.update_attributes(dropbox_enabled: true)
 
-    service.execute
-    author.reload
+      service.execute
+      author.reload
 
-    expect(author.dropbox_access_token).to_not be_nil
-    expect(author.dropbox_user).to_not be_nil
+      expect(author.dropbox_access_token).to_not be_nil
+      expect(author.dropbox_user).to_not be_nil
+    end
   end
 
   def service

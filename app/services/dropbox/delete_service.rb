@@ -9,7 +9,7 @@ module Dropbox
 
     def execute
       delete_path
-      app_member.dropbox_entries.destroy_all if app_member
+      disable_dropbox
       clean_dropbox_account unless has_dropbox_app?
       clean_cursor
     end
@@ -21,6 +21,13 @@ module Dropbox
                        "/#{@subdomain} (detached at #{Time.now})")
     rescue DropboxError => e
       raise e unless e.http_response.class == Net::HTTPNotFound
+    end
+
+    def disable_dropbox
+      if app_member
+        app_member.dropbox_entries.destroy_all
+        app_member.update_attributes(dropbox_enabled: false)
+      end
     end
 
     def has_dropbox_app?
