@@ -6,10 +6,12 @@ RSpec.describe Dropbox::DeleteService do
   let(:author) { create(:user) }
   let(:client) { instance_double('DropboxClient') }
 
-  before { allow(client).to receive(:file_delete) }
+  before { allow(client).to receive(:file_move) }
 
   it 'removes dropbox app directory' do
-    expect_delete
+    expect(client).
+      to receive(:file_move).
+      with('/subdomain-to-delete', '/subdomain-to-delete (detached)')
 
     service.execute
   end
@@ -61,12 +63,6 @@ RSpec.describe Dropbox::DeleteService do
 
     expect(author.dropbox_access_token).to_not be_nil
     expect(author.dropbox_user).to_not be_nil
-  end
-
-  def expect_delete
-    expect(client).
-      to receive(:file_delete).
-      with('/subdomain-to-delete')
   end
 
   def service
