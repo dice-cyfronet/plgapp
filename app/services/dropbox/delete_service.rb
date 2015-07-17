@@ -17,7 +17,7 @@ module Dropbox
     private
 
     def delete_path
-      client.file_delete("/#{@subdomain}")
+      client.file_move("/#{@subdomain}", "/#{@subdomain} (detached)")
     rescue DropboxError => e
       raise e unless e.http_response.class == Net::HTTPNotFound
     end
