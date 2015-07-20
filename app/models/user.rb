@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
   def dropbox_apps
     apps.joins(:app_members).where(app_members: { dropbox_enabled: true })
   end
+
+  def clean_dropbox_account!
+    update_attributes(dropbox_access_token: nil, dropbox_user: nil)
+  end
 end

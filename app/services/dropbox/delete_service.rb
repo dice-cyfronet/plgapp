@@ -10,8 +10,9 @@ module Dropbox
     def execute
       delete_path
       disable_dropbox
-      clean_dropbox_account unless has_dropbox_app?
       clean_cursor
+
+      clean_dropbox_account unless has_dropbox_app?
     end
 
     private
@@ -35,8 +36,7 @@ module Dropbox
     end
 
     def clean_dropbox_account
-      author.update_attributes(dropbox_access_token: nil,
-                               dropbox_user: nil)
+      author.clean_dropbox_account!
     end
 
     def clean_cursor
