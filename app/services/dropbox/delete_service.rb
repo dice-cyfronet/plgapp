@@ -10,7 +10,6 @@ module Dropbox
     def execute
       delete_path
       disable_dropbox
-      clean_cursor
 
       clean_dropbox_account unless has_dropbox_app?
     end
@@ -27,7 +26,8 @@ module Dropbox
     def disable_dropbox
       if app_member
         app_member.dropbox_entries.destroy_all
-        app_member.update_attributes(dropbox_enabled: false)
+        app_member.update_attributes(dropbox_enabled: false,
+                                     dropbox_cursor: nil)
       end
     end
 
@@ -37,10 +37,6 @@ module Dropbox
 
     def clean_dropbox_account
       author.clean_dropbox_account!
-    end
-
-    def clean_cursor
-      app_member.update_attributes(dropbox_cursor: nil) if app_member
     end
   end
 end
