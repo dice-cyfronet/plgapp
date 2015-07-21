@@ -9,7 +9,9 @@ module CarrierWave
           zipfile.each do |f|
             unless f.symlink?
               dest_file = ::File.expand_path(f.name, tmp_dir)
-              f.extract(dest_file)
+              if dest_file.start_with?(tmp_dir)
+                f.extract(dest_file)
+              end
             end
           end
 
