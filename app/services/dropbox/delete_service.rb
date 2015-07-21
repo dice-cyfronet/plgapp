@@ -7,7 +7,9 @@ module Dropbox
       super(author, app, options)
     end
 
-    def execute
+    protected
+
+    def internal_execute
       delete_path
       disable_dropbox
 

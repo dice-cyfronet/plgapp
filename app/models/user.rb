@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
   def clean_dropbox_account!
     update_attributes(dropbox_access_token: nil, dropbox_user: nil)
   end
+
+  def app_member_for(app)
+    app && app_members.find_by(app: app)
+  end
 end
