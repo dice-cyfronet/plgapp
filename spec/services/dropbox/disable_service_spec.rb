@@ -35,6 +35,11 @@ RSpec.describe Dropbox::DisableService do
     expect(app_member.dropbox_entries.count).to eq 0
   end
 
+  it 'notify user about dropbox disconnection' do
+    expect { subject.execute }.
+      to change(ActionMailer::Base.deliveries, :count).by(1)
+  end
+
   def user_app_member
     app = create(:app)
     user.apps << app

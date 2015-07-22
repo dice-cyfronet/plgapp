@@ -7,6 +7,7 @@ module Dropbox
     def execute
       clear_dropbox_credentials
       disconnect_all_user_apps
+      notify_user
     end
 
     private
@@ -28,6 +29,10 @@ module Dropbox
     def disconnect(app_member)
       app_member.update_attributes(dropbox_enabled: false, dropbox_cursor: nil)
       app_member.dropbox_entries.delete_all
+    end
+
+    def notify_user
+      AppMailer.dropbox_disconnect_email(@user).deliver_later
     end
   end
 end
