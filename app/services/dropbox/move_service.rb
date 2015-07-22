@@ -1,6 +1,8 @@
 module Dropbox
   class MoveService < Operation
-    def execute
+    protected
+
+    def internal_execute
       from = app.old_subdomain
       to = app.subdomain
 

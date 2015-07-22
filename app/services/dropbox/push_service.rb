@@ -2,7 +2,9 @@ require 'dropbox_sdk'
 
 module Dropbox
   class PushService < Operation
-    def execute
+    protected
+
+    def internal_execute
       changes = calculate_changes
 
       create(changes[:create])

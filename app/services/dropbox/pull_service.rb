@@ -1,6 +1,8 @@
 module Dropbox
   class PullService < Operation
-    def execute
+    protected
+
+    def internal_execute
       changes = calculate_changes
 
       create_or_update(changes[:create_or_update])

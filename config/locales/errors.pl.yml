@@ -14,6 +14,7 @@ pl:
   error_no_app:
     title: Aplikacja nie istnieje
     description: 'Rządana aplikacja nie istnieje, odwiedz <a href="%{root}">główną stronę</a> aby zobaczyć listę zarejestrowanych aplikacji.'
+  dropbox_auth_error: "Użytkownik %{user} nie jest zautoryzowany do wgrywania zmian do Dropbox. Wyłączam integracje z dropbox dla wszystkich aplikacji"
   errors:
     messages:
       wrong_size: "Zła wielkość (powinno być %{file_size})"

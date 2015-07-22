@@ -14,6 +14,7 @@ en:
   error_no_app:
     title: Application does not exist.
     description: 'Selected application cannot be found, please got to <a href="%{root}">main webpage</a> to see list of registered applications.'
+  dropbox_auth_error: "User %{user} is not authorized to push to dropbox. Disabling dropbox integration for all appps"
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"

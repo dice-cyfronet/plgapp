@@ -11,7 +11,18 @@ module Dropbox
       @client = options.fetch(:client) { create_client }
     end
 
+    def execute
+      internal_execute
+    rescue DropboxAuthError
+      Rails.logger.warn(I18n.t('dropbox_auth_error', user: @author.login))
+      Dropbox::DisableJob.perform_later(@author)
+    end
+
     protected
+
+    def internal_execute
+      railse 'need to be implemented in descendent class'
+    end
 
     attr_reader :client, :app_member
 

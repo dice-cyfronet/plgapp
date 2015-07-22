@@ -1,0 +1,9 @@
+en:
+  email:
+    team: "Zespół Plgapp"
+    start: "Dear %{username},"
+    end: "Best regards,"
+    any_questions: "Should you have any questions please, do not hesitate to contact us at %{email}!"
+    dropbox_disconnected:
+      subject: "[plgapp] Synchronization with Dropbox failed"
+      body: "Plgapp is not able to connect to you Dropbox plgapp directory. That is why all Dropbox synchronizations were turned off. Please visit %{app_url} and share required applications with Dropbox to restore Dropbox synchronization."
