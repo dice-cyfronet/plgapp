@@ -3,6 +3,7 @@ module Dropbox
     def initialize(author, subdomain, options = {})
       app = author.apps.find_by(subdomain: subdomain)
       @subdomain = subdomain
+      @options = options
 
       super(author, app, options)
     end
@@ -19,10 +20,10 @@ module Dropbox
     private
 
     def delete_path
-      client.file_move("/#{@subdomain}",
-                       "/#{@subdomain} (detached at #{Time.now})")
-    rescue DropboxError => e
-      raise e unless e.http_response.class == Net::HTTPNotFound
+      Dropbox::MoveService.new(author,
+                               @subdomain,
+                               "#{@subdomain} (detached at #{Time.now})",
+                               @options).execute
     end
 
     def disable_dropbox
