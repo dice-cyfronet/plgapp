@@ -17,7 +17,9 @@ class UpdateAppService < AppService
         if old_app_dir != new_app_dir
           FileUtils.mv(old_app_dir, new_app_dir)
           FileUtils.mv(app_dev_dir(app.old_subdomain), app_dev_dir(app))
-          dbox_app_users.each { |u| Dropbox::MoveService.new(u, app).execute }
+          dbox_app_users.each do |u|
+            Dropbox::MoveJob.perform_later(u, app.old_subdomain, app.subdomain)
+          end
         end
 
         if content_changed
