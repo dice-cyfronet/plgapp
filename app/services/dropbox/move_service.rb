@@ -8,10 +8,12 @@ module Dropbox
       @to = to
     end
 
+    protected
+
     def internal_execute
       client.file_move(@from, @to) if path_changed?
-    rescue DropboxError
-      # source dir does not exist - do nothing
+    rescue DropboxError => e
+      raise e unless e.http_response.class == Net::HTTPNotFound
     end
 
     private
