@@ -11,10 +11,12 @@ module Dropbox
     protected
 
     def internal_execute
-      delete_path
-      disable_dropbox
+      I18n.with_locale(author.locale) do
+        delete_path
+        disable_dropbox
 
-      clean_dropbox_account unless has_dropbox_app?
+        clean_dropbox_account unless has_dropbox_app?
+      end
     end
 
     private
@@ -22,7 +24,8 @@ module Dropbox
     def delete_path
       Dropbox::MoveService.new(author,
                                @subdomain,
-                               "#{@subdomain} (detached at #{Time.now})",
+                               I18n.t('dropbox.dir.detached',
+                                      name: @subdomain, time: Time.now),
                                @options).execute
     end
 

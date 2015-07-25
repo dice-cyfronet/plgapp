@@ -9,14 +9,24 @@ RSpec.describe Dropbox::DeleteService do
   before { allow(client).to receive(:file_move) }
 
   it 'removes dropbox app directory' do
+    expect_remove('subdomain-to-delete (detached at 2015-06-17 13:03:23 UTC)')
+
+    service.execute
+  end
+
+  it 'respect user locales' do
+    author.locale = 'pl'
+    expect_remove('subdomain-to-delete (rozłączony 2015-06-17 13:03:23 UTC)')
+
+    service.execute
+  end
+
+  def expect_remove(target_dir_name)
     allow(Time).to receive(:now).
       and_return(Time.utc(2015, 6, 17, 13, 3, 23))
     expect(client).
       to receive(:file_move).
-      with('subdomain-to-delete',
-           'subdomain-to-delete (detached at 2015-06-17 13:03:23 UTC)')
-
-    service.execute
+      with('subdomain-to-delete', target_dir_name)
   end
 
   context 'application exist' do

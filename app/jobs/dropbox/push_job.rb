@@ -3,8 +3,10 @@ module Dropbox
     queue_as :dropbox
 
     def perform(user, app)
-      check_for_conflict(user, app) if first_push?(user, app)
-      push(user, app)
+      I18n.with_locale(user.locale) do
+        check_for_conflict(user, app) if first_push?(user, app)
+        push(user, app)
+      end
     end
 
     private
@@ -12,7 +14,8 @@ module Dropbox
     def check_for_conflict(user, app)
       Dropbox::MoveService.
         new(user, app.subdomain,
-            "#{app.subdomain} (collision, moved at #{Time.now})").
+            I18n.t('dropbox.dir.collision',
+                   name: app.subdomain, time: Time.now)).
         execute
     end
 

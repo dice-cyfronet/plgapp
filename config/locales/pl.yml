@@ -61,6 +61,9 @@ pl:
     not_approved_error: Nie zaakceptowałeś połączenia z Dropbox
     provider_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
     error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
+    dir:
+      detached: "%{name} (rozłączony %{time})"
+      collision: "%{name} (konflikt, przeniesiony %{time})"
   help:
     title: Pomoc
     README: Tworzenie aplikacji
