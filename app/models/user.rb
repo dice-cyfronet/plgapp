@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
            dependent: :nullify,
            foreign_key: 'author_id'
 
+  validates :locale,
+            inclusion: %w(pl en),
+            if: :locale
+
   def self.from_plgrid_omniauth(auth)
     find_or_initialize_by(login: auth.info.nickname).tap do |user|
       info = auth.info

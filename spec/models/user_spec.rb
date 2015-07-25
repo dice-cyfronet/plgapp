@@ -4,6 +4,7 @@ RSpec.describe User do
   it { should have_many(:app_members).dependent(:destroy) }
   it { should have_many(:apps) }
   it { should have_many(:activities).dependent(:nullify) }
+  it { should validate_inclusion_of(:locale).in_array(%w(pl en)) }
 
   it 'creates new user while logging using omniauth' do
     expect { User.from_plgrid_omniauth(auth) }.to change { User.count }.by(1)
