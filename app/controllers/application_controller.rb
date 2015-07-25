@@ -48,6 +48,7 @@ class ApplicationController < ActionController::Base
       value: locale.to_s,
       httponly: true
     }
+    current_user.try(:update_attributes, locale: locale.to_s)
   end
 
   def locale_from_cookie
@@ -59,7 +60,9 @@ class ApplicationController < ActionController::Base
   end
 
   def language_change_necessary?
-    cookies['locale'].nil? || params[:locale]
+    cookies['locale'].nil? ||
+      params[:locale] ||
+      current_user.try(:locale).try(:nil?)
   end
 
   def locale_from_accept_language_header
