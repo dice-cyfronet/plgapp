@@ -17,7 +17,7 @@
             = link_to t('code_name'), root_path
         - if user_signed_in?
           %li
-            = nav_link(controller: [:apps, :deploys]) do
+            = nav_link(controller: [:apps, :deploys, :app_members]) do
               = link_to t('apps.title'), apps_path
           - if current_user.admin?
             = nav_link(controller: :jobs) do
