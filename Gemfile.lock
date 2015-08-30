@@ -105,8 +105,8 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
-    font-awesome-sass (4.3.2.1)
-      sass (~> 3.2)
+    font-awesome-sass (4.4.0)
+      sass (>= 3.2)
     formatador (0.2.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
@@ -363,7 +363,7 @@ DEPENDENCIES
   dropbox-sdk
   factory_girl_rails (~> 4.0)
   faker
-  font-awesome-sass (~> 4.3.0)
+  font-awesome-sass (~> 4.4.0)
   friendly_id
   guard-rspec
   haml-rails
