@@ -11,8 +11,21 @@ pl:
   error_500:
     title: Wewnętrzny bląd serwera.
     description: Wystąpił wewnętrzny błąd serwera. Zostaliśmy już poinformowani o problemie i pracujemy nad jego rozwiązaniem.
+  error_no_app:
+    title: Aplikacja nie istnieje
+    description: 'Rządana aplikacja nie istnieje, odwiedz <a href="%{root}">główną stronę</a> aby zobaczyć listę zarejestrowanych aplikacji.'
+  dropbox_auth_error: "Użytkownik %{user} nie jest zautoryzowany do wgrywania zmian do Dropbox. Wyłączam integracje z dropbox dla wszystkich aplikacji"
   errors:
     messages:
       wrong_size: "Zła wielkość (powinno być %{file_size})"
       size_too_small: "Za mały (powinien mieć przynajmniej %{file_size})"
       size_too_big: "Za duży (powinien mieć maksymalnie %{file_size})"
+      extension_white_list_error: "wrong file extension format"
+
+      carrierwave_processing_error: "Nie można zmienić rozmiaru obazka."
+      carrierwave_integrity_error: "Podany plik nie jest obrazkiem."
+      carrierwave_download_error: "Nie można pobrać pliku."
+      extension_white_list_error: "Nie można wgrać pliku z rozszerzeniem %{extension}, dozwolone typy plików: %{allowed_types}"
+      extension_black_list_error: "Nie można wgrać pliku z rozszerzeniem %{extension}, niedozwolone rozszerzenia plików to: %{prohibited_types}"
+      mini_magick_processing_error: "Wgrany plik nie jest obrazkiem"
+    wrong_repo_name: "Blędna nazwa repozytorium. W nazwie repozytorium dozwolone są jedynie litery, cyfry oraz '-' ('-' nie może występować na samym końcu)"

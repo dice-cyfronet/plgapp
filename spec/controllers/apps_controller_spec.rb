@@ -51,7 +51,7 @@ RSpec.describe AppsController do
 
   context 'edit app' do
     it 'assigned to the user' do
-      app = create(:app, users: [user])
+      app = user_app
 
       get :edit, id: app.subdomain
 
@@ -69,7 +69,7 @@ RSpec.describe AppsController do
     end
 
     it 'updates parameters' do
-      app = create(:app, users: [user])
+      app = user_app
 
       put :update,
           id: app.subdomain,
@@ -84,7 +84,7 @@ RSpec.describe AppsController do
 
   context 'destroy app' do
     it 'assigned to the user' do
-      app = create(:app, users: [user])
+      app = user_app
 
       expect { delete :destroy, id: app.subdomain }.
         to change { App.count }.by -1
@@ -102,7 +102,7 @@ RSpec.describe AppsController do
 
   context 'push to production' do
     it 'show success when everything is ok' do
-      app = create(:app, users: [user])
+      app = user_app
       expect(PushToProductionService).to receive(:new).
         and_return(double(execute: true))
 
@@ -115,5 +115,11 @@ RSpec.describe AppsController do
   def expect_no_authorized
     expect(response).to redirect_to root_path
     expect(flash[:alert]).to match(/not authorized/)
+  end
+
+  def user_app
+    create(:app).tap do |app|
+      app.app_members.create(user: user, role: :master)
+    end
   end
 end

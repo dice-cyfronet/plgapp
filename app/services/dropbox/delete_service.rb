@@ -3,38 +3,46 @@ module Dropbox
     def initialize(author, subdomain, options = {})
       app = author.apps.find_by(subdomain: subdomain)
       @subdomain = subdomain
+      @options = options
 
       super(author, app, options)
     end
 
-    def execute
-      delete_path
-      app_member.dropbox_entries.destroy_all if app_member
-      clean_dropbox_account if has_dropbox_app?
-      clean_cursor
+    protected
+
+    def internal_execute
+      I18n.with_locale(author.locale) do
+        delete_path
+        disable_dropbox
+
+        clean_dropbox_account unless has_dropbox_app?
+      end
     end
 
     private
 
     def delete_path
-      client.file_delete("/#{@subdomain}")
-    rescue DropboxError => e
-      raise e unless e.http_response.class == Net::HTTPNotFound
+      Dropbox::MoveService.new(author,
+                               @subdomain,
+                               I18n.t('dropbox.dir.detached',
+                                      name: @subdomain, time: Time.now),
+                               @options).execute
+    end
+
+    def disable_dropbox
+      if app_member
+        app_member.dropbox_entries.destroy_all
+        app_member.update_attributes(dropbox_enabled: false,
+                                     dropbox_cursor: nil)
+      end
     end
 
     def has_dropbox_app?
-      author.apps.joins(:app_members).
-        where(app_members: { dropbox_enabled: true }).
-        count
+      author.dropbox_apps.count > 0
     end
 
     def clean_dropbox_account
-      author.update_attributes(dropbox_access_token: nil,
-                               dropbox_user: nil)
-    end
-
-    def clean_cursor
-      app_member.update_attributes(dropbox_cursor: nil) if app_member
+      author.clean_dropbox_account!
     end
   end
 end

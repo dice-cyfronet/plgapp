@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519084036) do
+ActiveRecord::Schema.define(version: 20150725092422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150519084036) do
     t.datetime "created_at",                null: false
     t.integer  "app_id",                    null: false
     t.integer  "author_id",                 null: false
+    t.text     "message"
   end
 
   add_index "activities", ["app_id"], name: "index_activities_on_app_id", using: :btree
@@ -33,17 +34,18 @@ ActiveRecord::Schema.define(version: 20150519084036) do
     t.datetime "updated_at",                      null: false
     t.boolean  "dropbox_enabled", default: false
     t.string   "dropbox_cursor"
+    t.integer  "role",            default: 1,     null: false
   end
 
   add_index "app_members", ["app_id", "user_id"], name: "index_app_members_on_app_id_and_user_id", unique: true, using: :btree
 
   create_table "apps", force: :cascade do |t|
-    t.string   "name",       default: "", null: false
-    t.string   "subdomain",               null: false
+    t.string   "name",       default: "",        null: false
+    t.string   "subdomain",                      null: false
     t.text     "login_text"
-    t.string   "content"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "content",    default: "content"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "logo"
   end
 
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150519084036) do
     t.string   "dropbox_user"
     t.string   "dropbox_access_token"
     t.boolean  "admin",                default: false
+    t.string   "locale"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

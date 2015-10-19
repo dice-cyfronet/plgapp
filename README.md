@@ -31,6 +31,18 @@ cp config/puma.rb.example config/puma.rb
 edit config/puma.rb
 ```
 
+### Proxy endpoints validation
+
+User app is able to connect into [Rimrock](https://submit.plgrid.pl), [Datanet](https://datanet.plgrid.pl) and [PlgData](https://data.plgrid.pl). To avoid MitM attack we verify these services certificates (signed by [Terena](https://www.terena.org)). To install Terena certificates execute following commands:
+
+```
+cd /etc/ssl/certs
+sudo wget https://www.terena.org/activities/tcs/repository/AddTrust_External_CA_Root.pem
+sudo wget https://www.terena.org/activities/tcs/repository/UTN-USERFirst-Hardware.pem
+sudo wget https://www.terena.org/activities/tcs/repository/TERENA_SSL_CA.pem
+sudo c_rehash .
+```
+
 ## Running
 
 Foreman is responsible for starting 2 processes: web serwer and delay jobs serwer (sidekiq).
@@ -51,6 +63,18 @@ Use guard to execute tests connected with modified file:
 
 ```
 guard
+```
+
+To execute karma tests run:
+
+```
+bundle exec rake karma:test
+```
+
+To run interactive karma test engine (which will retest every time a test or code is changed) run:
+
+```
+bundle exec rake karma:run
 ```
 
 ## Contributing

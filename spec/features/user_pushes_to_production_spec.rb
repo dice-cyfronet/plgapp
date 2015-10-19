@@ -15,7 +15,7 @@ RSpec.feature 'User pushes to production' do
 
     app_owner_log_in(app)
     visit zip_app_deploy_path(app)
-    find(:linkhref, push_app_path(app)).click
+    click_button(I18n.t('deploy.production.title'))
 
     in_subdomain(app.full_subdomain) do
       login_as(author, scope: :user)

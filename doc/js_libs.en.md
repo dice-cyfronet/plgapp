@@ -1,10 +1,11 @@
 # JS libraries
 
-JS libraries consist of three components:
+JS libraries consist of four components:
 
  * plgapp API in file *plgapp.js*
  * rimrock API in file *rimrock.js*
  * PLG-Data API in file *plgdata.js*
+ * DataNet API in file *datanet.js*
 
 The libraries are available in separate JS files with their proper names. JS libs depend on jQuery,
 so it needs to be included in the page. Inclusion of JS libs can be achieved by inserting
@@ -16,13 +17,14 @@ the following code in HTML page:
   <script type="text/javascript" src="/plgapp/plgapp.js"></script>
   <script type="text/javascript" src="/plgapp/rimrock.js"></script>
   <script type="text/javascript" src="/plgapp/plgdata.js"></script>
+  <script type="text/javascript" src="/plgapp/datanet.js"></script>
 </head>
 ```
 
 ## plgapp API
 
-PLGApp API is contained in `plgapp.js` file. PLGApp API supplies
-basic functions needed for PLGApp app. All callbacks follow the
+Plgapp API is contained in `plgapp.js` file. Plgapp API supplies
+basic functions needed for plgapp application. All callbacks follow the
 *errback* principle, that is having `err` object as first
 argument. If any error occurs the `err` argument is set, while
 other have undefined values.
@@ -81,6 +83,20 @@ In the production mode, however, the local server address will be omitted thus g
     <script type="text/javascript" src="/js/file.js"></script>
 </head>
 ```
+
+### Register callback for session expiration
+
+```
+    var before_timeout = 60;
+    plgapp.registerSessionTimeoutCallback(function(time_left){
+        console.log("session will exire in: " + time_left);
+    }, before_timeout);
+```
+
+`RegisterSessionTimeoutCallback` allows for registration of session expiration
+callbacks. User can supply a specified number of seconds, which will be
+ subtracted from timeout in order to fire the callback before the actual
+ expiration occurs.
 
 ### Error class
 
@@ -235,3 +251,96 @@ plgdata.generateUploadPath(function (err, uploadPath) {}, path);
 ```
 
 Generates upload path for a specified path.
+
+## DataNet API
+
+DataNet API is provided with the `datanet.js` file and it allows
+to easily use the functionality provided by the DataNet service which
+has its documentation [here](https://datanet.plgrid.pl/documentation/manual).
+The API follows the principles of fluid API. It is recommended to start a new
+chain of method calls for each request. The chaining should always start with
+the global object `datanet` and the `repository` method. Remember that all
+the methods return a chain factory which allows for subsequent method calls.
+
+`function repository(repositoryName:String)` - sets the name of the repository to be used in the following request,
+
+* `repositoryName` - name of the DataNet repository (the one provided during repository publishing in the DataNet web interface)
+
+`function entity(entityName:String)` - sets the entity name to be used in the following request,
+
+* `entityName` - name of the entity of the DataNet model (case sensitive)
+
+`function id(entityId:String)` - sets the entity entry id to be used in the following request,
+
+* `entityId` - entity entry id
+
+`function field(fieldName:String[, fieldValue:String])` - sets a field name (optionally with a value) to be used in the following request,
+
+* `fieldName` - name of the field frome the DataNet model
+
+`function fields(fieldNames:Array|fieldValues:Object)` - sets field names or field values to be used in the following request,
+
+* `fieldNames` - array of field names frome the DataNet model,
+* `fieldValues` - object of field names and values
+
+`function create()` - used to create new entries in the DataNet repository,
+
+`function get()` - used to retrieve entity entries or values from the DataNet repository,
+
+`function update()` - used to update existing entries in the DataNet repository,
+
+`function search(filters:Array)` - used to search entries in the DataNet repository,
+
+* `filters` - a list of DataNet filters (e.g. `name=John` or `surname=/Smith.*/`),
+
+`function delete()` - used to delete entries in the DataNet repository,
+
+`function then(success:Function(data), error:Function(errorMessage))` - terminal method which actually builds and dispatches the DataNet request,
+
+* `success(data)` - a callback method which is called when the DataNet request is successfully processed,
+* `error(errorMessage)` - a callback method which is called in case an error occurs during processing a DataNet request or insufficient information
+is provided to make the request.
+
+### Examples
+
+The general schema for chaining method calls with the DataNet API id the following:
+
+	datanet.repository(...).entity(...).[id(...)|field(...)|fields(...)|].[create()|get()|update()|search(...)|delete()].then(...);
+
+Let's take a look at a couple of examples of using the API assuming we have a DataNet model consisting of a single entity names `Person` with the following
+fields:
+
+	name: String(required),
+	surname: String(required),
+	age: Integer
+
+##### Creating a new person entry
+	datanet.repository('people').entity('Person').field('name', 'John').field('surname', 'Smith').
+			create().then(function(data) {var id = data.id;}, function(error) {/*...*/});
+	//or with fields() method
+	datanet.repository('people').entity('Person').fields({name: 'John', surname: 'Smith'}).
+			create().then(function(data) {var id = data.id;}, function(error) {/*...*/});
+
+##### Updating person's age
+	datanet.repository('people').entity('Person').id('entryId').field('age', 25).
+			update().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Deleting one of the entries
+	datanet.repository('people').entity('Person').id('entryId').
+			delete().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Retrieving all person entries
+	datanet.repository('people').entity('Person').
+			get().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Retrieving all person entries with only name fields
+	datanet.repository('people').entity('Person').field('name').
+			get().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Retrieving a person entry with a given id
+	datanet.repository('people').entity('Person').id('entryId').
+			get().then(function(data) {/*...*/}, function(error) {/*...*/});
+
+##### Searching for person entries with name matching given regular expression
+	datanet.repository('people').entity('Person').
+			search(['name=/John,*/']).then(function(data) {/*...*/}, function(error) {/*...*/});

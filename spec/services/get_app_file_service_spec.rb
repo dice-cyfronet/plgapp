@@ -27,6 +27,14 @@ RSpec.describe GetAppFileService do
     expect(path).to eq apps_dir.join('dummy-dev', 'index.html')
   end
 
+  it 'allow to traverse inside app dir' do
+    subject = GetAppFileService.new(app, true, 'js/../index.html')
+
+    path = subject.execute
+
+    expect(path).to eq apps_dir.join('dummy-dev', 'index.html')
+  end
+
   def apps_dir
     Pathname.new(Rails.configuration.apps_dir)
   end

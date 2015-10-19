@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :set_locale
-  before_action :authenticate_user!
+  before_filter :set_session_expiry
+  prepend_before_filter :authenticate_user!
+  prepend_before_filter :set_locale
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
@@ -21,6 +22,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_session_expiry
+    session_length = Rails.application.config.session_options[:expire_after]
+    cookies['session_expiry'] = {
+      value: (Time.now + session_length).to_f
+    }
+  end
+
   def set_locale
     if language_change_necessary?
       I18n.locale = new_locale
@@ -32,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   def new_locale
     locale = params[:locale] || locale_from_accept_language_header
-    %w(en pl).include?(locale) ? locale : I18n.default_locale.to_s
+    valid_locale(locale)
   end
 
   def locale_cookie=(locale)
@@ -40,14 +48,21 @@ class ApplicationController < ActionController::Base
       value: locale.to_s,
       httponly: true
     }
+    current_user.try(:update_attributes, locale: locale.to_s)
   end
 
   def locale_from_cookie
-    I18n.locale = cookies['locale']
+    I18n.locale = valid_locale(cookies['locale'])
+  end
+
+  def valid_locale(locale)
+    %w(en pl).include?(locale) ? locale : I18n.default_locale.to_s
   end
 
   def language_change_necessary?
-    cookies['locale'].nil? || params[:locale]
+    cookies['locale'].nil? ||
+      params[:locale] ||
+      current_user.try(:locale).try(:nil?)
   end
 
   def locale_from_accept_language_header

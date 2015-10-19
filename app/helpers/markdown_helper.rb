@@ -2,7 +2,8 @@ module MarkdownHelper
   def markdown(text)
     unless @markdown
       # see https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use
-      @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+      @markdown = Redcarpet::Markdown.
+                  new(Redcarpet::Render::HTML.new(escape_html: true),
                       no_intra_emphasis: true,
                       tables: true,
                       fenced_code_blocks: true,

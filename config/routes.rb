@@ -65,6 +65,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :app_members
+
       resource :dropbox, only: [:update, :destroy]
     end
     get 'help', to: 'help#show'

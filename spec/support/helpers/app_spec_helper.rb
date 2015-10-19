@@ -24,7 +24,7 @@ module AppSpecHelper
   end
 
   def app_owner_log_in(app, owner = create(:user))
-    app.users << owner
+    app.app_members.create(user: owner, role: :master)
     login_as(owner, scope: :user)
   end
 end

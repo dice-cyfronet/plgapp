@@ -1,0 +1,12 @@
+%p= t('email.start', username: @user.name)
+
+%p= t('email.dropbox_disconnected.body', app_url: root_url)
+
+%p= t('email.any_questions', email: @from)
+
+%p
+  = t('email.end')
+  %br
+  = t('email.team')
+  %br
+  = root_url

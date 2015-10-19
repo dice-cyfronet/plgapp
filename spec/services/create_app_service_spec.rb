@@ -47,4 +47,14 @@ RSpec.describe CreateAppService do
 
     expect { subject.execute }.to change { Activity.count }.by 0
   end
+
+  it 'sets author as app master' do
+    with_app(app) do
+      subject.execute
+
+      app_member = AppMember.find_by(user_id: author.id, app_id: app.id)
+
+      expect(app_member).to be_master
+    end
+  end
 end

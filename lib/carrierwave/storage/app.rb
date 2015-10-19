@@ -7,8 +7,12 @@ module CarrierWave
         tmp_dir = Dir.mktmpdir('plgapp')
         Zip::File.open(file.file) do |zipfile|
           zipfile.each do |f|
-            dest_file = ::File.expand_path(f.name, tmp_dir)
-            f.extract(dest_file)
+            unless f.symlink?
+              dest_file = ::File.expand_path(f.name, tmp_dir)
+              if dest_file.start_with?(tmp_dir)
+                f.extract(dest_file)
+              end
+            end
           end
 
           FileUtils.rm_r(app_dir)
@@ -59,11 +63,10 @@ module CarrierWave
       end
 
       def tmp_file_path
-        tmpfile = Tempfile.new(["#{app_dir.basename}-", '.zip'])
-        path = tmpfile.path
-        tmpfile.unlink
+        t = Time.now.strftime('%Y%m%d')
+        filename = "#{app_dir.basename}-#{t}-#{rand(0x100000000).to_s(36)}.zip"
 
-        path
+        ::File.join(Dir.tmpdir, filename)
       end
 
       def app_dir

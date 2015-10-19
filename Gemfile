@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '~>4.2.2'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -10,9 +10,10 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 gem 'bootstrap-sass', '~> 3.3.1'
-gem 'font-awesome-sass', '~> 4.3.0'
+gem 'font-awesome-sass', '~> 4.4.0'
 gem 'autoprefixer-rails'
 gem 'nprogress-rails'
+gem 'select2-rails'
 
 gem 'haml-rails'
 gem 'simple_form'
@@ -40,6 +41,9 @@ gem 'sinatra', require: nil
 
 gem 'redis-rails'
 
+# Format dates and times based on human-friendly examples
+gem 'stamp'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -58,6 +62,7 @@ end
 group :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
+  gem "show_me_the_cookies"
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false

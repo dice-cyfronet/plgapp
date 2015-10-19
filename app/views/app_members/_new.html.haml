@@ -1,0 +1,20 @@
+%li.list-group-item
+  - not_in_app_users = User.not_in_app(@app)
+  - if not_in_app_users.count > 0
+    = simple_form_for [@app, @app_member], remote: true, html: { class: 'form-inline update' } do |f|
+      = f.error :user_id
+      = f.error :role
+
+      = f.input_field :user_id, collection: not_in_app_users, class: 'form-control'
+      .pull-right
+        = f.input_field :role, collection: AppMember.roles.symbolize_keys.keys, class: 'form-control'
+        .btn-group
+          %button.btn.btn-xs.btn-success
+            = icon('save')
+          %button.btn.btn-xs.btn-warning.undo
+            = icon('undo')
+  - else
+    %span.label.label-warning= t('app_members.no_user_to_add')
+    .pull-right
+      %button.btn.btn-xs.btn-warning.undo
+        = icon('undo')

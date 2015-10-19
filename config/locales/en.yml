@@ -6,6 +6,7 @@ en:
   add_new: Add new
   cancel: Cancel
   create: Create
+  add: Add
   edit: Edit
   save: Save
   delete: Delete
@@ -25,12 +26,20 @@ en:
     updated: Application was sucessfully updated
     login_tab: Login text
     deploy_tab: Deploy
+    members_tab: Members
     activity_tab: Activity
     already_a_member: This user is already an application member
     without_dev: 'Subdomain name with "{postfix}" at the end is not allowed'
     pushed: Application sucessfully pushed into production
     push_error: Error while pushing application into production. Please contact administrator.
     dev: "%{name} dev"
+    zip_upload: Upload zip archive
+  app_members:
+    edit: Edit member role
+    delete: Delete application member
+    are_you_sure: Are you sure you want to remote this application member?
+    its_you: It's you
+    no_user_to_add: All registered users are already added to this app
   deploy:
     zip:
       title: Zip
@@ -39,8 +48,8 @@ en:
       title: Dropbox
       description: Connect to dropbox
     production:
-      title: Push
-      description: to production
+      title: Push to production
+      msg_title: Push to production message
   dropbox:
     connect_help: Connecting to Dropbox allows you to make your changes to code in a Dropbox folder and automatically deploy it into development environment.
     connect: Connect to Dropbox
@@ -52,6 +61,9 @@ en:
     not_approved_error: You did not approve Dropbox usage
     provider_error: Error communicating with Dropbox - please contact administator
     error: Error communicating with Dropbox - please contact administator
+    dir:
+      detached: "%{name} (detached at %{time})"
+      collision: "%{name} (collision, moved at %{time})"
   help:
     title: Help
     README: Application development
@@ -89,6 +101,6 @@ en:
     updated: Updated application details
     created: Created application
   powered-by:
-    powered by app
+    powered by plgapp
   jobs:
     title: Delayed jobs

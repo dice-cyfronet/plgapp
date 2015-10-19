@@ -15,3 +15,4 @@ en:
         name: Name
         subdomain: Subdomain
         login_text: Login page text
+        content: Application zip archive

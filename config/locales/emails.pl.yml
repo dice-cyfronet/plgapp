@@ -1,0 +1,9 @@
+pl:
+  email:
+    team: "Zespół Plgapp"
+    start: "Dzień dobry,"
+    end: "Z poważaniem,"
+    any_questions: "W razie dalszych pytań prosimy o kontakt na email %{email}."
+    dropbox_disconnected:
+      subject: "[plgapp] Rozłączenie sychronizacji aplikacji z Dropbox"
+      body: "Nie możemy polączyć się z katalogiem plgapp na Pana/Pani koncie Dropbox. W związku z tą sytuajcą sychronizacja aplikacji plgapp z kontem Dropbox została wyłączona. Proszę odwiedzić %{app_url} oraz ponownie współdzielić aplikację z Dropbox w celu przywrócenia sychronizacji."

@@ -6,6 +6,7 @@ pl:
   add_new: Dodaj nową
   cancel: Anuluj
   create: Stwórz
+  add: Dodaj
   edit: Edytuj
   save: Zapisz
   delete: Skasuj
@@ -25,12 +26,20 @@ pl:
     updated: Aplikacja została pomyślnie zaktualizowana
     login_tab: Tekst logowania
     deploy_tab: Nowa wersja
+    members_tab: Zespół
     activity_tab: Aktywność
     already_a_member: Ten użytkownik już jest zapisany do aplikacji
     without_dev: Nazwa subdomeny kończąca się na "-dev" jest zabroniona
     pushed: Aplikacja pomyślnie wgrana na produkcję
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
     dev: "%{name} dev"
+    zip_upload: Wgraj achiwum zip
+  app_members:
+    edit: Edytuj role użytkownika
+    delete: Usuń użytkownika z zespołu
+    are_you_sure: Czy na pewno chcesz usunąć tego członka zespołu?
+    its_you: To ty
+    no_user_to_add: Wszyscy zarejestrowani użytkownicy zostali już dodani
   deploy:
     zip:
       title: Zip
@@ -39,8 +48,8 @@ pl:
       title: Dropbox
       description: Integracja z Dropbox
     production:
-      title: Wgraj
-      description: na produkcję
+      title: Wgraj na produkcję
+      msg_title: Komentarz wgrania na produkcję
   dropbox:
     connect_help: "Dzięki połączeniu z Dropbox będziesz w stanie wprowadzać zmiany używając folderu Dropbox, które automatycznie zostaną wgrane na środowisko deweloperskie."
     connect: Połącz z Dropbox
@@ -52,6 +61,9 @@ pl:
     not_approved_error: Nie zaakceptowałeś połączenia z Dropbox
     provider_error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
     error: Nastąpił problem w czasie komunikacji z Dropbox - skontaktuj się z administratorem
+    dir:
+      detached: "%{name} (rozłączony %{time})"
+      collision: "%{name} (konflikt, przeniesiony %{time})"
   help:
     title: Pomoc
     README: Tworzenie aplikacji
@@ -89,6 +101,6 @@ pl:
     updated: Zaktualizowane informacje na temat aplikacji
     created: Stworzona aplikacja
   powered-by:
-    wspierane przez app
+    wspierane przez plgapp
   jobs:
     title: Zadania

@@ -10,7 +10,8 @@ class App < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
   has_many :app_members,
-           dependent: :destroy
+           dependent: :destroy,
+           autosave: true
 
   has_many :users,
            through: :app_members
@@ -51,6 +52,11 @@ class App < ActiveRecord::Base
 
   def dev_full_subdomain
     "#{dev_subdomain}#{subdomain_postfix}"
+  end
+
+  def dropbox_users
+    users.joins(:app_members).
+      where(app_members: { dropbox_enabled: true })
   end
 
   attr_reader :old_subdomain

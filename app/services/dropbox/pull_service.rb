@@ -1,6 +1,8 @@
 module Dropbox
   class PullService < Operation
-    def execute
+    protected
+
+    def internal_execute
       changes = calculate_changes
 
       create_or_update(changes[:create_or_update])
@@ -18,9 +20,11 @@ module Dropbox
     end
 
     def create_or_update(to_create)
-      to_create.each do |props|
-        props[:is_dir] ? create_update_dir(props) : create_update_file(props)
-      end
+      to_create.
+        select { |p| p[:path].present? }.
+        each do |props|
+          props[:is_dir] ? create_update_dir(props) : create_update_file(props)
+        end
     end
 
     def create_update_dir(props)
@@ -103,7 +107,7 @@ module Dropbox
 
     def remote_to_relative(path)
       @subdomain_count ||= app.subdomain.length + 2
-      path[@subdomain_count..-1] || '.'
+      clean_path(path[@subdomain_count..-1] || '.')
     end
 
     def delta

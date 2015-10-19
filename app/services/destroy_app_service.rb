@@ -8,9 +8,7 @@ class DestroyAppService
   end
 
   def execute
-    dropbox_users = app.users.joins(:app_members).
-                    where(app_members: { dropbox_enabled: true }).to_a
-
+    dropbox_users = app.dropbox_users.to_a
     app.destroy!.tap do
       FileUtils.rm_rf(app_dir(app))
       FileUtils.rm_rf(app_dev_dir(app))

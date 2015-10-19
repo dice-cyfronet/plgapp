@@ -1,4 +1,6 @@
 class AppMember < ActiveRecord::Base
+  enum role: [:master, :developer, :reporter]
+
   belongs_to :user
   belongs_to :app
 
@@ -6,6 +8,7 @@ class AppMember < ActiveRecord::Base
 
   validates :user, presence: true
   validates :app, presence: true
+  validates :role, presence: true
 
   validates :user_id,
             uniqueness: {
