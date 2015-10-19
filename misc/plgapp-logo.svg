@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="561.57861"
+   height="292.86581"
+   id="svg3401"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="plgapp-logo-big.svg"
+   inkscape:export-filename="/home/daniel/files/Dropbox/praca/core/plgapp-logo-big.png"
+   inkscape:export-xdpi="99.862808"
+   inkscape:export-ydpi="99.862808">
+  <defs
+     id="defs3403">
+    <linearGradient
+       y2="5214.8604"
+       x2="3115.4399"
+       y1="5214.8604"
+       x1="2877.9873"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4015"
+       xlink:href="#linearGradient7288-38-5-7-8-4-7-1-9-2-7"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient7288-38-5-7-8-4-7-1-9-2-7">
+      <stop
+         style="stop-color:#7cb342;stop-opacity:1;"
+         offset="0"
+         id="stop7290-8-4-7-2-5-3-7-0-4-4" />
+      <stop
+         style="stop-color:#7cb342;stop-opacity:0;"
+         offset="1"
+         id="stop7292-16-6-2-4-4-1-2-8-9-7" />
+    </linearGradient>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4057-2-6-8-4-2-0-8-9-61-8-6-3-1-2-8-0-8-5">
+      <feBlend
+         inkscape:collect="always"
+         mode="screen"
+         in2="BackgroundImage"
+         id="feBlend4059-0-9-7-7-3-5-2-3-2-6-9-0-5-5-5-9-1-0" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4057-2-6-8-4-2-0-8-9-8-8-0-9-6-1-9-4-8-2-8-9">
+      <feBlend
+         inkscape:collect="always"
+         mode="screen"
+         in2="BackgroundImage"
+         id="feBlend4059-0-9-7-7-3-5-2-3-3-7-2-5-6-1-2-7-4-3-3-7" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7">
+      <feBlend
+         inkscape:collect="always"
+         mode="screen"
+         in2="BackgroundImage"
+         id="feBlend4059-0-9-7-7-3-5-2-3-3-0-1-0-2-8-0-9-8-2-3" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3884"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.615605"
+         id="feGaussianBlur3886" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3888"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.615605"
+         id="feGaussianBlur3890" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3892"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.615605"
+         id="feGaussianBlur3894" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3896"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.615605"
+         id="feGaussianBlur3898" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3912"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.742925"
+         id="feGaussianBlur3914" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3928"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.742925"
+         id="feGaussianBlur3930" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3944"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.742925"
+         id="feGaussianBlur3946" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3960"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.742925"
+         id="feGaussianBlur3962" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4030"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.3913921"
+         id="feGaussianBlur4032" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4057"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.5921288"
+         id="feGaussianBlur4059" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4080"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.5920094"
+         id="feGaussianBlur4082" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4115"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.5917057"
+         id="feGaussianBlur4117" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4127"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.1115454"
+         id="feGaussianBlur4129" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7288-38-5-7-8-4-7-1-9-2-7"
+       id="linearGradient4131"
+       gradientUnits="userSpaceOnUse"
+       x1="2877.9873"
+       y1="5214.8604"
+       x2="3115.4399"
+       y2="5214.8604" />
+    <filter
+       inkscape:collect="always"
+       id="filter4149"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.2230907"
+         id="feGaussianBlur4151" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="464.0796"
+     inkscape:cy="131.4311"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1030"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-bottom="5"
+     fit-margin-right="5" />
+  <metadata
+     id="metadata3406">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(38.134505,-275.03936)">
+    <text
+       inkscape:export-ydpi="165.37"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       sodipodi:linespacing="125%"
+       id="text4123"
+       y="535.00977"
+       x="-36.734505"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d9d9d9;fill-opacity:1;stroke:none;filter:url(#filter4149);font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       xml:space="preserve"><tspan
+         dx="0"
+         style="font-size:120px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-6.46999741px;writing-mode:lr-tb;fill:#d9d9d9;fill-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         y="535.00977"
+         x="-36.734505"
+         id="tspan4125"
+         sodipodi:role="line">plgapp</tspan></text>
+    <path
+       style="fill:#486923;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dashoffset:0;display:inline;filter:url(#filter4115)"
+       d="m 493.125,123.28125 c -7.11324,-0.0656 -14.34899,1.4043 -21.21875,4.625 -0.0212,0.01 -0.0413,0.0213 -0.0625,0.0312 l -44.3125,20.84375 20.53125,43.6875 0.0937,0.1875 c 0.0756,0.16539 0.14112,0.33503 0.21875,0.5 11.52485,24.49307 40.69443,34.9936 65.1875,23.46875 24.49308,-11.52485 35.02485,-40.72568 23.5,-65.21875 -8.28348,-17.60439 -25.70312,-27.95682 -43.9375,-28.125 z"
+       transform="translate(-38.134505,274.97154)"
+       id="path4086"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#486923;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dashoffset:0;display:inline;filter:url(#filter4080)"
+       d="m 415.59375,153.1875 -43.46875,20.4375 -0.40625,0.1875 c -0.15368,0.0704 -0.31543,0.11536 -0.46875,0.1875 -24.49307,11.52485 -35.02485,40.72568 -23.5,65.21875 11.52485,24.49308 40.72568,35.02485 65.21875,23.5 C 437.44062,251.20388 447.97677,222.0425 436.5,197.5625 l -0.0312,-0.0625 -20.875,-44.3125 z"
+       transform="translate(-38.134505,274.97154)"
+       id="path4063"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#486923;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dashoffset:0;display:inline;filter:url(#filter4057)"
+       d="M 446.28125,23.125 C 439.14606,23.05919 431.88868,24.571136 425,27.8125 c -24.49307,11.524845 -35.02485,40.725682 -23.5,65.21875 0.36015,0.765408 0.73101,1.512143 1.125,2.25 0.011,0.02065 0.0202,0.04187 0.0312,0.0625 l 19.75,42 44.25,-20.8125 0.0625,-0.0312 c 0.0213,-0.01 0.0413,-0.0212 0.0625,-0.0312 24.44756,-11.54548 34.95234,-40.715693 23.4375,-65.1875 C 481.93527,33.676857 464.51563,23.293178 446.28125,23.125 z"
+       transform="translate(-38.134505,274.97154)"
+       id="path4036"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#486923;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dashoffset:0;display:inline;filter:url(#filter4030)"
+       d="m 275.89674,308.34654 c -10.71872,-0.0989 -21.62036,2.16197 -31.96875,7.03125 -36.79429,17.31301 -52.59424,61.17446 -35.28125,97.96875 17.29897,36.76446 61.09911,52.55783 97.875,35.3125 l 0.0937,-0.0312 c 0.11453,-0.0539 0.22965,-0.10185 0.34375,-0.15625 l 66.21875,-31.1875 -30.40625,-64.65625 c -0.2866,-0.65759 -0.56758,-1.31542 -0.875,-1.96875 -12.44371,-26.4459 -38.60771,-42.05986 -66,-42.3125 z"
+       id="path4007"
+       inkscape:connector-curvature="0" />
+    <g
+       inkscape:export-ydpi="165.37"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       id="g3796"
+       style="fill:#3a5221;fill-opacity:1;filter:url(#filter3884)" />
+    <g
+       inkscape:export-ydpi="165.37"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       id="g3802"
+       style="fill:#3a5221;fill-opacity:1;filter:url(#filter3888)" />
+    <g
+       inkscape:export-ydpi="165.37"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       id="g3808"
+       style="fill:#3a5221;fill-opacity:1;filter:url(#filter3892)" />
+    <g
+       inkscape:export-ydpi="165.37"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       id="g3814"
+       style="fill:#3a5221;fill-opacity:1;filter:url(#filter3896)" />
+    <rect
+       ry="0"
+       y="2012.9569"
+       x="-520.36438"
+       height="92.873924"
+       width="93.952988"
+       id="rect4297-4-1-9-3-5-50-0-0-2-6-9-1-7-8-4-8-1-9-2-8-0-7"
+       style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+       transform="matrix(0.70966195,-0.33392078,0.33392078,0.70966195,-27.3858,-1219.5184)"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37" />
+    <g
+       style="fill:#9ccc65;fill-opacity:1;filter:url(#filter4057-2-6-8-4-2-0-8-9-61-8-6-3-1-2-8-0-8-5)"
+       id="g7316-9-7-7-6-7-1-6-7"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37">
+      <path
+         sodipodi:type="arc"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         id="path3773-9-1-6-2-8-6-8-94-3-9-27-8-1-0-9-7-8-5-1-2-3-9-2-4-6-1-4-3-7"
+         sodipodi:cx="152.53304"
+         sodipodi:cy="166.96347"
+         sodipodi:rx="58.083771"
+         sodipodi:ry="58.083771"
+         d="m 210.61681,166.96347 c 0,32.07878 -26.00499,58.08377 -58.08377,58.08377 -32.07879,0 -58.083775,-26.00499 -58.083775,-58.08377 0,-32.07878 26.004985,-58.08377 58.083775,-58.08377 32.07878,0 58.08377,26.00499 58.08377,58.08377 z"
+         transform="matrix(0,-1.6162596,-1.6162596,0,3372.3427,5567.0073)" />
+      <rect
+         transform="matrix(0,-0.99999999,-0.99999999,0,5114.4354,4800.2583)"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         id="rect4297-5-3-65-5-4-20-7-7-5-3-9-7-3-5-8-2-5-2-3-5-3-2-0-6"
+         width="93.952988"
+         height="92.873924"
+         x="-520.36438"
+         y="2012.9569"
+         ry="0" />
+    </g>
+    <g
+       style="fill:#9ccc65;fill-opacity:1;filter:url(#filter4057-2-6-8-4-2-0-8-9-61-8-6-3-1-2-8-0-8-5)"
+       id="g7312-2-9-4-0-9-9-9-5"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37">
+      <path
+         sodipodi:type="arc"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         id="path3773-9-1-6-2-8-6-8-3-6-0-3-4-89-6-7-3-5-4-4-4-6-3-6-1-4-5-4-7-5-2"
+         sodipodi:cx="152.53304"
+         sodipodi:cy="166.96347"
+         sodipodi:rx="58.083771"
+         sodipodi:ry="58.083771"
+         d="m 210.61681,166.96347 c 0,32.07878 -26.00499,58.08377 -58.08377,58.08377 -32.07879,0 -58.083775,-26.00499 -58.083775,-58.08377 0,-32.07878 26.004985,-58.08377 58.083775,-58.08377 32.07878,0 58.08377,26.00499 58.08377,58.08377 z"
+         transform="matrix(0,-1.6162596,1.6162596,0,2620.8812,5566.5511)" />
+      <rect
+         transform="matrix(0,-0.99999999,0.99999999,0,876.0805,4800.4503)"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         id="rect4297-5-3-0-9-68-3-7-3-6-6-0-7-7-8-9-0-7-9-8-1-8-5-4-6-7"
+         width="93.952988"
+         height="92.873924"
+         x="-519.71619"
+         y="2015.6649"
+         ry="0" />
+    </g>
+    <g
+       style="fill:#9ccc65;fill-opacity:1;filter:url(#filter4057-2-6-8-4-2-0-8-9-61-8-6-3-1-2-8-0-8-5)"
+       id="g7325-5-1-5-5-8-7-9-1"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37">
+      <path
+         sodipodi:type="arc"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         id="path3773-9-1-6-2-8-1-0-7-5-6-6-5-4-7-2-0-2-3-2-5-9-5-7-2-5-4-7"
+         sodipodi:cx="152.53304"
+         sodipodi:cy="166.96347"
+         sodipodi:rx="58.083771"
+         sodipodi:ry="58.083771"
+         d="m 210.61681,166.96347 c 0,32.07878 -26.00499,58.08377 -58.08377,58.08377 -32.07879,0 -58.083775,-26.00499 -58.083775,-58.08377 0,-32.07878 26.004985,-58.08377 58.083775,-58.08377 32.07878,0 58.08377,26.00499 58.08377,58.08377 z"
+         transform="matrix(2.3965291e-8,2.4279985,-2.4279985,2.3965291e-8,3555.4572,4692.1309)" />
+      <rect
+         transform="matrix(0,-3.1487687,3.1487687,0,3137.8765,5126.4049)"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         id="rect4297-5-3-0-9-68-3-7-3-6-6-0-7-7-8-9-0-4-3-8-9-0-6-4-2-4-5"
+         width="29.838009"
+         height="29.495314"
+         x="-24.429287"
+         y="-40.99015"
+         ry="0" />
+    </g>
+    <g
+       style="fill:#558b2f;fill-opacity:1;filter:url(#filter4057-2-6-8-4-2-0-8-9-61-8-6-3-1-2-8-0-8-5)"
+       id="g7329-9-9-2-4-5-6-2-8"
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1416.0658,2995.4073)"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37">
+      <path
+         transform="matrix(1.6162596,0,0,1.6162596,2646.3968,4838.2373)"
+         d="m 210.61681,166.96347 c 0,32.07878 -26.00499,58.08377 -58.08377,58.08377 -32.07879,0 -58.083775,-26.00499 -58.083775,-58.08377 0,-32.07878 26.004985,-58.08377 58.083775,-58.08377 32.07878,0 58.08377,26.00499 58.08377,58.08377 z"
+         sodipodi:ry="58.083771"
+         sodipodi:rx="58.083771"
+         sodipodi:cy="166.96347"
+         sodipodi:cx="152.53304"
+         id="path3773-9-1-6-2-8-6-8-9-1-0-8-78-2-6-2-1-9-1-6-4-8-0-4-4-9-9-4-3-7-5"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)"
+         sodipodi:type="arc" />
+      <rect
+         ry="0"
+         y="5109.0981"
+         x="2892.7827"
+         height="92.873924"
+         width="93.952988"
+         id="rect4297-5-3-01-8-1-5-05-2-0-3-4-5-5-9-1-1-3-8-9-8-2-2-4-7-4"
+         style="fill:#9ccc65;fill-opacity:1;fill-rule:evenodd;stroke:#241010;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-72-6-6-7-0-6-9-1-6-7)" />
+    </g>
+    <g
+       transform="matrix(-0.22228294,-0.47240472,0.47240472,-0.22228294,-1415.9938,2995.2783)"
+       style="fill:url(#linearGradient4131);fill-opacity:1;stroke:#000000;stroke-opacity:1;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-61-8-6-3-1-2-8-0-8-5)"
+       id="g7044-0-0-0-0-5-5-1-8-0"
+       inkscape:transform-center-x="5.46875"
+       inkscape:transform-center-y="-15.625"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37">
+      <path
+         id="rect4297-5-3-01-8-1-5-05-2-0-3-4-5-5-9-1-1-3-0-1-0-3-2-6-9-4-8"
+         style="fill:#7cb342;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:3.5;stroke-dashoffset:0;display:inline;filter:url(#filter4057-2-6-8-4-2-0-8-9-8-8-0-9-6-1-9-4-8-2-8-9)"
+         d="m 2892.7827,5109.0981 93.953,0 0,92.874 -93.953,0 z m 116.0253,94.229 0,-93.953 92.8739,0 0,93.953 z m -117.0626,116.8394 0,-93.953 92.8739,0 0,93.953 z m 209.7331,0.4562 0,-93.953 -92.8739,0 0,93.953 z"
+         inkscape:connector-curvature="0" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#676767;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="-42.734505"
+       y="529.00977"
+       id="text3255-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/bwilk/Documents/praca/PLGApp/logo-big.png"
+       inkscape:export-xdpi="165.37"
+       inkscape:export-ydpi="165.37"><tspan
+         sodipodi:role="line"
+         id="tspan3257-0"
+         x="-42.734505"
+         y="529.00977"
+         style="font-size:120px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-6.46999741px;writing-mode:lr-tb;fill:#676767;fill-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         dx="0">plgapp</tspan></text>
+  </g>
+</svg>
