@@ -15,8 +15,11 @@
    viewBox="0 0 744.09448819 1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="plgapp-cgw2015.svg">
+   inkscape:version="0.91 r"
+   sodipodi:docname="plgapp-cgw2015.svg"
+   inkscape:export-filename="/home/marek/git/plgapp/misc/plgapp-cgw2015.png"
+   inkscape:export-xdpi="92.485611"
+   inkscape:export-ydpi="92.485611">
   <defs
      id="defs4">
     <marker
@@ -645,15 +648,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="336.58186"
-     inkscape:cy="203.15161"
+     inkscape:zoom="0.7071068"
+     inkscape:cx="-7.807796"
+     inkscape:cy="554.29845"
      inkscape:document-units="px"
      inkscape:current-layer="g7130"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1171"
-     inkscape:window-x="1916"
+     inkscape:window-height="1028"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
@@ -674,6 +677,13 @@
      id="layer1">
     <g
        id="g7130">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none"
+         id="rect4777"
+         width="772.16058"
+         height="1080.4591"
+         x="-14.142119"
+         y="-11.126366" />
       <g
          transform="matrix(2.9872212,0,0,2.9872212,-699.65906,-738.22108)"
          id="g4211"
@@ -3413,6 +3423,6 @@
              height="20.506096"
              x="-137.17871"
              y="645.77582" /></flowRegion><flowPara
-           id="flowPara4802"></flowPara></flowRoot>    </g>
+           id="flowPara4802" /></flowRoot>    </g>
   </g>
 </svg>
