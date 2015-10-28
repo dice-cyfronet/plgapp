@@ -51,6 +51,7 @@ module Plgapp
     redis_config_hash[:path] = redis_uri.path if redis_uri.scheme == 'unix'
 
     redis_config_hash[:namespace] = 'cache:plgapp'
+    redis_config_hash[:expires_in] = 2.weeks # Cache should not grow forever
     config.cache_store = :redis_store, redis_config_hash
   end
 end

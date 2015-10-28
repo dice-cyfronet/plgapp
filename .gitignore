@@ -22,4 +22,5 @@
 !/user_apps/.keep
 .idea
 /.project
-node_modules
+/node_modules/
+
