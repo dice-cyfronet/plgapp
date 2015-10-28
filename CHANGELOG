@@ -1,11 +1,11 @@
 v 1.0.0
-  - Possiblity to create application with defined subdomain name
+  - Possibility to create application with defined subdomain name
   - Authorization and authentication using PLGrid OpenId
-  - Dropbox application files synchronization
+  - Dropbox application file synchronization
   - Proxy for DataNet service (annotation service)
   - JS library for DataNet service
-  - Proxy for PLData service (files management on PLGrid infrastructure)
-  - JS library for PLData service
-  - Proxy for Rimrock service (submitting jobs on PLGrid infrastructure)
-  - JS library for Rimrock service
+  - Proxy for PLG-Data service (files management on the PLGrid infrastructure)
+  - JS library for PLG-Data service
+  - Proxy for the rimrock service (submitting jobs to the PLGrid infrastructure)
+  - JS library for the rimrock service
   - JS library for getting information about the user
