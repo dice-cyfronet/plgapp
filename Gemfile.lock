@@ -60,8 +60,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    celluloid (0.16.0)
-      timers (~> 4.0.0)
     certifi (2015.08.10)
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
@@ -73,6 +71,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    concurrent-ruby (1.0.0)
     connection_pool (2.2.0)
     daemons (1.2.3)
     database_cleaner (1.4.1)
@@ -135,7 +134,6 @@ GEM
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
     hashie (3.4.2)
-    hitimes (1.2.2)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -226,7 +224,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.3.2)
-    redis (3.2.1)
+    redis (3.2.2)
     redis-actionpack (4.0.0)
       actionpack (~> 4)
       redis-rack (~> 1.5.0)
@@ -234,8 +232,6 @@ GEM
     redis-activesupport (4.1.1)
       activesupport (~> 4)
       redis-store (~> 1.1.0)
-    redis-namespace (1.5.2)
-      redis (~> 3.0, >= 3.0.4)
     redis-rack (1.5.0)
       rack (~> 1.5)
       redis-store (~> 1.1.0)
@@ -290,12 +286,11 @@ GEM
       activesupport (>= 3.0.0)
     show_me_the_cookies (3.0.0)
       capybara (~> 2.0)
-    sidekiq (3.4.2)
-      celluloid (~> 0.16.0)
+    sidekiq (4.0.1)
+      concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
-      redis-namespace (~> 1.5, >= 1.5.2)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -326,8 +321,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    timers (4.0.1)
-      hitimes
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -388,7 +381,7 @@ DEPENDENCIES
   sentry-raven
   shoulda-matchers
   show_me_the_cookies
-  sidekiq
+  sidekiq (~> 4.0)
   simple_form
   sinatra
   spring

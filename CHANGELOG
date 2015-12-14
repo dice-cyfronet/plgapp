@@ -1,4 +1,5 @@
 v 1.1.0 (unreleased)
+  - upgrade to sidekiq 4
 
 v 1.0.0
   - Possibility to create application with defined subdomain name

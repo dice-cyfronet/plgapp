@@ -36,7 +36,7 @@ gem 'newrelic_rpm'
 gem 'sentry-raven'
 
 gem 'dropbox-sdk'
-gem 'sidekiq'
+gem 'sidekiq', '~>4.0'
 gem 'sinatra', require: nil
 
 gem 'redis-rails'
