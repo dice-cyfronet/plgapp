@@ -1,6 +1,7 @@
 v 1.1.0 (unreleased)
   - Upgrade to sidekiq 4
   - Upgrade to rails 4.2.5
+  - Remove unused select2-rails dependency
 
 v 1.0.0
   - Possibility to create application with defined subdomain name
