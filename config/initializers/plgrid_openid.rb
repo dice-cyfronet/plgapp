@@ -20,11 +20,12 @@ Devise.setup do |config|
                     AX[:POSTresponse]
                   ]
 
-  OpenID.fetcher.ca_file = File.join(Rails.root, 'config', 'ssl', 'DigiCertAssuredIDRootCA.pem')
+  OpenID.fetcher.ca_file = File.join(Rails.root, 'config', 'ssl',
+                                     'DigiCertAssuredIDRootCA.pem')
 end
 
 class OpenID::AX::AttrInfo
-  def initialize(type_uri, ns_alias=nil, required=false, count=1)
+  def initialize(type_uri, ns_alias = nil, required = false, count = 1)
     @type_uri = type_uri
     @count = count
     @required = required
