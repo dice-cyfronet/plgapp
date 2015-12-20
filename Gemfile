@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~>4.2.2'
+gem 'rails', '~>4.2.5'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -13,7 +13,6 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'autoprefixer-rails'
 gem 'nprogress-rails'
-gem 'select2-rails'
 
 gem 'haml-rails'
 gem 'simple_form'
@@ -36,7 +35,7 @@ gem 'newrelic_rpm'
 gem 'sentry-raven'
 
 gem 'dropbox-sdk'
-gem 'sidekiq'
+gem 'sidekiq', '~>4.0'
 gem 'sinatra', require: nil
 
 gem 'redis-rails'
@@ -62,11 +61,11 @@ end
 group :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
-  gem "show_me_the_cookies"
+  gem 'show_me_the_cookies'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false
   gem 'database_cleaner'
   gem 'faker'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
 end
