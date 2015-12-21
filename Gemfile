@@ -63,7 +63,7 @@ group :test do
   gem 'capybara'
   gem 'show_me_the_cookies'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', '~> 3.0'
   gem 'guard-rspec', require: false
   gem 'database_cleaner'
   gem 'faker'

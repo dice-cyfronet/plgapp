@@ -280,8 +280,8 @@ GEM
       faraday (>= 0.7.6)
     sexp_processor (4.6.0)
     shellany (0.0.1)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
+    shoulda-matchers (3.0.1)
+      activesupport (>= 4.0.0)
     show_me_the_cookies (3.0.0)
       capybara (~> 2.0)
     sidekiq (4.0.1)
@@ -377,7 +377,7 @@ DEPENDENCIES
   rubyzip
   sass-rails (~> 5.0)
   sentry-raven
-  shoulda-matchers
+  shoulda-matchers (~> 3.0)
   show_me_the_cookies
   sidekiq (~> 4.0)
   simple_form
