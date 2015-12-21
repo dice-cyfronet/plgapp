@@ -4,6 +4,7 @@ v 1.1.0 (unreleased)
   - Remove unused select2-rails dependency
   - Update outdated PLGrid OpenId CA cert
   - Update to shoulda-matchers 3
+  - Dependencies update
 
 v 1.0.0
   - Possibility to create application with defined subdomain name

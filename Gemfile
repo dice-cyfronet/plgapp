@@ -10,7 +10,7 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 gem 'bootstrap-sass', '~> 3.3.1'
-gem 'font-awesome-sass', '~> 4.4.0'
+gem 'font-awesome-sass', '~> 4.4'
 gem 'autoprefixer-rails'
 gem 'nprogress-rails'
 
@@ -43,9 +43,12 @@ gem 'redis-rails'
 # Format dates and times based on human-friendly examples
 gem 'stamp'
 
+group :development do
+  gem 'web-console', '~> 3.0'
+end
+
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'quiet_assets'
