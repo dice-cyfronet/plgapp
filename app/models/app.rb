@@ -34,6 +34,8 @@ class App < ActiveRecord::Base
 
   before_save :set_old_subdomain
 
+  scope :for_main_page, -> { where(show_on_main_page: true) }
+
   def deploy?
     content_changed?
   end

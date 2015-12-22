@@ -11,7 +11,7 @@
 
 .bs-docs-section
   .row.apps-preview
-    - App.all.each do |app|
+    - @apps.each do |app|
       .col-md-4.app-preview
         .app-icon-container
           - if app.logo.blank?
