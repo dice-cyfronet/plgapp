@@ -5,7 +5,7 @@ RSpec.describe App do
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :subdomain }
-  it { should validate_uniqueness_of :subdomain }
+  it { should validate_uniqueness_of(:subdomain).case_insensitive }
 
   it { should have_many(:app_members).dependent(:destroy) }
   it { should have_many(:users).through(:app_members) }
