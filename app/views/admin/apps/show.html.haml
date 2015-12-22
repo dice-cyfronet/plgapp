@@ -1,0 +1,10 @@
+.row
+  .col-md-3
+    = render('apps_menu')
+  .col-md-9
+    .bs-docs-section
+      %h1.page-header
+        = @app.name
+      = simple_form_for [:admin, @app], html: { id: 'app_form' } do |f|
+        = f.input :show_on_main_page
+        = f.submit t('apps.update'), class: 'btn btn-success'

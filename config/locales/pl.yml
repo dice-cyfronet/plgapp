@@ -19,6 +19,7 @@ pl:
     edit: Edytuj aplikację
     save: Zapisz aplikację
     delete: Skasuj aplikację
+    update: Zaktualizuj aplikację
     select: Proszę wybierz jedną z istniejących aplikacji lub stwórz nową
     are_you_sure: Czy jesteś pewień, że chcesz skasować tą aplikację?
     removed: Aplikacja została pomyślnie usunięta
@@ -34,6 +35,8 @@ pl:
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
     dev: "%{name} dev"
     zip_upload: Wgraj achiwum zip
+    admin:
+      title: Zarządzaj aplikacjami
   app_members:
     edit: Edytuj role użytkownika
     delete: Usuń użytkownika z zespołu

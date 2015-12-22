@@ -16,3 +16,4 @@ en:
         subdomain: Subdomain
         login_text: Login page text
         content: Application zip archive
+        show_on_main_page: Show on main page

@@ -19,6 +19,7 @@ en:
     edit: Edit application
     save: Save application
     delete: Delete application
+    update: Update application
     select: Please select one of your application or create new one
     are_you_sure: Are you sure you want to remote this application?
     removed: Application was sucessfully removed
@@ -34,6 +35,8 @@ en:
     push_error: Error while pushing application into production. Please contact administrator.
     dev: "%{name} dev"
     zip_upload: Upload zip archive
+    admin:
+      title: Manage apps
   app_members:
     edit: Edit member role
     delete: Delete application member
