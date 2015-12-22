@@ -4,6 +4,7 @@ RSpec.describe ApplicationHelper do
   describe 'current_controller?' do
     before do
       allow(controller).to receive(:controller_name).and_return('foo')
+      allow(controller).to receive(:class).and_return(double(name: 'Foo'))
     end
 
     it "returns true when controller matches argument" do
@@ -17,6 +18,15 @@ RSpec.describe ApplicationHelper do
     it "should take any number of arguments" do
       expect(current_controller?(:baz, :bar)).to be_falsy
       expect(current_controller?(:baz, :bar, :foo)).to be_truthy
+    end
+
+    it "should take namespace into account" do
+      allow(controller).
+        to receive(:class).
+        and_return(double(name: 'Admin::Foo'))
+
+      expect(current_controller?(:admin_foo)).to be_truthy
+      expect(current_controller?(:foo)).to be_falsy
     end
   end
 

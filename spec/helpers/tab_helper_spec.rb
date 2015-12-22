@@ -7,6 +7,7 @@ RSpec.describe TabHelper do
     before do
       allow(controller).to receive(:controller_name).and_return('foo')
       allow(controller).to receive(:action_name).and_return('foo')
+      allow(controller).to receive(:class).and_return(double(name: 'Foo'))
     end
 
     it "captures block output" do

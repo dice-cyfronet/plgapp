@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def current_module?(*args)
+    args.any? do |v|
+      v.to_s.downcase == controller.class.name.deconstantize.downcase
+    end
+  end
+
   # Check if a particular controller is the current one
   #
   # args - One or more controller names to check
@@ -10,7 +16,8 @@ module ApplicationHelper
   #   current_controller?(:commits)        # => false
   #   current_controller?(:commits, :tree) # => true
   def current_controller?(*args)
-    args.any? { |v| v.to_s.downcase == controller.controller_name }
+    controller_name = module_prefix + controller.controller_name
+    args.any? { |v| v.to_s.downcase == controller_name }
   end
 
   # Check if a partcular action is the current one
@@ -42,5 +49,13 @@ module ApplicationHelper
 
       haml_tag :script, "$('." + html_class + "').timeago().tooltip()"
     end.html_safe
+  end
+
+  private
+
+  def module_prefix
+    module_name = controller.class.name.deconstantize.downcase
+
+    module_name == '' ? '' : "#{module_name}_"
   end
 end
