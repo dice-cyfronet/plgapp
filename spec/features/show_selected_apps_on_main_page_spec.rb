@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Apps' do
+  include OauthHelper
   include AuthenticationHelper
   include FormHelper
 

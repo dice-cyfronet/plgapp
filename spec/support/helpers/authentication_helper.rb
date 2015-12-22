@@ -1,6 +1,4 @@
 module AuthenticationHelper
-  include OauthHelper
-
   def sign_in_as(user)
     stub_oauth(
       :open_id,
