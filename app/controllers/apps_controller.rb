@@ -1,5 +1,5 @@
 class AppsController < ApplicationController
-  before_filter :set_apps,
+  before_action :set_apps,
                 only: [:index, :new, :show, :edit, :deploy, :activity]
 
   load_and_authorize_resource find_by: :subdomain

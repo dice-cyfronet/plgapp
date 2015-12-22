@@ -13,3 +13,4 @@ pl:
         subdomain: Subdomena
         login_text: Tekst na stronie logowania
         content: Archiwum zip z aplikacją
+        show_on_main_page: Pokaż na głownej stronie

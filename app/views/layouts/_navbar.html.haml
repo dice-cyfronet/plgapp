@@ -20,8 +20,10 @@
             = nav_link(controller: [:apps, :deploys, :app_members]) do
               = link_to t('apps.title'), apps_path
           - if current_user.admin?
-            = nav_link(controller: :jobs) do
-              = link_to t('jobs.title'), job_path
+            = nav_link(controller: :admin_apps) do
+              = link_to t('apps.admin.title'), admin_apps_path
+            = nav_link(controller: :admin_jobs) do
+              = link_to t('jobs.title'), admin_job_path
         %li
           = nav_link controller: :help do
             = link_to t('help.title'), help_path,

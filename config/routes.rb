@@ -69,6 +69,7 @@ Rails.application.routes.draw do
 
       resource :dropbox, only: [:update, :destroy]
     end
+
     get 'help', to: 'help#show'
     get 'help/:category', to: 'help#show', as: 'help_file'
 
@@ -76,7 +77,10 @@ Rails.application.routes.draw do
     authenticate :user, lambda { |u| u.admin? } do
       require 'sidekiq/web'
       mount Sidekiq::Web => '/sidekiq'
-      resource :job, only: :show
+      namespace :admin do
+        resource :job, only: :show
+        resources :apps, only: [:index, :show, :update]
+      end
     end
   end
 

@@ -1,16 +1,11 @@
-%h2= t('apps.title')
+%h2= t('apps.admin.title')
 %hr
-
-= link_to new_app_path,
-  class: 'btn btn-sm btn-create',
-  title: t('apps.new') do
-  = icon('plus', t('add_new'))
 
 %ul.nav.nav-pills.nav-stacked.apps-nav
   - @apps.each do |app|
     = nav_tab(:id, :app_id, app.subdomain) do
-      = link_to app do
+      = link_to(admin_app_path(app)) do
         %h5{ style: 'word-wrap: break-word;' }
-          = app.name
+          = icon(app.show_on_main_page ? 'globe' : 'shield', app.name)
           %small
             = app.subdomain

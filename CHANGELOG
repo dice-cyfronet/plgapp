@@ -6,6 +6,7 @@ v 1.1.0 (unreleased)
   - Update to shoulda-matchers 3
   - Dependencies update
   - Use ruby 2.2.4
+  - Add possibility to select which application is shown on main page
 
 v 1.0.0
   - Possibility to create application with defined subdomain name
