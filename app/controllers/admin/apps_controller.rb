@@ -1,6 +1,6 @@
 module Admin
   class AppsController < ApplicationController
-    before_filter :set_apps
+    before_action :set_apps
 
     load_resource :app, find_by: :subdomain
 
