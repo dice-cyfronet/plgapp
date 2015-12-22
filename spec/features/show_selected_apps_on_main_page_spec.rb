@@ -16,6 +16,14 @@ RSpec.feature 'Apps' do
     expect(page).to_not have_content('not selected')
   end
 
+  scenario 'title not shown when no apps' do
+    create(:app, name: 'not selected')
+
+    visit root_path
+
+    expect(page).to_not have_content(I18n.t('home.apps-title'))
+  end
+
   context 'admin' do
     before { sign_in_as_admin }
 

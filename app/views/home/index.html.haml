@@ -5,21 +5,20 @@
     = t('home.title')
   %p.text-center
     = t('home.desc')
+  - if @show_apps
+    %h1.page-header
+      = t('home.apps-title')
 
-  %h1.page-header
-    = t('home.apps-title')
+- if @show_apps
+  .bs-docs-section
+    .row.apps-preview
+      - @apps.each do |app|
+        .col-md-4.app-preview
+          .app-icon-container
+            - if app.logo.blank?
+              = icon('cubes', '', class: 'appl-icon')
+            - else
+              = image_tag(app.logo.thumb.url, class: 'appl-icon')
 
-.bs-docs-section
-  .row.apps-preview
-    - @apps.each do |app|
-      .col-md-4.app-preview
-        .app-icon-container
-          - if app.logo.blank?
-            = icon('cubes', '', class: 'appl-icon')
-          - else
-            = image_tag(app.logo.thumb.url, class: 'appl-icon')
-
-        %h4.text-center
-          = link_to app.name, root_url(subdomain: app.full_subdomain)
-
-
+          %h4.text-center
+            = link_to app.name, root_url(subdomain: app.full_subdomain)
