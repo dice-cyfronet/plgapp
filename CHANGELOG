@@ -1,3 +1,5 @@
+v 1.2.0 (unreleased)
+
 v 1.1.0
   - Update to sidekiq 4
   - Update to rails 4.2.5
