@@ -52,7 +52,7 @@ end
 # application.
 #
 class OmniAuth::Strategies::OpenID
-  alias old_ax_user_info ax_user_info
+  alias_method :old_ax_user_info, :ax_user_info
 
   def ax_user_info
     ax = ::OpenID::AX::FetchResponse.from_success_response(openid_response)
