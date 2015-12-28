@@ -6,7 +6,7 @@ module Users
       @user = User.from_plgrid_omniauth(auth)
 
       if @user.persisted?
-        session['proxy'] = proxy(auth.info)
+        session['proxy'] = proxy(auth.info) if Subdomain.matches?(request)
         sign_in_and_redirect @user, event: :authentication
         if is_navigational_format?
           set_flash_message(:notice, :success, kind: 'open_id')

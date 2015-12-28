@@ -14,9 +14,6 @@ Devise.setup do |config|
                   required: [
                     AX[:email],
                     AX[:name],
-                    AX[:proxy],
-                    AX[:userCert],
-                    AX[:proxyPrivKey],
                     AX[:POSTresponse]
                   ]
 
@@ -57,9 +54,30 @@ class OmniAuth::Strategies::OpenID
     end
   end
 
+  def dummy_app
+    lambda{|env| [401, {"WWW-Authenticate" => Rack::OpenID.build_header(
+      :identifier => identifier,
+      :return_to => callback_url,
+      :required => required,
+      :optional => options.optional,
+      :method => 'post'
+    )}, []]}
+  end
+
   private
 
+  def required
+    if Subdomain.matches?(request.host)
+      options.required + [AX[:proxy], AX[:userCert], AX[:proxyPrivKey]]
+    else
+      options.required
+    end
+  end
+
   def get_proxy_element(ax, id)
-    ax.get_single(OmniAuth::Strategies::OpenID::AX[id]).gsub('<br>',"\n")
+    single = ax.get_single(OmniAuth::Strategies::OpenID::AX[id])
+    single && single.gsub('<br>', "\n")
   end
 end
+
+
