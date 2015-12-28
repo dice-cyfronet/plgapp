@@ -21,8 +21,11 @@ Devise.setup do |config|
                                      'DigiCertAssuredIDRootCA.pem')
 end
 
+#
+# We monkey patch this class to add supporto to PLGrid specific URIs.
+#
 class OpenID::AX::AttrInfo
-  def initialize(type_uri, ns_alias = nil, required = false, count = 1)
+  def initialize(type_uri, _ns_alias = nil, required = false, count = 1)
     @type_uri = type_uri
     @count = count
     @required = required
@@ -41,6 +44,13 @@ class OpenID::AX::AttrInfo
   end
 end
 
+#
+# We monkey patch this class to distinguish when user proxy should be fetched
+# (then user is asked in PLGrid openId for certificate password) and fetch this
+# certificate from the request. User is asked about the certificate only when
+# logging into domain application - it is not required on main plgapp
+# application.
+#
 class OmniAuth::Strategies::OpenID
   alias old_ax_user_info ax_user_info
 
@@ -55,16 +65,18 @@ class OmniAuth::Strategies::OpenID
   end
 
   def dummy_app
-    lambda{|env| [401, {"WWW-Authenticate" => Rack::OpenID.build_header(
-      :identifier => identifier,
-      :return_to => callback_url,
-      :required => required,
-      :optional => options.optional,
-      :method => 'post'
-    )}, []]}
+    ->(_env) { [401, { 'WWW-Authenticate' => www_authenticate }, []] }
   end
 
   private
+
+  def www_authenticate
+    Rack::OpenID.build_header(identifier: identifier,
+                              return_to: callback_url,
+                              required: required,
+                              optional: options.optional,
+                              method: 'post')
+  end
 
   def required
     if Subdomain.matches?(request.host)
@@ -79,5 +91,3 @@ class OmniAuth::Strategies::OpenID
     single && single.gsub('<br>', "\n")
   end
 end
-
-
