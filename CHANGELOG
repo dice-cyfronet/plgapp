@@ -1,5 +1,6 @@
 v 1.2.0 (unreleased)
   - User is not asked about proxy password only on subdomain apps
+  - Use ruby 2.3.0
 
 v 1.1.0
   - Update to sidekiq 4
