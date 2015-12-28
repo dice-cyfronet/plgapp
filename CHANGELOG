@@ -1,5 +1,5 @@
 v 1.2.0 (unreleased)
-  - User is not asked about proxy password only on subdomain apps
+  - User is asked about proxy password only when loading to domain app
   - Use ruby 2.3.0
 
 v 1.1.0
