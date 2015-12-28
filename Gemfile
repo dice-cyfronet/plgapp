@@ -45,17 +45,16 @@ gem 'stamp'
 
 group :development do
   gem 'web-console', '~> 3.0'
+
+  # PLG OpenId requires ssh even for development
+  # start app using `thin start --ssl`
+  gem 'thin'
 end
 
 group :development, :test do
   gem 'byebug'
   gem 'spring'
-  gem 'rspec-rails', '~> 3.0'
   gem 'quiet_assets'
-
-  # PLG OpenId requires ssh even for development
-  # start app using `thin start --ssl`
-  gem 'thin'
 
   # Loading environment variables from .env
   gem 'dotenv-rails'
@@ -63,6 +62,7 @@ end
 
 group :test do
   gem 'spring-commands-rspec'
+  gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'show_me_the_cookies'
   gem 'factory_girl_rails', '~> 4.0'
