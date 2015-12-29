@@ -18,6 +18,12 @@
                   data: { confirm: t('apps.are_you_sure') },
                   title: t('apps.delete') do
           = icon('trash', t('delete'))
+      - if can?(:download, @app) && @app.dev_files?
+        = link_to [:download, @app],
+                  class: 'btn btn-sm btn-default',
+                  title: t('apps.download'),
+                  data: { no_turbolink: true } do
+          = icon('download', t('download'))
 %hr
 
 %ul.nav.nav-tabs#tabs1

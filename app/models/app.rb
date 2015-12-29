@@ -61,6 +61,19 @@ class App < ActiveRecord::Base
       where(app_members: { dropbox_enabled: true })
   end
 
+  def dev_files?
+    (Dir.entries(app_dev_dir) - %w(. ..)).present?
+  end
+
+  def app_dev_dir
+    Pathname.new(user_apps_dir).
+      join("#{subdomain}#{Rails.configuration.dev_postfix}")
+  end
+
+  def app_dir
+    Pathname.new(user_apps_dir).join(subdomain)
+  end
+
   attr_reader :old_subdomain
 
   private
@@ -83,5 +96,9 @@ class App < ActiveRecord::Base
 
   def set_old_subdomain
     @old_subdomain = subdomain_was
+  end
+
+  def user_apps_dir
+    Rails.configuration.apps_dir
   end
 end
