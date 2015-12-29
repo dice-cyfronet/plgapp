@@ -36,6 +36,7 @@ pl:
     dev: "%{name} dev"
     zip_upload: Wgraj achiwum zip
     empty: Aplikacja jest pusta (brak plików w katalogu aplikacji)
+    download: Pobierz tą aplikację jako archiwum zip
     admin:
       title: Zarządzaj aplikacjami
   app_members:

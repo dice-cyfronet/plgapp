@@ -36,6 +36,7 @@ en:
     dev: "%{name} dev"
     zip_upload: Upload zip archive
     empty: Application is empty (no files inside app directory)
+    download: Download this application as zip archive
     admin:
       title: Manage apps
   app_members:
