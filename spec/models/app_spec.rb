@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe App do
+  include AppSpecHelper
+  include AppFilesHelper
+
   subject { build(:app) }
 
   it { should validate_presence_of :name }
@@ -58,6 +61,30 @@ RSpec.describe App do
       app.update_attributes(subdomain: 'new')
 
       expect(app.old_subdomain).to eq 'old'
+    end
+  end
+
+  context '#dev_files?' do
+    it 'returns true when no application files in app dev directory' do
+      with_app do |app|
+        expect(app).to_not be_dev_files
+      end
+    end
+
+    it 'return false when file exists in app dev directory' do
+      with_app do |app|
+        create_dev_file(app, 'foo.txt', 'my file')
+
+        expect(app).to be_dev_files
+      end
+    end
+
+    it 'returns false when other dir exists in app dev directory' do
+      with_app do |app|
+        create_dev_dir(app, 'subdir')
+
+        expect(app).to be_dev_files
+      end
     end
   end
 end

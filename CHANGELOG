@@ -1,6 +1,7 @@
 v 1.2.0 (unreleased)
   - User is asked about proxy password only when loading to domain app
   - Use ruby 2.3.0
+  - Redirect to app page with notice while trying to download empty app
 
 v 1.1.0
   - Update to sidekiq 4

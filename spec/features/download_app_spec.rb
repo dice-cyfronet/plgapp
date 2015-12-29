@@ -15,12 +15,12 @@ RSpec.feature 'Download app content as zip' do
     end
   end
 
-  scenario 'with empty app (no files inside app directory)' do
+  scenario 'with empty app (no files inside app directory) show notice' do
     with_app do |app|
       app_owner_log_in(app)
       visit download_app_path(app)
 
-      expect(page.response_headers['Content-Type']).to eq 'application/zip'
+      expect(page).to have_content(I18n.t('apps.empty'))
     end
   end
 end

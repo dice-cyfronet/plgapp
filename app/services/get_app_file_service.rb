@@ -23,22 +23,6 @@ class GetAppFileService
   private
 
   def content_path
-    Pathname.new(user_apps_dir).join(app_dir)
-  end
-
-  def app_dir
-    if dev?
-      "#{@app.subdomain}#{Rails.configuration.dev_postfix}"
-    else
-      @app.subdomain
-    end
-  end
-
-  def user_apps_dir
-    Rails.configuration.apps_dir
-  end
-
-  def dev?
-    @dev
+    @dev ? @app.app_dev_dir : @app.app_dir
   end
 end

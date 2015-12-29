@@ -35,6 +35,7 @@ pl:
     push_error: Wystąpił błąd podczas wgrywania aplikacji na produkcję. Proszę skontaktuj się z administratorem.
     dev: "%{name} dev"
     zip_upload: Wgraj achiwum zip
+    empty: Aplikacja jest pusta (brak plików w katalogu aplikacji)
     admin:
       title: Zarządzaj aplikacjami
   app_members:

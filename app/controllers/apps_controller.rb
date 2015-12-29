@@ -47,8 +47,12 @@ class AppsController < ApplicationController
   end
 
   def download
-    path = @app.content.current_path
-    send_file path, x_sendfile: true
+    if @app.dev_files?
+      path = @app.content.current_path
+      send_file path, x_sendfile: true
+    else
+      redirect_to @app, notice: I18n.t('apps.empty')
+    end
   end
 
   def push

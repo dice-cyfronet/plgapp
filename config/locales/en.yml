@@ -35,6 +35,7 @@ en:
     push_error: Error while pushing application into production. Please contact administrator.
     dev: "%{name} dev"
     zip_upload: Upload zip archive
+    empty: Application is empty (no files inside app directory)
     admin:
       title: Manage apps
   app_members:
