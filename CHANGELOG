@@ -3,6 +3,7 @@ v 1.2.0 (unreleased)
   - Use ruby 2.3.0
   - Redirect to app page with notice while trying to download empty app
   - Add download button into app page
+  - Increase number of open connections into DB
 
 v 1.1.0
   - Update to sidekiq 4
