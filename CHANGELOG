@@ -6,6 +6,7 @@ v 1.2.0 (unreleased)
   - Increase number of open connections into DB
   - Update to rails 4.2.5.1
   - Update to devise 3.5.5
+  - Dependencies update
 
 v 1.1.0
   - Update to sidekiq 4
