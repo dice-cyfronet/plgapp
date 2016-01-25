@@ -1,4 +1,4 @@
-v 1.2.0 (unreleased)
+v 1.2.0
   - User is asked about proxy password only when loading to domain app
   - Use ruby 2.3.0
   - Redirect to app page with notice while trying to download empty app
