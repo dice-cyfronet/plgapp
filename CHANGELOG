@@ -4,6 +4,7 @@ v 1.2.0 (unreleased)
   - Redirect to app page with notice while trying to download empty app
   - Add download button into app page
   - Increase number of open connections into DB
+  - Update to rails 4.2.5.1
 
 v 1.1.0
   - Update to sidekiq 4
