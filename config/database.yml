@@ -80,5 +80,5 @@ test:
 #
 production:
   <<: *default
-  database: plgapp_production
+  database: <%= ENV['PLGAPP_DATABASE_NAME'] || 'plgapp_production' %>
   password: <%= ENV['PLGAPP_DATABASE_PASSWORD'] %>
