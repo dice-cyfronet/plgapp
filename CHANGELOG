@@ -1,6 +1,7 @@
 v 1.3.0 (unreleased)
   - Add possiblity to customize production database name
-  - Update to rails 4.2.5.2
+  - Update to rails 4.2.6
+  - Update dependencies
 
 v 1.2.0
   - User is asked about proxy password only when loading to domain app
