@@ -2,6 +2,7 @@ v 1.3.0 (unreleased)
   - Add possiblity to customize production database name
   - Update to rails 4.2.6
   - Update dependencies
+  - Add possiblity to define rimrock, pldata, datanet urls using env variables
 
 v 1.2.0
   - User is asked about proxy password only when loading to domain app
