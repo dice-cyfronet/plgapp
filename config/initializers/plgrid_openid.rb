@@ -17,8 +17,8 @@ Devise.setup do |config|
                     AX[:POSTresponse]
                   ]
 
-  OpenID.fetcher.ca_file = File.join(Rails.root, 'config', 'ssl',
-                                     'demo.plgrid.pl')
+  # OpenID.fetcher.ca_file = File.join(Rails.root, 'config', 'ssl',
+  #                                    'demo.plgrid.pl')
 end
 
 #
