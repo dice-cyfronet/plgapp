@@ -10,7 +10,7 @@ Devise.setup do |config|
 
   config.omniauth :open_id,
                   require: 'omniauth-openid',
-                  identifier: 'https://openid.plgrid.pl/gateway',
+                  identifier: 'https://openid.demo.plgrid.pl/gateway',
                   required: [
                     AX[:email],
                     AX[:name],
@@ -18,7 +18,7 @@ Devise.setup do |config|
                   ]
 
   OpenID.fetcher.ca_file = File.join(Rails.root, 'config', 'ssl',
-                                     'DigiCertAssuredIDRootCA.pem')
+                                     'demo.plgrid.pl')
 end
 
 #
