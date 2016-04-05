@@ -79,11 +79,12 @@ class OmniAuth::Strategies::OpenID
   end
 
   def required
-    if Subdomain.matches?(request.host)
-      options.required + [AX[:proxy], AX[:userCert], AX[:proxyPrivKey]]
-    else
-      options.required
-    end
+    options.required + [AX[:proxy], AX[:userCert], AX[:proxyPrivKey]]
+    # if Subdomain.matches?(request.host)
+      # options.required + [AX[:proxy], AX[:userCert], AX[:proxyPrivKey]]
+    # else
+      # options.required
+    # end
   end
 
   def get_proxy_element(ax, id)
