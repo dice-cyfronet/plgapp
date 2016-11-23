@@ -8,9 +8,10 @@ class Ability
         App, app_members: { user_id: user.id }
 
     can [:edit, :update, :destroy, :deploy, :push],
-        App, app_members: { user_id: user.id, role: 'master' }
+      App, app_members: { user_id: user.id, role: AppMember.roles[:master] }
 
-    can :deploy, App, app_members: { user_id: user.id, role: 'developer' }
+    can :deploy,
+      App, app_members: { user_id: user.id, role: AppMember.roles[:developer] }
 
     can :index, AppMember, user_id: user.id
     can [:new, :create, :edit, :update, :destroy, :show],

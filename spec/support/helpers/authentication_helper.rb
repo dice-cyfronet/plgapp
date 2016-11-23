@@ -7,7 +7,7 @@ module AuthenticationHelper
       email: user.email
     )
     visit root_path
-    find(:linkhref, user_omniauth_authorize_path(:open_id)).click
+    find(:linkhref, user_open_id_omniauth_authorize_path).click
   end
 
   def sign_in_as_admin

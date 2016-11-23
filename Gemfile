@@ -4,7 +4,7 @@ gem 'rails', '~> 4.2.5'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'turbolinks'
@@ -36,7 +36,6 @@ gem 'sentry-raven'
 
 gem 'dropbox-sdk'
 gem 'sidekiq', '~>4.0'
-gem 'sinatra', require: nil
 
 gem 'redis-rails'
 
