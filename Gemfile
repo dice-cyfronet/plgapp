@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.5'
+gem 'rails', '~> 5.0.0'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -53,7 +53,6 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'spring'
-  gem 'quiet_assets'
 
   # Loading environment variables from .env
   gem 'dotenv-rails'
