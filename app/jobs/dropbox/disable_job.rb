@@ -1,5 +1,5 @@
 module Dropbox
-  class DisableJob < ActiveJob::Base
+  class DisableJob < ApplicationJob
     queue_as :dropbox
 
     def perform(user)

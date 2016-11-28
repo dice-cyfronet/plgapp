@@ -1,5 +1,5 @@
 module Dropbox
-  class UpdateUserAppJob < ActiveJob::Base
+  class UpdateUserAppJob < ApplicationJob
     queue_as :dropbox
 
     def perform(user, app)

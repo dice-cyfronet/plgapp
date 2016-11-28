@@ -1,6 +1,6 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    skip_before_filter :verify_authenticity_token, only: [:open_id, :failure]
+    skip_before_action :verify_authenticity_token, only: [:open_id, :failure]
 
     def open_id
       @user = User.from_plgrid_omniauth(auth)
@@ -24,7 +24,7 @@ module Users
     end
 
     def auth
-      @auth ||= env['omniauth.auth']
+      @auth ||= request.env['omniauth.auth']
     end
   end
 end

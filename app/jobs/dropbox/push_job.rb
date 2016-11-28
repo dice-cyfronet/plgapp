@@ -1,5 +1,5 @@
 module Dropbox
-  class PushJob < ActiveJob::Base
+  class PushJob < ApplicationJob
     queue_as :dropbox
 
     def perform(user, app)

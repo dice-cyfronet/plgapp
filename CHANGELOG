@@ -1,6 +1,6 @@
 v 1.3.0 (unreleased)
   - Add possiblity to customize production database name
-  - Update to rails 4.2.6
+  - Update to rails 5.0.0.1
   - Update dependencies
   - Add possiblity to define rimrock, pldata, datanet urls using env variables
 

@@ -51,9 +51,9 @@ class DropboxesController < ApplicationController
   def delta
     if valid_dropbox_request?
       Dropbox::UpdateUsersAppsService.new(delta_users).execute
-      render nothing: true, status: :ok
+      head :ok
     else
-      render nothing: true, status: :unauthorized
+      head :unauthorized
     end
   end
 

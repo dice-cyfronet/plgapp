@@ -1,4 +1,4 @@
-class AppMember < ActiveRecord::Base
+class AppMember < ApplicationRecord
   enum role: [:master, :developer, :reporter]
 
   belongs_to :user

@@ -1,6 +1,6 @@
 require 'file_size_validator'
 
-class App < ActiveRecord::Base
+class App < ApplicationRecord
   include Slugable
 
   extend FriendlyId

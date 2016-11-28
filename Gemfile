@@ -69,4 +69,7 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'codeclimate-test-reporter', require: nil
+
+  # deprecated controller tests
+  gem 'rails-controller-testing'
 end

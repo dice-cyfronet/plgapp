@@ -1,4 +1,4 @@
-class DropboxEntry < ActiveRecord::Base
+class DropboxEntry < ApplicationRecord
   belongs_to :app_member,
              required: true
 

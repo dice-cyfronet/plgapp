@@ -2,9 +2,11 @@ module Proxyable
   extend ActiveSupport::Concern
 
   def call
-    self.response_body = proxy_responce.body
-    self.status = proxy_responce.status
-    response.headers = response_headers
+    make_call
+
+    self.response_body = @proxy_response.body
+    self.status = @proxy_response.status
+    update_content_type
   end
 
   protected
@@ -19,16 +21,15 @@ module Proxyable
     proxy_class.new(session['proxy'], params)
   end
 
-  def proxy_responce
+  def make_call
     @proxy_response ||= ActionDispatch::Response.
                         new(*proxy.call(request.env.dup))
   end
 
-  def response_headers
-    response.headers.tap do |h|
-      if proxy_responce.headers['content-type']
-        h['Content-Type'] = proxy_responce.headers['content-type'].join(',')
-      end
+  def update_content_type
+    if @proxy_response.headers['content-type']
+      response.set_header('Content-Type',
+                          @proxy_responce.headers['content-type'].join(','))
     end
   end
 end

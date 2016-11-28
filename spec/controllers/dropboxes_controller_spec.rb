@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe DropboxesController do
   it 'verify dropbox webhook' do
-    get :webhook_verify, challenge: '123'
+    get :webhook_verify, params: { challenge: '123' }
 
     expect(response).to be_ok
     expect(response.body).to eq '123'
@@ -24,13 +24,13 @@ RSpec.describe DropboxesController do
 
       request.headers['X-Dropbox-Signature'] =
         'aae047deeec6f5347e5dd7f94a2b408196979a56fd7962b971a99849d2132aa0'
-      post :delta, delta: { users: ['1', '2'] }
+      post :delta, params: { delta: { users: ['1', '2'] } }
 
       expect(response).to be_ok
     end
 
     it 'dont allow to update users when dropbox signature is not valid' do
-      post :delta, delta: { users: ['1', '2'] }
+      post :delta, params: { delta: { users: ['1', '2'] } }
 
       expect(response).to be_unauthorized
     end

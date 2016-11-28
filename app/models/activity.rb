@@ -1,4 +1,4 @@
-class Activity < ActiveRecord::Base
+class Activity < ApplicationRecord
   enum activity_type: [:deployment, :created, :updated]
 
   belongs_to :app,

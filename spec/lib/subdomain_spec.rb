@@ -14,7 +14,7 @@ RSpec.describe Subdomain do
   end
 
   def request(subdomain)
-    ActionController::TestRequest.new.tap do |r|
+    ActionController::TestRequest.create.tap do |r|
       r.host = "#{subdomain}.example.com"
     end
   end

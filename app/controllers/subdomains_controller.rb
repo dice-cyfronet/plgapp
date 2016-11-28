@@ -2,8 +2,8 @@ class SubdomainsController < ApplicationController
   include Subdomainable
 
   skip_before_action :verify_authenticity_token
-  prepend_before_filter :set_app
-  before_filter :app_authorize!
+  prepend_before_action :set_app
+  before_action :app_authorize!
 
   def show
     unless session[:_csrf_token]

@@ -1,7 +1,7 @@
 class DeploysController < ApplicationController
   load_and_authorize_resource :app, find_by: :subdomain
-  before_filter :authorize_deploy
-  before_filter :set_apps, only: [:zip, :dropbox]
+  before_action :authorize_deploy
+  before_action :set_apps, only: [:zip, :dropbox]
 
   def show
     redirect_to zip_app_deploy_path(@app)
