@@ -29,7 +29,7 @@ module Proxyable
   def update_content_type
     if @proxy_response.headers['content-type']
       response.set_header('Content-Type',
-                          @proxy_responce.headers['content-type'].join(','))
+                          @proxy_response.headers['content-type'].join(','))
     end
   end
 end
