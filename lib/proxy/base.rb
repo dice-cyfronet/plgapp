@@ -18,6 +18,7 @@ module Proxy
         e.delete('HTTP_X_FORWARDED_PROTO')
         e.delete('HTTP_X_REAL_IP')
         e.delete('HTTP_COOKIE')
+        e.delete('HTTP_REFERER')
       end
     end
 
