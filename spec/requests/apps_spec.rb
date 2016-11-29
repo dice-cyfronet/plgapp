@@ -2,39 +2,43 @@ require 'rails_helper'
 
 RSpec.describe AppsController do
   include Warden::Test::Helpers
+  include AppSpecHelper
 
   let(:user) { create(:user) }
-  before { sign_in(user) }
+  before { login_as(user) }
 
   before do
     allow(FileUtils).to receive(:mkdir_p)
     allow(FileUtils).to receive(:rm_rf)
     allow(FileUtils).to receive(:mv)
+    allow(Dir).to receive(:entries).and_return(['f1', 'f2'])
   end
 
   it 'shows only applications owned by the user' do
     app1 = create(:app, users: [user])
     app2 = create(:app, users: [user])
-    create(:app)
+    app3 = create(:app)
 
-    get :index
+    get apps_path
 
     expect(response).to have_http_status(:success)
-    expect(assigns(:apps)).to contain_exactly(app1, app2)
+    expect(response.body).to include(app1.name)
+    expect(response.body).to include(app2.name)
+    expect(response.body).to_not include(app3.name)
   end
 
   it 'show owned app' do
     app = create(:app, users: [user])
 
-    get :show, params: { id: app.subdomain }
+    get app_path(app.subdomain)
 
     expect(response).to have_http_status(:success)
-    expect(assigns(:app)).to eq app
+    expect(response.body).to include(app.name)
   end
 
   it 'unable to see not owned app' do
     app = create(:app)
-    get :show, params: { id: app.subdomain }
+    get app_path(app.subdomain)
 
     expect_no_authorized
   end
@@ -43,7 +47,7 @@ RSpec.describe AppsController do
     it 'assigned to current user' do
       params = { app: { name: 'my app', subdomain: 'test' } }
 
-      expect { post :create, params: params }.
+      expect { post apps_path, params: params }.
         to change { App.count }.by 1
       expect(flash[:notice]).to match(/successfully created/)
     end
@@ -53,17 +57,16 @@ RSpec.describe AppsController do
     it 'assigned to the user' do
       app = user_app
 
-      get :edit, params: { id: app.subdomain }
+      get edit_app_path(app.subdomain)
 
       expect(response).to have_http_status(:success)
-      expect(response).to render_template(:edit)
-      expect(assigns(:app)).to eq app
+      expect(response.body).to include(app.name)
     end
 
     it 'is forbidden for no author' do
       app = create(:app)
 
-      get :edit, params: { id: app.subdomain }
+      get edit_app_path(app.subdomain)
 
       expect_no_authorized
     end
@@ -71,10 +74,8 @@ RSpec.describe AppsController do
     it 'updates parameters' do
       app = user_app
 
-      put :update, params: {
-            id: app.subdomain,
-            app: { name: 'updated', subdomain: 'newsub' }
-          }
+      put app_path(app.subdomain),
+          params: { app: { name: 'updated', subdomain: 'newsub' } }
       app.reload
 
       expect(app.name).to eq 'updated'
@@ -87,15 +88,14 @@ RSpec.describe AppsController do
     it 'assigned to the user' do
       app = user_app
 
-      expect{ delete :destroy, params: { id: app.subdomain } }
-        .to change { App.count }.by(-1)
+      expect{ delete app_path(app.subdomain) }.to change { App.count }.by(-1)
       expect(response).to redirect_to apps_path
     end
 
     it 'is forbidden for no author' do
       app = create(:app)
 
-      delete :destroy, params: { id: app.subdomain }
+      delete app_path(app.subdomain)
 
       expect_no_authorized
     end
@@ -107,7 +107,7 @@ RSpec.describe AppsController do
       expect(PushToProductionService).to receive(:new).
         and_return(double(execute: true))
 
-      put :push, params: { id: app.subdomain }
+      put push_app_path(app.subdomain)
 
       expect(response).to redirect_to zip_app_deploy_path(app)
     end

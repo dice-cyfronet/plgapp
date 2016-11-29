@@ -49,7 +49,8 @@ Rails.application.routes.draw do
         to: 'dropboxes#webhook_verify'
 
     post '/dropbox/webhook',
-         to: 'dropboxes#delta'
+         to: 'dropboxes#delta',
+         as: 'dropbox_delta'
 
     resources :apps do
       member do
