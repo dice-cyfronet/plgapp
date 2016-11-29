@@ -4,7 +4,7 @@ require 'base64'
 module Proxy
   class Base < Rack::Proxy
     def initialize(proxy, destination)
-      super(backend: destination)
+      super(backend: destination, streaming: false)
 
       @proxy = proxy
     end
